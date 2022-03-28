@@ -81,17 +81,38 @@ def has_disinfo_hashtags(hashtags, language):
     It is based on the lists of hashtags above: disinfo_hashtags.
     This is only a very simple squib.
     """
-    for tag in hashtags:
-        if tag in disinfo_hashtags[language]:
+    for tag in disinfo_hashtags[language]:
+        if tag in hashtags:
+            return True
+    return False
+
+
+disinfo_keywords = disinfo_hashtags     # currently just using the same, could be customized of course
+
+
+def has_disinfo_text(text, language):
+    """
+    Return a boolean (True/False) indicating whether the tweet's text is indicative of disinformation.
+    It is based on the disinfo_keywords per language defined above.
+    This is again only a very simple squib.
+    Beware: It checks if a keyword is a substring of the text. This means that looking for a keyword 'man' will also
+    match e.g. 'manual' and 'humane'. If you want to ignore such subword-matches, you'd have to first tokenize the text
+    into separate words and then look for a match. Tokenizing millions of tweets can take a bit of time, so maybe stick
+    with the simpler method for now.
+    """
+    for keyword in disinfo_keywords[language]:
+        if keyword in text:
             return True
     return False
 
 
 def explore(data):
     """
-    Print some basic info.
+    Print some basic info and show a histogram plot of the 'temporal coverage' of our datasets.
     """
-    print('number of tweets:', len(data))
+    print('number of tweets per dataset:')
+    print(data.groupby('dataset')['id'].count())
+
     print('\ncolumns and data types:')
     print(data.dtypes)  # int and float are numbers; object is anything else (including a string)
 
@@ -107,6 +128,11 @@ sentence_separators = re.compile(r'(?<=[^A-Z].[.?!]) +(?=[a-zA-Z])')
 
 
 def extract_questions(text):
+    """
+    From a tweet's text, return the list of all questions it contains.
+    This is done by splitting on 'sentence separators' defined with a rather mystical regular expression above
+    (copy-pasted from somewhere), and then saving all sentences that end with a question mark.
+    """
     if '?' in text:
         sentences = sentence_separators.split(text)
         questions = [sent for sent in sentences if sent.endswith('?')]
