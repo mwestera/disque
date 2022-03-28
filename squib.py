@@ -88,16 +88,24 @@ def explore(data):
     plt.show()
 
 
-    print('Some example disinfo tweets (where available):')
+    print('Some example tweets (where available):')
     for source in DATASETS_TO_ANALYZE:
-        print(' -', source)
-        subdataset = data.loc[(data['dataset'] == source) & data['has_disinfo_text_or_hashtags']]
-        subdataset_sample = subdataset.sample(n=min(10, len(subdataset)))
-        for text in subdataset_sample['full_text']:
-            print('    -', text)
-
+        print('\n -', source)
+        subdataset_disinfo = data.loc[(data['dataset'] == source) & data['has_disinfo_text_or_hashtags']]
+        subdataset_notdisinfo = data.loc[(data['dataset'] == source) & ~data['has_disinfo_text_or_hashtags']]
         # data.loc[BLA] selects all rows of the dataframe where BLA is true.
 
+        print(f' {source}, disinfo:')
+        print_sample_tweets(subdataset_disinfo, 10)
+        print(f'\n {source} not disinfo:')
+        print_sample_tweets(subdataset_notdisinfo, 10)
+
+
+def print_sample_tweets(dataset, n_tweets):
+    n_tweets_to_print = min(n_tweets, len(dataset))
+    subdataset_sample = dataset.sample(n=n_tweets_to_print)
+    for text in subdataset_sample['full_text']:
+        print('    -', text)
 
 
 sentence_separators = re.compile(r'(?<=[^A-Z].[.?!]) +(?=[a-zA-Z])')
