@@ -58,6 +58,7 @@ def compute_features(data):
     data['has_question'] = [questions != [] for questions in data['questions']]     # simply tests if the list of extracted questions is not empty.
     data['has_disinfo_hashtags'] = [has_disinfo_hashtags(tags, language) for tags, language in zip(data['hashtags'], data['language'])]
     data['has_disinfo_text'] = [has_disinfo_text(text, language) for text, language in zip(data['full_text'], data['language'])]
+    data['has_disinfo_text_or_hashtags'] = data['has_disinfo_text'] | data['has_disinfo_hashtags']
 
 
 def explore(data):
@@ -85,6 +86,18 @@ def explore(data):
 
     sns.histplot(data=data, x='date', hue='dataset', multiple='stack')
     plt.show()
+
+
+    print('Some example disinfo tweets (where available):')
+    for source in DATASETS_TO_ANALYZE:
+        print(' -', source)
+        subdataset = data.loc[(data['dataset'] == source) & data['has_disinfo_text_or_hashtags']]
+        subdataset_sample = subdataset.sample(n=min(10, len(subdataset)))
+        for text in subdataset_sample['full_text']:
+            print('    -', text)
+
+        # data.loc[BLA] selects all rows of the dataframe where BLA is true.
+
 
 
 sentence_separators = re.compile(r'(?<=[^A-Z].[.?!]) +(?=[a-zA-Z])')
