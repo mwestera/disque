@@ -1,0 +1,119 @@
+import pandas as pd  #  <-- if this gives a red squiggle in PyCharm, hover over it and click 'install'.
+import datetime
+import seaborn as sns   # <-- this too
+import matplotlib.pyplot as plt
+import re
+
+DATASETS_TO_ANALYZE = [
+    'dutch10K',
+    'french10K',
+    'italian10K',
+]
+
+
+paths = {
+    'dutch10K': 'data/dutch_tbcov_10K.csv',
+    'french10K': 'data/french_tbcov_10K.csv',
+    'italian10K': 'data/italian_tbcov_10K.csv',
+}
+
+
+def main():
+    """
+    This is the first function that gets called, and that controlls everything else.
+    """
+    tweets = load_data(DATASETS_TO_ANALYZE)
+    compute_features(tweets)
+    explore(tweets)
+
+
+def read_hashtag_list(string):
+    substrings = string.strip('[]').split(',')
+    hashtags = [substring.strip('"\'') for substring in substrings]
+    return hashtags
+
+
+def load_data(datasets):
+    """
+    Loads each .csv file as a pandas 'dataframe' and concatenates them into one big dataframe.
+    It creates a column 'dataset' with the label of the original dataset from which it came, to keep track.
+    """
+    all_tweets = []
+    for key in datasets:
+        tweets = pd.read_csv(paths[key], converters={'hashtags': read_hashtag_list})
+        tweets['dataset'] = key
+        tweets['language'] = '???'
+        for language in ['dutch', 'italian', 'french', 'english']:
+            if key.startswith(language):
+                tweets['language'] = language
+        all_tweets.append(tweets)
+    all_tweets = pd.concat(all_tweets).reset_index(drop=True)
+    return all_tweets
+
+
+
+def compute_features(data):
+    data['date'] = [extract_date(time) for time in data['created_at']]  # extract 'date' objects from the 'created_at' strings
+    data['has_disinfo_hashtags'] = [has_disinfo_hashtags(tags, language) for tags, language in zip(data['hashtags'], data['language'])]
+    data['questions'] = [extract_questions(text) for text in data['full_text']]
+    data['has_question'] = [questions != [] for questions in data['questions']]     # simply tests if the list of extracted questions is not empty.
+
+
+def extract_date(time):
+    """
+    Read a date/time string with the format of our dataset, and turn it into a date object.
+    """
+    time = datetime.datetime.strptime(time, '%Y-%m-%d %H:%M:%S')
+    return time.date()
+
+
+disinfo_hashtags = {
+    'english': ['hoax', 'plandemic'],
+    'french': ['hoax'],
+    'italian': ['hoax'],
+    'dutch': ['hoax', 'plandemie']
+}
+
+
+def has_disinfo_hashtags(hashtags, language):
+    """
+    Return a boolean (True/False) indicating whether the tweet has hashtags indicative of disinformation.
+    It is based on the lists of hashtags above: disinfo_hashtags.
+    This is only a very simple squib.
+    """
+    for tag in hashtags:
+        if tag in disinfo_hashtags[language]:
+            return True
+    return False
+
+
+def explore(data):
+    """
+    Print some basic info.
+    """
+    print('number of tweets:', len(data))
+    print('\ncolumns and data types:')
+    print(data.dtypes)  # int and float are numbers; object is anything else (including a string)
+
+    print('\nProportion of tweets that has a question:')
+    print(data.groupby('dataset')['has_question'].mean())
+    print()
+
+    sns.histplot(data=data, x='date', hue='dataset', multiple='stack')
+    plt.show()
+
+
+sentence_separators = re.compile(r'(?<=[^A-Z].[.?!]) +(?=[a-zA-Z])')
+
+
+def extract_questions(text):
+    if '?' in text:
+        sentences = sentence_separators.split(text)
+        questions = [sent for sent in sentences if sent.endswith('?')]
+        return questions
+    return []
+
+
+
+if __name__ == '__main__':
+    main()
