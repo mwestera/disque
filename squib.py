@@ -54,9 +54,54 @@ def load_data(datasets):
 
 def compute_features(data):
     data['date'] = [extract_date(time) for time in data['created_at']]  # extract 'date' objects from the 'created_at' strings
-    data['has_disinfo_hashtags'] = [has_disinfo_hashtags(tags, language) for tags, language in zip(data['hashtags'], data['language'])]
     data['questions'] = [extract_questions(text) for text in data['full_text']]
     data['has_question'] = [questions != [] for questions in data['questions']]     # simply tests if the list of extracted questions is not empty.
+    data['has_disinfo_hashtags'] = [has_disinfo_hashtags(tags, language) for tags, language in zip(data['hashtags'], data['language'])]
+    data['has_disinfo_text'] = [has_disinfo_text(text, language) for text, language in zip(data['full_text'], data['language'])]
+
+
+def explore(data):
+    """
+    Print some basic info and show a histogram plot of the 'temporal coverage' of our datasets.
+    """
+    print('number of tweets per dataset:')
+    print(data.groupby('dataset')['id'].count())
+
+    print('\ncolumns and data types:')
+    print(data.dtypes)  # int and float are numbers; object is anything else (including a string)
+
+    print('\nProportion of tweets that has a question:')
+    print(data.groupby('dataset')['has_question'].mean())
+    print()
+
+    print('\nProportion of tweets that has disinfo hashtags:')
+    print(data.groupby('dataset')['has_disinfo_hashtags'].mean())
+    print()
+
+    print('\nProportion of tweets that has disinfo text keywords:')
+    print(data.groupby('dataset')['has_disinfo_text'].mean())
+    print()
+
+
+    sns.histplot(data=data, x='date', hue='dataset', multiple='stack')
+    plt.show()
+
+
+sentence_separators = re.compile(r'(?<=[^A-Z].[.?!]) +(?=[a-zA-Z])')
+
+
+def extract_questions(text):
+    """
+    From a tweet's text, return the list of all questions it contains.
+    This is done by splitting on 'sentence separators' defined with a rather mystical regular expression above
+    (copy-pasted from somewhere), and then saving all sentences that end with a question mark.
+    """
+    if '?' in text:
+        sentences = sentence_separators.split(text)
+        questions = [sent for sent in sentences if sent.endswith('?')]
+        return questions
+    return []
+
 
 
 def extract_date(time):
@@ -104,40 +149,6 @@ def has_disinfo_text(text, language):
         if keyword in text:
             return True
     return False
-
-
-def explore(data):
-    """
-    Print some basic info and show a histogram plot of the 'temporal coverage' of our datasets.
-    """
-    print('number of tweets per dataset:')
-    print(data.groupby('dataset')['id'].count())
-
-    print('\ncolumns and data types:')
-    print(data.dtypes)  # int and float are numbers; object is anything else (including a string)
-
-    print('\nProportion of tweets that has a question:')
-    print(data.groupby('dataset')['has_question'].mean())
-    print()
-
-    sns.histplot(data=data, x='date', hue='dataset', multiple='stack')
-    plt.show()
-
-
-sentence_separators = re.compile(r'(?<=[^A-Z].[.?!]) +(?=[a-zA-Z])')
-
-
-def extract_questions(text):
-    """
-    From a tweet's text, return the list of all questions it contains.
-    This is done by splitting on 'sentence separators' defined with a rather mystical regular expression above
-    (copy-pasted from somewhere), and then saving all sentences that end with a question mark.
-    """
-    if '?' in text:
-        sentences = sentence_separators.split(text)
-        questions = [sent for sent in sentences if sent.endswith('?')]
-        return questions
-    return []
 
 
 
