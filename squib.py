@@ -26,6 +26,11 @@ def main():
     compute_features(tweets)
     explore(tweets)
 
+    questions = make_one_row_per_question(tweets)
+    questions['question_has_negation'] = questions['question']
+    compute_question_features(questions)
+    explore_questions(questions)
+
 
 def read_hashtag_list(string):
     substrings = string.strip('[]').split(',')
@@ -188,6 +193,34 @@ def has_negation(text, language):
             return True
     return False
 
+
+def make_one_row_per_question(data):
+    new_rows = []
+    for i, row in data.iterrows():
+        for j, question in enumerate(row['questions']):
+            new_row = row.copy()
+            del new_row['questions']
+            new_row['question_id'] = int(str(new_row['id']) + str(j))
+            new_row['question'] = question
+            new_rows.append(new_row)
+    return pd.DataFrame(new_rows)
+
+
+def compute_question_features(questions):
+    questions['has_negation'] = [has_negation(question, language) for question, language in
+                                 zip(questions['full_text'], questions['language'])]
+
+
+def explore_questions(questions):
+    print('number of questions per dataset:')
+    print(questions.groupby('dataset')['question_id'].count())
+
+    print('\ncolumns and data types:')
+    print(questions.dtypes)
+
+    print('\nProportion of questions that has a negation:')
+    print(questions.groupby('dataset')['has_negation'].mean())
+    print()
 
 
 
