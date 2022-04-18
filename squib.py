@@ -207,7 +207,7 @@ def make_one_row_per_question(data):
 
 
 def compute_question_features(questions):
-    questions['has_negation'] = [has_negation(question, language) for question, language in
+    questions['question_has_negation'] = [has_negation(question, language) for question, language in
                                  zip(questions['full_text'], questions['language'])]
 
 
@@ -219,7 +219,7 @@ def explore_questions(questions):
     print(questions.dtypes)
 
     print('\nProportion of questions that has a negation:')
-    print(questions.groupby('dataset')['has_negation'].mean())
+    print(questions.groupby('dataset')['question_has_negation'].mean())
     print()
 
 
