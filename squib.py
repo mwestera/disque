@@ -60,6 +60,8 @@ def compute_features(data):
     data['has_disinfo_text'] = [has_disinfo_text(text, language) for text, language in zip(data['full_text'], data['language'])]
     data['has_disinfo_text_or_hashtags'] = data['has_disinfo_text'] | data['has_disinfo_hashtags']
 
+    data['has_negation'] = [has_negation(text, language) for text, language in zip(data['full_text'], data['language'])]
+
 
 def explore(data):
     """
@@ -170,6 +172,22 @@ def has_disinfo_text(text, language):
         if keyword in text:
             return True
     return False
+
+
+negation_keywords = {
+    'english': ['not', 'n\'t', 'no'],
+    'french': ['ne', 'pas', 'non'],
+    'italian': ['no', 'non'],
+    'dutch': ['niet', 'geen', 'nope', 'nah', 'nee']
+}
+
+
+def has_negation(text, language):
+    for keyword in negation_keywords[language]:
+        if keyword in text:
+            return True
+    return False
+
 
 
 
