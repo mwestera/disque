@@ -50,8 +50,6 @@ def explore_questions(questions):
     print(questions.groupby('dataset')['question_has_negation'].mean())
     print()
 
-lbsalbdsalbdsalbdsa
-
 wh_words = ['who', 'what', 'where', 'when', 'why', 'how']
 
 def extract_matrix_question_words(question):
