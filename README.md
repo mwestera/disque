@@ -23,7 +23,7 @@ I'm not 100% happy yet with the division of labor (e.g., what if you want to ana
 5. Once the project is loaded, find the project settings somewhere (in windows and Linux I believe it is under `File > Settings` in the menu bar, also reachable via `ctrl-alt-s`; on Mac you can reach it at least via the cogwheel icon in the top right).
 6. In `settings`, on the left you'll see `Project: disque > project interpreter`; go there.
 7. There's a dropdown box there that may or may not contain anything. Click the cog-wheel next to it, then `add`.
-8. Create a new `virtual environment`. All the default settings are fine, as long as the Python version is greater than 3.6.
+8. Create a new `virtual environment`. All the default settings are fine, as long as the Python version is greater than 3.8.
 9. (I think this will work automatically, but perhaps make sure the virtual environment you just created is now selected in the drop-down box as your project interpreter.)
 
 ## Updating the project
