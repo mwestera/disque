@@ -1,0 +1,113 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+import utils
+import ling
+import config
+
+
+def main():
+    """
+    This is the first function that gets called, and that controls everything else.
+    """
+    tweets = load_raw_tweets(config.paths_to_raw_tweets)
+
+    text = tweets.loc[tweets['id'] == 1301240723841388500].iloc[0]['quoted_text'].__repr__()
+    print(text)
+    print(text.__repr__())
+    # print(text.replace('\r', 'XXX'))
+    # print(text.replace('\\r', 'YYY'))
+    #
+    # quit()
+
+    compute_features(tweets)
+    tweets.to_csv(config.path_to_analyzed_tweets, index=False)
+    explore(tweets)
+
+
+def load_raw_tweets(dataset_paths):
+    """
+    Loads each .csv file as a pandas 'dataframe' and concatenates them into one big dataframe.
+    It creates a column 'dataset' with the label of the original dataset from which it came, to keep track.
+    """
+    all_tweets = []
+    for name, path in dataset_paths.items():
+        tweets = utils.load_tweets(path)
+        tweets['full_text'] = tweets['full_text'].str.replace('\\r', ' ')
+        tweets['quoted_text'] = tweets['quoted_text'].str.replace('\\r', ' ')
+        tweets['dataset'] = name
+        tweets['language'] = '???'
+        for language in ['dutch', 'italian', 'french', 'english']:
+            if name.startswith(language):
+                tweets['language'] = language
+        all_tweets.append(tweets)
+    all_tweets = pd.concat(all_tweets).reset_index(drop=True)
+    return all_tweets
+
+
+def compute_features(tweets):
+    tweets['num_questions'] = [len(ling.extract_questions(text)) for text in tweets['full_text']]
+
+    tweets['has_question'] = [n > 0 for n in tweets['num_questions']]
+
+    tweets['has_disinfo_hashtags'] = [any(tag in ling.disinfo_hashtags[language] for tag in tags)
+                                      for tags, language in zip(tweets['hashtags'], tweets['language'])]
+
+    tweets['has_disinfo_text'] = [utils.has_any_keyword(text, ling.disinfo_keywords[language])
+                                  for text, language in zip(tweets['full_text'], tweets['language'])]
+
+    tweets['has_disinfo_text_or_hashtags'] = tweets['has_disinfo_text'] | tweets['has_disinfo_hashtags']
+
+    tweets['has_negation'] = [ling.has_negation(text, language)
+                              for text, language in zip(tweets['full_text'], tweets['language'])]
+
+
+def explore(tweets):
+    """
+    Print some basic info and show a histogram plot of the 'temporal coverage' of our datasets.
+    """
+    print('number of tweets per dataset:')
+    print(tweets.groupby('dataset')['id'].count())
+
+    print('\ncolumns and data types:')
+    print(tweets.dtypes)  # int and float are numbers; object is anything else (including a string)
+
+    print('\nProportion of tweets that has a question:')
+    print(tweets.groupby('dataset')['has_question'].mean())
+    print()
+
+    print('\nProportion of tweets that has disinfo hashtags:')
+    print(tweets.groupby('dataset')['has_disinfo_hashtags'].mean())
+    print()
+
+    print('\nProportion of tweets that has disinfo text keywords:')
+    print(tweets.groupby('dataset')['has_disinfo_text'].mean())
+    print()
+
+    sns.histplot(data=tweets, x='created_at', hue='dataset', multiple='stack')
+    plt.show()
+
+
+    print('Some example tweets (where available):')
+    for source in tweets['dataset'].unique():
+        print('\n -', source)
+        subdataset_disinfo = tweets.loc[(tweets['dataset'] == source) & tweets['has_disinfo_text_or_hashtags']]
+        subdataset_notdisinfo = tweets.loc[(tweets['dataset'] == source) & ~tweets['has_disinfo_text_or_hashtags']]
+        # data.loc[BLA] selects all rows of the dataframe where BLA is true.
+
+        print(f' {source}, disinfo:')
+        print_sample_tweets(subdataset_disinfo, 10)
+        print(f'\n {source} not disinfo:')
+        print_sample_tweets(subdataset_notdisinfo, 10)
+
+
+def print_sample_tweets(tweets, num):
+    n_tweets_to_print = min(num, len(tweets))
+    subdataset_sample = tweets.sample(n=n_tweets_to_print)
+    for text in subdataset_sample['full_text']:
+        print('    -', text)
+
+
+if __name__ == '__main__':
+    main()
