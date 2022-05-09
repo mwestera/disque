@@ -1,6 +1,8 @@
 import re
+import utils
 
-
+# Hashtags to look for, indicative of disinformation:
+# Note: Use lowercase only, as all hashtags in the data are now turned into lowercase:
 disinfo_hashtags = {
     'english': ['hoax', 'plandemic'],
     'french': ['hoax'],
@@ -8,7 +10,9 @@ disinfo_hashtags = {
     'dutch': ['hoax', 'plandemie']
 }
 
-disinfo_keywords = disinfo_hashtags     # currently just using the same, could be customized of course
+# Keywords to look for in plain text, indicative of disinformation:
+# (Currently just using the same as the hashtags; could be customized of course)
+disinfo_keywords = disinfo_hashtags
 
 
 negation_keywords = {
@@ -20,15 +24,13 @@ negation_keywords = {
 
 def has_negation(text, language):
     """
-    Very simplistic; could be made less syntactically naive
+    Currently quite simplistic; could be made more syntactically aware
     """
-    for keyword in negation_keywords[language]:
-        if keyword in text:
-            return True
-    return False
+    return utils.has_any_keyword(negation_keywords[language], text)
 
 
-question_pattern = r'[^.!?\n]+\?+'
+# defining a question as: sequence of anything other than ., !, ?, :, ;, newline, tab, followed by one or more question marks.
+question_pattern = r'[^.!?:;\n\t]+\?+'
 
 def extract_questions(text):
     """
@@ -37,3 +39,4 @@ def extract_questions(text):
     if '?' not in text:  # shortcut just to speed it up
         return []
     return re.findall(question_pattern, text)
+

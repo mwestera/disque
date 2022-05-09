@@ -12,15 +12,6 @@ def main():
     This is the first function that gets called, and that controls everything else.
     """
     tweets = load_raw_tweets(config.paths_to_raw_tweets)
-
-    text = tweets.loc[tweets['id'] == 1301240723841388500].iloc[0]['quoted_text'].__repr__()
-    print(text)
-    print(text.__repr__())
-    # print(text.replace('\r', 'XXX'))
-    # print(text.replace('\\r', 'YYY'))
-    #
-    # quit()
-
     compute_features(tweets)
     tweets.to_csv(config.path_to_analyzed_tweets, index=False)
     explore(tweets)
@@ -33,9 +24,9 @@ def load_raw_tweets(dataset_paths):
     """
     all_tweets = []
     for name, path in dataset_paths.items():
-        tweets = utils.load_tweets(path)
-        tweets['full_text'] = tweets['full_text'].str.replace('\\r', ' ')
-        tweets['quoted_text'] = tweets['quoted_text'].str.replace('\\r', ' ')
+        tweets = utils.load_tweets(path, max_num=config.max_num_rows)
+        tweets['full_text'] = tweets['full_text'].str.replace('\\r', ' ', regex=True).str.replace('   +', '\t', regex=True)
+        tweets['quoted_text'] = tweets['quoted_text'].str.replace('\\r', ' ', regex=True).str.replace('   +', '\t', regex=True)
         tweets['dataset'] = name
         tweets['language'] = '???'
         for language in ['dutch', 'italian', 'french', 'english']:
