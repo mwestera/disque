@@ -40,14 +40,18 @@ def extract_questions(tweets):
 
 
 def write_questions_to_csv(questions):
+    del questions['spacy']  # don't save this
     columns_with_tweet_info_last = sorted(questions.columns, key=lambda x: x.startswith('tweet_') - (x in ['id', 'text']))
     questions.to_csv(config.path_to_analyzed_questions, columns=columns_with_tweet_info_last, index=False)
 
 
 def compute_features(questions):
-    questions['has_negation'] = [ling.has_negation(question, language) for question, language in
+    questions['has_negation'] = [ling.has_negation(text, language) for text, language in
                                           zip(questions['text'], questions['language'])]
-
+    questions['spacy'] = [utils.spacy_single(text, language) for text, language in
+                          zip(questions['text'], questions['language'])]
+    questions['wh_word'] = [ling.extract_matrix_question_words(sent, language) for sent, language in
+                          zip(questions['spacy'], questions['language'])]
 
     ... # More features to be added
 

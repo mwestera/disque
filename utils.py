@@ -1,8 +1,17 @@
 import datetime
 import pandas as pd
 import re
-import config
 import functools
+import spacy
+
+
+spacy_model_names = {
+    'english': 'en_core_web_sm',
+    'french': 'fr_core_news_sm',
+    'italian': 'it_core_news_sm',
+    'dutch': 'nl_core_news_sm',
+}
+
 
 def parse_date(s):
     """
@@ -35,6 +44,28 @@ def has_any_keyword(keywords, text):
     return False
 
 
-@functools.lru_cache()  # slight speedup
+@functools.lru_cache()
 def regex_for_keyword_list(words):
     return re.compile('|'.join(rf'\b{key}\b' for key in words), flags=re.I)
+
+
+@functools.lru_cache()
+def get_nlp_model(language):
+    nlp = spacy.load(spacy_model_names[language])
+    return nlp
+
+
+def spacy_single(s, language):
+    return next(get_nlp_model(language)(s).sents)
+
+
+def spacy_get_path_to_root(spacy_sent, node):
+    """
+    Take a spacy-analyzed sentence (not a full doc, for which 'root' is not defined) and return path
+    from node to root (including the node and root themselves).
+    """
+    path = [node]
+    while node != spacy_sent.root:
+        node = node.head
+        path.append(node)
+    return path

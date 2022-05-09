@@ -40,3 +40,32 @@ def extract_questions(text):
         return []
     return re.findall(question_pattern, text)
 
+
+
+wh_words = {
+    'english': ['who', 'what', 'where', 'when', 'why', 'how'],
+    'french': ['quoi', 'qui'],
+    'italian': ['dove', 'quando'],
+    'dutch': ['wie', 'wat', 'waar', 'wanneer', 'waarom', 'hoe', 'hoeveel', 'hoezeer', 'hoezo'],
+}
+
+
+def extract_matrix_question_words(question, language):
+    """
+    Returns a list of all the wh-words that are under the main verb, with no verb intervening. This is probably
+    too simplistic (cf. island constraints on wh-movement in the syntax literature), but does a pretty good job
+    filtering out, e.g., wh-words as complementizers and in relative clauses.
+    """
+    if isinstance(question, str):
+        question = utils.spacy_single(question, language)
+
+    wh_words_found = []
+    for tok in question:
+        if tok.text.lower() in wh_words[language]:
+            for intermediate in utils.spacy_get_path_to_root(question, tok)[1:-1]:
+                if intermediate.pos_ == 'VERB':
+                    break
+            else:
+                wh_words_found.append(tok)
+    return wh_words_found
+
