@@ -59,6 +59,10 @@ def spacy_single(s, language):
     return next(get_nlp_model(language)(s).sents)
 
 
+def strip_mentions(text):
+    return re.sub("@[A-Za-z0-9]+", "", text).strip()
+
+
 def spacy_get_path_to_root(spacy_sent, node):
     """
     Take a spacy-analyzed sentence (not a full doc, for which 'root' is not defined) and return path
@@ -69,3 +73,7 @@ def spacy_get_path_to_root(spacy_sent, node):
         node = node.head
         path.append(node)
     return path
+
+
+def print_parse(doc):
+    print(*[f'  {tok} {tok.pos_} ({tok.dep_} of {tok.head})' for tok in doc], sep='\n')

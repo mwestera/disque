@@ -26,7 +26,7 @@ def extract_questions(tweets):
             new_row = {(key if key in keep_keys else 'tweet_' + key): value for key, value in row.items()}
 
             new_row['id'] = 'Q' + str(row['id']) + '.' + str(j)
-            new_row['text'] = question.strip()
+            new_row['text'] = utils.strip_mentions(question)
 
             if not config.include_full_tweet_text_in_analyzed_questions_csv:
                 del new_row['tweet_full_text']
@@ -50,8 +50,12 @@ def compute_features(questions):
                                           zip(questions['text'], questions['language'])]
     questions['spacy'] = [utils.spacy_single(text, language) for text, language in
                           zip(questions['text'], questions['language'])]
-    questions['wh_word'] = [ling.extract_matrix_question_words(sent, language) for sent, language in
-                          zip(questions['spacy'], questions['language'])]
+
+    wh_words = [ling.extract_matrix_question_words(question, language) for question, language in zip(questions['spacy'], questions['language'])]
+    questions['wh_words_all'] = list(fronted + in_situ for fronted, in_situ in wh_words)
+    questions['wh_words_fronted'], questions['wh_words_in_situ'] = list(zip(*wh_words))
+
+    questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(question) for question in questions['spacy']]
 
     ... # More features to be added
 
