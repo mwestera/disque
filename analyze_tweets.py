@@ -45,7 +45,7 @@ def compute_features(tweets):
     tweets['has_disinfo_hashtags'] = [any(tag in ling.disinfo_hashtags[language] for tag in tags)
                                       for tags, language in zip(tweets['hashtags'], tweets['language'])]
 
-    tweets['has_disinfo_text'] = [utils.has_any_keyword(text, ling.disinfo_keywords[language])
+    tweets['has_disinfo_text'] = [utils.has_any_keyword(ling.disinfo_keywords[language], text)
                                   for text, language in zip(tweets['full_text'], tweets['language'])]
 
     tweets['has_disinfo_text_or_hashtags'] = tweets['has_disinfo_text'] | tweets['has_disinfo_hashtags']
