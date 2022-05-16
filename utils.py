@@ -34,7 +34,9 @@ def parse_hashtag_list(string):
 
 
 def load_tweets(path, max_num=None):
-    return pd.read_csv(path, converters={'hashtags': parse_hashtag_list, 'created_at': parse_date}, nrows=max_num)
+    dataframe = pd.read_csv(path, converters={'hashtags': parse_hashtag_list, 'created_at': parse_date}, nrows=max_num)
+    dataframe[['full_text', 'quoted_text']] = dataframe[['full_text', 'quoted_text']].fillna('')
+    return dataframe
 
 
 def has_any_keyword(keywords, text):
