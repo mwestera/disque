@@ -44,7 +44,7 @@ def extract_questions(text):
 
 wh_words = {
     'english': ['who', 'what', 'where', 'when', 'why', 'how'],
-    'french': ['quoi', 'qui'],
+    'french': ['quoi', 'qui', 'quand', 'pourquoi', 'que'],  # also qu' ?
     'italian': ['dove', 'quando'],
     'dutch': ['wie', 'wat', 'waar', 'wanneer', 'waarom', 'hoe', 'hoeveel', 'hoezeer', 'hoezo'],
 }
@@ -73,7 +73,7 @@ def wh_word_is_fronted(question, wh_word):
     Intended only for wh-words; checks simply if any auxiliaries or verbs occur to the left.
     A consequence is that subjects in SVO are also considered fronted by default.
     """
-    for lefthand_token in question[:wh_word.idx]:
+    for lefthand_token in question[:wh_word.i]:
         if lefthand_token.pos_ in verblike_pos_tags:
             return False
     return True
@@ -87,7 +87,7 @@ def has_subj_verb_inversion(question):
     if question.root.pos_ in verblike_pos_tags:
         for child in question.root.children:
             if child.dep_ in subjectlike_dep_tags:
-                return question.root.idx < child.idx
+                return question.root.i < child.i
     elif question.root.pos_ in ['ADJ']:     # ADJ like 'mooi' in 'het zou mooi zijn'
         verb, subject = None, None
         for child in question.root.children:
@@ -97,7 +97,7 @@ def has_subj_verb_inversion(question):
                 subject = child
             print(verb, subject)
             if verb and subject:
-                return verb.idx < subject.idx
+                return verb.i < subject.i
 
 
 def definitely_not_question_word(token, question, language):
@@ -107,8 +107,8 @@ def definitely_not_question_word(token, question, language):
     """
     if token.text.lower() not in wh_words[language]:
         return True
-    right_neighbors = question[token.idx+1:]
-    left_neighbors = question[:token.idx]
+    right_neighbors = question[token.i+1:]
+    left_neighbors = question[:token.i]
     if language == 'dutch':
         if right_neighbors and right_neighbors[0].text.lower() == 'een':    # filter out exclamatives
             return True
@@ -129,7 +129,7 @@ def extract_matrix_question_words(question, language):
     for token in question:
         if definitely_not_question_word(token, question, language):
             continue
-        # if token in question.root.children and any(tok.dep_ == 'parataxis' and tok.idx < question.root.idx for tok in question.root.children):
+        # if token in question.root.children and any(tok.dep_ == 'parataxis' and tok.i < question.root.i for tok in question.root.children):
         #     continue    # fixes some parataxis misparses; actually covered by the next one
         if sum(tok.dep_ in subjectlike_dep_tags for tok in question.root.children) >= 2:
             continue    # fixes some multi-subject misparses: Hoorde je wie er zijn gekomen? Weet Jan wie er zijn gekomen?
