@@ -3,7 +3,10 @@ import pandas as pd
 import re
 import functools
 import spacy
+from spacy.tokens import Token
+import ling
 
+Token.set_extension('qtype', getter=lambda x: ling.classify_whword(x))
 
 spacy_model_names = {
     'english': 'en_core_web_sm',
@@ -54,6 +57,7 @@ def regex_for_keyword_list(words):
 @functools.lru_cache()
 def get_nlp_model(language):
     nlp = spacy.load(spacy_model_names[language])
+    ling.language = language
     return nlp
 
 
@@ -65,17 +69,25 @@ def strip_mentions(text):
     return re.sub("@[A-Za-z0-9]+", "", text).strip()
 
 
-def spacy_get_path_to_root(spacy_sent, node):
+def spacy_get_path_to_root(node):
     """
     Take a spacy-analyzed sentence (not a full doc, for which 'root' is not defined) and return path
     from node to root (including the node and root themselves).
     """
     path = [node]
-    while node != spacy_sent.root:
+    while node != node.sent.root:
         node = node.head
         path.append(node)
     return path
 
 
+def qtypes_to_string(doc):
+    qtypes = []
+    for tok in doc:
+        if tok._.qtype:
+            qtypes.append(f'{tok.text}-{tok._.qtype}')
+    return '|'.join(qtypes)
+
+
 def print_parse(doc):
-    print(*[f'  {tok} {tok.pos_} ({tok.dep_} of {tok.head})' for tok in doc], sep='\n')
+    print(*[f'  {tok} ({tok.lemma_}, {tok.pos_}, {tok.dep_} of {tok.head}) [{tok.morph}] <{tok._.qtype}>' for tok in doc], sep='\n')

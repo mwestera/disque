@@ -51,11 +51,12 @@ def compute_features(questions):
     questions['spacy'] = [utils.spacy_single(text, language) for text, language in
                           zip(questions['text'], questions['language'])]
 
-    wh_words = [ling.extract_matrix_question_words(question, language) for question, language in zip(questions['spacy'], questions['language'])]
-    questions['wh_words_all'] = list(fronted + in_situ for fronted, in_situ in wh_words)
-    questions['wh_words_fronted'], questions['wh_words_in_situ'] = list(zip(*wh_words))
+    questions['qwords'] = ['|'.join(tok.text for tok in doc if tok._.qtype) for doc in questions['spacy']]
+    questions['qtypes'] = [utils.qtypes_to_string(doc) for doc in questions['spacy']]
 
     questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(question) for question in questions['spacy']]
+
+    # questions['qtype'] = # TODO  whtype, decl, risdecl etc.
 
     ... # More features to be added
 
