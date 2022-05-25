@@ -56,7 +56,7 @@ def compute_features(questions):
 
     questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(question) for question in questions['spacy']]
 
-    # questions['qtype'] = # TODO  whtype, decl, risdecl etc.
+    # questions['qtype'] = # TODO  whtype, decl, risdecl etc.., tag question?
 
     ... # More features to be added
 
