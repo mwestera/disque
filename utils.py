@@ -4,9 +4,19 @@ import re
 import functools
 import spacy
 from spacy.tokens import Token
+from spacy.language import Language
 import ling
 
-Token.set_extension('qtype', getter=lambda x: ling.classify_whword(x))
+VERBOSE = False
+
+Token.set_extension('qtype', default=None)
+
+@Language.component("qword_tagger")
+def qword_tagger(doc):
+    for tok in doc:
+        tok._.qtype = ling.classify_whword(tok)
+    return doc
+
 
 spacy_model_names = {
     'english': 'en_core_web_sm',
@@ -57,6 +67,7 @@ def regex_for_keyword_list(words):
 @functools.lru_cache()
 def get_nlp_model(language):
     nlp = spacy.load(spacy_model_names[language])
+    nlp.add_pipe("qword_tagger")
     ling.language = language
     return nlp
 
@@ -90,4 +101,10 @@ def qtypes_to_string(doc):
 
 
 def print_parse(doc):
+    print('Full parse for:', doc)
     print(*[f'  {tok} ({tok.lemma_}, {tok.pos_}, {tok.dep_} of {tok.head}) [{tok.morph}] <{tok._.qtype}>' for tok in doc], sep='\n')
+
+
+def log(s):
+    if VERBOSE:
+        print('  >', s)
