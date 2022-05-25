@@ -1,0 +1,49 @@
+# dutch
+Weet Jan wie[no] er zijn gekomen?
+Wie[fronted] dacht Jan dat er waren?    # or indirect?
+Je weet wie[no] er zijn gekomen?    # less likely reading: insitu
+Hoorde je wie[indirect] er zijn gekomen?
+Merkte je gisteren wie[indirect] er zijn gekomen?
+Weet je waarom[indirect] Jan sliep?
+Wat[no] een rommel is dat!?
+Aangezien je merkte wie[no] je had gezien?  # less likely reading: indirect
+Je merkte dat je wie[insitu] had gezien?
+Aangezien je merkte dat je wie[insitu] had gezien?
+Wie[fronted] eet jij op?
+Wie[fronted] heb jij opgegeten?
+Weet iemand of[indirect] het vaccin giftig is?
+Weet ik of[no] het vaccin giftig is?
+Ik vraag me af of[indirect] het vaccin giftig is.
+Vraagt iemand of[no] het vaccin giftig is?
+Vraagt iemand zich af of[indirect] het vaccin giftig is?
+Of[no] denkt hij soms dat iets niet bestaat als je je hoofd in het zand steekt?
+Waar[fronted] wacht men in Den Haag nog op?
+Wie[fronted] weet waarom[indirect]?
+Wat[no] hij deed was stom.
+Wat[no] hij deed veroorzaakte een storm.
+Wat[no] jou doodde was stom.
+Wat[fronted] doodde jou dat stom was?
+Ik haatte wat[no] hij deed.
+Wat[no] er gebeurde was een wonder!
+Wat[fronted] gebeurde er dat een wonder was?
+
+# french
+Il a dit pourquoi[no] il l'a fait?   #    (ingebedde vraag in ja/nee vraag)
+Il s'attend à ce que[no] tu viennes.      #  (geen vraag/ conjonction à ce que)
+Je pense à ce que[no] tu m’as dit.        #   (vrije relatiefzin)
+Il se demande ce que[indirect] tu veux faire.   #  (ingebedde vraag)
+Il m'a demandé quand[indirect] tu viendras.   #   (ingebedde vraag); viendras not recognized as verb but as fixed/NOUN; tu as NOUN/det?!; quand as SCONJ/advmod of demande.
+Il a demandé quand[indirect].        #   (Hij vroeg wanneer/ elliptische ingebedde vraag)
+Il l'a demandé quand[insitu]?          #    (in-situ vraag)
+Il te le dira quand[no] tu viendras.       #   (adverbiale bijzin van tijd, geen vraag)
+Il te le dira quand[insitu] ton frère?      #   (in situ vraag met rechtsdislocatie)
+Il a vu qui[insitu]?
+Il a vu l\'homme qui[no] viendra?
+Il a lu ce qui[no] lui plait?
+
+# english
+Do you know if[indirect] I'm asleep?
+Do you know whether[indirect] I'm asleep?
+Do you arrive if[no] you want?
+Are you coming if[no] you want?
+Are you there whether[no] or not you can?
