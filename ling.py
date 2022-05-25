@@ -128,37 +128,48 @@ def is_potential_question_word(token):
         # if right_neighbors and right_neighbors[0].text.lower() == 'er':     # Jan weet wie er is gevallen
         #     return True
     if language == 'french':
-        if token.i > 2 and question[token.i-2].text.lower() == 'ce' and question[token.i-1].text.lower() == 'ce':  # filter out French free relatives? actually, indirect questions can have this shape.
+        if token.i > 2 and question[token.i-2].text.lower() == 'à' and question[token.i-1].text.lower() == 'ce':  # filter out French free relatives? actually, indirect questions can have this shape.
             return False
     return True
 
 
 def is_question_word_for_indirect_only(token):
     language = language_map[token.doc.lang_]
-    return token.text.lower() in wh_words_emb[language]
+    if token.text.lower() in wh_words_emb[language]:
+        logging.debug(f'{token} is fit for indirect questions only.')
+        return True
+    return False
 
 
 def get_embedder_of(token):
     sent = token.sent
-    # TODO Make sure to check how free relatives are treated. Wat hij deed was stom.
-    if token.head.dep_ == 'advcl':  # Tell me if[mark] you arrived[advcl].
-        logging.debug(f'{token} has no embedder because token.head.dep_ == "advcl"')
-        return None
+
+    # if token.head.dep_ == 'advcl':  # Tell me if[mark] you arrived[advcl].
+    #     logging.debug(f'{token} has no embedder because token.head.dep_ == "advcl"')
+    #     return None
+
     actual_roots = [tok for tok in sent[:token.i] if tok.pos_ == 'VERB' and tok.dep_ in ['nsubj', 'parataxis']]
-    if actual_roots:
+    if actual_roots and is_embedding_verb(actual_roots[0]):
         logging.debug(f'{token} has embedder {actual_roots[0]} because weird parataxis/nsubj misparse')
         # Hoorde [VERB, parataxis] je wie er zijn gekomen?
         # Weet [VERB, nsubj] Jan wie er zijn gekomen?
-        # Il te [VERB, nsubj of dira] le dira quand ton frère?  --> TODO still returns the wrong root though.
+        # Il te [VERB, nsubj of dira] le dira quand ton frère?  --> still returns the wrong root though.
         return actual_roots[0]
     # parataxa_or_ccomp = [tok for tok in sent.root.children if tok.dep_ in ['ccomp', 'parataxis'] and tok.pos_ == 'VERB']
-    if token.dep_ == 'advmod' and token.head == sent.root and sent.root.i < token.i and might_be_complementizer(token): # and any(parataxa_or_ccomp)
+    if token.dep_ == 'advmod' and token.head == sent.root and is_embedding_verb(sent.root) and sent.root.i < token.i and might_be_complementizer(token): # and any(parataxa_or_ccomp)
         # Fixes some misparses:
         #   Il a dit pourquoi (advmod of dit) il l'a fait?
         #   weet (ROOT) je waarom (advmod of weet) jan sliep (parataxis)?
         #   Il a demandé quand[advmod of demandé]
         logging.debug(f'{token} has embedder {sent.root} because advmod misparse')
         return sent.root
+
+    if token.head.dep_ in ['obj', 'advcl', 'ccomp'] and is_verblike(token.head) and is_embedding_verb(token.head.head):
+        # Wat er precies gebeurde[obj/advcl] heb ik niet kunnen zien/opnemen.
+        # Wat hij deed[ccomp] vroeg ik hem[obj] al eerder.
+        # Not: Wat hij deed[ccomp] veroorzaakte een ongeluk[obj].
+        logging.debug(f'{token} has head.head {token.head.head} as embedder (via verblike obj/advl/ccomp)')
+        return token.head.head
 
     for tok in utils.spacy_get_path_to_root(token)[2:]:
         if is_verblike(tok):
@@ -169,7 +180,7 @@ def get_embedder_of(token):
     return None
 
 
-impersonal_pronouns = {
+neutral_pronouns = {
     'english': ['it', 'that'],
     'french': ['le', 'la', 'ça', 'l\''],   # 'ce' introduces too much error
     'italian': [],
@@ -191,12 +202,11 @@ def might_be_complementizer(token):
     >>> might_be_complementizer(sent[3])
     True
 
-
     """
     if any(child.dep_ == 'mark' for child in token.head.children if child != token):
         logging.debug(f'{token} is not complementizer, because there\'s another mark')
         return False
-    if any(tok.lemma_ in impersonal_pronouns[language_map[token.lang_]] and tok.dep_ == 'obj' for tok in token.sent.root.children if tok != token):
+    if any(tok.lemma_ in neutral_pronouns[language_map[token.lang_]] and tok.dep_ == 'obj' for tok in token.sent.root.children if tok != token):
         logging.debug(f'{token} is not complementizer, because there\'s already an impersonal pronoun as obj of root')
         # Il te le [pron, obj of dira] dira quand ton frère? (even though misparsed)
         return False
@@ -234,16 +244,29 @@ verbs_like_see = {
     'english': ['notice', 'see', 'hear', 'feel', 'discover', 'find_out'],
     'french': [],
     'italian': [],
-    'dutch': ['merken', 'zien', 'horen', 'voelen', 'ontdekken'] + ['hoorde', 'merkte'],
+    'dutch': ['merken', 'zien', 'horen', 'voelen', 'ontdekken', 'opnemen'] + ['hoorde', 'merkte'],
+}
+
+verbs_like_want = {
+    'english': ['want', 'like'],
+    'french': ['vouloir', 'veux', 'voudrais'],
+    'italian': [],
+    'dutch': ['willen'],
 }
 
 existential_quantifiers = {
-    'english': ['anyone', 'someone', 'who'],
+    'english': ['anyone', 'someone'],
     'french': ['il'],
     'italian': [],
-    'dutch': ['iemand', 'wie'],
+    'dutch': ['iemand'],
 }
 
+who_like = {
+    'english': ['who'],
+    'french': ['qui'],
+    'italian': [],
+    'dutch': ['wie'],
+}
 
 impersonals = {
     'english': ['one', 'you'],
@@ -266,15 +289,15 @@ def is_speaker(token):
 
 def is_existential(token):
     language = language_map[token.doc.lang_]
-    if token.lemma_ in existential_quantifiers[language]:
-        return True
-
+    return token.lemma_ in existential_quantifiers[language]
 
 def is_impersonal(token):
     language = language_map[token.doc.lang_]
-    if token.lemma_ in impersonals[language]:
-        return True
+    return token.lemma_ in impersonals[language]
 
+def is_like_who(token):
+    language = language_map[token.doc.lang_]
+    return token.lemma_ in who_like[language]
 
 def is_negation(token):
     language = language_map[token.doc.lang_]
@@ -295,6 +318,15 @@ def corrected_lemma(token):
         logging.debug(f'Corrected lemma from {token.lemma_} to {lemma}')
 
     return lemma
+
+
+def is_embedding_verb(token):
+    language = language_map[token.doc.lang_]
+    if corrected_lemma(token) in verbs_like_know[language] + verbs_like_see[language] + verbs_like_wonder[language] + verbs_like_ask[language]:
+        logging.debug(f'{token} is an embedding verb')
+        return True
+    logging.debug(f'{token} is not an embedding verb')
+    return False
 
 
 def likely_to_head_indirect_question(token):
@@ -318,11 +350,15 @@ def likely_to_head_indirect_question(token):
             if lemma in verbs_like_wonder[language] and is_present_tense(token):
                 logging.debug(f'{token} likely to head indirect question, because impersonal + present-tense wonder-like verb.')
                 return True
+        if any(is_like_who(tok) and is_subject_of(tok, token) for tok in token.sent):
+            if lemma in verbs_like_know[language] and is_present_tense(token):
+                logging.debug(f'{token} likely to head indirect question, because who + present-tense know-like verb.')
+                return True
         if any(is_speaker(tok) and is_subject_of(tok, token) for tok in token.sent):
             if lemma in verbs_like_wonder[language] and is_present_tense(token):
                 logging.debug(f'{token} likely to head indirect question, because speaker + present-tense wonder-like verb.')
                 return True
-            if lemma in verbs_like_know[language] and any(is_negation(tok) for tok in token.children) and is_present_tense(token):
+            if lemma in verbs_like_know[language] and any(is_negation(tok) or tok.lemma_ in verbs_like_want[language] for tok in token.children) and is_present_tense(token):
                 logging.debug(f'{token} likely to head indirect question, because speaker + negation + present-tense know-like verb.')
                 return True
         if lemma in verbs_like_ask[language]:
@@ -385,12 +421,58 @@ def is_present_tense(token):
     return False
 
 
-def might_be_relative_clause(token):
-    if token.pos == 'SCONJ':
+# def might_be_relcomp(token):
+#     if token.pos == 'SCONJ':
+#         logging.debug(f'{token} might be relcomp')
+#         return True
+#     # if token.head.dep_ == 'obl:mod':
+#     #     # For weird french case: Il te le dira quand[sconj, mark of viendras] tu viendras[noun, obl:mod of dira].
+#     #     return True
+#     logging.debug(f'{token} cannot be relcomp')
+#     return False
+
+
+def might_be_initial_relclause(token):
+    """
+    >>> might_be_initial_relclause(utils.spacy_single('Wat hij deed was stom.', 'dutch')[0])
+    True
+    >>> might_be_initial_relclause(utils.spacy_single('Wat hij deed veroorzaakte een ongeluk.', 'dutch')[0])
+    True
+    >>> might_be_initial_relclause(utils.spacy_single('Ik vond wat hij deed niet leuk.', 'dutch')[2])
+    True
+    >>> might_be_initial_relclause(utils.spacy_single('Ik weet niet wat hij deed.', 'dutch')[3])
+    False
+    >>> might_be_initial_relclause(utils.spacy_single('Wat deed hij dan?', 'dutch')[0])
+    False
+    >>> might_be_initial_relclause(utils.spacy_single('Weet je wat hij deed?', 'dutch')[2])
+    False
+    >>> might_be_initial_relclause(utils.spacy_single('Wat was het dat hij deed?', 'dutch')[0])
+    False
+    >>> might_be_initial_relclause(utils.spacy_single('Wat dacht je dat hij zei?', 'dutch')[0])
+    False
+    >>> might_be_initial_relclause(utils.spacy_single('Wat er precies gebeurde heb ik niet kunnen zien.', 'dutch')[0])
+    False
+    >>> might_be_initial_relclause(utils.spacy_single('Wat er precies gebeurde heb ik niet kunnen opnemen.', 'dutch')[0])
+    True
+    >>> might_be_initial_relclause(utils.spacy_single('Wat er gebeurde was een wonder.', 'dutch')[0])
+    True
+    """
+    if token.dep_ == 'ROOT':
+        # Wat[ROOT] was het dat hij zag?
+        return False
+    if token.dep_ == 'nsubj' and token.head.dep_ == 'ROOT':
+        # Wat veroorzaakte[ROOT] het dat hij deed?
+        return False
+    if token.head == token.sent.root:
+        if any(tok.dep_ == 'cop' for tok in token.head.children):
+            return True
+        if any(any(tok2.dep_ == 'cop' for tok2 in tok.children) for tok in token.head.children if tok.dep_ == 'obj'):
+            # Wat hij deed[ROOT] was stom[obj of deed].
+            return True
+    if token.head.dep_ in ['csubj', 'nsubj']:
+        # Wat hij deed[csubj] veroorzaakte[ROOT] een storm.
+        # Wat er gebeurde[nsubj] was een wonder[ROOT].
         return True
-    # if token.head.dep_ == 'obl:mod':
-    #     # For weird french case: Il te le dira quand[sconj, mark of viendras] tu viendras[noun, obl:mod of dira].
-    #     return True
     return False
 
 
@@ -404,18 +486,17 @@ def classify_whword(token):
         return None
     logging.debug(f'CLASSIFY_WHWORD: {token.sent}, {token}')
     embedded_under = get_embedder_of(token)
-    can_only_be_indirect = is_question_word_for_indirect_only(token)
-    can_be_relative_clause = might_be_relative_clause(token)
-    can_be_insitu = sentence.text.endswith('?')
-    if wh_word_is_fronted(sentence, token) and not can_only_be_indirect:
+    can_be_direct = sentence.text.endswith('?') and not is_question_word_for_indirect_only(token)
+    can_be_complementizer = might_be_complementizer(token)
+    if can_be_direct and wh_word_is_fronted(sentence, token) and not might_be_initial_relclause(token):
         return 'fronted'
     elif not embedded_under:
-        if can_be_insitu and not can_only_be_indirect and not can_be_relative_clause:
+        if can_be_direct and not can_be_complementizer:
             return 'insitu'
-    elif might_be_complementizer(token):
+    elif can_be_complementizer:
         if likely_to_head_indirect_question(embedded_under):
             return 'indirect'
-    elif can_be_insitu and not can_only_be_indirect and not can_be_relative_clause:
+    elif can_be_direct and not might_be_initial_relclause(token):
         return 'insitu' # or free relative?
 
 
