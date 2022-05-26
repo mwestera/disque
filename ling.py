@@ -169,7 +169,7 @@ def get_embedder_of(token):
         # Wat hij deed[ccomp] vroeg ik hem[obj] al eerder.
         # Not: Wat hij deed[ccomp] veroorzaakte een ongeluk[obj].
         # Il a lu ce qui lui plait[acl:relcl]?
-        utils.log(f'{token} has head.head {token.head.head} as embedder (via verblike obj/advl/ccomp)')
+        utils.log(f'"{token}" has head.head "{token.head.head}" as embedder (via verblike obj/advl/ccomp)')
         return token.head.head
 
     for tok in utils.spacy_get_path_to_root(token)[2:]:
@@ -205,13 +205,13 @@ def might_be_complementizer(token):
 
     """
     if any(child.dep_ == 'mark' for child in token.head.children if child != token):
-        utils.log(f'{token} is not complementizer, because there\'s another mark')
+        utils.log(f'"{token}" is not complementizer, because there\'s another mark')
         return False
     if any(tok.lemma_ in neutral_pronouns[language_map[token.lang_]] and tok.dep_ == 'obj' for tok in token.sent.root.children if tok != token):
-        utils.log(f'{token} is not complementizer, because there\'s already an impersonal pronoun as obj of root')
+        utils.log(f'"{token}" is not complementizer, because there\'s already an impersonal pronoun as obj of root')
         # Il te le [pron, obj of dira] dira quand ton frère? (even though misparsed)
         return False
-    utils.log(f'{token} might be complementizer, as there is no existing mark or impersonal pronoun as obj of root.')
+    utils.log(f'"{token}" might be complementizer, as there is no alternative mark or impersonal pronoun as obj of root.')
     return True
 
 
@@ -236,10 +236,10 @@ verbs_like_ask = {
 }
 
 verbs_like_know = {
-    'english': ['know', 'say', 'tell', 'understand', 'certain', 'sure'],
+    'english': ['know', 'say', 'tell', 'understand', 'certain', 'sure', 'see'],
     'french': ['dire'],
     'italian': [],
-    'dutch': ['weten', 'vertellen', 'zeggen', 'begrijpen', 'kennen', 'zeker'] + ['weet'],    # mis-lemmatized
+    'dutch': ['weten', 'vertellen', 'zeggen', 'begrijpen', 'kennen', 'zeker', 'zien', 'inzien'] + ['weet'],    # mis-lemmatized
 }
 
 verbs_like_see = {
@@ -258,7 +258,7 @@ verbs_like_want = {
 
 existential_quantifiers = {
     'english': ['anyone', 'someone'],
-    'french': ['il'],
+    'french': [],
     'italian': [],
     'dutch': ['iemand'],
 }
@@ -324,50 +324,73 @@ def corrected_lemma(token):
 
 def is_embedding_verb(token):
     language = language_map[token.doc.lang_]
-    if corrected_lemma(token) in verbs_like_know[language] + verbs_like_see[language] + verbs_like_wonder[language] + verbs_like_ask[language]:
-        utils.log(f'{token} is an embedding verb')
+    lemma = corrected_lemma(token)
+    if lemma in verbs_like_see[language] + verbs_like_know[language] + verbs_like_wonder[language] + verbs_like_ask[language]:
+        utils.log(f'Verb "{token}" is an embedding verb.')
         return True
-    utils.log(f'{token} is not an embedding verb')
+    utils.log(f'Verb "{token}" ({lemma}) is not an embedding verb.')
     return False
 
 
 def likely_to_head_indirect_question(token):
     language = language_map[token.doc.lang_]
-    inverted = has_subj_verb_inversion(token.sent)
+    # is_question = has_subj_verb_inversion(token.sent) # maybe french: if starts with est-ce?
+    is_question = token.sent.text.endswith('?')
     lemma = corrected_lemma(token)
-    if inverted:
-        if any((is_addressee(tok) or is_existential(tok) or is_impersonal(tok)) and is_subject_of(tok, token) for tok in token.sent):
-            if lemma in verbs_like_know[language] and is_present_tense(token):
-                utils.log(f'{token} likely to head indirect question, because addressee/existential/impersonal + present-tense know-like verb.')
-                return True
-            if lemma in verbs_like_see[language]:
-                utils.log(f'{token} likely to head indirect question, because addressee/existential/impersonal + see-like verb.')
-                return True
-        if any(is_existential(tok) and is_subject_of(tok, token) for tok in token.sent):
-            if lemma in verbs_like_wonder[language] and is_present_tense(token):
-                utils.log(f'{token} likely to head indirect question, because existential + present-tense wonder-like verb.')
-                return True
+    subjects = [tok for tok in token.sent if is_subject_of(tok, token)]
+
+    existential_subject = any(is_existential(tok) for tok in subjects)
+    impersonal_subject = any(is_impersonal(tok) for tok in subjects)
+    who_subject = any(is_like_who(tok) for tok in subjects)
+    speaker_subject = any(is_speaker(tok) for tok in subjects)
+    addressee_subject = any(is_addressee(tok) for tok in subjects)
+    present_tense = is_present_tense(token)
+
+    result = False
+
+    if lemma in verbs_like_know[language]:
+        if is_question and present_tense and (who_subject or addressee_subject or existential_subject or impersonal_subject):
+            utils.log(f'Structure resembles: Does anyone know? You know? Who knows? Does someone know? Does one know?...')
+            result = True
+        elif not is_question and speaker_subject and any(is_negation(tok) or tok.lemma_ in verbs_like_want[language] for tok in token.children) and is_present_tense(token):
+            utils.log(f'Structure resembles: I don\'t know / I want to know...')
+            result = True
+        else:
+            utils.log(f'Verb "{token}" is like "know", but no subject/tense/structure fit for indirect question.')
+
+    if lemma in verbs_like_see[language]:
+        if is_question and not present_tense and (who_subject or addressee_subject or existential_subject):
+            utils.log(f'Structure resembles: Did anyone see? Did you notice? Who saw? Did someone see? ...')
+            result = True
+        else:
+            utils.log(f'Verb "{token}" is like "see", but no subject/tense/structure fit for indirect question.')
+
+    if lemma in verbs_like_wonder[language]:
+        if not is_question and (speaker_subject or impersonal_subject) and is_present_tense(token):
+            utils.log(f'Structure resembles: I wonder/one wonders/makes you wonder...')
+            result = True
+        elif is_question and (existential_subject or impersonal_subject or addressee_subject) and is_present_tense(token):
+            utils.log(f'Structure resembles: Does anyone wonder? Does one wonder? Do you wonder?')
+            result = True
+        else:
+            utils.log(f'Verb "{token}" is like "wonder", but no subject/tense/structure fit for indirect question.')
+
+    if lemma in verbs_like_ask[language]:
+        utils.log(f'Verb "{token}" is like ask.')
+        if not is_question and (existential_subject or speaker_subject or impersonal_subject):
+            utils.log(f'Structure resembles: Someone asked / I asked / one asks')
+            result = True
+
+    if any(tok.pos_ == 'SCONJ' for tok in token.children if tok.i < token.i):
+        # Aangezien je merkte...
+        utils.log(f'Verb "{token}" preceded by SCONJ.')
+        result = False
+
+    if result:
+        utils.log(f'{token} ({token.lemma_}) likely to head indirect question.')
     else:
-        if any(is_impersonal(tok) and is_subject_of(tok, token) for tok in token.sent):
-            if lemma in verbs_like_wonder[language] and is_present_tense(token):
-                utils.log(f'{token} likely to head indirect question, because impersonal + present-tense wonder-like verb.')
-                return True
-        if any(is_like_who(tok) and is_subject_of(tok, token) for tok in token.sent):
-            if lemma in verbs_like_know[language] and is_present_tense(token):
-                utils.log(f'{token} likely to head indirect question, because who + present-tense know-like verb.')
-                return True
-        if any(is_speaker(tok) and is_subject_of(tok, token) for tok in token.sent):
-            if lemma in verbs_like_wonder[language] and is_present_tense(token):
-                utils.log(f'{token} likely to head indirect question, because speaker + present-tense wonder-like verb.')
-                return True
-            if lemma in verbs_like_know[language] and any(is_negation(tok) or tok.lemma_ in verbs_like_want[language] for tok in token.children) and is_present_tense(token):
-                utils.log(f'{token} likely to head indirect question, because speaker + negation + present-tense know-like verb.')
-                return True
-        if lemma in verbs_like_ask[language]:
-            utils.log(f'{token} likely to head indirect question, because non-present, ask-like verb.')
-            return True
-    utils.log(f'{token} ({token.lemma_}) unlikely to head indirect question because no positive cases matched.')
-    return False
+        utils.log(f'{token} ({token.lemma_}) unlikely to head indirect question.')
+    return result
 
 
 def is_subject_of(token, verb):
