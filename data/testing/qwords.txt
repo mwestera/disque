@@ -1,7 +1,7 @@
 # dutch
 Weet Jan wie[no] er zijn gekomen?
 Wie[fronted] dacht Jan dat er waren?    # or indirect?
-Je weet wie[no] er zijn gekomen?    # less likely reading: insitu
+Je weet wie[no] er zijn gekomen?    # less likely reading: indirect
 Hoorde je wie[indirect] er zijn gekomen?
 Merkte je gisteren wie[indirect] er zijn gekomen?
 Weet je waarom[indirect] Jan sliep?
