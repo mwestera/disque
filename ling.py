@@ -7,12 +7,12 @@ def has_negation(text, language):
     """
     Currently quite simplistic; could be made more syntactically aware   # TODO
     """
-    return utils.has_any_keyword(vocab.negation_keywords[language], text)
+    return utils.has_any_keyword(vocab.negations[language], text)
 
 
 sentence_pattern = r'[^.!?:;\n\t]+[?!.]+'
 wh_word_pattern = {
-    language: rf'\b{"|".join(vocab.wh_words[language] + vocab.wh_words_emb[language])}\b' for language in vocab.wh_words
+    language: rf'\b{"|".join(vocab.wh_words[language] + vocab.wh_words_only_embedded[language])}\b' for language in vocab.wh_words
 }
 
 def extract_potential_questions(text, language):
@@ -76,7 +76,7 @@ def is_potential_question_word(token):
     """
     language = utils.language_of(token)
     question = token.sent
-    if token.text.lower() not in vocab.wh_words[language] + vocab.wh_words_emb[language]:
+    if token.text.lower() not in vocab.wh_words[language] + vocab.wh_words_only_embedded[language]:
         return False
     # if token.text.lower() in wh_words_emb[language] and token.dep_ not in ['mark', 'cc']:
     #     ## cc/cconj is a misparse...
@@ -94,7 +94,7 @@ def is_potential_question_word(token):
 
 def is_question_word_for_indirect_only(token):
     language = utils.language_of(token)
-    if token.text.lower() in vocab.wh_words_emb[language]:
+    if token.text.lower() in vocab.wh_words_only_embedded[language]:
         utils.log(f'{token} is fit for indirect questions only.')
         return True
     return False
@@ -181,7 +181,7 @@ def is_speaker(token):
 
 def is_existential(token):
     language = utils.language_of(token)
-    return token.lemma_ in vocab.existential_quantifiers[language]
+    return token.lemma_ in vocab.personal_existentials[language]
 
 def is_impersonal(token):
     language = utils.language_of(token)
@@ -193,7 +193,7 @@ def is_like_who(token):
 
 def is_negation(token):
     language = utils.language_of(token)
-    return token.lemma_ in vocab.negation_keywords[language]
+    return token.lemma_ in vocab.negations[language]
 
 
 def corrected_lemma(token):
