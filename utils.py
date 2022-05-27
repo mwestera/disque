@@ -117,5 +117,5 @@ language_map = {
     'en': 'english',
 }
 
-def language_of(token):
+def language_of(token):  # also works on doc object...
     return language_map[token.doc.lang_]
