@@ -2,14 +2,6 @@ import re
 import utils
 import vocab
 
-
-def has_negation(text, language):
-    """
-    Currently quite simplistic; could be made more syntactically aware   # TODO
-    """
-    return utils.has_any_keyword(vocab.negations[language], text)
-
-
 sentence_pattern = r'[^.!?:;\n\t]+[?!.]+'
 wh_word_pattern = {
     language: rf'\b{"|".join(vocab.wh_words[language] + vocab.wh_words_only_embedded[language])}\b' for language in vocab.wh_words
@@ -191,9 +183,20 @@ def is_like_who(token):
     language = utils.language_of(token)
     return token.lemma_ in vocab.who_like[language]
 
+def is_negated(token):
+    return any(is_negation(tok) for tok in token.children)
+
 def is_negation(token):
+    # Beware of discrepancy with regex-based 'has_negation'...
     language = utils.language_of(token)
-    return token.lemma_ in vocab.negations[language]
+    if token.dep_ == 'neg' or 'neg' in token.morph.get('Polarity'):
+        return True
+    if token.lemma_ in vocab.negations[language]:
+        return True
+    return False
+
+def is_wanted(token):
+    return any(corrected_lemma(tok) in vocab.verbs_like_want[utils.language_of(token)] for tok in token.children)
 
 
 def corrected_lemma(token):
@@ -247,7 +250,7 @@ def likely_to_head_indirect_question(token):
         if is_question and present_tense and (who_subject or addressee_subject or existential_subject or impersonal_subject):
             utils.log(f'Structure resembles: Does anyone know? You know? Who knows? Does someone know? Does one know?...')
             result = True
-        elif not is_question and speaker_subject and any(is_negation(tok) or tok.lemma_ in vocab.verbs_like_want[language] for tok in token.children) and is_present_tense(token):
+        elif not is_question and speaker_subject and (is_negated(token) or is_wanted(token)) and is_present_tense(token):
             utils.log(f'Structure resembles: I don\'t know / I want to know...')
             result = True
         else:
@@ -415,3 +418,37 @@ def classify_whword(token):
     return 'no'
 
 
+
+def has_negation(text, language=None):
+    if not isinstance(text, str): # assume text is a doc
+        language = utils.language_of(text)
+        text = text.text
+    return utils.has_any_keyword(vocab.negations[language], text)
+
+
+def has_levelers(text, language=None):
+    if not isinstance(text, str): # assume text is a doc
+        language = utils.language_of(text)
+        text = text.text
+    return utils.has_any_keyword(vocab.levelers[language], text)
+
+
+def has_conjunctions(text, language=None):
+    if not isinstance(text, str): # assume text is a doc
+        language = utils.language_of(text)
+        text = text.text
+    return utils.has_any_keyword(vocab.conjunctions[language], text)
+
+
+def has_references_to_other(text, language=None):
+    if not isinstance(text, str): # assume text is a doc
+        language = utils.language_of(text)
+        text = text.text
+    return utils.has_any_keyword(vocab.pronouns_other[language], text)
+
+
+def has_references_to_group(text, language=None):
+    if not isinstance(text, str): # assume text is a doc
+        language = utils.language_of(text)
+        text = text.text
+    return utils.has_any_keyword(vocab.pronouns_group[language], text)

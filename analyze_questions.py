@@ -3,7 +3,7 @@ import pandas as pd
 import ling
 import utils
 import config
-
+import tqdm
 
 def main():
     tweets = utils.load_tweets(config.path_to_analyzed_tweets, max_num=config.max_num_rows)
@@ -48,26 +48,33 @@ def write_questions_to_csv(questions):
 
 
 def compute_features(questions):
-    questions['has_negation'] = [ling.has_negation(text, language) for text, language in
-                                          zip(questions['text'], questions['language'])]
-    questions['spacy'] = [utils.spacy_single(text, language) for text, language in
-                          zip(questions['text'], questions['language'])]
-    questions['question_mark'] = [text.strip('!').endswith('?') for text in questions['text']]
+    spacy_parses = []
+    for _, text, language in tqdm.tqdm(questions[['text', 'language']].itertuples(), total=len(questions)):
+        spacy_parses.append(utils.spacy_single(text, language))
+    questions['spacy'] = spacy_parses
+
+    questions['has_negation'] = [ling.has_negation(doc) for doc in questions['spacy']]
+    questions['has_ref_to_other'] = [ling.has_references_to_other(doc) for doc in questions['spacy']]
+    questions['has_ref_to_group'] = [ling.has_references_to_group(doc) for doc in questions['spacy']]
+    questions['has_conjunction'] = [ling.has_conjunctions(doc) for doc in questions['spacy']]
+    questions['has_leveler'] = [ling.has_levelers(doc) for doc in questions['spacy']]
+
+    questions['has_question_mark'] = [text.strip('!').endswith('?') for text in questions['text']]
+    questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(doc) for doc in questions['spacy']]
 
     questions['qwords'] = ['|'.join(tok.text for tok in doc if tok._.qtype != 'no') for doc in questions['spacy']]
     questions['qtypes'] = [utils.qtypes_to_string(doc) for doc in questions['spacy']]
-
-    questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(question) for question in questions['spacy']]
-
     # questions['qtype'] = # TODO  whtype, decl, risdecl etc.., tag question?
-
-    ... # More features to be added
 
 
 def remove_nonquestions(questions):
+    """
+    Remove any questions that neither end with a question mark, nor have a question-like wh-word (could be indirect
+    question, i.e., lacking a question mark).
+    """
     questions['has_qwords'] = [bool(qwords) for qwords in questions['qwords']]
-    questions.drop(questions.loc[~questions['question_mark'] & ~questions['has_qwords']].index, axis=0, inplace=True)
-    del questions['has_qwords']
+    questions.drop(questions.loc[~questions['has_question_mark'] & ~questions['has_qwords']].index, axis=0, inplace=True)
+    del questions['has_qwords'] # remove this temporary column
 
 
 def explore_questions(questions):
@@ -77,8 +84,9 @@ def explore_questions(questions):
     print('\ncolumns and data types:')
     print(questions.dtypes)
 
-    print('\nProportion of questions that has a negation:')
-    print(questions.groupby('dataset')['has_negation'].mean())
+    print('\nProportion of questions that has various features:')
+    features_to_print = ['has_negation', 'has_ref_to_other', 'has_ref_to_group', 'has_conjunction', 'has_leveler', 'has_question_mark', 'subj_verb_inversion']
+    print(questions.groupby('dataset')[features_to_print].mean().to_string())
     print()
 
 
