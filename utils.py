@@ -95,7 +95,7 @@ def spacy_get_path_to_root(node):
 def qtypes_to_string(doc):
     qtypes = []
     for tok in doc:
-        if tok._.qtype:
+        if tok._.qtype != 'no':
             qtypes.append(f'{tok.text}-{tok._.qtype}')
     return '|'.join(qtypes)
 
@@ -108,3 +108,14 @@ def print_parse(doc):
 def log(s):
     if VERBOSE:
         print('  >', s)
+
+
+language_map = {
+    'nl': 'dutch',
+    'fr': 'french',
+    'it': 'italian',
+    'en': 'english',
+}
+
+def language_of(token):
+    return language_map[token.doc.lang_]

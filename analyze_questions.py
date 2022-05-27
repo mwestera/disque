@@ -7,26 +7,28 @@ import config
 
 def main():
     tweets = utils.load_tweets(config.path_to_analyzed_tweets, max_num=config.max_num_rows)
-    questions = extract_questions(tweets)
+    questions = extract_potential_questions(tweets)
 
     compute_features(questions)
 
+    remove_nonquestions(questions)
     write_questions_to_csv(questions)
 
     explore_questions(questions)
 
 
-def extract_questions(tweets):
+def extract_potential_questions(tweets):
     tweets = tweets.loc[tweets['has_question']]
     keep_keys = ['created_at','favorite_count','retweet_count','dataset','language']
     new_rows = []
     for i, row in tweets.iterrows():
-        questions = ling.extract_questions(row['full_text'])
-        for j, question in enumerate(questions):
+        potential_questions = ling.extract_potential_questions(row['full_text'], row['language'])
+        for j, (question, span) in enumerate(potential_questions):
             new_row = {(key if key in keep_keys else 'tweet_' + key): value for key, value in row.items()}
 
             new_row['id'] = 'Q' + str(row['id']) + '.' + str(j)
             new_row['text'] = utils.strip_mentions(question)
+            new_row['span'] = (span[0], span[1])
 
             if not config.include_full_tweet_text_in_analyzed_questions_csv:
                 del new_row['tweet_full_text']
@@ -50,8 +52,9 @@ def compute_features(questions):
                                           zip(questions['text'], questions['language'])]
     questions['spacy'] = [utils.spacy_single(text, language) for text, language in
                           zip(questions['text'], questions['language'])]
+    questions['question_mark'] = [text.strip('!').endswith('?') for text in questions['text']]
 
-    questions['qwords'] = ['|'.join(tok.text for tok in doc if tok._.qtype) for doc in questions['spacy']]
+    questions['qwords'] = ['|'.join(tok.text for tok in doc if tok._.qtype != 'no') for doc in questions['spacy']]
     questions['qtypes'] = [utils.qtypes_to_string(doc) for doc in questions['spacy']]
 
     questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(question) for question in questions['spacy']]
@@ -59,6 +62,12 @@ def compute_features(questions):
     # questions['qtype'] = # TODO  whtype, decl, risdecl etc.., tag question?
 
     ... # More features to be added
+
+
+def remove_nonquestions(questions):
+    questions['has_qwords'] = [bool(qwords) for qwords in questions['qwords']]
+    questions.drop(questions.loc[~questions['question_mark'] & ~questions['has_qwords']].index, axis=0, inplace=True)
+    del questions['has_qwords']
 
 
 def explore_questions(questions):
