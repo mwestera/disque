@@ -28,7 +28,7 @@ pronouns_group = {
     'dutch': ['wij', 'jullie', 'zij', 'ze', 'men', 'ons', 'onze'],
 }
 
-conjunctions = {
+conjunctions = {    # TODO What about 'but', 'however', etc? And subordinating conjunctions? Don't those count?
     'english': ['and', 'or'],
     'french': ['et', 'ou'],
     'italian': ['e', 'o', 'oppure', 'o forse'],
@@ -37,14 +37,14 @@ conjunctions = {
 
 levelers = {
     'english': ['everyone', 'always', 'everything', 'never', 'no one', 'nobody', 'nothing'],
-    'french': ['tout le monde', 'toujours', 'tout', 'ne jamais', 'ne rien', 'ne personne'],
+    'french': ['tout le monde', 'toujours', 'tout', 'jamais', 'rien', 'personne'], # TODO Any reason to check for "ne ..." here?
     'italian': ['tutti', 'sempre', 'tutto', 'mai', 'nessuno', 'niente'],
     'dutch': ['iedereen', 'altijd', 'alles', 'nooit', 'niemand', 'niets', 'niks'],
 }
 
-negations = {   # TODO shouldn't we include negative quantifiers here?
+negations = {
     'english': ['not', 'n\'t', 'no'],
-    'french': ['ne pas', 'n\' pas', 'non'],
+    'french': ['non', 'pas'],  # TODO Is there any real reason to check for the "ne ..." prefix too?
     'italian': ['no', 'non'],
     'dutch': ['niet', 'geen'],
 }
