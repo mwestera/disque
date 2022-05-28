@@ -42,7 +42,7 @@ def process_tags(tagged_sentence):
     """
     token_start_to_tag = {}
     char_offset = 0
-    for match in re.finditer(r'\b(\w+)(\[(\w+)])', tagged_sentence):
+    for match in re.finditer(r"\b([\w']+)(\[(\w+)])", tagged_sentence):
         token_start, token_end = match.span(1)
         tag_start, tag_end = match.span(2)
         tag = match.group(3)
