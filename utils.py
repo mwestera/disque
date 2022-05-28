@@ -53,14 +53,14 @@ def load_tweets(path, max_num=None):
 
 
 def has_any_keyword(keywords, text):
-    pattern = regex_for_keyword_list(tuple(keywords))  # the tuple is unfortunate...
+    pattern = regex_for_keyword_list(*keywords)
     if pattern.search(text):
         return True
     return False
 
 
 @functools.lru_cache()
-def regex_for_keyword_list(words):
+def regex_for_keyword_list(*words):
     return re.compile('|'.join(rf'\b{key}\b' for key in words), flags=re.I)
 
 
