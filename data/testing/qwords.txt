@@ -5,16 +5,17 @@ Je weet wie[no] er zijn gekomen?    # less likely reading: indirect
 Hoorde je wie[indirect] er zijn gekomen?
 Merkte je gisteren wie[indirect] er zijn gekomen?
 Weet je waarom[indirect] Jan sliep?
-Wat[no] een rommel is dat!?
+Maar wat[no] een rommel is dat!?
+Maar wat[fronted] is dat voor rommel?
 Aangezien je merkte wie[no] je had gezien?  # less likely reading: indirect
-Je merkte dat je wie[insitu] had gezien?
+Maar je merkte dat je wie[insitu] had gezien?
 Aangezien je merkte dat je wie[insitu] had gezien?
 Wie[fronted] eet jij op?
 Wie[fronted] heb jij opgegeten?
 Weet iemand of[indirect] het vaccin giftig is?
 Weet ik of[no] het vaccin giftig is?
 Ik vraag me af of[indirect] het vaccin giftig is.
-Vraagt iemand of[no] het vaccin giftig is?
+En vraagt iemand of[no] het vaccin giftig is?
 Vraagt iemand zich af of[indirect] het vaccin giftig is?
 Of[no] denkt hij soms dat iets niet bestaat als je je hoofd in het zand steekt?
 Waar[fronted] wacht men in Den Haag nog op?
@@ -26,8 +27,11 @@ Wat[fronted] doodde jou dat stom was?
 Ik haatte wat[no] hij deed.
 Wat[no] er gebeurde was een wonder!
 Wat[fronted] gebeurde er dat een wonder was?
+En wat[fronted] dacht jij dat er gebeurde?
 Benieuwd hoeveel[indirect] daarvan zelfmoorden waren.
 Blijft mij een raadsel waarom[indirect] het juist de studenten zijn die dit moeten realiseren.
+Gek hoe[no] de politiek niets doet.   # Could be indirect question, but not reliably so? The indirect question, if any, is not the hoe-question anyway.
+
 
 # french
 Il a dit pourquoi[no] il l'a fait?   #    (ingebedde vraag in ja/nee vraag)
@@ -42,6 +46,7 @@ Il te le dira quand[insitu] ton frère?      #   (in situ vraag met rechtsdisloc
 Il a vu qui[insitu]?
 Il a vu l\'homme qui[no] viendra?
 Il a lu ce qui[no] lui plait?
+Qu'[fronted]est-ce que[no] c'est?    # Not sure if this is the most sensible classification for qu'est-ce-que type questions...
 
 # english
 Do you know if[indirect] I'm asleep?
@@ -49,3 +54,8 @@ Do you know whether[indirect] I'm asleep?
 Do you arrive if[no] you want?
 Are you coming if[no] you want?
 Are you there whether[no] or not you can?
+Crazy how[no] they don't say anything, right?   # Could be indirect question, but not reliable so?
+Crazy how[no] they don't say anything, isn't it?
+And you know why[no], right?
+And you know why[no]?   # might be indirect instead?
+And do you know why[indirect]?
