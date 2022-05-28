@@ -67,6 +67,10 @@ wh_words_only_embedded = {
     'dutch': ['of'],
 }
 
+wh_words_all = {
+    language: wh_words[language] + wh_words_only_embedded[language] for language in wh_words
+}
+
 who_like = {
     'english': ['who'],
     'french': ['qui'],
@@ -110,6 +114,13 @@ nouns_like_question = {
     'dutch': ['vraag', 'mysterie', 'raadsel']
 }
 
+# adjectives_like_strange = {       # Not currently used; not very reliable as cues for indirect questions, and biased.
+#     'english': ['weird', 'strange', 'suspicious'],
+#     'french': ['bizarre', 'étrange', 'suspect', 'suspecte'],
+#     'italian': ['strano', 'sospettoso', 'pazza', 'strana', 'sospettosa'],
+#     'dutch': ['gek', 'raar', 'vreemd', 'verdacht'],
+# }
+
 verbs_like_ask = {
     'english': ['ask', 'request'],
     'french': ['demander'] + ['demande'],
@@ -138,9 +149,21 @@ verbs_like_want = {
     'dutch': ['willen', 'wensen'],
 }
 
+all_embedders = {
+    language: verbs_like_see[language] + verbs_like_know[language] + verbs_like_wonder[language] + verbs_like_ask[language] + nouns_like_question[language]
+    for language in verbs_like_see
+}
+
 perfect_auxiliaries = {
     'english': ['have'],
     'french': ['être', 'avoir'],
     'italian': ['avere', 'essere'],
     'dutch': ['hebben', 'zijn'],
+}
+
+tag_questions = {
+    'english': ['right'],
+    'italian': ['vero', 'giusto', 'no', 'eh'],
+    'french': ['non'],
+    'dutch': ['toch', 'niet waar'],
 }
