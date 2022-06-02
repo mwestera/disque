@@ -114,13 +114,6 @@ nouns_like_question = {
     'dutch': ['vraag', 'mysterie', 'raadsel']
 }
 
-# adjectives_like_strange = {       # Not currently used; not very reliable as cues for indirect questions, and biased.
-#     'english': ['weird', 'strange', 'suspicious'],
-#     'french': ['bizarre', 'étrange', 'suspect', 'suspecte'],
-#     'italian': ['strano', 'sospettoso', 'pazza', 'strana', 'sospettosa'],
-#     'dutch': ['gek', 'raar', 'vreemd', 'verdacht'],
-# }
-
 verbs_like_ask = {
     'english': ['ask', 'request'],
     'french': ['demander'] + ['demande'],
@@ -149,8 +142,15 @@ verbs_like_want = {
     'dutch': ['willen', 'wensen'],
 }
 
+some_other_embedders = { # not reliable predictors of indirect questions, but still possible embedders
+    'english': ['crazy', 'weird', 'strange', 'suspicious', 'funny'],
+    'french': ['bizarre', 'étrange', 'suspect', 'suspecte'],
+    'italian': ['strano', 'sospettoso', 'pazza', 'strana', 'sospettosa'],
+    'dutch': ['gek', 'raar', 'vreemd', 'verdacht', 'grappig'],
+}
+
 all_embedders = {
-    language: verbs_like_see[language] + verbs_like_know[language] + verbs_like_wonder[language] + verbs_like_ask[language] + nouns_like_question[language]
+    language: verbs_like_see[language] + verbs_like_know[language] + verbs_like_wonder[language] + verbs_like_ask[language] + nouns_like_question[language] + some_other_embedders[language]
     for language in verbs_like_see
 }
 
