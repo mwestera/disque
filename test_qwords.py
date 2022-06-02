@@ -19,6 +19,12 @@ def main():
                 continue
 
             sentence = line.split('#')[0].strip()
+            if '|' in sentence:
+                sentence, structure = sentence.split('|')
+                sentence = sentence.strip()
+                structure = structure.strip()
+            else:
+                structure = None
             sentence_untagged, token_start_to_tag = process_tags(sentence)
             utils.VERBOSE = False
             parsed_sentence = utils.spacy_single(sentence_untagged, current_language)
@@ -27,11 +33,17 @@ def main():
             for token in parsed_sentence:
                 tag = token_start_to_tag.get(token.idx, 'no')
                 if token._.qtype != tag:
-                    print(f'ERROR:', parsed_sentence.text[:token.idx] + '[' + token.text + ']' + parsed_sentence.text[token.idx + len(token.text):])
-                    print('  Predicted:', token._.qtype, ' | Target:', tag)
-                    ling.classify_whword(token)
+                    if not error:
+                        print('>>>', sentence)
+                    print('ERROR (q-word): Predicted:', token._.qtype, ' | True:', tag)
                     error = True
+            if structure and parsed_sentence._.qtype['structure'] != structure:
+                if not error:
+                    print('>>>', sentence)
+                print(f'ERROR (structure): Predicted:', parsed_sentence._.qtype['structure'], ' | True:', structure)
+                error = True
             if error:
+                utils.spacy_single(sentence_untagged, current_language)
                 utils.print_parse(parsed_sentence)
                 print('-------------------')
 

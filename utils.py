@@ -3,18 +3,61 @@ import pandas as pd
 import re
 import functools
 import spacy
-from spacy.tokens import Token
+from spacy.tokens import Token, Doc, Span
 from spacy.language import Language
 import ling
 
 VERBOSE = False
 
 Token.set_extension('qtype', default=None)
+Token.set_extension('is_fronted', default=False)
+Span.set_extension('has_inversion', default=None)
+Span.set_extension('has_tag_question', default=None)
+Span.set_extension('ends_with_question_mark', default=None)
+Token.set_extension('corrected_lemma', default=None)
+Span.set_extension('qtype', default=None)
+
+
+@Language.component("inversion_detector")
+def inversion_detector(doc):
+    for sent in doc.sents:
+        sent._.has_inversion = ling.has_subj_verb_inversion(doc)
+    return doc
+
+@Language.component("tagquestion_detector")
+def tag_detector(doc):
+    for sent in doc.sents:
+        sent._.has_tag_question = ling.ends_with_tag_question(sent)
+    return doc
+
+@Language.component("lemma_corrector")
+def lemma_corrector(doc):
+    for tok in doc:
+        tok._.corrected_lemma = ling.corrected_lemma(tok)
+    return doc
+
+@Language.component("frontedness_detector")
+def frontedness_detector(doc):
+    for sent in doc.sents:
+        ling.mark_tokens_as_fronted(sent)
+    return doc
+
+@Language.component("question_mark_detector")
+def question_mark_detector(doc):
+    for sent in doc.sents:
+        sent._.ends_with_question_mark = ling.ends_with_question_mark(sent)
+    return doc
 
 @Language.component("qword_tagger")
 def qword_tagger(doc):
     for tok in doc:
         tok._.qtype = ling.classify_whword(tok)
+    return doc
+
+@Language.component("question_classifier")
+def question_classifier(doc):
+    for sent in doc.sents:
+        sent._.qtype = ling.classify_question(sent)
     return doc
 
 
@@ -67,13 +110,19 @@ def regex_for_keyword_list(*words):
 @functools.lru_cache()
 def get_nlp_model(language):
     nlp = spacy.load(spacy_model_names[language])
+    nlp.add_pipe("lemma_corrector")
+    nlp.add_pipe("question_mark_detector")
+    nlp.add_pipe("frontedness_detector")
+    nlp.add_pipe("inversion_detector")
+    nlp.add_pipe("tagquestion_detector")
     nlp.add_pipe("qword_tagger")
+    nlp.add_pipe("question_classifier")
     ling.language = language
     return nlp
 
 
 def spacy_single(s, language):
-    return next(get_nlp_model(language)(s).sents)
+    return list(get_nlp_model(language)(s).sents)[-1]
 
 
 def strip_mentions(text):
@@ -102,7 +151,8 @@ def qtypes_to_string(doc):
 
 def print_parse(doc):
     print('Full parse for:', doc)
-    print(*[f'  {tok} ({tok.lemma_}, {tok.pos_}, {tok.dep_} of {tok.head}) [{tok.morph}] <{tok._.qtype}>' for tok in doc], sep='\n')
+    print(*[f'  {tok} ({tok._.corrected_lemma}, {tok.pos_}, {tok.dep_} of {tok.head}) [{tok.morph}] <{tok._.qtype}>' for tok in doc], sep='\n')
+    print('Question categorization:', doc[0].sent._.qtype)
 
 
 def log(s):

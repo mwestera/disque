@@ -28,7 +28,7 @@ def extract_potential_questions(tweets):
 
             new_row['id'] = 'Q' + str(row['id']) + '.' + str(j)
             new_row['text'] = utils.strip_mentions(question)
-            new_row['span'] = (span[0], span[1])
+            new_row['offset'] = span[0]
 
             if not config.include_full_tweet_text_in_analyzed_questions_csv:
                 del new_row['tweet_full_text']
@@ -53,18 +53,22 @@ def compute_features(questions):
         spacy_parses.append(utils.spacy_single(text, language))
     questions['spacy'] = spacy_parses
 
-    questions['has_negation'] = [ling.has_negation(doc) for doc in questions['spacy']]
-    questions['has_ref_to_other'] = [ling.has_references_to_other(doc) for doc in questions['spacy']]
-    questions['has_ref_to_group'] = [ling.has_references_to_group(doc) for doc in questions['spacy']]
-    questions['has_conjunction'] = [ling.has_conjunctions(doc) for doc in questions['spacy']]
-    questions['has_leveler'] = [ling.has_levelers(doc) for doc in questions['spacy']]
+    questions['has_negation'] = [ling.has_negation(sent) for sent in questions['spacy']]
+    questions['has_ref_to_other'] = [ling.has_references_to_other(sent) for sent in questions['spacy']]
+    questions['has_ref_to_group'] = [ling.has_references_to_group(sent) for sent in questions['spacy']]
+    questions['has_conjunction'] = [ling.has_conjunctions(sent) for sent in questions['spacy']]
+    questions['has_leveler'] = [ling.has_levelers(sent) for sent in questions['spacy']]
 
     questions['has_question_mark'] = [text.strip('!').endswith('?') for text in questions['text']]
-    questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(doc) for doc in questions['spacy']]
+    questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(sent) for sent in questions['spacy']]
 
-    questions['qwords'] = ['|'.join(tok.text for tok in doc if tok._.qtype != 'no') for doc in questions['spacy']]
-    questions['qtypes'] = [utils.qtypes_to_string(doc) for doc in questions['spacy']]
-    # questions['qtype'] = # TODO  whtype, decl, risdecl etc.., tag question?
+    questions['structure'] = [sent._.qtype['structure'] for sent in questions['spacy']]
+    questions['use'] = [sent._.qtype['use'] for sent in questions['spacy']]
+    questions['qwords_literal'] = ['|'.join(sent._.qtype['wh_words_literal']) for sent in questions['spacy']]
+    questions['qwords_functional'] = ['|'.join(sent._.qtype['wh_words_functional']) for sent in questions['spacy']]
+
+    # questions['qwords'] = ['|'.join(tok.text for tok in sent if tok._.qtype != 'no') for sent in questions['spacy']]
+    # questions['qword_types'] = [utils.qtypes_to_string(doc) for doc in questions['spacy']]
 
 
 def remove_nonquestions(questions):
@@ -72,9 +76,8 @@ def remove_nonquestions(questions):
     Remove any questions that neither end with a question mark, nor have a question-like wh-word (could be indirect
     question, i.e., lacking a question mark).
     """
-    questions['has_qwords'] = [bool(qwords) for qwords in questions['qwords']]
-    questions.drop(questions.loc[~questions['has_question_mark'] & ~questions['has_qwords']].index, axis=0, inplace=True)
-    del questions['has_qwords'] # remove this temporary column
+    is_question = [qtype == 'no' for qtype in questions['use']]
+    questions.drop(questions.loc[is_question].index, axis=0, inplace=True)
 
 
 def explore_questions(questions):

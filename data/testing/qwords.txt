@@ -1,37 +1,42 @@
 # dutch
-Weet Jan wie[no] er zijn gekomen?
-Wie[fronted] dacht Jan dat er waren?    # or indirect?
-Je weet wie[no] er zijn gekomen?    # less likely reading: indirect
-Hoorde je wie[indirect] er zijn gekomen?
-Merkte je gisteren wie[indirect] er zijn gekomen?
-Weet je waarom[indirect] Jan sliep?
-Maar wat[no] een rommel is dat!?
-Maar wat[fronted] is dat voor rommel?
-Aangezien je merkte wie[no] je had gezien?  # less likely reading: indirect
-Maar je merkte dat je wie[insitu] had gezien?
-Aangezien je merkte dat je wie[insitu] had gezien?
-Wie[fronted] eet jij op?
-Wie[fronted] heb jij opgegeten?
-Weet iemand of[indirect] het vaccin giftig is?
-Weet ik of[no] het vaccin giftig is?
-Ik vraag me af of[indirect] het vaccin giftig is.
-En vraagt iemand of[no] het vaccin giftig is?
-Vraagt iemand zich af of[indirect] het vaccin giftig is?
-Of[no] denkt hij soms dat iets niet bestaat als je je hoofd in het zand steekt?
-Waar[fronted] wacht men in Den Haag nog op?
-Wie[fronted] weet waarom[indirect]?
-Wat[no] hij deed was stom.
-Wat[no] hij deed veroorzaakte een storm.
-Wat[no] jou doodde was stom.
-Wat[fronted] doodde jou dat stom was?
-Ik haatte wat[no] hij deed.
-Wat[no] er gebeurde was een wonder!
-Wat[fronted] gebeurde er dat een wonder was?
-En wat[fronted] dacht jij dat er gebeurde?
-Benieuwd hoeveel[indirect] daarvan zelfmoorden waren.
-Blijft mij een raadsel waarom[indirect] het juist de studenten zijn die dit moeten realiseren.
-Gek hoe[no] de politiek niets doet.   # Could be indirect question, but not reliably so? The indirect question, if any, is not the hoe-question anyway.
-
+# Each line has a sentence, where wh-words can be tagged in square brackets like "who[no/insitu/fronted/indirect]"
+# and each question as a whole can be categorized by appending "| polar/wh/insitu/elliptic/decl/risingdecl"
+Weet Jan wie[no] er zijn gekomen? | polar
+Wie[fronted] dacht Jan dat er waren? | wh   # or indirect?
+Je weet wie[no] er zijn gekomen? | risingdecl   # less likely reading: indirect
+Hoorde je wie[indirect] er zijn gekomen? | polar
+Merkte je gisteren wie[indirect] er zijn gekomen? | polar
+Weet je waarom[indirect] Jan sliep? | polar
+Maar wat[no] een rommel is dat!?    # not sure what category this should be; exclamative, not a question?
+Maar wat[fronted] is dat voor rommel? | wh
+Aangezien je merkte wie[no] je had gezien? | elliptic  # less likely reading: indirect
+Maar je merkte dat je wie[insitu] had gezien? | insitu
+Aangezien je merkte dat je wie[insitu] had gezien? | insitu
+Wie[fronted] eet jij op? | wh
+Wie[fronted] heb jij opgegeten? | wh
+Weet iemand of[indirect] het vaccin giftig is? | polar
+Weet ik of[no] het vaccin giftig is? | polar
+Ik vraag me af of[indirect] het vaccin giftig is. | decl
+En vraagt iemand of[no] het vaccin giftig is? | polar
+Vraagt iemand zich af of[indirect] het vaccin giftig is? | polar
+Of[no] denkt hij soms dat iets niet bestaat als je je hoofd in het zand steekt? | polar
+Waar[fronted] wacht men in Den Haag nog op? | wh
+Wie[fronted] weet waarom[indirect]? | wh
+Wat[no] hij deed was stom. | decl
+Wat[no] hij deed veroorzaakte een storm. | decl
+Wat[no] jou doodde was stom. | decl
+Wat[fronted] doodde jou dat stom was? | wh
+Ik haatte wat[no] hij deed. | decl
+Wat[no] er gebeurde was een wonder! | decl
+Wat[fronted] gebeurde er dat een wonder was? | wh
+En wat[fronted] dacht jij dat er gebeurde? | wh
+Benieuwd hoeveel[indirect] daarvan zelfmoorden waren. | decl
+Blijft mij een raadsel waarom[indirect] het juist de studenten zijn die dit moeten realiseren. | decl
+Gek hoe[no] de politiek niets doet. | decl   # Could be indirect question, but not reliably so? The indirect question, if any, is not the hoe-question anyway.
+Als ik een onderbroek koop bij de HEMA wat[fronted] kost dat dan? | wh  # subject misparsed, so inversion not detected...
+Als ik een onderbroek koop bij de HEMA wie[fronted] draagt hem dan? | wh  # parsed as two separate sentences, but ok...
+Medicijnen die je beter maken? | elliptic
+Of vaccines die je beschermen? | elliptic
 
 # french
 Il a dit pourquoi[no] il l'a fait?   #    (ingebedde vraag in ja/nee vraag)
@@ -46,7 +51,7 @@ Il te le dira quand[insitu] ton frère?      #   (in situ vraag met rechtsdisloc
 Il a vu qui[insitu]?
 Il a vu l\'homme qui[no] viendra?
 Il a lu ce qui[no] lui plait?
-Qu'[fronted]est-ce que[no] c'est?    # Not sure if this is the most sensible classification for qu'est-ce-que type questions...
+Qu'[fronted]est-ce que[no] c'est?
 
 # english
 Do you know if[indirect] I'm asleep?
@@ -56,6 +61,7 @@ Are you coming if[no] you want?
 Are you there whether[no] or not you can?
 Crazy how[no] they don't say anything, right?   # Could be indirect question, but not reliable so?
 Crazy how[no] they don't say anything, isn't it?
+It's crazy how[no] they don't say anything, right?
 And you know why[no], right?
 And you know why[no]?   # might be indirect instead?
 And do you know why[indirect]?
