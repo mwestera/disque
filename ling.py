@@ -516,7 +516,7 @@ def classify_question(sent):
         structure = 'decl'
     if indirect:
         use = 'indirect'
-    elif structure:
+    elif structure != 'decl':
         use = 'direct'
     else:
         use = 'no'
