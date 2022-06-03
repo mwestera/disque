@@ -59,7 +59,7 @@ def has_subj_verb_inversion(sentence):
     verb, subject = None, None
     finite_verbs = [tok for tok in sentence if tok.pos_ in verblike_pos_tags and 'Fin' in tok.morph.get('VerbForm')]
     for finite_verb in finite_verbs:
-        if finite_verb.dep_ in ['acl:relcl', 'ccomp'] or (finite_verb.dep_ == 'aux' and finite_verb.head.dep_ in ['acl:relcl', 'ccomp']):
+        if finite_verb.dep_ in ['acl:relcl', 'ccomp'] or (finite_verb.dep_ in ['aux', 'aux:tense'] and finite_verb.head.dep_ in ['acl:relcl', 'ccomp']):
             # Subordinated clauses
             continue
         if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and tok.i < finite_verb.i and (tok.head == finite_verb) for tok in sentence):
@@ -161,7 +161,7 @@ def get_complementizer_of(token):
         utils.log(f'"{token}" has head "{token.head.head}" as embedder (via nummod of parataxis)')
         return token.head.head
     elif token.head.dep_ == 'ROOT' and not is_embedder(token.head):
-        aux = [tok for tok in token.head.children if tok.dep_ == 'aux' and is_embedder(tok)]
+        aux = [tok for tok in token.head.children if tok.dep_ in ['aux', 'aux:tense'] and is_embedder(tok)]
         if aux:
             # Misparse: Hoorde[AUX] je wie er zijn gekomen[ROOT]? (with dutch model large only)
             utils.log(f'"{token}" has head "{aux[0]}" as embedder (aux/root misparse)')
@@ -375,7 +375,7 @@ def is_subject_of(token, verb):
     if verb.dep_ == 'parataxis' and token.i == verb.i + 1 and token.dep_ in subjectlike_dep_tags:
         # weird parataxis misparse  Hoorde[parataxis] je[nsubj of gekomen] wie er zijn gekomen?
         return True
-    if token.head == verb or (verb.dep_ == 'aux' and token.head == verb.head):
+    if token.head == verb or (verb.dep_ in ['aux', 'aux:tense'] and token.head == verb.head):
         if token.dep_ in subjectlike_dep_tags:
             # Do[aux of know] you[subj of know] know?
             return True
