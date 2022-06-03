@@ -60,7 +60,7 @@ def compute_features(questions):
     questions['has_leveler'] = [ling.has_levelers(sent) for sent in questions['spacy']]
 
     questions['has_question_mark'] = [text.strip('!').endswith('?') for text in questions['text']]
-    questions['subj_verb_inversion'] = [ling.has_subj_verb_inversion(sent) for sent in questions['spacy']]
+    questions['subj_verb_inversion'] = [sent._.has_inversion for sent in questions['spacy']]
 
     questions['structure'] = [sent._.qtype['structure'] for sent in questions['spacy']]
     questions['use'] = [sent._.qtype['use'] for sent in questions['spacy']]
@@ -93,6 +93,8 @@ def explore_questions(questions):
     print()
     print(questions.groupby(['dataset', 'structure', 'use'])['id'].count().to_string())
     print()
+    print(questions.groupby(['dataset', 'qwords_functional'])['id'].count().sort_values(key=lambda x: -x).head(10).to_string())
+    print('          ... (showing only top 10)')
 
 
 
