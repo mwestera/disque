@@ -91,6 +91,8 @@ def explore_questions(questions):
     features_to_print = ['has_negation', 'has_ref_to_other', 'has_ref_to_group', 'has_conjunction', 'has_leveler', 'has_question_mark', 'subj_verb_inversion']
     print(questions.groupby('dataset')[features_to_print].mean().to_string())
     print()
+    print(questions.groupby(['dataset', 'structure', 'use'])['id'].count().to_string())
+    print()
 
 
 
