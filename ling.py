@@ -496,9 +496,9 @@ def classify_whword(token):
 
 
 def classify_question(sent):
-    fronted = [tok.text for tok in sent if tok._.qtype == 'fronted']
-    insitu = [tok.text for tok in sent if tok._.qtype == 'insitu']
-    indirect = tuple(tok.text for tok in sent if tok._.qtype == 'indirect')
+    fronted = [tok.text.lower() for tok in sent if tok._.qtype == 'fronted']
+    insitu = [tok.text.lower() for tok in sent if tok._.qtype == 'insitu']
+    indirect = tuple(tok.text.lower() for tok in sent if tok._.qtype == 'indirect')
     if fronted:
         structure = 'wh'
     elif insitu:
