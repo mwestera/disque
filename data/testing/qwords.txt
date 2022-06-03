@@ -39,29 +39,29 @@ Medicijnen die je beter maken? | elliptic
 Of vaccines die je beschermen? | elliptic
 
 # french
-Il a dit pourquoi[no] il l'a fait?   #    (ingebedde vraag in ja/nee vraag)
-Il s'attend à ce que[no] tu viennes.      #  (geen vraag/ conjonction à ce que)
-Je pense à ce que[no] tu m’as dit.        #   (vrije relatiefzin)
-Il se demande ce que[indirect] tu veux faire.   #  (ingebedde vraag)
-Il m'a demandé quand[indirect] tu viendras.   #   (ingebedde vraag); viendras not recognized as verb but as fixed/NOUN; tu as NOUN/det?!; quand as SCONJ/advmod of demande.
-Il a demandé quand[indirect].        #   (Hij vroeg wanneer/ elliptische ingebedde vraag)
-Il l'a demandé quand[insitu]?          #    (in-situ vraag)
-Il te le dira quand[no] tu viendras.       #   (adverbiale bijzin van tijd, geen vraag)
-Il te le dira quand[insitu] ton frère?      #   (in situ vraag met rechtsdislocatie)
-Il a vu qui[insitu]?
-Il a vu l\'homme qui[no] viendra?
-Il a lu ce qui[no] lui plait?
-Qu'[fronted]est-ce que[no] c'est?
+Il a dit pourquoi[no] il l'a fait? | risingdecl        #    (ingebedde vraag in ja/nee vraag)
+Il s'attend à ce que[no] tu viennes. | decl            #  (geen vraag/ conjonction à ce que)
+Je pense à ce que[no] tu m’as dit. | decl              #   (vrije relatiefzin)
+Il se demande ce que[indirect] tu veux faire. | decl   #  (ingebedde vraag)
+Il m'a demandé quand[indirect] tu viendras. | decl     #   (ingebedde vraag); viendras not recognized as verb but as fixed/NOUN; tu as NOUN/det?!
+Il a demandé quand[indirect]. | decl       #   (Hij vroeg wanneer/ elliptische ingebedde vraag)
+Il l'a demandé quand[insitu]? | insitu          #    (in-situ vraag)
+Il te le dira quand[no] tu viendras. | decl      #   (adverbiale bijzin van tijd, geen vraag)
+Il te le dira quand[insitu] ton frère? | insitu      #   (in situ vraag met rechtsdislocatie)
+Il a vu qui[insitu]? | insitu
+Il a vu l\'homme qui[no] viendra? | risingdecl
+Il a lu ce qui[no] lui plait? | risingdecl
+Qu'[fronted]est-ce que[no] c'est? | wh
 
 # english
-Do you know if[indirect] I'm asleep?
-Do you know whether[indirect] I'm asleep?
-Do you arrive if[no] you want?
-Are you coming if[no] you want?
-Are you there whether[no] or not you can?
-Crazy how[no] they don't say anything, right?   # Could be indirect question, but not reliable so?
-Crazy how[no] they don't say anything, isn't it?
-It's crazy how[no] they don't say anything, right?
-And you know why[no], right?
-And you know why[no]?   # might be indirect instead?
-And do you know why[indirect]?
+Do you know if[indirect] I'm asleep? | polar
+Do you know whether[indirect] I'm asleep? | polar
+Do you arrive if[no] you want? | polar
+Are you coming if[no] you want? | polar
+Are you there whether[no] or not you can? | polar
+Crazy how[no] they don't say anything, right? | tag   # Could be indirect question, but not reliably so?
+Crazy how[no] they don't say anything, isn't it? | tag
+It's crazy how[no] they don't say anything, right? | tag
+And you know why[no], right? | tag
+And you know why[no]? | risingdecl  # might be indirect instead?
+And do you know why[indirect]? | polar
