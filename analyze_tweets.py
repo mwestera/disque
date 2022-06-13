@@ -1,3 +1,6 @@
+import collections
+import itertools
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -90,6 +93,13 @@ def explore(tweets):
         print_sample_tweets(subdataset_disinfo, 10)
         print(f'\n {source} not disinfo:')
         print_sample_tweets(subdataset_notdisinfo, 10)
+
+    print('')
+    for dataset, subdf in tweets.groupby('dataset'):
+        print(f"Most frequent hashtags in {dataset}:")
+        print(collections.Counter(itertools.chain(*subdf['hashtags'])).most_common())
+
+
 
 
 def print_sample_tweets(tweets, num):
