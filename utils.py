@@ -85,7 +85,8 @@ def parse_date(s):
 
 def parse_hashtag_list(string):
     substrings = string.strip('[]').split(',')
-    hashtags = [substring.strip('"\'').lower() for substring in substrings]     # lowercased
+    hashtags = [substring.strip(' "\'').lower() for substring in substrings]     # lowercased
+    hashtags = [t for t in hashtags if t]
     return hashtags
 
 
