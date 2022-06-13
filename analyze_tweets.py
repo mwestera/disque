@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import utils
 import ling
 import config
+import vocab
 
 
 def main():
@@ -38,15 +39,13 @@ def load_raw_tweets(dataset_paths):
 
 
 def compute_features(tweets):
-    tweets['num_questions'] = [len(ling.extract_questions(text)) for text in tweets['full_text']]
+    tweets['num_questions'] = [text.count('?') for text in zip(tweets['full_text'])]
 
     tweets['has_question'] = [n > 0 for n in tweets['num_questions']]
 
-    tweets['has_disinfo_hashtags'] = [any(tag in ling.disinfo_hashtags[language] for tag in tags)
-                                      for tags, language in zip(tweets['hashtags'], tweets['language'])]
+    tweets['has_disinfo_hashtags'] = [utils.has_any_keyword(vocab.disinfo_hashtags[language], ' '.join(tags)) for tags, language in zip(tweets['hashtags'], tweets['language'])]
 
-    tweets['has_disinfo_text'] = [utils.has_any_keyword(ling.disinfo_keywords[language], text)
-                                  for text, language in zip(tweets['full_text'], tweets['language'])]
+    tweets['has_disinfo_text'] = [utils.has_any_keyword(vocab.disinfo_hashtags[language], text) for text, language in zip(tweets['full_text'], tweets['language'])]
 
     tweets['has_disinfo_text_or_hashtags'] = tweets['has_disinfo_text'] | tweets['has_disinfo_hashtags']
 

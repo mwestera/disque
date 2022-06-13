@@ -18,7 +18,6 @@ def main():
 
 
 def extract_potential_questions(tweets):
-    tweets = tweets.loc[tweets['has_question']]
     keep_keys = ['created_at','favorite_count','retweet_count','dataset','language']
     new_rows = []
     for i, row in tweets.iterrows():
