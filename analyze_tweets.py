@@ -46,7 +46,7 @@ def compute_features(tweets):
 
     tweets['has_question'] = [n > 0 for n in tweets['num_questions']]
 
-    tweets['has_disinfo_hashtags'] = [utils.has_any_keyword(vocab.disinfo_hashtags[language], ' '.join(tags)) for tags, language in zip(tweets['hashtags'], tweets['language'])]
+    tweets['has_disinfo_hashtags'] = [utils.has_any_tag(vocab.disinfo_hashtags[language], tags) for tags, language in zip(tweets['hashtags'], tweets['language'])]
 
     tweets['has_disinfo_text'] = [utils.has_any_keyword(vocab.disinfo_hashtags[language], text) for text, language in zip(tweets['full_text'], tweets['language'])]
 
@@ -97,7 +97,7 @@ def explore(tweets):
     print('')
     for dataset, subdf in tweets.groupby('dataset'):
         print(f"Most frequent hashtags in {dataset}:")
-        print(collections.Counter(itertools.chain(*subdf['hashtags'])).most_common())
+        print(collections.Counter(itertools.chain(*subdf['hashtags'])).most_common(100))
 
 
 

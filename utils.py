@@ -60,6 +60,12 @@ def question_classifier(doc):
         sent._.qtype = ling.classify_question(sent)
     return doc
 
+@Language.component("sentence_concatenator")
+def sentence_concatenator(doc):
+    for token in doc:
+        token.sent_start = False
+    return doc
+
 
 spacy_model_names = {
     'english': 'en_core_web_sm',
@@ -103,14 +109,22 @@ def has_any_keyword(keywords, text):
     return False
 
 
+def has_any_tag(keywords, tags):
+    if any(keyword in tags for keyword in keywords):
+        return True
+    return False
+
+
 @functools.lru_cache()
 def regex_for_keyword_list(*words):
     return re.compile('|'.join(rf'\b{key}\b' for key in words), flags=re.I)
 
 
 @functools.lru_cache()
-def get_nlp_model(language):
+def get_nlp_model(language, single_sentence=False):
     nlp = spacy.load(spacy_model_names[language])
+    if single_sentence:
+        nlp.add_pipe("sentence_concatenator", before='parser')
     nlp.add_pipe("lemma_corrector")
     nlp.add_pipe("question_mark_detector")
     nlp.add_pipe("frontedness_detector")
@@ -123,7 +137,9 @@ def get_nlp_model(language):
 
 
 def spacy_single(s, language):
-    return list(get_nlp_model(language)(s).sents)[-1]
+    nlp = get_nlp_model(language, single_sentence=True)
+    sentences = list(nlp(s).sents)
+    return sentences[-1]
 
 
 def strip_mentions(text):
