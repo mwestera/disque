@@ -37,6 +37,7 @@ Als ik een onderbroek koop bij de HEMA wat[fronted] kost dat dan? | wh  # subjec
 Als ik een onderbroek koop bij de HEMA wie[fronted] draagt hem dan? | wh  # parsed as two separate sentences, but ok...
 Medicijnen die je beter maken? | elliptic
 Of vaccines die je beschermen? | elliptic
+Waar[fronted] zijn de ‘mogelijke’ Hunter Biden Laptop onthullingen? | wh
 
 # french
 Il a dit pourquoi[no] il l'a fait? | risingdecl        #    (ingebedde vraag in ja/nee vraag)
