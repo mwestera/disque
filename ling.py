@@ -2,7 +2,7 @@ import re
 import utils
 import vocab
 
-sentence_pattern = r'[^.!?:;\n\t]+[?!.]+'
+sentence_pattern = r'[^.!?:;\n\t…]+[?!.…]+'
 
 def extract_potential_questions(text, language):
     for match in re.finditer(sentence_pattern, text):
