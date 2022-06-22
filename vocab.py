@@ -167,3 +167,11 @@ tag_questions = {
     'french': ['non'],
     'dutch': ['toch', 'niet waar'],
 }
+
+
+complementizers = {
+    'english': ['that', 'to', 'for'] + wh_words_all['english'],
+    'italian': [] + wh_words_all['italian'],  # TODO
+    'french': ['que', 'à'] + wh_words_all['french'],    # TODO
+    'dutch': ['dat', 'om', 'te'] + wh_words_all['dutch'],
+}
