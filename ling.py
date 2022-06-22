@@ -15,19 +15,20 @@ verblike_pos_tags = ['AUX', 'VERB']
 objectlike_dep_tags = ['dobj', 'obj', 'iobj', 'obl', 'obl:agent']
 subjectlike_dep_tags = ['nsubj', 'nsubjpass', 'nsubj:pass', 'csubj', 'csubjpass', 'expl', 'expl:subj']
 misparsed_subject_dep_tags = ['nmod:poss', 'obj']
+ccomplike_dep_tags = ['acl:relcl', 'ccomp']
 
 def ends_with_question_mark(sent):
     return sent.text.strip('!').endswith('?')
 
 
-def mark_tokens_as_fronted(doc):
-    """
-    Simplifying, anything preceded only by conjunctions counts as 'fronted'.
-    """
-    for tok in doc:
-        tok._.is_fronted = True
-        if is_verblike(tok): # not in ['CCONJ', 'SCONJ']:
-            break
+def is_fronted(token):
+    matrix_verb = token.sent._.matrix_verb
+    if matrix_verb:
+        return token.i < matrix_verb.i
+    if any(tok.dep_ in ['ccomp'] for tok in utils.spacy_get_path_to_root(token)[1:]):
+        # if using all ccomplike_dep_tags instead, wrong for "Als ik een onderbroek koop...etc".
+        return False
+    return True
 
 
 def is_rising_declarative(sentence):
@@ -35,6 +36,39 @@ def is_rising_declarative(sentence):
         utils.log('Sentence seems like a rising declarative.')
         return True
     return False
+
+
+def determine_matrix_subject_and_verb(sentence):
+    verb, subject = None, None
+    finite_verbs = [tok for tok in sentence if tok.pos_ in verblike_pos_tags and 'Fin' in tok.morph.get('VerbForm')]
+    for finite_verb in finite_verbs:
+        if finite_verb.dep_ in ccomplike_dep_tags or (finite_verb.dep_ in ['aux', 'aux:tense'] and finite_verb.head.dep_ in ccomplike_dep_tags):
+            # Subordinated clauses
+            continue
+        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and (tok.head.head == finite_verb) for tok in sentence[:finite_verb.i]):
+            # needed to skip "Aangezien je merkte wie je had gezien?" (elliptic; otherwise predicted to be rising decl)
+            # vs. - Als[SCONJ, mark of kan] het veilig kan waarom niet ?
+            continue
+        candidate_subject = get_subject_of(finite_verb)
+        if candidate_subject:
+            verb = finite_verb
+            subject = candidate_subject
+            break
+    # if not verb and finite_verbs:
+    #     # leftmost finite verb by default...
+    #     verb = finite_verbs[0]  # use the first finite verb to determine fronting? wrong for    Als het veilig kan waarom[fronted] niet ?
+        # subject = get_subject_of(verb)    # wrong result for: Aangezien je merkte wie je had gezien?
+    utils.log(f'Determined matrix subject {subject} and verb {verb}.')
+    sentence._.matrix_verb = verb
+    sentence._.matrix_subject = subject
+    return sentence
+
+
+def get_subject_of(verb):
+    for token in verb.sent:
+        if is_subject_of(token, verb) and 'Rel' not in token.morph.get('PronType'):  # or is_subject_of(token, finite_verb.head):
+            # Not PronType:Rel both to rule out, e.g., 'Medicijnen die je beter maken?' 'Of vaccines die je beschermen?'
+            return token
 
 
 def has_subj_verb_inversion(sentence):
@@ -56,28 +90,18 @@ def has_subj_verb_inversion(sentence):
         #     utils.log(f'{sentence} assumed inverted with "(what) is that"-type construction')
         #     return True
 
-    verb, subject = None, None
-    finite_verbs = [tok for tok in sentence if tok.pos_ in verblike_pos_tags and 'Fin' in tok.morph.get('VerbForm')]
-    for finite_verb in finite_verbs:
-        if finite_verb.dep_ in ['acl:relcl', 'ccomp'] or (finite_verb.dep_ in ['aux', 'aux:tense'] and finite_verb.head.dep_ in ['acl:relcl', 'ccomp']):
-            # Subordinated clauses
-            continue
-        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and tok.i < finite_verb.i and (tok.head == finite_verb) for tok in sentence):
-            # needed to skip "Aangezien je merkte wie je had gezien?"
-            continue
-        for token in sentence:
-            if is_subject_of(token, finite_verb) and 'Rel' not in token.morph.get('PronType'): # or is_subject_of(token, finite_verb.head):
-                # Not PronType:Rel both to rule out, e.g., 'Medicijnen die je beter maken?' 'Of vaccines die je beschermen?'
-                subject, verb = token, finite_verb
-                break
-        if verb and subject:
-            break
-
+    verb = sentence._.matrix_verb
+    subject = sentence._.matrix_subject
     if verb and subject:
         inversion = verb.i < subject.i
-        if subject.lemma_ in vocab.wh_words_all[language] and subject._.is_fronted:
-            # Assume there's 'invisible' inversion in case of a fronted wh-subject...
+        if subject.lemma_ in vocab.wh_words_all[language]:
+            # Assume there's 'invisible' inversion in case of a wh-subject...
             inversion = True
+        if inversion and language == 'dutch':
+            # in Dutch, inversion after advmod doesn't count: e.g., "Eigenlijk blijven de meeste winkels dus open?"
+            if any(tok.i < verb.i and tok.dep_ == 'advmod' for tok in verb.children):
+                inversion = False
+
         utils.log(f'not inverted ({subject}, {verb})' if not inversion else f'inverted ({verb}, {subject})')
         return inversion
 
@@ -143,14 +167,14 @@ def get_embedder_of(token):
         # Il se demande ce[obj of demande] que[obj of veux] tu veux[acl:relcl of ce] faire.
         utils.log(f'"{token}" possibly has head.head.head "{token.head.head.head}" as embedder (via verblike acl:relcl and obj (like ce))')
         candidate = token.head.head.head
-    elif token.head.dep_ in ['obj', 'advcl', 'ccomp', 'acl:relcl'] and is_verblike(token.head) and is_embedder(token.head.head):
+    elif token.head.dep_ in ['obj', 'advcl'] + ccomplike_dep_tags and is_verblike(token.head) and is_embedder(token.head.head):
         # Wat er precies gebeurde[obj/advcl] heb ik niet kunnen zien/opnemen.
         # Wat hij deed[ccomp] vroeg ik hem[obj] al eerder.
         # Not: Wat hij deed[ccomp] veroorzaakte een ongeluk[obj].
         # Il a lu ce qui lui plait[acl:relcl]?
         utils.log(f'"{token}" possibly has head.head "{token.head.head}" as embedder (via verblike obj/advl/ccomp/acl:relcl)')
         candidate = token.head.head
-    elif token.dep_ in ['obj', 'advcl', 'ccomp', 'acl:relcl'] and is_embedder(token.head):
+    elif token.dep_ in ['obj', 'advcl'] + ccomplike_dep_tags and is_embedder(token.head):
         # TODO Maybe remove 'obj' from this list, for 'Il a vu qui[obj]?'
         # And you know why[ccomp of know]?
         utils.log(f'"{token}" possibly has head "{token.head}" as embedder (as obj/advl/ccomp/acl:relcl/nummod)')
@@ -193,6 +217,10 @@ def might_be_complementizer(token, embedder):
         return False
     if token.dep_ in objectlike_dep_tags and token.head == embedder:
         utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s simply the obj.')
+        return False
+    if token.dep_ == 'cc' and token.pos_ == 'CCONJ' and any(tok._.qtype == 'indirect' and might_be_complementizer(tok, embedder) for tok in token.sent[:token.i]):
+        # >>> Ik vraag mij nog steeds af waarom[indirect] mensen nu 2 verschillende spuiten of[no] nog iets toegevoegd bij de griepprik kregen.
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s more likely a conjunction.')
         return False
     utils.log(f'"{token}" might be complementizer of {embedder}, as there is no alternative mark or impersonal pronoun as obj.')
     return True
@@ -259,6 +287,8 @@ def corrected_lemma(token):
         compound_parts = [tok for tok in token.children if tok.dep_ == 'compound:prt']
         if any(compound_parts):
             lemma = compound_parts[0].lemma_ + '_' + lemma
+    if lemma == 'merkken':
+        lemma = 'merken'
     if lemma.startswith('af_') and not any(tok.lemma_ == 'af' for tok in token.children if tok.dep_ == 'compound:prt'):
         lemma = lemma.split('_')[1]
 
@@ -370,6 +400,9 @@ def is_subject_of(token, verb):
     if verb.dep_ == 'parataxis' and token.i == verb.i + 1 and token.dep_ in subjectlike_dep_tags:
         # weird parataxis misparse  Hoorde[parataxis] je[nsubj of gekomen] wie er zijn gekomen?
         return True
+    if token.pos_ == 'NOUN' and 'Plur' in token.morph.get('Number') and token.dep_ == 'advmod' and token.head.dep_ == 'ROOT' and token.i == token.head.i - 1 and 'Plur' in token.head.morph.get('Number'):
+        # bare plural subject misparse:   Vliegtuigmaatschappijen[advmod] weten natuurlijk niet op voorhand hoeveel reizigers zij gaan vervoeren die dag.
+        return True
     if token.head == verb or (verb.dep_ in ['aux', 'aux:tense'] and token.head == verb.head):
         if token.dep_ in subjectlike_dep_tags:
             # Do[aux of know] you[subj of know] know?
@@ -377,6 +410,13 @@ def is_subject_of(token, verb):
         if token.dep_ in misparsed_subject_dep_tags and not any(tok.dep_ in subjectlike_dep_tags for tok in token.head.children):
             # common misparse, e.g., "Weet iemand[OBJ] of het vaccin veilig is?"
             return True
+    if verb.dep_ == 'cop' and token == verb.head and verb.morph.get('Number') == token.morph.get('Number'):
+        # E.g., Is[cop] er Covid19[ROOT]?
+        return True
+    if verb.dep_ == 'cop' and token.head == verb.head and token.dep_ in subjectlike_dep_tags:
+        # E.g., Of ben[cop] jij[nsubj] niet kritisch genoeg?
+        return True
+
     return False
 
 
@@ -430,29 +470,29 @@ def is_present_tense(token):
 #     return False
 
 
-def might_be_initial_relclause(token):
+def might_be_ordinary_relclause(token):
     """
-    >>> might_be_initial_relclause(utils.spacy_single('Wat hij deed was stom.', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat hij deed was stom.', 'dutch')[0])
     True
-    >>> might_be_initial_relclause(utils.spacy_single('Wat hij deed veroorzaakte een ongeluk.', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat hij deed veroorzaakte een ongeluk.', 'dutch')[0])
     True
-    >>> might_be_initial_relclause(utils.spacy_single('Ik vond wat hij deed niet leuk.', 'dutch')[2])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Ik vond wat hij deed niet leuk.', 'dutch')[2])
     True
-    >>> might_be_initial_relclause(utils.spacy_single('Ik weet niet wat hij deed.', 'dutch')[3])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Ik weet niet wat hij deed.', 'dutch')[3])
     False
-    >>> might_be_initial_relclause(utils.spacy_single('Wat deed hij dan?', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat deed hij dan?', 'dutch')[0])
     False
-    >>> might_be_initial_relclause(utils.spacy_single('Weet je wat hij deed?', 'dutch')[2])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Weet je wat hij deed?', 'dutch')[2])
     False
-    >>> might_be_initial_relclause(utils.spacy_single('Wat was het dat hij deed?', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat was het dat hij deed?', 'dutch')[0])
     False
-    >>> might_be_initial_relclause(utils.spacy_single('Wat dacht je dat hij zei?', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat dacht je dat hij zei?', 'dutch')[0])
     False
-    >>> might_be_initial_relclause(utils.spacy_single('Wat er precies gebeurde heb ik niet kunnen zien.', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat er precies gebeurde heb ik niet kunnen zien.', 'dutch')[0])
     False
-    >>> might_be_initial_relclause(utils.spacy_single('Wat er precies gebeurde heb ik niet kunnen opnemen.', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat er precies gebeurde heb ik niet kunnen opnemen.', 'dutch')[0])
     True
-    >>> might_be_initial_relclause(utils.spacy_single('Wat er gebeurde was een wonder.', 'dutch')[0])
+    >>> might_be_ordinary_relclause(utils.spacy_single('Wat er gebeurde was een wonder.', 'dutch')[0])
     True
     """
     if token.dep_ == 'ROOT':
@@ -467,6 +507,8 @@ def might_be_initial_relclause(token):
         if any(any(tok2.dep_ == 'cop' for tok2 in tok.children) for tok in token.head.children if tok.dep_ == 'obj'):
             # Wat hij deed[ROOT] was stom[obj of deed].
             return True
+    if token.dep_ == 'advmod' and token.head.dep_ == 'acl:relcl' and token.head.head.pos_ == 'NOUN':
+        return True
     if token.head.dep_ in ['csubj', 'nsubj']:
         # Wat hij deed[csubj] veroorzaakte[ROOT] een storm.
         # Wat er gebeurde[nsubj] was een wonder[ROOT].
@@ -490,12 +532,12 @@ def classify_whword(token):
     embedder_of = get_embedder_of(token)
     can_be_direct = token.sent._.ends_with_question_mark and not is_question_word_for_indirect_only(token)
     might_not_be_compl = not embedder_of or might_not_be_complementizer(token)
-    if can_be_direct and token._.is_fronted and not might_be_initial_relclause(token) and might_not_be_compl:
+    if can_be_direct and is_fronted(token) and not might_be_ordinary_relclause(token) and might_not_be_compl:
         return 'fronted'
     elif embedder_of:
         if likely_to_head_indirect_question(embedder_of) and not is_rising_declarative(token.sent) and not is_exclamative_like(token.sent):
             return 'indirect'
-    if can_be_direct and not might_be_initial_relclause(token) and might_not_be_compl:
+    if can_be_direct and not might_be_ordinary_relclause(token) and might_not_be_compl:
         return 'insitu'
     return 'no'
 

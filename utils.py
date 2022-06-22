@@ -10,10 +10,11 @@ import ling
 VERBOSE = False
 
 Token.set_extension('qtype', default=None)
-Token.set_extension('is_fronted', default=False)
 Span.set_extension('has_inversion', default=None)
 Span.set_extension('has_tag_question', default=None)
 Span.set_extension('ends_with_question_mark', default=None)
+Span.set_extension('matrix_verb', default=None)
+Span.set_extension('matrix_subject', default=None)
 Token.set_extension('corrected_lemma', default=None)
 Span.set_extension('qtype', default=None)
 
@@ -21,7 +22,7 @@ Span.set_extension('qtype', default=None)
 @Language.component("inversion_detector")
 def inversion_detector(doc):
     for sent in doc.sents:
-        sent._.has_inversion = ling.has_subj_verb_inversion(doc)
+        sent._.has_inversion = ling.has_subj_verb_inversion(sent)
     return doc
 
 @Language.component("tagquestion_detector")
@@ -34,12 +35,6 @@ def tag_detector(doc):
 def lemma_corrector(doc):
     for tok in doc:
         tok._.corrected_lemma = ling.corrected_lemma(tok)
-    return doc
-
-@Language.component("frontedness_detector")
-def frontedness_detector(doc):
-    for sent in doc.sents:
-        ling.mark_tokens_as_fronted(sent)
     return doc
 
 @Language.component("question_mark_detector")
@@ -64,6 +59,13 @@ def question_classifier(doc):
 def sentence_concatenator(doc):
     for token in doc:
         token.sent_start = False
+    return doc
+
+
+@Language.component("matrix_subj_verb_identifier")
+def matrix_subj_verb_identifier(doc):
+    for sent in doc.sents:
+        ling.determine_matrix_subject_and_verb(sent)
     return doc
 
 
@@ -127,7 +129,7 @@ def get_nlp_model(language, single_sentence=False):
         nlp.add_pipe("sentence_concatenator", before='parser')
     nlp.add_pipe("lemma_corrector")
     nlp.add_pipe("question_mark_detector")
-    nlp.add_pipe("frontedness_detector")
+    nlp.add_pipe("matrix_subj_verb_identifier")
     nlp.add_pipe("inversion_detector")
     nlp.add_pipe("tagquestion_detector")
     nlp.add_pipe("qword_tagger")
