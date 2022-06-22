@@ -161,7 +161,7 @@ def spacy_get_path_to_root(node):
 def qtypes_to_string(doc):
     qtypes = []
     for tok in doc:
-        if tok._.qtype != 'no':
+        if tok._.qtype and tok._.qtype != 'no':
             qtypes.append(f'{tok.text}-{tok._.qtype}')
     return '|'.join(qtypes)
 
@@ -171,6 +171,13 @@ def print_parse(doc):
     print(*[f'  {tok} ({tok._.corrected_lemma}, {tok.pos_}, {tok.dep_} of {tok.head}) [{tok.morph}] <{tok._.qtype}>' for tok in doc], sep='\n')
     print('Question categorization:', doc[0].sent._.qtype)
 
+
+def doc_to_qtype_line(doc):
+    s = f'{doc.text} | {doc._.qtype["structure"]}'
+    for tok in list(doc)[::-1]:
+        if tok._.qtype:
+            s = s[:tok.idx + len(tok)] + f'[{tok._.qtype}]' + s[tok.idx + len(tok):]
+    return s
 
 def log(s):
     if VERBOSE:
