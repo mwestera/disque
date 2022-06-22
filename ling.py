@@ -86,29 +86,30 @@ def has_subj_verb_inversion(sentence):
 
 
 def is_potential_question_word(token):
-    """
-    Auxiliary for extract_matrix_question_words, to filter out some definitely-not-question-words
-    based on simple language-specific rules (e.g., 'ce qui' in french relatives, never a question word).
-    """
     language = utils.language_of(token)
-    sentence = token.sent
     if token.text.lower() not in vocab.wh_words[language] + vocab.wh_words_only_embedded[language]:
         return False
+    return True
+
+
+def simply_not_a_question_word(token):
+    language = utils.language_of(token)
+    sentence = token.sent
     # if token.text.lower() in wh_words_emb[language] and token.dep_ not in ['mark', 'cc']:
     #     ## cc/cconj is a misparse...
     #     return False
     if language == 'dutch':
         if token.i <= 1 and token.text.lower() == 'wat' and len(sentence) > token.i + 1 and sentence[token.i+1].text.lower() == 'een':    # filter out exclamatives (X wat een)
-            return False
+            return True
         # if right_neighbors and right_neighbors[0].text.lower() == 'er':     # Jan weet wie er is gevallen
         #     return True
     if language == 'french':
         if token.i > 2 and sentence[token.i-2].text.lower() == 'à' and sentence[token.i-1].text.lower() == 'ce':  # filter out French free relatives? actually, indirect questions can have this shape.
-            return False
+            return True
         if token.sent.text[:token.idx].strip().lower().endswith('est-ce'):
             # Qu'est-ce que[no] c'est.
-            return False
-    return True
+            return True
+    return False
 
 
 def is_question_word_for_indirect_only(token):
@@ -119,7 +120,7 @@ def is_question_word_for_indirect_only(token):
     return False
 
 
-def get_complementizer_of(token):
+def get_embedder_of(token):
     sent = token.sent
 
     if not might_be_complementizer(token):
@@ -168,9 +169,12 @@ def get_complementizer_of(token):
             return aux[0]
 
     for tok in utils.spacy_get_path_to_root(token)[1:]:
-        if is_verblike(tok) and is_embedder(tok) and not is_subject_of(token, tok):
-            utils.log(f'{token} has nearest verblike ancestor {tok} as embedder')
-            return tok
+        if is_verblike(tok) and not is_subject_of(token, tok):
+            if is_embedder(tok):
+                utils.log(f'{token} has nearest verblike ancestor {tok} as embedder')
+                return tok
+            else:
+                break
 
     utils.log(f'{token} has no embedder')
     return None
@@ -481,14 +485,17 @@ def might_be_initial_relclause(token):
 
 def classify_whword(token):
     if not is_potential_question_word(token):
+        return None
+    if simply_not_a_question_word(token):
+        utils.log(f'{token} is simply not a question word.')
         return 'no'
-    complementizer_of = get_complementizer_of(token)
+    embedder_of = get_embedder_of(token)
     can_be_direct = token.sent._.ends_with_question_mark and not is_question_word_for_indirect_only(token)
-    might_not_be_compl = not complementizer_of or might_not_be_complementizer(token)
+    might_not_be_compl = not embedder_of or might_not_be_complementizer(token)
     if can_be_direct and token._.is_fronted and not might_be_initial_relclause(token) and might_not_be_compl:
         return 'fronted'
-    elif complementizer_of:
-        if likely_to_head_indirect_question(complementizer_of) and not is_rising_declarative(token.sent):
+    elif embedder_of:
+        if likely_to_head_indirect_question(embedder_of) and not is_rising_declarative(token.sent):
             return 'indirect'
     if can_be_direct and not might_be_initial_relclause(token) and might_not_be_compl:
         return 'insitu'
