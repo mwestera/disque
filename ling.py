@@ -122,9 +122,7 @@ def is_question_word_for_indirect_only(token):
 
 def get_embedder_of(token):
     sent = token.sent
-
-    if not might_be_complementizer(token):
-        return None
+    candidate = None
 
     actual_roots = [tok for tok in sent[:token.i] if tok.pos_ == 'VERB' and tok.dep_ in ['nsubj', 'parataxis']]
     if actual_roots and is_embedder(actual_roots[0]):
@@ -134,76 +132,69 @@ def get_embedder_of(token):
         # Il te [VERB, nsubj of dira] le dira quand ton frère?  --> still returns the wrong root though.
         return actual_roots[0]
 
-    if token.dep_ == 'advmod' and token.head == sent.root and is_embedder(sent.root) and sent.root.i < token.i and might_be_complementizer(token): # and any(parataxa_or_ccomp)
+    if token.dep_ == 'advmod' and token.head == sent.root and is_embedder(sent.root) and sent.root.i < token.i: # and any(parataxa_or_ccomp)
         # Fixes some misparses:
         #   Il a dit pourquoi (advmod of dit) il l'a fait?
         #   weet (ROOT) je waarom (advmod of weet) jan sliep (parataxis)?
         #   Il a demandé quand[advmod of demandé]
-        utils.log(f'{token} has embedder {sent.root} because advmod/nummod misparse')
-        return sent.root
-
-    if token.head.dep_ in ['acl:relcl'] and is_verblike(token.head) and token.head.head.dep_ in ['obj'] and is_embedder(token.head.head.head):
+        utils.log(f'{token} possibly has embedder {sent.root} because advmod/nummod misparse')
+        candidate = sent.root
+    elif token.head.dep_ in ['acl:relcl'] and is_verblike(token.head) and token.head.head.dep_ in ['obj'] and is_embedder(token.head.head.head):
         # Il se demande ce[obj of demande] que[obj of veux] tu veux[acl:relcl of ce] faire.
-        utils.log(f'"{token}" has head.head.head "{token.head.head.head}" as embedder (via verblike acl:relcl and obj (like ce))')
-        return token.head.head.head
+        utils.log(f'"{token}" possibly has head.head.head "{token.head.head.head}" as embedder (via verblike acl:relcl and obj (like ce))')
+        candidate = token.head.head.head
     elif token.head.dep_ in ['obj', 'advcl', 'ccomp', 'acl:relcl'] and is_verblike(token.head) and is_embedder(token.head.head):
         # Wat er precies gebeurde[obj/advcl] heb ik niet kunnen zien/opnemen.
         # Wat hij deed[ccomp] vroeg ik hem[obj] al eerder.
         # Not: Wat hij deed[ccomp] veroorzaakte een ongeluk[obj].
         # Il a lu ce qui lui plait[acl:relcl]?
-        utils.log(f'"{token}" has head.head "{token.head.head}" as embedder (via verblike obj/advl/ccomp/acl:relcl)')
-        return token.head.head
+        utils.log(f'"{token}" possibly has head.head "{token.head.head}" as embedder (via verblike obj/advl/ccomp/acl:relcl)')
+        candidate = token.head.head
     elif token.dep_ in ['obj', 'advcl', 'ccomp', 'acl:relcl'] and is_embedder(token.head):
         # TODO Maybe remove 'obj' from this list, for 'Il a vu qui[obj]?'
         # And you know why[ccomp of know]?
-        utils.log(f'"{token}" has head "{token.head}" as embedder (as obj/advl/ccomp/acl:relcl/nummod)')
-        return token.head
+        utils.log(f'"{token}" possibly has head "{token.head}" as embedder (as obj/advl/ccomp/acl:relcl/nummod)')
+        candidate = token.head
     elif token.dep_ in 'nummod' and is_embedder(token.head.head) and token.head.dep_ == 'parataxis':
-        utils.log(f'"{token}" has head "{token.head.head}" as embedder (via nummod of parataxis)')
-        return token.head.head
+        utils.log(f'"{token}" possibly has head "{token.head.head}" as embedder (via nummod of parataxis)')
+        candidate = token.head.head
     elif token.head.dep_ == 'ROOT' and not is_embedder(token.head):
         aux = [tok for tok in token.head.children if tok.dep_ in ['aux', 'aux:tense'] and is_embedder(tok)]
         if aux:
             # Misparse: Hoorde[AUX] je wie er zijn gekomen[ROOT]? (with dutch model large only)
-            utils.log(f'"{token}" has head "{aux[0]}" as embedder (aux/root misparse)')
-            return aux[0]
+            utils.log(f'"{token}" possibly has head "{aux[0]}" as embedder (aux/root misparse)')
+            candidate = aux[0]
+
+    if candidate and might_be_complementizer(token, candidate):
+        return candidate
 
     for tok in utils.spacy_get_path_to_root(token)[1:]:
-        if is_verblike(tok) and not is_subject_of(token, tok):
-            if is_embedder(tok):
-                utils.log(f'{token} has nearest verblike ancestor {tok} as embedder')
+        if is_verblike(tok) and not is_subject_of(token, tok) and is_embedder(tok):
+            if might_be_complementizer(token, tok):
+                utils.log(f'{token} has nearest verblike embedding ancestor {tok} as embedder')
                 return tok
-            else:
-                break
+            break
 
     utils.log(f'{token} has no embedder')
     return None
 
 
-def might_be_complementizer(token):
-    """
-    >>> sent = utils.spacy_single('John knows that who came?', 'english')
-    >>> might_be_complementizer(sent[3])
-    False
-
-    >>> sent = utils.spacy_single('John knows who came?', 'english')
-    >>> might_be_complementizer(sent[3])
-    True
-
-    >>> sent = utils.spacy_single('Il a demandé quand.', 'french')
-    >>> might_be_complementizer(sent[3])
-    True
-
-    """
+def might_be_complementizer(token, embedder):
     language = utils.language_of(token)
-    if any(child.dep_ == 'mark' for child in token.head.children if child != token):
-        utils.log(f'"{token}" is not complementizer, because there\'s another mark')
-        return False
-    if any(tok.lemma_ in vocab.neutral_pronouns[language] and tok.dep_ == 'obj' for tok in token.sent.root.children if tok != token):
-        utils.log(f'"{token}" is not complementizer, because there\'s already an impersonal pronoun as obj of root')
+    if any(tok.lemma_ in vocab.neutral_pronouns[language] and tok.dep_ == 'obj' for tok in embedder.children if tok != token):
+        utils.log(f'"{token}" is not complementizer of {embedder}, because there\'s already an impersonal pronoun as obj')
         # Il te le [pron, obj of dira] dira quand ton frère? (even though misparsed)
         return False
-    utils.log(f'"{token}" might be complementizer, as there is no alternative mark or impersonal pronoun as obj of root.')
+    if token.dep_ == 'mark' and token.head.head == embedder:
+        utils.log(f'"{token}" might be complementizer of {embedder}, itself the mark of embedder\'s child.')
+        return True
+    if any(grandchild.dep_ == 'mark' and grandchild.lemma_ in vocab.complementizers[language] and grandchild != token for child in embedder.children for grandchild in child.children):
+        utils.log(f'"{token}" is not complementizer of {embedder}, because the latter has another mark as grandchild')
+        return False
+    if token.dep_ in objectlike_dep_tags and token.head == embedder:
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s simply the obj.')
+        return False
+    utils.log(f'"{token}" might be complementizer of {embedder}, as there is no alternative mark or impersonal pronoun as obj.')
     return True
 
 
@@ -483,6 +474,13 @@ def might_be_initial_relclause(token):
     return False
 
 
+def is_exclamative_like(sentence):
+    if sentence.text.endswith('!'):
+        utils.log('Sentence is more like an exclamative.')
+        return True
+    return False
+
+
 def classify_whword(token):
     if not is_potential_question_word(token):
         return None
@@ -495,7 +493,7 @@ def classify_whword(token):
     if can_be_direct and token._.is_fronted and not might_be_initial_relclause(token) and might_not_be_compl:
         return 'fronted'
     elif embedder_of:
-        if likely_to_head_indirect_question(embedder_of) and not is_rising_declarative(token.sent):
+        if likely_to_head_indirect_question(embedder_of) and not is_rising_declarative(token.sent) and not is_exclamative_like(token.sent):
             return 'indirect'
     if can_be_direct and not might_be_initial_relclause(token) and might_not_be_compl:
         return 'insitu'
