@@ -2,10 +2,14 @@ import ling
 import utils
 import re
 
+# test_file_path = 'data/testing/qwords.txt'
+test_file_path = 'data/testing/qwords_dutch.txt'
 
 def main():
 
-    with open('data/testing/qwords.txt', 'r') as file:
+    n_errors = 0
+
+    with open(test_file_path, 'r') as file:
         current_language = None
         for line in file:
             if not line.strip():
@@ -31,22 +35,25 @@ def main():
             utils.VERBOSE = True
             error = False
             for token in parsed_sentence:
-                tag = token_start_to_tag.get(token.idx, 'no')
+                tag = token_start_to_tag.get(token.idx, None)
                 if token._.qtype != tag:
                     if not error:
                         print('>>>', sentence)
                     print('ERROR (q-word): Predicted:', token._.qtype, ' | True:', tag)
                     error = True
+                    n_errors += 1
             if structure and parsed_sentence._.qtype['structure'] != structure:
                 if not error:
                     print('>>>', sentence)
                 print(f'ERROR (structure): Predicted:', parsed_sentence._.qtype['structure'], ' | True:', structure)
                 error = True
+                n_errors += 1
             if error:
                 utils.spacy_single(sentence_untagged, current_language)
                 utils.print_parse(parsed_sentence)
                 print('-------------------')
 
+    print(f'Found {n_errors} errors.')
 
 def process_tags(tagged_sentence):
     """
