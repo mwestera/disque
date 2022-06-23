@@ -3,7 +3,7 @@
 # and each question as a whole can be categorized by appending "| polar/wh/insitu/elliptic/decl/risingdecl"
 Weet Jan wie[no] er zijn gekomen? | polar
 Wie[fronted] dacht Jan dat er waren? | wh   # or indirect?
-Je weet wie[no] er zijn gekomen? | risingdecl   # less likely reading: indirect
+Je weet wie[indirect] er zijn gekomen? | risingdecl
 Hoorde je wie[indirect] er zijn gekomen? | polar
 Merkte je gisteren wie[indirect] er zijn gekomen? | polar
 Weet je waarom[indirect] Jan sliep? | polar
@@ -36,8 +36,9 @@ Gek hoe[no] de politiek niets doet. | decl   # Could be indirect question, but n
 Als ik een onderbroek koop bij de HEMA wat[fronted] kost dat dan? | wh  # subject misparsed, so inversion not detected...
 Als ik een onderbroek koop bij de HEMA wie[fronted] draagt hem dan? | wh  # parsed as two separate sentences, but ok...
 Medicijnen die je beter maken? | elliptic
-Of vaccines die je beschermen? | elliptic
+Of[no] vaccines die je beschermen? | elliptic
 Waar[fronted] zijn de ‘mogelijke’ Hunter Biden Laptop onthullingen? | wh
+Ik zou wel eens willen weten wat[indirect] er allemaal wel goed gaat tijdens de corona. | decl
 
 # french
 Il a dit pourquoi[no] il l'a fait? | risingdecl        #    (ingebedde vraag in ja/nee vraag)
@@ -64,5 +65,5 @@ Crazy how[no] they don't say anything, right? | tag   # Could be indirect questi
 Crazy how[no] they don't say anything, isn't it? | tag
 It's crazy how[no] they don't say anything, right? | tag
 And you know why[no], right? | tag
-And you know why[no]? | risingdecl  # might be indirect instead?
+And you know why[indirect]? | risingdecl
 And do you know why[indirect]? | polar
