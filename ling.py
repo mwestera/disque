@@ -2,6 +2,7 @@ import re
 import utils
 import vocab
 
+sentence_separators = '?!.…'
 sentence_pattern = r'[^.!?:;\n\t…]+[?!.…]+'
 
 def extract_potential_questions(text, language):
@@ -26,7 +27,7 @@ def is_fronted(token):
     if matrix_verb:
         return token.i < matrix_verb.i
     if any(tok.dep_ in ['ccomp'] for tok in utils.spacy_get_path_to_root(token)[1:]):
-        # if using all ccomplike_dep_tags instead, wrong for "Als ik een onderbroek koop...etc".
+        # exception; if using all ccomplike_dep_tags instead, it gets wrong for "Als ik een onderbroek koop...etc".
         return False
     return True
 
@@ -38,26 +39,65 @@ def is_rising_declarative(sentence):
     return False
 
 
-def determine_matrix_subject_and_verb(sentence):
-    verb, subject = None, None
-    finite_verbs = [tok for tok in sentence if tok.pos_ in verblike_pos_tags and 'Fin' in tok.morph.get('VerbForm')]
-    for finite_verb in finite_verbs:
-        if finite_verb.dep_ in ccomplike_dep_tags or (finite_verb.dep_ in ['aux', 'aux:tense'] and finite_verb.head.dep_ in ccomplike_dep_tags):
-            # Subordinated clauses
+def get_finite_verbs_of_span(span):
+    language = utils.language_of(span[0])
+    result = []
+    for tok in span:
+        if any(child.pos_ in verblike_pos_tags and child.dep_ in ['aux', 'cop'] and 'Fin' in child.morph.get('VerbForm') and child.i < tok.i for child in tok.children):
+            # sometimes infinitives are misparsed; also check for aux/cop to avoid hitting parataxis misparses.
             continue
-        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and (tok.head.head == finite_verb) for tok in sentence[:finite_verb.i]):
+        if tok.pos_ in verblike_pos_tags and 'Fin' in tok.morph.get('VerbForm'):
+            result.append(tok)
+        if language == 'dutch' and tok.dep_ == 'ROOT' and tok.pos_ == 'VERB' and tok.text.startswith('be') and tok.text.endswith('d'):
+            # bedoeld typo...
+            result.append(tok)
+    return result
+
+
+def determine_matrix_subject_and_verb(sentence):
+    if sentence.root.dep_ != 'ROOT':
+        # weird misparse
+        return None, None
+    verb, subject = None, None
+    punctuation = [tok for tok in sentence[1:-1] if tok.pos_ == 'PUNCT' and tok.text == ',']
+    if punctuation and (sentence[0].pos_ == 'SCONJ' or sentence[1].pos_ == 'SCONJ'):
+        spans = [sentence[:punctuation[0].i], sentence[punctuation[0].i:]]
+        # for start, end in zip(punctuation, punctuation[1:]):
+        #     spans.append(sentence[start.i:end.i])
+        # if len(punctuation) > 1:
+        #     spans.append(sentence[punctuation[-1].i:])
+        finite_verbs = []
+        for span in spans[::-1]:
+            finite_verbs.extend(get_finite_verbs_of_span(span))
+    else:
+        finite_verbs = get_finite_verbs_of_span(sentence)
+
+    for finite_verb in finite_verbs:
+        if finite_verb.dep_ == 'parataxis' and finite_verb.head.dep_ == 'ROOT' and 'Fin' in finite_verb.head.morph.get('VerbForm') and finite_verb.head.i - finite_verb.i < 3:
+            # misparse:  Nee ma[parataxis] ik[nsubj] zie[root] mensen gewoon halloweenfeestjes geven alsof corona gedaan is?
+            # Weet[parataxis] iemand misschien hoe[indirect] lang er na een vastgestelde besmetting delen van het Corona virus in je lichaam blijven zitten en je dus positief blijft testen (Ook als je niet meer besmettelijk bent)? | polar
+            continue
+        if finite_verb.dep_ in ccomplike_dep_tags or (finite_verb.dep_ in ['aux', 'aux:tense'] and finite_verb.head.dep_ in ccomplike_dep_tags):
+            # Subordinated clauses; now better dealt with by kinda splitting on punctuation
+            continue
+        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and (tok.head.head == finite_verb or finite_verb in tok.head.children) for tok in sentence[:finite_verb.i]):
             # needed to skip "Aangezien je merkte wie je had gezien?" (elliptic; otherwise predicted to be rising decl)
             # vs. - Als[SCONJ, mark of kan] het veilig kan waarom niet ?
             continue
         candidate_subject = get_subject_of(finite_verb)
         if candidate_subject:
-            verb = finite_verb
-            subject = candidate_subject
-            break
-    # if not verb and finite_verbs:
-    #     # leftmost finite verb by default...
+            if not verb:
+                verb = finite_verb
+                subject = candidate_subject
+            elif ((finite_verb.dep_ == 'conj' and not any(child.dep_ == 'cc' for child in finite_verb.children)) or
+                  (finite_verb.head.dep_ == 'conj' and not any(child.dep_ == 'cc' for child in finite_verb.head.children))):
+                # Overwrite already selected verb only if this one is conjoined to the right, without an explicit conjunction?
+                verb = finite_verb
+                subject = candidate_subject
+    # if not verb and finite_verbs: # No longer needed it seems...
+    #     # topmost finite verb by default...
     #     verb = finite_verbs[0]  # use the first finite verb to determine fronting? wrong for    Als het veilig kan waarom[fronted] niet ?
-        # subject = get_subject_of(verb)    # wrong result for: Aangezien je merkte wie je had gezien?
+    #     subject = get_subject_of(verb)    # wrong result for: Aangezien je merkte wie je had gezien?
     utils.log(f'Determined matrix subject {subject} and verb {verb}.')
     sentence._.matrix_verb = verb
     sentence._.matrix_subject = subject
@@ -81,18 +121,14 @@ def has_subj_verb_inversion(sentence):
         utils.log(f'{sentence} inverted with est-ce')
         return True
 
-    # Weird parataxis misparse:   Hoorde[parataxis] je[nsubj of gekomen] wie er zijn gekomen?
-    for tok in sentence:
-        if tok.pos_ == 'VERB' and tok.dep_ == 'parataxis' and tok.i < len(sentence) - 1 and sentence[tok.i + 1].dep_ == 'nsubj':
-            utils.log(f'{sentence} assumed inverted with weird parataxis misparse')
-            return True
-        # if tok.pos_ == 'AUX' and tok.dep_ == 'cop' and tok.head.pos_ == 'PRON' and tok.head.dep_ == 'ROOT':   # not sure if good way of dealing with exclamative...
-        #     utils.log(f'{sentence} assumed inverted with "(what) is that"-type construction')
-        #     return True
+    # if tok.pos_ == 'AUX' and tok.dep_ == 'cop' and tok.head.pos_ == 'PRON' and tok.head.dep_ == 'ROOT':   # not sure if good way of dealing with exclamative...
+    #     utils.log(f'{sentence} assumed inverted with "(what) is that"-type construction')
+    #     return True
 
     verb = sentence._.matrix_verb
     subject = sentence._.matrix_subject
     if verb and subject:
+
         inversion = verb.i < subject.i
         if subject.lemma_ in vocab.wh_words_all[language]:
             # Assume there's 'invisible' inversion in case of a wh-subject...
@@ -101,11 +137,15 @@ def has_subj_verb_inversion(sentence):
             # in Dutch, inversion after advmod doesn't count: e.g., "Eigenlijk blijven de meeste winkels dus open?"
             if any(tok.i < verb.i and tok.dep_ == 'advmod' for tok in verb.children):
                 inversion = False
+        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and tok.head == verb for tok in sentence[:verb.i]):
+            # subordinate clause, e.g., aangezien je merkte wie je had gezien
+            utils.log(f'Subject-verb inversion could not be determined (subordinate clause)')
+            return None
 
         utils.log(f'not inverted ({subject}, {verb})' if not inversion else f'inverted ({verb}, {subject})')
         return inversion
 
-    utils.log(f'Subject-verb inversion could not be determined (e.g., subordinate clause, no verb, ...)')
+    utils.log(f'Subject-verb inversion could not be determined (e.g., no verb, ...)')
     return None
 
 
@@ -127,6 +167,12 @@ def simply_not_a_question_word(token):
             return True
         # if right_neighbors and right_neighbors[0].text.lower() == 'er':     # Jan weet wie er is gevallen
         #     return True
+        if (token.pos_ == 'DET' or token.dep_ == 'det') and token.i < len(token.sent) - 1 and token.sent[token.i + 1].pos_ == 'NOUN' and 'Plur' in token.sent[token.i + 1].morph.get('Number'):
+            # Wil nog snel wat kleren en speelgoed gaan kopen.
+            return True
+        if token.text == 'waar' and token.pos_ == 'ADJ' and any(tok.dep_ == 'cop' for tok in token.children):
+            # Dit kan niet waar zijn toch?
+            return True
     if language == 'french':
         if token.i > 2 and sentence[token.i-2].text.lower() == 'à' and sentence[token.i-1].text.lower() == 'ce':  # filter out French free relatives? actually, indirect questions can have this shape.
             return True
@@ -148,13 +194,13 @@ def get_embedder_of(token):
     sent = token.sent
     candidate = None
 
-    actual_roots = [tok for tok in sent[:token.i] if tok.pos_ == 'VERB' and tok.dep_ in ['nsubj', 'parataxis']]
-    if actual_roots and is_embedder(actual_roots[0]):
-        utils.log(f'{token} has embedder {actual_roots[0]} because weird parataxis/nsubj misparse')
+    actual_roots_given_parataxis_misparse = [tok for tok in sent[:token.i] if tok.pos_ == 'VERB' and tok.dep_ in ['nsubj', 'parataxis']]
+    if actual_roots_given_parataxis_misparse and is_embedder(actual_roots_given_parataxis_misparse[0]):
+        utils.log(f'{token} has embedder {actual_roots_given_parataxis_misparse[0]} because weird parataxis/nsubj misparse')
         # Hoorde [VERB, parataxis] je wie er zijn gekomen?
         # Weet [VERB, nsubj] Jan wie er zijn gekomen?
         # Il te [VERB, nsubj of dira] le dira quand ton frère?  --> still returns the wrong root though.
-        return actual_roots[0]
+        return actual_roots_given_parataxis_misparse[0]
 
     if token.dep_ == 'advmod' and token.head == sent.root and is_embedder(sent.root) and sent.root.i < token.i: # and any(parataxa_or_ccomp)
         # Fixes some misparses:
@@ -198,6 +244,16 @@ def get_embedder_of(token):
                 utils.log(f'{token} has nearest verblike embedding ancestor {tok} as embedder')
                 return tok
             break
+        if tok.dep_ == 'obl':
+            embedding_nouns = [child for child in tok.head.children if child.dep_ in objectlike_dep_tags and child.pos_ == 'NOUN' and is_embedder(child)]
+            if embedding_nouns:
+                utils.log(f'{token} has nearest embedding noun {embedding_nouns[0]} as embedder')
+                return embedding_nouns[0]
+        if tok.dep_ == 'nmod' and is_embedder(tok.head):
+            utils.log(f'{token} has nearest embedding noun {tok.head} as embedder')
+            return tok.head
+    # child of obl of search (with information as object)
+    # nmod of information
 
     utils.log(f'{token} has no embedder')
     return None
@@ -215,12 +271,29 @@ def might_be_complementizer(token, embedder):
     if any(grandchild.dep_ == 'mark' and grandchild.lemma_ in vocab.complementizers[language] and grandchild != token for child in embedder.children for grandchild in child.children):
         utils.log(f'"{token}" is not complementizer of {embedder}, because the latter has another mark as grandchild')
         return False
-    if token.dep_ in objectlike_dep_tags and token.head == embedder:
-        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s simply the obj.')
+    if any(child.dep_ == 'mark' and child.lemma_ in vocab.complementizers[language] and child != token for child in embedder.children):
+        utils.log(f'"{token}" is not complementizer of {embedder}, because the latter has another mark as child')
         return False
+    # if token.dep_ in objectlike_dep_tags and token.head == embedder:  # Too strict; replaced by preceding rule.
+    #     utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s simply the obj.')
+    #     return False
     if token.dep_ == 'cc' and token.pos_ == 'CCONJ' and any(tok._.qtype == 'indirect' and might_be_complementizer(tok, embedder) for tok in token.sent[:token.i]):
         # >>> Ik vraag mij nog steeds af waarom[indirect] mensen nu 2 verschillende spuiten of[no] nog iets toegevoegd bij de griepprik kregen.
-        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s more likely a conjunction.')
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s more likely a conjunction (of something embedded).')
+        return False
+    if token.dep_ == 'cc' and token.pos_ == 'CCONJ' and token.head.dep_ == 'conj':
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s part of a conjunction.')
+        return False
+    if token.pos_ == 'CCONJ' and token.dep_ == 'fixed':
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s part of a conjunction (dep=fixed).')
+        return False
+    if token.dep_ == 'xcomp' and token.i == 0:
+        # for misparse, though insufficient to handle it correctly: Hoe[fronted] ziet u een "zegevierplan"?
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it is initial and parsed as xcomp (?).')
+        return False
+    if token.dep_ == 'advmod' and token.i == 0 and token.i == token.head.i - 1 and any(tok.dep_ in objectlike_dep_tags for tok in token.head.children):
+        # Waar zie jij jezelf over 5 of 10 jaar?
+        utils.log(f'"{token}" is not complementizer of {embedder}, because it seems like a simple fronted advmod.')
         return False
     utils.log(f'"{token}" might be complementizer of {embedder}, as there is no alternative mark or impersonal pronoun as obj.')
     return True
@@ -231,6 +304,10 @@ def might_not_be_complementizer(token):
         # Il a vu qui[obj]?
         utils.log(f'"{token}" might also NOT be a complementizer.')
         return True
+    if token.dep_ == 'xcomp' and token.i == 0:
+        # for misparse, though insufficient to handle it correctly: Hoe[fronted] ziet u een "zegevierplan"?
+        utils.log(f'"{token}" might also NOT be a complementizer.')
+        return False
     # Aangezien je merkte wie[no] je had gezien[ccomp]?
     utils.log(f'"{token}" cannot NOT be a complementizer.')
     return False
@@ -277,7 +354,11 @@ def is_negation(token):
     return False
 
 def is_wanted(token):
-    return any(tok._.corrected_lemma in vocab.verbs_like_want[utils.language_of(token)] for tok in token.children)
+    verbs_like_want = vocab.verbs_like_want[utils.language_of(token)]
+    if token.dep_ == 'xcomp' and token.head.dep_ == 'ROOT' and 'Inf' in token.head.morph.get('VerbForm') and token.head._.corrected_lemma in verbs_like_want:
+        # for misparse: Ik zou wel eens willen[ROOT] weten[xcomp] wat er allemaal wel goed gaat
+        return True
+    return any(tok._.corrected_lemma in verbs_like_want for tok in token.children)
 
 
 def corrected_lemma(token):
@@ -320,7 +401,7 @@ def ends_with_tag_question(sentence):
         elif [tok.pos_ for tok in sentence[-3:]] == ['AUX', 'PRON', 'PUNCT']:
             utils.log(f'Ends as tag question.')
             return True
-    if sentence._.ends_with_question_mark and any(sentence.text.strip('?!.').endswith(tag) for tag in vocab.tag_questions[language]):
+    if sentence._.ends_with_question_mark and any(sentence.text.strip(sentence_separators).strip().endswith(tag) for tag in vocab.tag_questions[language]):
         utils.log(f'Ends as tag question.')
         return True
     return False
@@ -345,7 +426,7 @@ def likely_to_head_indirect_question(token):
         if is_question and present_tense and (who_subject or addressee_subject or existential_subject or impersonal_subject):
             utils.log(f'Structure resembles: Does anyone know? You know? Who knows? Does someone know? Does one know?...')
             result = True
-        elif not is_question and speaker_subject and (is_negated(token) or is_wanted(token)) and is_present_tense(token):
+        elif not is_question and speaker_subject and (is_negated(token) and is_present_tense(token)) or is_wanted(token):
             utils.log(f'Structure resembles: I don\'t know / I want to know...')
             result = True
         else:
@@ -371,6 +452,11 @@ def likely_to_head_indirect_question(token):
     if lemma in vocab.nouns_like_question[language]:
         if not is_question and is_present_tense(token):
             utils.log(f'Structure resembles: It\'s a mystery...')
+            result = True
+
+    if lemma in vocab.nouns_like_information[language]:
+        if is_present_tense(token):
+            utils.log(f'Structure resembles: ...information about...')
             result = True
 
     # if lemma in vocab.adjectives_like_strange[language]:
@@ -456,6 +542,7 @@ def is_present_tense(token):
     if 'Pres' in token.sent.root.morph.get('Tense') or not any('Past' in tok.morph.get('Tense') for tok in token.sent):
         # "Blijft voor mij een raadsel"
         return True
+    # TODO Could be more sophisticated...
     return False
 
 
@@ -513,6 +600,12 @@ def might_be_ordinary_relclause(token):
         # Wat hij deed[csubj] veroorzaakte[ROOT] een storm.
         # Wat er gebeurde[nsubj] was een wonder[ROOT].
         return True
+    language = utils.language_of(token)
+    if language == 'dutch':
+        if token.lemma_ == 'wat' and token.i < len(token.sent) - 1 and token.sent[token.i+1].lemma_ == 'er':
+            # pretty good rule!
+            return True
+
     return False
 
 
@@ -535,7 +628,7 @@ def classify_whword(token):
     if can_be_direct and is_fronted(token) and not might_be_ordinary_relclause(token) and might_not_be_compl:
         return 'fronted'
     elif embedder_of:
-        if likely_to_head_indirect_question(embedder_of) and not is_rising_declarative(token.sent) and not is_exclamative_like(token.sent):
+        if likely_to_head_indirect_question(embedder_of) and not is_exclamative_like(token.sent):   # and not is_rising_declarative(token.sent)    commented out for "waar kan ik informatie vinden over .. en wat...", seems ok.
             return 'indirect'
     if can_be_direct and not might_be_ordinary_relclause(token) and might_not_be_compl:
         return 'insitu'
@@ -546,12 +639,12 @@ def classify_question(sent):
     fronted = [tok.text.lower() for tok in sent if tok._.qtype == 'fronted']
     insitu = [tok.text.lower() for tok in sent if tok._.qtype == 'insitu']
     indirect = tuple(tok.text.lower() for tok in sent if tok._.qtype == 'indirect')
-    if fronted:
+    if sent._.has_tag_question:
+        structure = 'tag'
+    elif fronted:
         structure = 'wh'
     elif insitu:
         structure = 'insitu'
-    elif sent._.has_tag_question:
-        structure = 'tag'
     elif sent._.ends_with_question_mark:
         if sent._.has_inversion == False:
             structure = 'risingdecl'
