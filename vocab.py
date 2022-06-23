@@ -54,10 +54,8 @@ wh_words = {
     'english': ['who', 'what', 'how', 'why', 'which', 'when', 'where'], # 'how much', 'how many'?
     'french': ['que', "qu'", 'quoi', 'qui', 'quand', 'comment', 'combien', 'pourquoi', 'où'],
     'italian': ['cosa', 'chi', 'come', 'quanto', 'perché'], # also 'dove'?  # also non + statement + question mark
-    'dutch': ['wie', 'wat', 'hoe', 'hoezo', 'waarom', 'welke', 'wanneer', 'hoeveel', 'waar', 'hoezeer', 'waaraan', 'waartoe', 'waarnaar', 'waarnaartoe', 'waarvan', 'vanwaar'],    # waarnaar? waartoe?
+    'dutch': ['wie', 'wat', 'hoe', 'hoezo', 'waarom', 'welke', 'wanneer', 'hoeveel', 'waar', 'hoezeer', 'waaraan', 'waartoe', 'waarnaar', 'waarnaartoe', 'waarvan', 'vanwaar'],
 }
-
-# End of vocab based on the trainee document
 
 
 wh_words_only_embedded = {
@@ -114,6 +112,13 @@ nouns_like_question = {
     'dutch': ['vraag', 'mysterie', 'raadsel']
 }
 
+nouns_like_information = {
+    'english': ['info', 'information'],
+    'french': [],   # TODO
+    'italian': [],  # TODO
+    'dutch': ['info', 'informatie']
+}
+
 verbs_like_ask = {
     'english': ['ask', 'request'],
     'french': ['demander'] + ['demande'],
@@ -122,10 +127,10 @@ verbs_like_ask = {
 }
 
 verbs_like_know = {
-    'english': ['know', 'say', 'tell', 'understand', 'certain', 'sure', 'see', 'remember'],
-    'french': ['dire', 'savoir', 'comprendre', 'certain', 'voir'],  # add remember
-    'italian': ['sapere', 'dire', 'raccontare', 'capire', 'certo', 'sicuro', 'vedere'], # add remember
-    'dutch': ['weten', 'vertellen', 'zeggen', 'begrijpen', 'kennen', 'zeker', 'zien', 'inzien', 'herinneren'] + ['weet'],    # mis-lemmatized
+    'english': ['know', 'say', 'tell', 'understand', 'certain', 'sure', 'see', 'remember', 'imagine', 'calculate'],
+    'french': ['dire', 'savoir', 'comprendre', 'certain', 'voir'],  # add remember, imagine, calculate
+    'italian': ['sapere', 'dire', 'raccontare', 'capire', 'certo', 'sicuro', 'vedere'], # add remember, imagine, calculate
+    'dutch': ['weten', 'vertellen', 'zeggen', 'begrijpen', 'kennen', 'zeker', 'zien', 'inzien', 'herinneren', 'voor_stellen', 'uitrekenen'] + ['weet'],    # mis-lemmatized
 }
 
 verbs_like_see = {
@@ -149,8 +154,9 @@ some_other_embedders = { # not reliable predictors of indirect questions, but st
     'dutch': ['gek', 'raar', 'vreemd', 'verdacht', 'grappig'],
 }
 
+
 all_embedders = {
-    language: verbs_like_see[language] + verbs_like_know[language] + verbs_like_wonder[language] + verbs_like_ask[language] + nouns_like_question[language] + some_other_embedders[language]
+    language: verbs_like_see[language] + verbs_like_know[language] + verbs_like_wonder[language] + verbs_like_ask[language] + nouns_like_question[language] + nouns_like_information[language] + some_other_embedders[language]
     for language in verbs_like_see
 }
 
