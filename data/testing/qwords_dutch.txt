@@ -1,0 +1,156 @@
+# These are questions extracted from Dutch tweets, used for refining the classification algorithm. Most of them done correctly, with possible improvements to get from better sentence segmentation...
+# dutch
+ - In juli vragen om zelf meer lokale maatregelen te kunnen nemen, wat[no] op heden kan. | decl
+U bent duidelijk iemand die niet wil begrijpen hoe[indirect] zorgwekkend de huidige toestand is. | decl
+"  Ik weet niet hoe[indirect] het met jullie is, maar ik weet niet hoeveel[indirect] cruciale dagen ik nog aankan. | decl
+Hoe[indirect] zwaar het onderbelicht is weten we zelfs ook niet, omdat we de daadwerkelijke omvang ook niet kennen. | decl
+laten we ons realiseren dat de corona maatregelen veel meer doden veroorzaken dan voorkomen (je kunt je zelfs afvragen of[indirect] ze eigenlijk wel doden voorkomen), en ze gaan ook nog eens ten koste van de kwaliteit van ons leven. | decl
+Ik weet niet wat[no] ik lees joh! | decl  ve
+Ben wel benieuwd hoe[indirect] t bos er nadien uitzag... | decl
+Ik weet ook niet of[indirect] het helpt, maar het is een kleine moeite. | decl
+en eigelijk totaal niet weten wat[indirect] ze nu feitelijk zeggen enkel en alleen uit eigen angst onwetendheid en angst. | decl
+Vraag of[indirect] ze geld willen..... | decl
+Daardoor weten we niet of[indirect] COVID19 afneemt of[indirect] toeneemt. | decl
+ik weet niet of[indirect] dit goed of[no] slecht nieuws betreft.... | decl
+Misschien moeten we ons - naast oproepen om lokaal te kopen - ook eens afvragen hoe[indirect] het komt dat er zo weinig grote Belgische spelers op de online markt aanwezig zijn. | decl
+Ik ben benieuwd hoeveel[indirect] kerkgangers zich vandaag weer verzamelen in het gebedshuizen en samen zingen want zullen wel niet voor het zingen de kerk uitgaan. | decl
+Ik heb gevraagd wat[indirect] ze bedoelt met ‘no longer’, maar nog geen reactie. | decl
+‘Ik vraag mij af of[indirect] corona het probleem is of[no] de oplossing voor het probleem,” zegt Damiaan Denys, "Rampspoed dwingt ons om onze megalomane levensstijl te veranderen. | decl
+Ben benieuwd hoe[indirect] dit zich gaat ontwikkelen. | decl
+Ik vraag mij nog steeds af waarom[indirect] mensen nu 2 verschillende spuiten of[no] nog iets toegevoegd bij de griepprik kregen. | decl
+Ik vraag me echt af hoe[indirect] ze dit aan zichzelf verantwoorden . | decl
+Vliegtuigmaatschappijen weten natuurlijk niet op voorhand hoeveel[no] reizigers zij gaan vervoeren die dag. | decl
+ - maar de volwassenen met hetzelfde gedrag? | elliptic
+Is daar nog Covid19 of[no] zijn die al met Covid20 bezig? | polar
+Mijn kroost? | elliptic
+Of[no] dat dominant blanke Europa? | elliptic
+Vanwaar[fronted] trouwens de constante referentie naar 'linkse mensen? | wh
+31 minuten? | elliptic
+Misschien daarom? | elliptic
+Dierbare te vroeg verloren? | elliptic
+Nog altijd overtuigd dat we Corona niet beter gewoon haar werk laten doen? | elliptic
+toegeven? | elliptic
+En er achter komen dat SARS ook gewoon via aerosols verspreid werd? | elliptic
+Waarvoor ? | elliptic
+maatregelen? | elliptic
+de testen zijn NIETS waard? | risingdecl
+Moedwillige economische destructie? | elliptic
+Stelletje tering clowns bij de , ook maar een mogelijke corona-uitbraak bij ADO dan door deze wedstrijd door te laten gaan? | elliptic
+Of[no] ben jij niet kritisch genoeg naar je zelf om dat te zien? | polar
+Is 1 covid besmetting ook gelijk aan 1 opname/dode? | polar
+symptoom van Corona? | elliptic
+Huh? | elliptic
+ - Als het veilig kan waarom[fronted] niet ? | wh
+Het is dus volkomen veilig in een boekenwinkel waar[no] iedereen aan de boeken komt, maar niet in een elektrozaak of[no] auto showroom? | risingdecl
+2 grote LCD-schermen te plaatsen met links beelden van wie[no] aan het scherm passeert en rechts een livestream van op COVID19 icu? | elliptic
+# Beperkt deel bevolking wil nog rap wat[no] kleren en speelgoed gaan kopen (essentie ??? | elliptic    # wrong; should split on parentheses...
+# IKEANederland Corona regels echtpaar met baby mag samen niet naar binnen want Max 2 personen ongekend in wat[fronted] een wereld leven wij? | wh   # wrong, too hard anyway
+# Na bijna 8 maanden Corona is er niks op orde maar toch zeggen dat je minister president wilt blijven (omdat de vvd hoog in die nep peilingen staat)Hoe[fronted] dan??????? | wh # wrong, should split on parentheses...
+💰 Wat[fronted] hebben we het afgelopen jaar gedaan en uitgegeven? |
+“Wat[fronted] ga je doen dan? |
+In hoog tempo een vaccin tegen corona ontwikkelen, waarom[fronted] niet tegen malaria? |
+Zijn er mensen die nog wat[no] laptops hebben in de buurt van Drachten? |
+Dit kán niet waar[no] zijn toch? | tag
+Het liet zich ook theoretisch-psychologisch voorspellen, maar misschien helpt wat[no] empirie om ons allerlei illusies over communicatie COVID19NL te besparen?
+De toekomst van ons land is zo dom als het achtereind van een varken corona Feestje in Limburgs bos, waarom[fronted] niet? |
+ik zoek informatie over wie[indirect] gisteren arriveerde. | decl
+Beste  , waar[fronted] kan ik informatie vinden over beker indeling jeugd b categorie en wat[indirect] indeling is van de jo7-12? | wh
+Hoe[fronted] kan je afleiden dat wat[no] er wordt getoond een gevolg is van Covid-19? | wh
+Blijft hand in hand schouder aan schouder in coronavirus tijd aso gedrag  Wat[fronted] vindt jij? | wh
+'Als Remko Pasveer afwezig is door een blessure/schorsing/COVID-19, wie[fronted] moet er dan keepen? | wh
+Kun je je dan voorstellen wat[indirect] het 'nieuwe' Covid vaccin met jonge mensen zal doen!? | polar
+Zal iemand ooit uitrekenen hoeveel[indirect] doden die solidariteit ons gekost zullen hebben ? | polar
+Zullen we volgende week twitter eens vullen met wat[no] er allemaal wel goed gaat tijdens de corona? | polar
+ - Is zij niet besneden door houties of[no] touties? | polar
+GGD =hertest  CORONA App? | elliptic
+Komt dit niet bekend voor?! | polar
+wetens tot vermijdbare sterfgevallen leidt, mag een democratisch gekozen overheid daarvoor kiezen? | polar
+Eigenlijk blijven de meeste winkels dus open ??? | risingdecl
+Zijn er ook mensen vóór corona dan? | polar
+Nee ma ik zie mensen gewoon halloweenfeestjes geven alsof corona gedaan is? | risingdecl
+Maar mag een ander dan ook doen wat[no] hij wil? | polar
+Ik ben benieuwd naar de besmettingen over 2 weken moet ook de politie overbelast raken? | polar
+Vind je dat ze dat hadden moeten verzwijgen? | polar
+houden we in de Corona-crisis ook de belangen van jongeren en studenten in het oog? | polar
+Kan iemand mij eraan herinneren waarom[indirect] voetbal als enige sport in deze tijd wel door mocht gaan? | polar
+Er is méér dan COVID-19 dan ? | risingdecl
+zou er een plan zijn??? | polar
+Kan dat slappe er nu eindelijk eens vanaf, CDA? | polar
+Zou dat met discipline te maken hebben? | polar
+hebben, bouwen zij antistoffen op tegen dat virus? | polar
+heeft er al iemand een Corona-proof woord verzonnen voor applauswissel? | polar
+Kan dit een verklaring zijn ? | polar
+En waarom[fronted] maken ze zich zo druk? | wh
+ - Weet iemand nog hoe[indirect] het leven was voor corona? | polar
+weet je hoeveel[indirect] kinderen een opa, oma, of[no] iemand anders zijn kwijt geraakt door corona  de afgelopen 8 maanden? | polar
+Weet je nog hoe[indirect] RIVM en OMT-leden als Marion Koopmans in juli de enige conclusie die je uit de gebeurtenisssen in Maassluis kon trekken wegwuifden? | polar
+Weet iemand wat[indirect] ik bedoel? | polar
+Weet iemand hoe[indirect] dit hier zit? | polar
+Weet je hoeveel[indirect] kinderen daarnaast hun opa en oma zijn kwijt geraakt zonder corona? | polar
+En weet U wat[indirect] er gebeurt met de natuurlijke UV intensiteit als de herfst zich aanbiedt? | polar
+Hoe[fronted] ziet u een "zegevierplan"? | wh
+Ben jij of[no] ken jij iemand die niet zo goed kan lezen en schrijven? | polar
+Weten jullie wat[indirect] longcovid is? | polar
+Waar[fronted] zie jij jezelf over 5 of[no] 10 jaar? | wh
+Weet je wat[indirect] wel leuk is? | polar
+Weet iemand misschien hoe[indirect] lang er na een vastgestelde besmetting delen van het Corona virus in je lichaam blijven zitten en je dus positief blijft testen (Ook als je niet meer besmettelijk bent)? | polar
+ - Beleid,  regels handhaven? | elliptic
+En je gelooft nog steeds dat de overheid het beste met je voorheeft? | risingdecl
+_el_guapo    Je bedoeld van mensen die stage 4 cancers hadden en dan Corona als doodsoorzaak op hun death certificate kregen? | risingdecl
+Wij burgers betalen toch ook hun salarissen? | risingdecl
+hoeveel[no] voorbeelden moeten er nog komen? | risingdecl
+'U denkt toch niet dat wij uw leugens nog serieus nemen? | risingdecl
+Het gaat zo slecht met NL, geen werk door Corona, maar wel even miljoenen uitgeven aan milieuvervuiling?! | risingdecl
+de samenlevingen in europa gingen geheel of[no] gedeeltelijk maanden in lockdown - en dan nog zouden *migranten* niet weten wat[no] er aan de hand is? | risingdecl
+Welke[no] criteria treden dan in? | risingdecl
+Hoe[no] stom kan je GVD zijn om zoiets nog te doen? | risingdecl
+Ze hebben zeker een piepklein ziekenhuis? | risingdecl
+U had het dus over iets anders dan Covid ? | risingdecl
+Hoe[no] DOM kunnen mensen zijn ??? | risingdecl
+inderdaad, en iedereen heeft toch het strikt noodzakelijke al in huis, of[no] niet? | risingdecl
+We hebben de app goed gebouwd, nu nog te weten komen "hebben we de goede app gebouwd"? | risingdecl
+_vannoten Bart Tommelein doet toch zelfde? | risingdecl
+jo uh gaat no nut november nog door???????? | risingdecl
+Druk op ziekenhuizen lijkt in aantal provincies te stabiliseren (gevolg spreiding of[no] weekendeffect? | risingdecl
+Als het COVID doden KOST betekent dat, dat er dus minder COVID doden zijn? | risingdecl
+We doen het volgens mij toch juist voor jullie?! | risingdecl
+ - Beetje suf toch? | tag
+Alleen met corona niet toch? | tag
+Op zich is dat prima toch? | tag
+_19  Dit is zwaar belachelijk toch? | tag
+Bijzonder toch? | tag
+Een grapperhausje heet dat toch? | tag
+Niemand verplicht je om met de club mee te rijden toch? | tag
+toch wel vanuit huis toch? | tag
+In België heeft dan toch praktisch iedereen corona gehad toch? | tag
+“Da mag toch? | tag
+Handig toch? | tag
+_riga  Maar dat is best egoïstisch toch? | tag
+"Je eigen onderzoek doen" noemen jullie wakkere en kritische types dat toch? | tag
+Nu niet meer toch? | tag
+Niks toch? | tag
+Sterke de komende 4 weken toch? | tag
+Dat weet je toch? | tag
+Maar 1 november is vooral koopzondag op de Meir, toch? | tag
+Je had Corona toch? | tag
+Geen kunstgras blessure toch? | tag
+ - Hoe[fronted] bedenken ze het? | wh
+" Waar[fronted] haalt iedereen dit vandaan? | wh
+Waar[fronted] melden? | wh
+wie[fronted] gaat dit allemaal controleren ? | wh
+Waar[fronted] was de Nederlandse ers toen op dinsdag 27 oktober de corona-spoedwet werd aangenomen? | wh
+Wat[fronted] denken ze wel? | wh
+” wanneer[fronted] ben je geïnfecteerd en wanneer[fronted] ben je besmet? | wh
+hoe[fronted] kan het dat bij PSV de spelers stuk voor stuk omvallen? | wh
+Ja, waar[fronted] is deze waanzin nou eigenlijk op gebaseerd? | wh
+hoe[fronted] hard moet je eigenlijk roepen ? | wh
+wat[fronted] zijn de behandelprotocollen in de ziekenhuizen eigenlijk, wat[fronted] dient men de eerste dagen exact (liefst merknaam of[no] actieve stof en hoeveelheid) eigenlijk toe bij een Covid patiënt aub? | wh
+‘Wie[fronted] heeft het nog, gezond verstand? | wh
+hoe[fronted] zit het dan met deze regels? | wh
+Hoezo[fronted] lockdown terwijl de meerderheid van de winkels toch open blijft? | wh
+Hoe[fronted] verklaart u dat? | wh
+Wat[fronted] is jullie zorg? | wh
+Hoe[fronted] zou het Belgie zijn? | wh
+Waar[fronted] corona? | wh
+Wat[fronted] zijn de feiten, volgens jou? | wh
+Voor wie[fronted] of[no] wat[fronted] riskeren wij ons leven en brengen wij onze families in gevaar? | wh
