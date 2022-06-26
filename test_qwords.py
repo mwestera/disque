@@ -3,7 +3,8 @@ import utils
 import re
 
 # test_file_path = 'data/testing/qwords.txt'
-test_file_path = 'data/testing/qwords_dutch.txt'
+# test_file_path = 'data/testing/qwords_dutch.txt'
+test_file_path = 'data/testing/qwords_french.txt'
 
 def main():
 
@@ -14,15 +15,23 @@ def main():
         for line in file:
             if not line.strip():
                 continue
-            if line.startswith('#'):
-                content = line.strip('# \n').lower()
+            if line.startswith('//'):
+                content = line.strip('/ \n').lower()
                 if content in ['dutch', 'english', 'french', 'italian']:
                     current_language = content
                 if content == 'stop':
                     break
                 continue
 
-            sentence = line.split('#')[0].strip()
+            if '//' in line:
+                sentence, comment = line.split('//')
+                comment = comment.strip()
+            else:
+                sentence, comment = line, None
+
+            sentence = sentence.strip()
+            sentence = utils.clean_question(sentence)   # TODO Remember this for the main pipeline!
+
             if '|' in sentence:
                 sentence, structure = sentence.split('|')
                 sentence = sentence.strip()
@@ -38,13 +47,13 @@ def main():
                 tag = token_start_to_tag.get(token.idx, None)
                 if token._.qtype != tag:
                     if not error:
-                        print('>>>', sentence)
+                        print('>>>', line)
                     print('ERROR (q-word): Predicted:', token._.qtype, ' | True:', tag)
                     error = True
                     n_errors += 1
             if structure and parsed_sentence._.qtype['structure'] != structure:
                 if not error:
-                    print('>>>', sentence)
+                    print('>>>', line)
                 print(f'ERROR (structure): Predicted:', parsed_sentence._.qtype['structure'], ' | True:', structure)
                 error = True
                 n_errors += 1
