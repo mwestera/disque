@@ -52,7 +52,7 @@ negations = {
 
 wh_words = {
     'english': ['who', 'what', 'how', 'why', 'which', 'when', 'where'], # 'how much', 'how many'?
-    'french': ['que', "qu'", 'quoi', 'qui', 'quand', 'comment', 'combien', 'pourquoi', 'où'],
+    'french': ['que', 'quel', "qu'", 'quoi', 'qui', 'quand', 'comment', 'combien', 'pourquoi', 'où', 'ou', 'pkoi', 'qd', 'quels', 'quelles'],   # ou is a bit risky...
     'italian': ['cosa', 'chi', 'come', 'quanto', 'perché'], # also 'dove'?  # also non + statement + question mark
     'dutch': ['wie', 'wat', 'hoe', 'hoezo', 'waarom', 'welke', 'wanneer', 'hoeveel', 'waar', 'hoezeer', 'waaraan', 'waartoe', 'waarnaar', 'waarnaartoe', 'waarvan', 'vanwaar'],
 }
@@ -92,7 +92,7 @@ impersonals = {
 
 neutral_pronouns = {
     'english': ['it', 'that'],
-    'french': ['le', 'la', 'ça', 'l\''],   # 'ce' introduces too much error
+    'french': ['le', 'la', 'ça', 'l\'', 'ceux', 'celui'],   # 'ce' introduces too much error
     'italian': ['l\'', 'lo', 'la'],
     'dutch': ['het', 'dat', 'dit'],
 }
@@ -170,8 +170,8 @@ perfect_auxiliaries = {
 tag_questions = {
     'english': ['right'],
     'italian': ['vero', 'giusto', 'no', 'eh'],
-    'french': ['non'],
-    'dutch': ['toch', 'niet waar'],
+    'french': ['non', 'n’est -ce pas', 'n\'est -ce pas'],
+    'dutch': ['toch', 'niet waar'], # TODO niet?
 }
 
 
@@ -181,3 +181,6 @@ complementizers = {
     'french': ['que', 'à'] + wh_words_all['french'],    # TODO
     'dutch': ['dat', 'om', 'te'] + wh_words_all['dutch'],
 }
+
+
+french_il_drop_verbs = ['faut', 'veut']
