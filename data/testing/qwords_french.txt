@@ -1,0 +1,134 @@
+// This file contains french questions with the predicted categories of wh-words and the questions as a whole.
+// 1. Individual wh-words are tagged in square brackets like "who[no/insitu/fronted/indirect]"
+//    - here 'indirect' means it is pragmatically likely to be used as an indirect question.
+//    - embedded wh-words that are unlikely to be used as indirect questions, are tagged with 'no'.
+// 2. The syntactic structure of each question as a whole is categorized at the end of each line as "polar/wh/insitu/elliptic/decl/risingdecl"
+//    - here 'elliptic' is intended for non-wh-questions whose subject-verb order cannot be determined, typically because there is no matrix verb.
+//    - 'wh' means a fronted-wh question; 'insitu' means an insitu-wh question; if a question has both, the former wins.
+
+// Annotation instructions:
+// If a line is wrongly categorized, please duplicate and then correct it (both the wh-tags and the overall classification), if possible.
+// Of course feel free to add comments in between.
+
+//rc=relative clause, fr=free relative
+
+// french
+Je sais même pas comment[indirect] qualifier son discours. | decl
+Je demande à tous ceux qui[no] le peuvent de se faire vacciner. | decl    // rc
+Je ne sais pas si[indirect] vous réalisez ce qui[no] est en train de se passer. | decl
+Je ne sais pas si[indirect] vous comprenez. | decl
+Réponds à ça, pas a d’autres questions que[no] je te pose pas stp. | decl   // rc
+Je sais pas ce qui[indirect] m’énerve le plus dans tout ça... | decl  // fr
+Y’a un truc que[no] je comprends pas. | decl    // rc
+Je ne sais pas qui[indirect] est vacciné... | decl
+et celle d'après la 1er dose ? | elliptic
+Quelle caractère volontaire? | elliptic
+"Pfizermectine"? | elliptic
+C'est ça la police maintenant ? | risingdecl  // left dislocation
+Une vie normale ? | elliptic
+A-t-il compris qu'[no]il est fichu? | polar
+est ce 1 vague de décès covid ? | polar
+1000 pers positives/j est ce 1 vague de décès covid ? | polar // (pronominal inversion (est ce should be est-ce, but these dashes are probably more often omitted in tweets)
+J’ai bon ? | risingdecl  // or elliptic? the sentence seems incomplete, but this is not an ordinary elliptical question, it is rather unfinished/ cf. difference between 'allemaal klaar?' and 'ik heb?'/without context hard to judge.
+sauront-ils y repondre? | polar
+Faut continuer à porter un #masque ? | elliptic // subject drop (dummy il can be dropped in spoken French); I suppose it is not first inverted, but one could argue that the category should be polar
+quel[fronted] est le but de la vaccination ? | wh
+"ENQUETE, Tous vaccinés ? | elliptic
+vous la voulez pile ou[no] face? | risingdecl
+Ah bataaaard tu mens ? | risingdecl
+” , “galz? | elliptic
+pour ou[no] contre les couples mixtes vaccinés/non-vaccinés? | elliptic
+▶ #Vaccination, vers un nouveau fiasco ? | elliptic
+Pauvre tache, t’attends toujours ton vaccin Spoutnik ? | risingdecl // t'can be short for tu/ not only object pronoun
+Une 3ème dose SpikeVax - tout un programme …-  moitié moins forte ? | elliptic
+Hum Blachier ? | elliptic
+Serait ce un effet secondaire de ce sérum que[no] l on vous a injecté ? | polar
+On le passe quand[insitu] sur BFM ? | insitu
+Les hommes seraient-ils moins intelligents que[no] les animaux ? | polar    // rc
+Les journalistes vous êtes où[insitu]? | insitu
+Est ce qu'[no]on peut avoir une enquête sur le sujet ?? | polar
+_Ness15  À quand[fronted] les monuments aux morts pour les vaccinés ? | wh  // to be complete: elliptic wh
+Si[no] j’ai le Covid, je peux quand[no] même le donner non ??? | tag  // quand même / quand bien même = toch, toch wel
+On en est où[insitu] des chiffres de la vaccination ? | insitu
+C'est qui[insitu] les konnards, nous ou[no] eux? | insitu  // alternative in situ question
+_clement  Et il veut prouver quoi[insitu] le génie ? | insitu
+C’est quoi[insitu] la prochaine étape un vaccin contre la mort ? | insitu
+Est ce que[no] ça veut dire qu'[no]il est capable de mentir sur tout ? | polar
+Est ce que[no] le vaccin ne protège pas juste d'être déclaré Covid ? | polar
+Il reste qui[insitu] à vacciner ? | insitu
+Ils sont rapides quand[no] ça les arrange n’est-ce pas ? | tag   // temporal quand
+Le prix Ã  payer pour protÃ©ger les vieux qui[no] sont vaccinÃ©s? | elliptic  // rc
+🤮🤮 mais on vit où[insitu] ??? | insitu
+à un moment c'est quoi[insitu] le but ? | insitu  // right dislocated subject
+Alors,rester prudent,veut dire quoi[insitu] ? | insitu
+les victimes se retournent contre qui[insitu] ? | insitu
+Ou[fronted] se situe la vérité ? | wh  // où (where) written as ou (or)
+Ne connaissent pas l'âge de leur enfant ? | polar // subject drop/ this time of a personal pronoun, I would be interested in what context this occurred
+Est-ce que[no] vous y croyez? | polar  // est-ce que is a question particle introducing polar questions, according to prescriptive grammar only in main clauses, but in informal language it is also used in embedded yes-no questions
+Mais quels[fronted] sont réellement les effets secondaires des vaccins ? | wh
+N'est-ce-pas _medecins ? | polar  // if medecins is a vocative, this is correct
+Depuis qd[fronted] existe la grippe aviaire ? | wh  // qd commonly used for quand
+N'est-ce pas énorme? | polar
+Est-ce dû à la vaccination ? | polar
+Non rassurez moi ? | elliptic
+Ivermectine+Zinc = 100% (interdit  en France)  "Source ? | elliptic  // question starts at Source/ what precedes is what the question is about
+#Vaccin #coronavirus #JLM2022   irresponsable ? | elliptic
+"Bill gates achète l'OMS ? | risingdecl
+S’agit-il d’un effet secondaire sa vaccination ? | polar
+Nous aurait-on menti ? | polar
+Est ce vrai ? | polar
+Auriez-vous ces données ? | polar
+est-ce légal? | polar
+Attendent-ils un événement pour contraindre les réfractaires ? | polar
+les ordures de  ont forcé la main à  ?? | elliptic  // possibly better to qualify the sentence as incomplete
+__GENERAL_0FF Son crime ? | elliptic
+000 en Europe) persistent-ils à vouloir l'imposer via le Pass ? | polar
+vous voulez qu'[no]on nous injecte ce poison ? | risingdecl
+Il faut 2 doses par personne, c'est bien ça ? | risingdecl  // rather tag?/ the tag itself is a rising declarative, though/ n'est-ce pas vs c'est bien ça/ I would translate this as toch
+Cela ne devrait pas être le contraire? | risingdecl
+«Ah, il faut faire un vaccin? | risingdecl
+Il marche ou[no] il marche pas le vaccin ?! | risingdecl   // disjunctive question
+Êtes vous diplômé de médecine ? | polar   // the dash is missing
+Nombre de vaccinés = années de recul ? | elliptic
+65 ans on se retrouve non vacciné en réanimation ? | risingdecl
+Vous avez oublié « égalité » dans notre devise ? | risingdecl
+Quelqu’un lui dit pour mon service de protection rapprochée ? | risingdecl
+Zéro risque pour les enfants ça vous semble pas responsable ? | risingdecl
+De quel[fronted] vaccin elle parlait maman? | wh
+Il a donc des infos ?! | risingdecl
+Vous allez vous réveiller ? | risingdecl
+Vous êtes du genre dernière minute ? | risingdecl
+Comment[fronted] nos autorités vont justifier le pass sanitaire ? | wh
+Où[fronted] m'avez-vous vu nier l'intérêt de la vaccination ? | wh
+La vaccination contre le #Covid19 peut-elle être obligatoire ? | polar
+La France a t’elle un intérêt sur les vaccins ? | polar  // spelling mistake: should be a-t-elle/ t' will probably be interpreted as te or tu (je), but in t'elle it is probably a spelling mistake for V-t-elle
+Ça y ressemble un peu, non? | tag
+On s'interroge ou[no] non? | tag
+Le critère du confinement était bien le nombre de malades en réa non? | tag
+Ils sont protégés, non? | tag
+Pkoi[fronted] non? | wh   // pkoi stands for pourquoi/ would be good to see the context to determine the status of non tag overrides elliptic/risingdecl/polar?
+D’après nos dirigeants et médecins le vaccin est efficace non? | tag
+➡️Est-on toujours libre d'être vacciné ou[no] non? | polar   // weird char at the start (also invisible)
+Allez vous faire enculer sinon? | elliptic  // hard to judge/ one should have more context, but it is no tag, sinon means otherwise
+Preuve irréfutable,non? | tag
+Sinon tous les vaccins existants pourraient être obligatoire non? | tag
+Que[fronted] faire ? | wh // elliptic
+Comment[fronted] faire plier une autorité débile? | wh  // or elliptic; these are infinitival questions/ what is elided seems the main clause (I wonder what to do) comment is fronted, but one could also argue that this is indirect (with missing main clause)
+À quand[fronted] les vaccins russes ? | wh  // elliptic
+Combien[fronted] de décès chez les triples vaccinés ? | wh //  elliptic
+Pourquoi[fronted] ce pass indigne ?! | wh // elliptic
+combien[fronted] de morts évités ? | wh // elliptic
+"Pourquoi[fronted] cette question ? | wh // elliptic
+"Pourquoi[fronted] le pays de Pasteur n’a pas son vaccin ? | wh
+pourquoi[fronted] n’y a-t-il pas plus de centres de vaccination en Bretagne ? | wh
+___Doc  Pourquoi[fronted] ? | wh
+Combien[fronted] de réactions semblables dissimulées sous le tapis? | wh // elliptic
+Et puis quoi[fronted] encore ? | wh // elliptic
+À quand[fronted] la lumière sur les traitements ? | wh // elliptic
+Et pourquoi[fronted] pas leur couper les vivre pendant qu'[no]on y est ? | wh  // ellipsis with infinitive/ seems to be an indirect question with elided main clause
+Qui[fronted] gère les campagnes de vaccination? | wh
+Qui[fronted] peut croire que[no] les plus âgés sont privilégiés? | wh
+Quoi[fronted]!!!!???? | wh  // elliptic
+Un vaccin qui[no] donne quoi[insitu] Ã  long terme ? | insitu  // this is an elliptic echo question, I would say
+En quoi[fronted] le vaccin dispense alors d'un test négatif ? | wh
+Pourquoi[fronted] les biochimistes se taisent-ils? | wh

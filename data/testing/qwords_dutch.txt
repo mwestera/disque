@@ -1,16 +1,16 @@
-# These are questions extracted from Dutch tweets, used for refining the classification algorithm. Most of them done correctly, with possible improvements to get from better sentence segmentation...
-# dutch
+// These are questions extracted from Dutch tweets, used for refining the classification algorithm. Most of them done correctly, with possible improvements to get from better sentence segmentation...
+// dutch
  - In juli vragen om zelf meer lokale maatregelen te kunnen nemen, wat[no] op heden kan. | decl
 U bent duidelijk iemand die niet wil begrijpen hoe[indirect] zorgwekkend de huidige toestand is. | decl
 "  Ik weet niet hoe[indirect] het met jullie is, maar ik weet niet hoeveel[indirect] cruciale dagen ik nog aankan. | decl
 Hoe[indirect] zwaar het onderbelicht is weten we zelfs ook niet, omdat we de daadwerkelijke omvang ook niet kennen. | decl
 laten we ons realiseren dat de corona maatregelen veel meer doden veroorzaken dan voorkomen (je kunt je zelfs afvragen of[indirect] ze eigenlijk wel doden voorkomen), en ze gaan ook nog eens ten koste van de kwaliteit van ons leven. | decl
-Ik weet niet wat[no] ik lees joh! | decl  ve
+Ik weet niet wat[no] ik lees joh! | decl
 Ben wel benieuwd hoe[indirect] t bos er nadien uitzag... | decl
 Ik weet ook niet of[indirect] het helpt, maar het is een kleine moeite. | decl
 en eigelijk totaal niet weten wat[indirect] ze nu feitelijk zeggen enkel en alleen uit eigen angst onwetendheid en angst. | decl
 Vraag of[indirect] ze geld willen..... | decl
-Daardoor weten we niet of[indirect] COVID19 afneemt of[indirect] toeneemt. | decl
+Daardoor weten we niet of[indirect] COVID19 afneemt of[no] toeneemt. | decl
 ik weet niet of[indirect] dit goed of[no] slecht nieuws betreft.... | decl
 Misschien moeten we ons - naast oproepen om lokaal te kopen - ook eens afvragen hoe[indirect] het komt dat er zo weinig grote Belgische spelers op de online markt aanwezig zijn. | decl
 Ik ben benieuwd hoeveel[indirect] kerkgangers zich vandaag weer verzamelen in het gebedshuizen en samen zingen want zullen wel niet voor het zingen de kerk uitgaan. | decl
@@ -43,9 +43,9 @@ Huh? | elliptic
  - Als het veilig kan waarom[fronted] niet ? | wh
 Het is dus volkomen veilig in een boekenwinkel waar[no] iedereen aan de boeken komt, maar niet in een elektrozaak of[no] auto showroom? | risingdecl
 2 grote LCD-schermen te plaatsen met links beelden van wie[no] aan het scherm passeert en rechts een livestream van op COVID19 icu? | elliptic
-# Beperkt deel bevolking wil nog rap wat[no] kleren en speelgoed gaan kopen (essentie ??? | elliptic    # wrong; should split on parentheses...
-# IKEANederland Corona regels echtpaar met baby mag samen niet naar binnen want Max 2 personen ongekend in wat[fronted] een wereld leven wij? | wh   # wrong, too hard anyway
-# Na bijna 8 maanden Corona is er niks op orde maar toch zeggen dat je minister president wilt blijven (omdat de vvd hoog in die nep peilingen staat)Hoe[fronted] dan??????? | wh # wrong, should split on parentheses...
+// Beperkt deel bevolking wil nog rap wat[no] kleren en speelgoed gaan kopen (essentie ??? | elliptic    // wrong; should split on parentheses...
+// IKEANederland Corona regels echtpaar met baby mag samen niet naar binnen want Max 2 personen ongekend in wat[fronted] een wereld leven wij? | wh   // wrong, too hard anyway
+// Na bijna 8 maanden Corona is er niks op orde maar toch zeggen dat je minister president wilt blijven (omdat de vvd hoog in die nep peilingen staat)Hoe[fronted] dan??????? | wh // wrong, should split on parentheses...
 💰 Wat[fronted] hebben we het afgelopen jaar gedaan en uitgegeven? |
 “Wat[fronted] ga je doen dan? |
 In hoog tempo een vaccin tegen corona ontwikkelen, waarom[fronted] niet tegen malaria? |

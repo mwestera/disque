@@ -1,15 +1,16 @@
-# dutch
-# Each line has a sentence, where wh-words can be tagged in square brackets like "who[no/insitu/fronted/indirect]"
-# and each question as a whole can be categorized by appending "| polar/wh/insitu/elliptic/decl/risingdecl"
+// dutch
+// Each line has a sentence, where wh-words can be tagged in square brackets like "who[no/insitu/fronted/indirect]"
+// and each question as a whole can be categorized by appending "| polar/wh/insitu/elliptic/decl/risingdecl"
+// Add comments preceded by double //.
 Weet Jan wie[no] er zijn gekomen? | polar
-Wie[fronted] dacht Jan dat er waren? | wh   # or indirect?
+Wie[fronted] dacht Jan dat er waren? | wh   // or indirect?
 Je weet wie[indirect] er zijn gekomen? | risingdecl
 Hoorde je wie[indirect] er zijn gekomen? | polar
 Merkte je gisteren wie[indirect] er zijn gekomen? | polar
 Weet je waarom[indirect] Jan sliep? | polar
-Maar wat[no] een rommel is dat!?    # not sure what category this should be; exclamative, not a question?
+Maar wat[no] een rommel is dat!?    // not sure what category this should be; exclamative, not a question?
 Maar wat[fronted] is dat voor rommel? | wh
-Aangezien je merkte wie[no] je had gezien? | elliptic  # less likely reading: indirect
+Aangezien je merkte wie[no] je had gezien? | elliptic  // less likely reading: indirect
 Maar je merkte dat je wie[insitu] had gezien? | insitu
 Aangezien je merkte dat je wie[insitu] had gezien? | insitu
 Wie[fronted] eet jij op? | wh
@@ -32,36 +33,36 @@ Wat[fronted] gebeurde er dat een wonder was? | wh
 En wat[fronted] dacht jij dat er gebeurde? | wh
 Benieuwd hoeveel[indirect] daarvan zelfmoorden waren. | decl
 Blijft mij een raadsel waarom[indirect] het juist de studenten zijn die dit moeten realiseren. | decl
-Gek hoe[no] de politiek niets doet. | decl   # Could be indirect question, but not reliably so? The indirect question, if any, is not the hoe-question anyway.
-Als ik een onderbroek koop bij de HEMA wat[fronted] kost dat dan? | wh  # subject misparsed, so inversion not detected...
-Als ik een onderbroek koop bij de HEMA wie[fronted] draagt hem dan? | wh  # parsed as two separate sentences, but ok...
+Gek hoe[no] de politiek niets doet. | decl   // Could be indirect question, but not reliably so? The indirect question, if any, is not the hoe-question anyway.
+Als ik een onderbroek koop bij de HEMA wat[fronted] kost dat dan? | wh  // subject misparsed, so inversion not detected...
+Als ik een onderbroek koop bij de HEMA wie[fronted] draagt hem dan? | wh  // parsed as two separate sentences, but ok...
 Medicijnen die je beter maken? | elliptic
 Of[no] vaccines die je beschermen? | elliptic
 Waar[fronted] zijn de ‘mogelijke’ Hunter Biden Laptop onthullingen? | wh
 Ik zou wel eens willen weten wat[indirect] er allemaal wel goed gaat tijdens de corona. | decl
 
-# french
-Il a dit pourquoi[no] il l'a fait? | risingdecl        #    (ingebedde vraag in ja/nee vraag)
-Il s'attend à ce que[no] tu viennes. | decl            #  (geen vraag/ conjonction à ce que)
-Je pense à ce que[no] tu m’as dit. | decl              #   (vrije relatiefzin)
-Il se demande ce que[indirect] tu veux faire. | decl   #  (ingebedde vraag)
-Il m'a demandé quand[indirect] tu viendras. | decl     #   (ingebedde vraag); viendras not recognized as verb but as fixed/NOUN; tu as NOUN/det?!
-Il a demandé quand[indirect]. | decl       #   (Hij vroeg wanneer/ elliptische ingebedde vraag)
-Il l'a demandé quand[insitu]? | insitu          #    (in-situ vraag)
-Il te le dira quand[no] tu viendras. | decl      #   (adverbiale bijzin van tijd, geen vraag)
-Il te le dira quand[insitu] ton frère? | insitu      #   (in situ vraag met rechtsdislocatie)
+// french
+Il a dit pourquoi[no] il l'a fait? | risingdecl        //    (ingebedde vraag in ja/nee vraag)
+Il s'attend à ce que[no] tu viennes. | decl            //  (geen vraag/ conjonction à ce que)
+Je pense à ce que[no] tu m’as dit. | decl              //   (vrije relatiefzin)
+Il se demande ce que[indirect] tu veux faire. | decl   //  (ingebedde vraag)
+Il m'a demandé quand[indirect] tu viendras. | decl     //   (ingebedde vraag); viendras not recognized as verb but as fixed/NOUN; tu as NOUN/det?!
+Il a demandé quand[indirect]. | decl       //   (Hij vroeg wanneer/ elliptische ingebedde vraag)
+Il l'a demandé quand[insitu]? | insitu          //    (in-situ vraag)
+Il te le dira quand[no] tu viendras. | decl      //   (adverbiale bijzin van tijd, geen vraag)
+Il te le dira quand[insitu] ton frère? | insitu      //   (in situ vraag met rechtsdislocatie)
 Il a vu qui[insitu]? | insitu
 Il a vu l\'homme qui[no] viendra? | risingdecl
 Il a lu ce qui[no] lui plait? | risingdecl
 Qu'[fronted]est-ce que[no] c'est? | wh
 
-# english
+// english
 Do you know if[indirect] I'm asleep? | polar
 Do you know whether[indirect] I'm asleep? | polar
 Do you arrive if[no] you want? | polar
 Are you coming if[no] you want? | polar
 Are you there whether[no] or not you can? | polar
-Crazy how[no] they don't say anything, right? | tag   # Could be indirect question, but not reliably so?
+Crazy how[no] they don't say anything, right? | tag   // Could be indirect question, but not reliably so?
 Crazy how[no] they don't say anything, isn't it? | tag
 It's crazy how[no] they don't say anything, right? | tag
 And you know why[no], right? | tag
