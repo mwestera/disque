@@ -71,9 +71,13 @@ def matrix_subj_verb_identifier(doc):
 
 spacy_model_names = {
     'english': 'en_core_web_sm',
-    'french': 'fr_core_news_sm',
+    # 'english': 'en_core_web_trf',
+    # 'french': 'fr_core_news_sm',
+    # 'french': 'fr_core_news_lg',
+    'french': 'fr_dep_news_trf',
     'italian': 'it_core_news_sm',
     'dutch': 'nl_core_news_sm',
+    # 'dutch': 'nl_core_news_lg',
 }
 
 
@@ -147,6 +151,19 @@ def spacy_single(s, language):
 def strip_mentions(text):
     return re.sub("@[A-Za-z0-9]+", "", text).strip()
 
+
+deletion_pattern = r'➡|️'
+split_pattern = r'  (?=[A-Z])'
+
+def clean_question(text):
+    text = re.sub(deletion_pattern, '', text)
+    text = re.split(split_pattern, text)[-1]
+    text = re.sub(r'(?<=[A-Za-z])-(?=[A-Za-z])', r' -', text)
+    # text = re.sub(r'  ', r' ', text)
+    # french stuff:
+    text = re.sub(r'Ã©', r'é', text)    # TODO find more principled, encoding-related way
+    text = re.sub(r'Ã', r'à', text)
+    return text
 
 def spacy_get_path_to_root(node):
     """
