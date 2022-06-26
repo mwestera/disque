@@ -13,7 +13,7 @@ def extract_potential_questions(text, language):
             yield sentence, span
 
 verblike_pos_tags = ['AUX', 'VERB']
-objectlike_dep_tags = ['dobj', 'obj', 'iobj', 'obl', 'obl:agent']
+objectlike_dep_tags = ['dobj', 'obj', 'iobj', 'obl', 'obl:agent', 'obl:arg']
 subjectlike_dep_tags = ['nsubj', 'nsubjpass', 'nsubj:pass', 'csubj', 'csubjpass', 'expl', 'expl:subj']
 misparsed_subject_dep_tags = ['nmod:poss', 'obj']
 ccomplike_dep_tags = ['acl:relcl', 'ccomp']
@@ -25,9 +25,19 @@ def ends_with_question_mark(sent):
 def is_fronted(token):
     matrix_verb = token.sent._.matrix_verb
     if matrix_verb:
-        return token.i < matrix_verb.i
+        if token.head.dep_ == 'conj' and (token.head.head == matrix_verb or matrix_verb in token.head.head.children) and any(tok.pos_ == 'CCONJ' and tok.dep_ == 'cc' for tok in token.head.children if matrix_verb.i < tok.i < token.i):
+            if any(tok._.qtype == 'fronted' for tok in token.sent if tok.i < token.i):
+                # ” wanneer[fronted] ben je geïnfecteerd en wanneer[fronted] ben je besmet? | wh
+                return True
+            else:
+                return False
+            # TODO Maybe consider parataxis here too?
+        else:
+            return token.i < matrix_verb.i
     if any(tok.dep_ in ['ccomp'] for tok in utils.spacy_get_path_to_root(token)[1:]):
         # exception; if using all ccomplike_dep_tags instead, it gets wrong for "Als ik een onderbroek koop...etc".
+        return False
+    if token.head.dep_ in ['acl:relcl'] and token.head.head.i < token.i:
         return False
     return True
 
@@ -57,7 +67,12 @@ def get_finite_verbs_of_span(span):
 def determine_matrix_subject_and_verb(sentence):
     if sentence.root.dep_ != 'ROOT':
         # weird misparse
-        return None, None
+        sentence._.matrix_verb = None
+        sentence._.matrix_subject = None
+        return sentence
+
+    language = utils.language_of(sentence[0])
+
     verb, subject = None, None
     punctuation = [tok for tok in sentence[1:-1] if tok.pos_ == 'PUNCT' and tok.text == ',']
     if punctuation and (sentence[0].pos_ == 'SCONJ' or sentence[1].pos_ == 'SCONJ'):
@@ -94,6 +109,8 @@ def determine_matrix_subject_and_verb(sentence):
                 # Overwrite already selected verb only if this one is conjoined to the right, without an explicit conjunction?
                 verb = finite_verb
                 subject = candidate_subject
+        if language in ['french'] and not candidate_subject and finite_verb.text.lower() in vocab.french_il_drop_verbs:
+            verb = finite_verb
     # if not verb and finite_verbs: # No longer needed it seems...
     #     # topmost finite verb by default...
     #     verb = finite_verbs[0]  # use the first finite verb to determine fronting? wrong for    Als het veilig kan waarom[fronted] niet ?
@@ -105,10 +122,25 @@ def determine_matrix_subject_and_verb(sentence):
 
 
 def get_subject_of(verb):
-    for token in verb.sent:
+    language = utils.language_of(verb)
+    candidates = verb.sent
+    # if language == 'french' and verb.i + 1 < len(verb.sent):
+    #     # for french. prioritize subsequent pronouns as in est-ce (misparsed in "1000 pers positives/j est ce 1 vague de décès covid ?"); for small model.
+    #     candidates = candidates # [verb.sent[verb.i + 1], *candidates]
+    subject = None
+    for token in candidates:
         if is_subject_of(token, verb) and 'Rel' not in token.morph.get('PronType'):  # or is_subject_of(token, finite_verb.head):
             # Not PronType:Rel both to rule out, e.g., 'Medicijnen die je beter maken?' 'Of vaccines die je beschermen?'
-            return token
+            if not subject:
+                subject = token
+            elif language == 'french' and token.i == verb.i + 1 and (token.text == 'ce' or (token.pos_ == 'PRON' and token.text.startswith('-'))): # and subject.pos_ != 'PRON':
+                # for french.prioritize subsequent pronouns as in est-ce (misparsed in "1000 pers positives/j est ce 1 vague de décès covid ?")
+                # Also mind:  Nous[PRON, obj] aurait-on menti ?
+                subject = token
+                break
+            else:
+                break
+    return subject
 
 
 def has_subj_verb_inversion(sentence):
@@ -174,10 +206,25 @@ def simply_not_a_question_word(token):
             # Dit kan niet waar zijn toch?
             return True
     if language == 'french':
-        if token.i > 2 and sentence[token.i-2].text.lower() == 'à' and sentence[token.i-1].text.lower() == 'ce':  # filter out French free relatives? actually, indirect questions can have this shape.
+        if token.i > 2 and sentence[token.i-2].text.lower() == 'à' and sentence[token.i-1].text.lower() == 'ce':
+            # filter out French free relatives? actually, indirect questions can have this shape too.
             return True
-        if token.sent.text[:token.idx].strip().lower().endswith('est-ce'):
+        preceding = token.sent.text[:token.idx].strip().lower()
+        if preceding.endswith('est -ce') or preceding.endswith('est ce'):
             # Qu'est-ce que[no] c'est.
+            return True
+        if token.text == 'ou' and token.pos_ == 'CCONJ' and token.dep_ == 'cc':
+            # vous la voulez pile ou face?
+            return True
+        if token.text.lower() == 'que' and token.head.dep_ == 'dep' and not any(tok.pos_ in verblike_pos_tags for tok in token.head.children):
+            # nominal-only comparatives: Les hommes seraient-ils moins intelligents que[no] les animaux ? | polar
+            # could include verbal too, but seems risky.
+            return True
+        # if token.head.dep_ == 'acl:relcl' and token.head.head.lemma_ == 'celui':
+        #     return True
+        phrase = sentence[token.i:].text.strip().lower()
+        if phrase.startswith('quand même') or phrase.startswith('quand bien même'): # or phrase.startswith('quand meme')
+            # Si[no] j’ai le Covid, je peux quand[no] même le donner non ???   // quand même / quand bien même = toch, toch wel
             return True
     return False
 
@@ -220,9 +267,10 @@ def get_embedder_of(token):
         # Il a lu ce qui lui plait[acl:relcl]?
         utils.log(f'"{token}" possibly has head.head "{token.head.head}" as embedder (via verblike obj/advl/ccomp/acl:relcl)')
         candidate = token.head.head
-    elif token.dep_ in ['obj', 'advcl'] + ccomplike_dep_tags and is_embedder(token.head):
+    elif token.dep_ in ['obj', 'advcl'] + ccomplike_dep_tags and is_embedder(token.head) and not token.head.dep_ in ccomplike_dep_tags:
         # TODO Maybe remove 'obj' from this list, for 'Il a vu qui[obj]?'
         # And you know why[ccomp of know]?
+        # Last addition for: Y’a un truc que[no] je comprends[acl:relcl] pas.
         utils.log(f'"{token}" possibly has head "{token.head}" as embedder (as obj/advl/ccomp/acl:relcl/nummod)')
         candidate = token.head
     elif token.dep_ in 'nummod' and is_embedder(token.head.head) and token.head.dep_ == 'parataxis':
@@ -239,7 +287,7 @@ def get_embedder_of(token):
         return candidate
 
     for tok in utils.spacy_get_path_to_root(token)[1:]:
-        if is_verblike(tok) and not is_subject_of(token, tok) and is_embedder(tok):
+        if is_verblike(tok) and not is_subject_of(token, tok) and is_embedder(tok) and not (token.head == tok and token.dep_ == 'mark') and not tok.dep_ in ccomplike_dep_tags:
             if might_be_complementizer(token, tok):
                 utils.log(f'{token} has nearest verblike embedding ancestor {tok} as embedder')
                 return tok
@@ -261,7 +309,7 @@ def get_embedder_of(token):
 
 def might_be_complementizer(token, embedder):
     language = utils.language_of(token)
-    if any(tok.lemma_ in vocab.neutral_pronouns[language] and tok.dep_ == 'obj' for tok in embedder.children if tok != token):
+    if any(tok.lemma_ in vocab.neutral_pronouns[language] and tok.dep_ in objectlike_dep_tags for tok in embedder.children if tok != token):
         utils.log(f'"{token}" is not complementizer of {embedder}, because there\'s already an impersonal pronoun as obj')
         # Il te le [pron, obj of dira] dira quand ton frère? (even though misparsed)
         return False
@@ -401,7 +449,10 @@ def ends_with_tag_question(sentence):
         elif [tok.pos_ for tok in sentence[-3:]] == ['AUX', 'PRON', 'PUNCT']:
             utils.log(f'Ends as tag question.')
             return True
-    if sentence._.ends_with_question_mark and any(sentence.text.strip(sentence_separators).strip().endswith(tag) for tag in vocab.tag_questions[language]):
+    sentence_text = sentence.text.strip(sentence_separators).strip()
+    if language == 'french' and sentence_text.endswith(' ou non'):
+        return not sentence._.has_inversion # if so, ou non is polar-like altQ.
+    if sentence._.ends_with_question_mark and any(sentence_text.endswith(tag) for tag in vocab.tag_questions[language]):
         utils.log(f'Ends as tag question.')
         return True
     return False
@@ -450,7 +501,7 @@ def likely_to_head_indirect_question(token):
             utils.log(f'Verb "{token}" is like "wonder", but no subject/tense/structure fit for indirect question.')
 
     if lemma in vocab.nouns_like_question[language]:
-        if not is_question and is_present_tense(token):
+        if not is_question and is_present_tense(token) and 'Plur' not in token.morph.get('Number'):
             utils.log(f'Structure resembles: It\'s a mystery...')
             result = True
 
@@ -483,13 +534,14 @@ def likely_to_head_indirect_question(token):
 
 
 def is_subject_of(token, verb):
+    language = utils.language_of(token)
     if verb.dep_ == 'parataxis' and token.i == verb.i + 1 and token.dep_ in subjectlike_dep_tags:
         # weird parataxis misparse  Hoorde[parataxis] je[nsubj of gekomen] wie er zijn gekomen?
         return True
     if token.pos_ == 'NOUN' and 'Plur' in token.morph.get('Number') and token.dep_ == 'advmod' and token.head.dep_ == 'ROOT' and token.i == token.head.i - 1 and 'Plur' in token.head.morph.get('Number'):
         # bare plural subject misparse:   Vliegtuigmaatschappijen[advmod] weten natuurlijk niet op voorhand hoeveel reizigers zij gaan vervoeren die dag.
         return True
-    if token.head == verb or (verb.dep_ in ['aux', 'aux:tense'] and token.head == verb.head):
+    if token.head == verb or (verb.dep_ in ['aux', 'aux:tense', 'aux:pass'] and token.head == verb.head):
         if token.dep_ in subjectlike_dep_tags:
             # Do[aux of know] you[subj of know] know?
             return True
@@ -502,7 +554,21 @@ def is_subject_of(token, verb):
     if verb.dep_ == 'cop' and token.head == verb.head and token.dep_ in subjectlike_dep_tags:
         # E.g., Of ben[cop] jij[nsubj] niet kritisch genoeg?
         return True
-
+    # if token.dep_ in subjectlike_dep_tags and verb.head.head == token.head and verb.dep_ == 'cop':
+    #     # for misparse with nl_lg only: U bent duidelijk iemand die niet wil begrijpen hoe zorgwekkend de huidige toestand is.
+    #     return True
+    if language == 'french':
+        if token.pos_ == 'PRON' and token.text.startswith('-') or token.text == 'ce':
+            if token.i == verb.i+2 and token.sent[token.i+1].text.startswith('-'):
+                return True
+            elif token.i == verb.i+1:
+                # E.g., sauront-ils[subj of repondre] y repondre?
+                return True
+        if token.pos_ == 'PRON' and token.dep_ == 'ROOT' and verb.dep_ == 'dep' and verb.head == token:
+            return True
+        if verb.i == 0 and token.i == 1 and token.pos_ == 'PRON' and verb.head == token.head:
+            # misparse:  Êtes[aux, punct of diplome] vous[pron, aux:pass of diplome] diplômé de médecine ?
+            return True
     return False
 
 
@@ -556,6 +622,14 @@ def is_present_tense(token):
 #     verbose(f'{token} cannot be relcomp')
 #     return False
 
+def is_noun_like(token):
+    if token.head.head.pos_ == 'NOUN':
+        return True
+    if token.head.head.pos_ == 'ADJ' and token.head.head.i > 1 and token.sent[token.head.head.i - 1].pos_ == 'DET':
+        # prix à  payer pour protéger les vieux[adj] qui sont vaccinés?
+        return True
+    return False
+
 
 def might_be_ordinary_relclause(token):
     """
@@ -596,9 +670,20 @@ def might_be_ordinary_relclause(token):
             return True
     if token.dep_ == 'advmod' and token.head.dep_ == 'acl:relcl' and token.head.head.pos_ == 'NOUN':
         return True
+    if token.dep_ in subjectlike_dep_tags + objectlike_dep_tags and token.head.dep_ == 'acl:relcl' and is_noun_like(token):
+        return True
     if token.head.dep_ in ['csubj', 'nsubj']:
         # Wat hij deed[csubj] veroorzaakte[ROOT] een storm.
         # Wat er gebeurde[nsubj] was een wonder[ROOT].
+        return True
+    if token.head.dep_ == 'acl:relcl' and token.head.head.pos_ == 'NOUN' and token.i - 1 == token.head.head.i:
+        # Un vaccin qui donne quoi Ã  long terme ?
+        return True
+    if token.dep_ == 'mark' and token.head.dep_ == 'advcl':
+        # Et pourquoi pas leur couper les vivre pendant qu[mark of advcl of couper]'on y est ?
+        return True
+    if token.dep_ == 'mark' and token.i > 0 and token.sent[token.i-1].dep_ == 'mark' and token.head == token.sent[token.i-1].head:
+        # Et pourquoi pas leur couper les vivre pendant[mark] qu[mark]'on y est ?
         return True
     language = utils.language_of(token)
     if language == 'dutch':
@@ -639,7 +724,8 @@ def classify_question(sent):
     fronted = [tok.text.lower() for tok in sent if tok._.qtype == 'fronted']
     insitu = [tok.text.lower() for tok in sent if tok._.qtype == 'insitu']
     indirect = tuple(tok.text.lower() for tok in sent if tok._.qtype == 'indirect')
-    if sent._.has_tag_question:
+    if sent._.has_tag_question and not fronted + insitu:
+        # only if no wh word:  pourquoi non?
         structure = 'tag'
     elif fronted:
         structure = 'wh'
