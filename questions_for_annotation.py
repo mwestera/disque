@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import random
 import utils
+import config
 
 random.seed(12345)
 
@@ -16,10 +17,11 @@ sample_size_per_feature = 50
 # tweet_id,tweet_hashtags,tweet_num_questions,tweet_has_question,tweet_has_disinfo_hashtags,
 # tweet_has_disinfo_text,tweet_has_disinfo_text_or_hashtags,tweet_has_negation
 
-path_to_analyzed_questions, language = 'data/french_vaccineu_5M_questions.csv', 'french'
+path_to_analyzed_questions = config.path_to_analyzed_questions or f'{config.path_to_main_data_dir}/questions_{"_".join(config.paths_to_raw_tweets.keys())}.csv'
+language = 'dutch'  # TODO get from config? abort if multiple languages selected?
 
 # path_to_analyzed_questions, language = 'data/dutch_tbcov_3M_questions.csv', 'dutch'
-max_length = 70
+max_n_chars_per_question = 70
 
 dataset = pd.read_csv(path_to_analyzed_questions)
 
@@ -47,7 +49,7 @@ with open(f'data/annotation/{language}_classification.txt', 'w+') as file:
     for (structure, use), df in dataset.groupby(['structure', 'use']):
         # print('\n# Syntactic type:', structure, '   |  Pragmatic use:', use, 'question', end='\n - ')
         questions = set(df['text'].to_list())
-        questions = [q for q in questions if len(q) < max_length]
+        questions = [q for q in questions if len(q) < max_n_chars_per_question]
         sample = random.sample(questions, k=min(len(questions), sample_size_per_class))
         for question in sample:
             sent = utils.spacy_single(question, language, enforce_single_sentence=True)
@@ -73,7 +75,7 @@ for feature in features:
         for index, df in dataset.groupby(feature):
             file.write(f"\n\n// These questions are predicted to have {feature} == {index}:\n")
             questions = set(df['text'].to_list())
-            questions = [q for q in questions if len(q) < max_length]
+            questions = [q for q in questions if len(q) < max_n_chars_per_question]
             sample = random.sample(questions, k=min(len(questions), sample_size_per_feature))
             for question in sample:
                 file.write(question + '\n')
