@@ -142,28 +142,52 @@ def get_nlp_model(language, single_sentence=False):
     return nlp
 
 
-def spacy_single(s, language):
-    nlp = get_nlp_model(language, single_sentence=True)
+def spacy_single(s, language, enforce_single_sentence=False):
+    nlp = get_nlp_model(language, single_sentence=enforce_single_sentence)
     sentences = list(nlp(s).sents)
     return sentences[-1]
 
 
+sentencizers = {'english': 'en_core_web_sm',
+    'french': 'fr_core_news_sm',
+    'italian': 'it_core_news_sm',
+    'dutch': 'nl_core_news_sm',
+}
+
+@functools.lru_cache()
+def get_sentencizer(language):
+    nlp = spacy.load(sentencizers[language], disable=['tagger', 'parser', 'ner'])
+    nlp.add_pipe('sentencizer')
+    return nlp
+
+
+def quick_sentencize(text, language):
+    nlp = get_sentencizer(language)
+    doc = nlp(text)
+    return doc.sents
+
+
 def strip_mentions(text):
-    return re.sub("@[A-Za-z0-9]+", "", text).strip()
+    return re.sub("@[A-Za-z0-9_]+", "", text).strip()
 
 
-deletion_pattern = r'➡|️'
-split_pattern = r'  (?=[A-Z])'
+def normalize_hashtags(text):
+    return re.sub("#", "", text).strip()
 
-def clean_question(text):
+
+characters_to_delete = '➡️'
+deletion_pattern = '|'.join(characters_to_delete)
+
+def clean_sentence(text, language):
+    text = strip_mentions(text)
+    text = normalize_hashtags(text)
     text = re.sub(deletion_pattern, '', text)
-    text = re.split(split_pattern, text)[-1]
-    text = re.sub(r'(?<=[A-Za-z])-(?=[A-Za-z])', r' -', text)
-    # text = re.sub(r'  ', r' ', text)
-    # french stuff:
-    text = re.sub(r'Ã©', r'é', text)    # TODO find more principled, encoding-related way
-    text = re.sub(r'Ã', r'à', text)
+    if language == 'french':
+        text = re.sub(r'(?<=[A-Za-z])-(?=[A-Za-z])', r' -', text)
+        text = re.sub(r'Ã©', r'é', text)    # TODO find more principled, encoding-related way
+        text = re.sub(r'Ã', r'à', text)
     return text
+
 
 def spacy_get_path_to_root(node):
     """

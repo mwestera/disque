@@ -3,8 +3,8 @@ import utils
 import re
 
 # test_file_path = 'data/testing/qwords.txt'
-# test_file_path = 'data/testing/qwords_dutch.txt'
-test_file_path = 'data/testing/qwords_french.txt'
+test_file_path = 'data/testing/qwords_dutch.txt'
+# test_file_path = 'data/testing/qwords_french.txt'
 
 def main():
 
@@ -30,7 +30,7 @@ def main():
                 sentence, comment = line, None
 
             sentence = sentence.strip()
-            sentence = utils.clean_question(sentence)   # TODO Remember this for the main pipeline!
+            sentence = utils.clean_sentence(sentence)   # TODO Remember this for the main pipeline!
 
             if '|' in sentence:
                 sentence, structure = sentence.split('|')
@@ -40,7 +40,7 @@ def main():
                 structure = None
             sentence_untagged, token_start_to_tag = process_tags(sentence)
             utils.VERBOSE = False
-            parsed_sentence = utils.spacy_single(sentence_untagged, current_language)
+            parsed_sentence = utils.spacy_single(sentence_untagged, current_language, enforce_single_sentence=True)
             utils.VERBOSE = True
             error = False
             for token in parsed_sentence:
@@ -58,7 +58,7 @@ def main():
                 error = True
                 n_errors += 1
             if error:
-                utils.spacy_single(sentence_untagged, current_language)
+                utils.spacy_single(sentence_untagged, current_language, enforce_single_sentence=True)
                 utils.print_parse(parsed_sentence)
                 print('-------------------')
 

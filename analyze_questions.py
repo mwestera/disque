@@ -22,12 +22,12 @@ def extract_potential_questions(tweets):
     new_rows = []
     for i, row in tweets.iterrows():
         potential_questions = ling.extract_potential_questions(row['full_text'], row['language'])
-        for j, (question, span) in enumerate(potential_questions):
+        for j, (question, offset) in enumerate(potential_questions):
             new_row = {(key if key in keep_keys else 'tweet_' + key): value for key, value in row.items()}
 
             new_row['id'] = 'Q' + str(row['id']) + '.' + str(j)
-            new_row['text'] = utils.strip_mentions(question)
-            new_row['offset'] = span[0]
+            new_row['text'] = utils.clean_sentence(question, row['language'])
+            new_row['offset'] = offset  # TODO take cleaning into account...
 
             if not config.include_full_tweet_text_in_analyzed_questions_csv:
                 del new_row['tweet_full_text']
@@ -48,8 +48,14 @@ def write_questions_to_csv(questions):
 
 def compute_features(questions):
     spacy_parses = []
-    for _, text, language in tqdm.tqdm(questions[['text', 'language']].itertuples(), total=len(questions)):
-        spacy_parses.append(utils.spacy_single(text, language))
+    for index, text, language in tqdm.tqdm(questions[['text', 'language']].itertuples(), total=len(questions), desc='Parsing all questions with Spacy'):
+        nlp = utils.get_nlp_model(language)
+        sentences = list(nlp(text).sents)
+        sentence = sentences[-1]
+        if len(sentences) > 1:
+            questions.at[index, 'text'] = sentence.text
+            questions.at[index, 'offset'] += sentence[0].idx
+        spacy_parses.append(sentence)
     questions['spacy'] = spacy_parses
 
     questions['has_negation'] = [ling.has_negation(sent) for sent in questions['spacy']]

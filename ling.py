@@ -2,15 +2,20 @@ import re
 import utils
 import vocab
 
-sentence_separators = '?!.…'
-sentence_pattern = r'[^.!?:;\n\t…]+[?!.…]+'
+# sentence_separators = '?!.…'
+# sentence_pattern = r'((?!\s\s[A-Z])[^.!?\"\'():;\n\t…])+[?!.…]+'
 
 def extract_potential_questions(text, language):
-    for match in re.finditer(sentence_pattern, text):
-        sentence = match.group()
-        span = match.span()
+    for sentence in utils.quick_sentencize(text, language):
+        start = sentence[0].idx
+        sentence = sentence.text
         if sentence.strip('!').endswith('?') or utils.has_any_keyword(vocab.wh_words_all[language], sentence):
-            yield sentence, span
+            yield sentence, start
+    # for match in re.finditer(sentence_pattern, text):
+    #     sentence = match.group()
+    #     span = match.span()
+    #     if sentence.strip('!').endswith('?') or utils.has_any_keyword(vocab.wh_words_all[language], sentence):
+    #         yield sentence, span
 
 verblike_pos_tags = ['AUX', 'VERB']
 objectlike_dep_tags = ['dobj', 'obj', 'iobj', 'obl', 'obl:agent', 'obl:arg']
@@ -37,7 +42,8 @@ def is_fronted(token):
     if any(tok.dep_ in ['ccomp'] for tok in utils.spacy_get_path_to_root(token)[1:]):
         # exception; if using all ccomplike_dep_tags instead, it gets wrong for "Als ik een onderbroek koop...etc".
         return False
-    if token.head.dep_ in ['acl:relcl'] and token.head.head.i < token.i:
+    if token.head.dep_ in ['acl:relcl'] and token.head.head.i < token.i and token.head.head.pos_ in verblike_pos_tags:
+        # The latter for weird misparse: Beste  , waar kan ik informatie vinden over beker indeling jeugd b categorie en wat indeling is van de jo7-12?
         return False
     return True
 
@@ -50,6 +56,8 @@ def is_rising_declarative(sentence):
 
 
 def get_finite_verbs_of_span(span):
+    if not span:
+        return []
     language = utils.language_of(span[0])
     result = []
     for tok in span:
@@ -449,7 +457,7 @@ def ends_with_tag_question(sentence):
         elif [tok.pos_ for tok in sentence[-3:]] == ['AUX', 'PRON', 'PUNCT']:
             utils.log(f'Ends as tag question.')
             return True
-    sentence_text = sentence.text.strip(sentence_separators).strip()
+    sentence_text = re.sub(r'^[^\w]+|[^\w]+$', '', sentence.text)
     if language == 'french' and sentence_text.endswith(' ou non'):
         return not sentence._.has_inversion # if so, ou non is polar-like altQ.
     if sentence._.ends_with_question_mark and any(sentence_text.endswith(tag) for tag in vocab.tag_questions[language]):
