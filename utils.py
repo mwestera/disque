@@ -184,7 +184,7 @@ def clean_sentence(text, language):
         text = re.sub(r'(?<=[A-Za-z])-(?=[A-Za-z])', r' -', text)
         text = re.sub(r'Ã©', r'é', text)    # TODO find more principled, encoding-related way
         text = re.sub(r'Ã', r'à', text)
-    return text
+    return text.strip()
 
 
 def spacy_get_path_to_root(node):
