@@ -15,9 +15,13 @@ def main():
     """
     This is the first function that gets called, and that controls everything else.
     """
+
+    path_to_analyzed_tweets = config.path_to_analyzed_tweets or f'{config.path_to_main_data_dir}/tweets_{"_".join(config.paths_to_raw_tweets.keys())}.csv'
+    print('Analyzed tweets will be written to:', path_to_analyzed_tweets)
+
     tweets = load_raw_tweets(config.paths_to_raw_tweets)
     compute_features(tweets)
-    tweets.to_csv(config.path_to_analyzed_tweets, index=False)
+    tweets.to_csv(path_to_analyzed_tweets, index=False)
     explore(tweets)
 
 

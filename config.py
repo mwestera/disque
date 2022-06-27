@@ -14,10 +14,10 @@ paths_to_raw_tweets = {
 
 # The files below will be created.
 # Note: change these paths in case you don't want to overwrite them, i.e., keep multiple versions.
-
-path_to_analyzed_tweets = 'data/analyzed_tweets.csv'
-
-path_to_analyzed_questions = 'data/analyzed_questions.csv'
+# If you select None, a filename with be chosen automatically based on the datasets used.
+path_to_main_data_dir = None    # Suggestion: set this to 'data'    # '/media/matthijs/One Touch/Tweets/data'
+path_to_analyzed_tweets = 'data/analyzed_tweets.csv'    # Suggestion: set this to None
+path_to_analyzed_questions = 'data/analyzed_questions.csv'  # Suggestion: set this to None
 
 # You can set this to True, but the file will be bigger.
 include_full_tweet_text_in_analyzed_questions_csv = False
