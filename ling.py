@@ -84,7 +84,7 @@ def determine_matrix_subject_and_verb(sentence):
     verb, subject = None, None
     punctuation = [tok for tok in sentence[1:-1] if tok.pos_ == 'PUNCT' and tok.text == ',']
     if punctuation and (sentence[0].pos_ == 'SCONJ' or sentence[1].pos_ == 'SCONJ'):
-        spans = [sentence[:punctuation[0].i], sentence[punctuation[0].i:]]
+        spans = [sentence.doc[:punctuation[0].i], sentence.doc[punctuation[0].i:]]
         # for start, end in zip(punctuation, punctuation[1:]):
         #     spans.append(sentence[start.i:end.i])
         # if len(punctuation) > 1:
@@ -103,7 +103,7 @@ def determine_matrix_subject_and_verb(sentence):
         if finite_verb.dep_ in ccomplike_dep_tags or (finite_verb.dep_ in ['aux', 'aux:tense'] and finite_verb.head.dep_ in ccomplike_dep_tags):
             # Subordinated clauses; now better dealt with by kinda splitting on punctuation
             continue
-        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and (tok.head.head == finite_verb or finite_verb in tok.head.children) for tok in sentence[:finite_verb.i]):
+        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and (tok.head.head == finite_verb or finite_verb in tok.head.children) for tok in sentence.doc[:finite_verb.i]):
             # needed to skip "Aangezien je merkte wie je had gezien?" (elliptic; otherwise predicted to be rising decl)
             # vs. - Als[SCONJ, mark of kan] het veilig kan waarom niet ?
             continue
@@ -177,7 +177,7 @@ def has_subj_verb_inversion(sentence):
             # in Dutch, inversion after advmod doesn't count: e.g., "Eigenlijk blijven de meeste winkels dus open?"
             if any(tok.i < verb.i and tok.dep_ == 'advmod' for tok in verb.children):
                 inversion = False
-        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and tok.head == verb for tok in sentence[:verb.i]):
+        if any(tok.dep_ == 'mark' and tok.pos_ == 'SCONJ' and tok.head == verb for tok in sentence.doc[:verb.i]):
             # subordinate clause, e.g., aangezien je merkte wie je had gezien
             utils.log(f'Subject-verb inversion could not be determined (subordinate clause)')
             return None
@@ -203,21 +203,21 @@ def simply_not_a_question_word(token):
     #     ## cc/cconj is a misparse...
     #     return False
     if language == 'dutch':
-        if token.i <= 1 and token.text.lower() == 'wat' and len(sentence) > token.i + 1 and sentence[token.i+1].text.lower() == 'een':    # filter out exclamatives (X wat een)
+        if token.i <= sentence.start + 1 and token.text.lower() == 'wat' and len(sentence) + sentence.start > token.i + 1 and sentence.doc[token.i+1].text.lower() == 'een':    # filter out exclamatives (X wat een)
             return True
         # if right_neighbors and right_neighbors[0].text.lower() == 'er':     # Jan weet wie er is gevallen
         #     return True
-        if (token.pos_ == 'DET' or token.dep_ == 'det') and token.i < len(token.sent) - 1 and token.sent[token.i + 1].pos_ == 'NOUN' and 'Plur' in token.sent[token.i + 1].morph.get('Number'):
+        if (token.pos_ == 'DET' or token.dep_ == 'det') and token.i < len(sentence) + sentence.start - 1 and token.doc[token.i + 1].pos_ == 'NOUN' and 'Plur' in token.doc[token.i + 1].morph.get('Number'):
             # Wil nog snel wat kleren en speelgoed gaan kopen.
             return True
         if token.text == 'waar' and token.pos_ == 'ADJ' and any(tok.dep_ == 'cop' for tok in token.children):
             # Dit kan niet waar zijn toch?
             return True
     if language == 'french':
-        if token.i > 2 and sentence[token.i-2].text.lower() == 'à' and sentence[token.i-1].text.lower() == 'ce':
+        if token.i > 2 + sentence.start and token.doc[token.i-2].text.lower() == 'à' and token.doc[token.i-1].text.lower() == 'ce':
             # filter out French free relatives? actually, indirect questions can have this shape too.
             return True
-        preceding = token.sent.text[:token.idx].strip().lower()
+        preceding = token.doc[sentence.start:token.i].text.strip().lower()
         if preceding.endswith('est -ce') or preceding.endswith('est ce'):
             # Qu'est-ce que[no] c'est.
             return True
@@ -230,7 +230,7 @@ def simply_not_a_question_word(token):
             return True
         # if token.head.dep_ == 'acl:relcl' and token.head.head.lemma_ == 'celui':
         #     return True
-        phrase = sentence[token.i:].text.strip().lower()
+        phrase = sentence.doc[token.i:].text.strip().lower()
         if phrase.startswith('quand même') or phrase.startswith('quand bien même'): # or phrase.startswith('quand meme')
             # Si[no] j’ai le Covid, je peux quand[no] même le donner non ???   // quand même / quand bien même = toch, toch wel
             return True
@@ -249,7 +249,7 @@ def get_embedder_of(token):
     sent = token.sent
     candidate = None
 
-    actual_roots_given_parataxis_misparse = [tok for tok in sent[:token.i] if tok.pos_ == 'VERB' and tok.dep_ in ['nsubj', 'parataxis']]
+    actual_roots_given_parataxis_misparse = [tok for tok in sent.doc[:token.i] if tok.pos_ == 'VERB' and tok.dep_ in ['nsubj', 'parataxis']]
     if actual_roots_given_parataxis_misparse and is_embedder(actual_roots_given_parataxis_misparse[0]):
         utils.log(f'{token} has embedder {actual_roots_given_parataxis_misparse[0]} because weird parataxis/nsubj misparse')
         # Hoorde [VERB, parataxis] je wie er zijn gekomen?
@@ -343,11 +343,11 @@ def might_be_complementizer(token, embedder):
     if token.pos_ == 'CCONJ' and token.dep_ == 'fixed':
         utils.log(f'"{token}" is not complementizer of {embedder}, because it\'s part of a conjunction (dep=fixed).')
         return False
-    if token.dep_ == 'xcomp' and token.i == 0:
+    if token.dep_ == 'xcomp' and token.i == token.sent.start:
         # for misparse, though insufficient to handle it correctly: Hoe[fronted] ziet u een "zegevierplan"?
         utils.log(f'"{token}" is not complementizer of {embedder}, because it is initial and parsed as xcomp (?).')
         return False
-    if token.dep_ == 'advmod' and token.i == 0 and token.i == token.head.i - 1 and any(tok.dep_ in objectlike_dep_tags for tok in token.head.children):
+    if token.dep_ == 'advmod' and token.i == token.sent.start and token.i == token.head.i - 1 and any(tok.dep_ in objectlike_dep_tags for tok in token.head.children):
         # Waar zie jij jezelf over 5 of 10 jaar?
         utils.log(f'"{token}" is not complementizer of {embedder}, because it seems like a simple fronted advmod.')
         return False
@@ -360,7 +360,7 @@ def might_not_be_complementizer(token):
         # Il a vu qui[obj]?
         utils.log(f'"{token}" might also NOT be a complementizer.')
         return True
-    if token.dep_ == 'xcomp' and token.i == 0:
+    if token.dep_ == 'xcomp' and token.i == token.sent.start:
         # for misparse, though insufficient to handle it correctly: Hoe[fronted] ziet u een "zegevierplan"?
         utils.log(f'"{token}" might also NOT be a complementizer.')
         return False
@@ -567,14 +567,14 @@ def is_subject_of(token, verb):
     #     return True
     if language == 'french':
         if token.pos_ == 'PRON' and token.text.startswith('-') or token.text == 'ce':
-            if token.i == verb.i+2 and token.sent[token.i+1].text.startswith('-'):
+            if token.i == verb.i+2 and token.doc[token.i+1].text.startswith('-'):
                 return True
             elif token.i == verb.i+1:
                 # E.g., sauront-ils[subj of repondre] y repondre?
                 return True
         if token.pos_ == 'PRON' and token.dep_ == 'ROOT' and verb.dep_ == 'dep' and verb.head == token:
             return True
-        if verb.i == 0 and token.i == 1 and token.pos_ == 'PRON' and verb.head == token.head:
+        if verb.i == token.sent.start and token.i == token.sent.start + 1 and token.pos_ == 'PRON' and verb.head == token.head:
             # misparse:  Êtes[aux, punct of diplome] vous[pron, aux:pass of diplome] diplômé de médecine ?
             return True
     return False
@@ -633,7 +633,7 @@ def is_present_tense(token):
 def is_noun_like(token):
     if token.head.head.pos_ == 'NOUN':
         return True
-    if token.head.head.pos_ == 'ADJ' and token.head.head.i > 1 and token.sent[token.head.head.i - 1].pos_ == 'DET':
+    if token.head.head.pos_ == 'ADJ' and token.head.head.i > token.sent.start + 1 and token.doc[token.head.head.i - 1].pos_ == 'DET':
         # prix à  payer pour protéger les vieux[adj] qui sont vaccinés?
         return True
     return False
@@ -690,12 +690,12 @@ def might_be_ordinary_relclause(token):
     if token.dep_ == 'mark' and token.head.dep_ == 'advcl':
         # Et pourquoi pas leur couper les vivre pendant qu[mark of advcl of couper]'on y est ?
         return True
-    if token.dep_ == 'mark' and token.i > 0 and token.sent[token.i-1].dep_ == 'mark' and token.head == token.sent[token.i-1].head:
+    if token.dep_ == 'mark' and token.i > token.sent.start and token.doc[token.i-1].dep_ == 'mark' and token.head == token.doc[token.i-1].head:
         # Et pourquoi pas leur couper les vivre pendant[mark] qu[mark]'on y est ?
         return True
     language = utils.language_of(token)
     if language == 'dutch':
-        if token.lemma_ == 'wat' and token.i < len(token.sent) - 1 and token.sent[token.i+1].lemma_ == 'er':
+        if token.lemma_ == 'wat' and token.i < token.sent.start + len(token.sent) - 1 and token.doc[token.i+1].lemma_ == 'er':
             # pretty good rule!
             return True
 
