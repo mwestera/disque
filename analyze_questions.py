@@ -55,7 +55,7 @@ def compute_features(questions):
         if len(sentences) > 1:
             questions.at[index, 'text'] = sentence.text
             questions.at[index, 'offset'] += sentence[0].idx
-            sentence = nlp(sentence.text)   # TODO Not the most efficient
+            sentence = list(nlp(sentence.text).sents)[0]   # TODO Not the most efficient
         spacy_parses.append(sentence)
     questions['spacy'] = spacy_parses
 
