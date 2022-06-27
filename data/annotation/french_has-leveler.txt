@@ -1,0 +1,113 @@
+// This file contains French questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_leveler == False:
+je vois pas ce que ça changerait
+Pourquoi n’est -il pas levé partout ?
+Il a pris la parole pour dire qu’il donnait?
+Laissez passer n’oblige pas les vax à un dépistage oblig?
+La vaccination obligatoire hépatite B et DTP, c'est violent aussi ?
+Que vont -ils maintenant inventer pour se raccrocher aux branches ?
+Et que font les cellules CD8 ?
+Combien ne sont pas mis dans la base ?
+Vaccination obligatoire ?
+Combien avec une santé fragile dedans ?
+Et moi sport ?
+Comment guerir du Covid ?
+Non je ne suis pas vaccinée, et vous, vous avez de l’Herpes ?
+Il y aurait donc d’autres moyens …. ?
+avec ,	 L'eSport, on s'y met ?
+lol le mec qui sort C chiffres dont ne sais ou?
+Est ce que grace aux progres recents les gens vivent mieux ?
+Y'a des cas par chez vous ?
+Je mets ça là ,  hein ?
+Pas trop la haine d’être reconfinés ?
+Si on les écoutes , les personnes en réa sont des non vaccinés ?
+Combien est -il payé pour cela ?
+- who was paying Frederick L Gates at the time?
+Le soupçonner d’ailleurs de n’avoir reçu aucune injection ?
+mais vous vous informez au niveau des connaissances scientifiques?
+Et sur ces hospitalisations, combien de doubles vaccinés ?
+Comment a on éradiqué la variole à votre avis ?
+Alors prouvez -le et n’ayez pas de peur de demander Qui ?
+🤥?
+Vous trouvez ça clair, vous ?
+Tu penses quoi du vaccin ?
+à combien de doses le déclic se fera entendre dans votre tête ?
+Plus de tests, plus d'epidemie et grâce a qui ?
+Complotiste ?
+Combien de morts évitables avec des traitements précoces ?
+Jean -Claude, vous avez vu cette analyse de 4 vaccins ?
+Serait ce  l'effet vaccin ?
+On s’en fout un peu, non ?
+L'assurance maladie ?
+Comment des profs ont ils pu demander cette mesure ?
+On continue d'écouter Véran ?
+Veut -on de ce monde ?
+Covid-19 : la France fait -elle déjà face à une pénurie de vaccins ?
+Pssst, confrères journalistes, vous voulez un scoop ?
+T'as vu pour le vaccin contre l'hépatite B et la sclérose du coup ?
+Franchement vous voyez pas qu'ils veulent la guerre ?
+📌Santé : la France vraiment dépassée ?
+Et ça du coup on en fait quoi ?
+A quand la dissolution des ARS ?
+A propos terroristes: Faut -il accuser l'immigration ou l'islam ?
+
+
+// These questions are predicted to have has_leveler == True:
+On reste aux abris tout schuss ?
+Que tout se passe bien ?
+Personne ?
+Mais alors, cela voudrait dire que le pass sanitaire ne sert à rien?
+tout ?
+Et vous voudriez faire croire que tout est mis en œuvre ?
+Une 3ème dose SpikeVax - tout un programme …-  moitié moins forte ?
+ Et tu ne montés jamais en voiture, je suppose ?
+vous êtes toujours borgne ?
+Toujours pas de vaccin contre le capitalisme ?
+Au fait, que dit z sur les vaccins et le pass à part rien?
+Tu comprends encore pas que même vacciné ca change rien?
+Pourquoi personne ne réagit ?
+Mais sommes nous toujours en démocratie ?
+Tout ça pour ça ?
+Vous pigez ou toujours pas ?
+Est ce que ça veut dire qu'il est capable de mentir sur tout ?
+Rien ?
+Qui vérifie tout cela?
+Du coup on appelle toujours ça un vaccin ?
+- Que PassSanitaire et tout -vaccinal = échec total ?
+Tout ces risques sont ils -bien utiles pour &lt;65 ans ?
+Tout le monde s’en fiche ?
+Toujours pas le mot Tyrannie ?
+Les FFp2 ne servent à rien?
+ ⤵  Et sur tout le reste ?
+Tout va bien ?
+Pourquoi personne en parle?
+ Et en France : toujours que des non vaccinés en réanimation?
+ Et ils misent tout sur ces vaccins ?
+💉  La France n’a donc rien d’autre à faire ?
+J'ai rien oublié ?
+ Alors on continue dans le tout vaccinal ?
+Donc des millions de gens vaccinés pour RIEN?
+Et si tu arrêtais de tout fermer sous prétexte COVID19 ?
+Ta toujours pas compris ou bien tu es con ?
+Ca n'intéresse personne?
+Peut etre quon ne le fait pas pcq ca sert a rien non plus ?
+Et pourquoi ne parlez vous jamais des risques ?
+Si tu n’es pas vacciné, tu ne peux plus rien acheter, tu crèves ?
+Et vous pensez vraiment que tout s’arrêtera ?
+mélanger les vaccin c'est jamais une bonne idée non ?
+Allo les pro vaccin toujours aussi inoffensif vos vaccins?
+ Les citoyens financent mais ne doivent rien savoir ?
+Personne chez vous ne s'est posé  la question avant ?
+Rien ne vous choque ?
+« Sert à rien mais on meurt plus tranquille »?
+Tu ne t’es jamais fait vacciner contre le Tétanos ou la Polio?
+Les policiers sont toujours pas vaccinés ?
+rien fait ?

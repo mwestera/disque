@@ -1,0 +1,206 @@
+// This file contains French questions with the predicted categories of wh-words and the questions as a whole.
+// 1. Individual wh-words are tagged in square brackets like "who[no/insitu/fronted/indirect]"
+//    - here 'indirect' means it is pragmatically likely to be used as an indirect question.
+//    - embedded wh-words that are unlikely to be used as indirect questions, are tagged with 'no'.
+// 2. The syntactic structure of each question as a whole is categorized at the end of each line as "polar/wh/insitu/elliptic/decl/risingdecl"
+//    - here 'elliptic' is intended for non-wh-questions whose subject-verb order cannot be determined, typically because there is no matrix verb.
+//    - 'wh' means a fronted-wh question; 'insitu' means an insitu-wh question; if a question has both, the former wins.
+
+// Annotation instructions:
+// If a line is mis-classified, please duplicate and correct it (both the wh-tags and the overall classification), and
+// comment out the original line by prefixing "//"/. 
+// To help me figure out what the current system is doing wrong, consider adding a "//"-comment at the end of a line briefly
+// explaining what the problem might be (especially for languages I don't speak).
+
+// french
+Je ne sais pas si[indirect] vous comprenez. | decl
+Et je ne suis pas certaine qu'[indirect]un vaccin fasse de vous qqun de bien. | decl
+Hors de question que[indirect] j’attende. | decl
+Je lui demande si[indirect] elle l'a signalé au médecin qui[no] l'a vaccinée. | decl
+ Je ne sais pas ce qu'[indirect]il vaut. | decl
+Plus une question de capital culturel que[indirect] de revenus | decl
+Je ne vois pas pourquoi[indirect] je vaccinerais car je n'est pas un vaccin. | decl
+Tu te demandes peut-être quand[indirect] la vie normale reprendra. | decl
+Je NE DIS PAS qu'[indirect]il ne vaut vous faire vacciner. | decl
+vois pas comment[indirect] il va justifier ça | decl
+Tu sais même pas ce que[indirect] tu t’injectes dans le corps. | decl
+Mais parfois je me demande si[indirect] il réfléchisse avant de parler | decl
+Dire que[indirect] 65% ne voulaient pas se faire vacciner en octobre | decl
+je vois pas ce que[indirect] ça changerait | decl
+Je sais pas c'est ma femme qui[indirect] l'a pris"... https://t.co/4wGRbVZ4u7 | decl
+Je ne sais pas si[indirect] vous réalisez ce qui[no] est en train de se passer. | decl
+Il faudra alors se demander pourquoi[indirect] cela arrive. | decl
+Je me demande ce que[indirect] pensent les vaccinés à ce sujet. | decl
+C’est une question qui[indirect] s’impose de plus en plus. | decl
+	- Tu sais pas ce qu'[indirect]il y a dans le vaccin. | decl
+insondable ? | elliptic
+doctoctoc, poke ? | elliptic
+Personne ? | elliptic
+Les lits d’hôpitaux et les soignants réanimateurs ? | elliptic
+Manu ? | elliptic
+Hum Blachier ? | elliptic
+« au nom du peuple » ? | elliptic
+Et la 5ème vague ? | elliptic
+Même si[no] pas vaccinés? | elliptic
+Entrave aux "passeports vaccinaux" ? | elliptic
+Avant de les rassembler dans des camps ? | elliptic
+🇯🇵APRÈS MODERNA,PFIZER ? | elliptic
+Vaccin coronavirus JLM2022   irresponsable ? | elliptic
+se sont fait vaccinés contre le Covid ? | elliptic
+Attendent -ils la barre des 100 00 ? | polar
+Pour éviter les désistements  et les questions et la peur logique ? | elliptic
+Covid et arrêt maladie : quelle articulation ? | elliptic
+Sont sérieux les gens ? | elliptic
+Et chez vous? | elliptic
+prq ce silence/ pbs des jeunes ? | elliptic
+La science qui[no] dit que[indirect] les masques sont utiles ? | elliptic
+- C'est quoi[insitu] cette marque sur ton bras, maman ? | insitu
+On fait comment[insitu] du coup ? | insitu
+Donc on attend quoi[insitu] pour mettre le paquet sur les traitements ? | insitu
+Vous feriez quoi[insitu]? | insitu
+Alors,rester prudent,veut dire quoi[insitu] ? | insitu
+On attend quoi[insitu] pour la vaccination obligatoire pour tous? | insitu
+HAHAHAHAHA il se passe quoi[insitu]? | insitu
+C’est quoi[insitu] ce pays? | insitu
+Vous lui donnez combien[insitu] de temps à vivre...? | insitu
+en fait ils veulent quoi[insitu] ? | insitu
+on les stoppe quand[insitu] ? | insitu
+6 juin : Non mais vous débarquez ou[no] quoi[insitu] ? | insitu
+Faites ce que[insitu] je dis, mais ce que[insitu] je fais ? | insitu
+L'Europe protège les profits de Pfizer : jusqu'où[insitu] ira le scandale ? | insitu
+Les données existent pourquoi[insitu] ce silence ? | insitu
+Les journalistes vous êtes où[insitu]? | insitu
+Tu penses quoi[insitu] du vaccin ? | insitu
+- Ah parce que[insitu] tu sais ce qu'[insitu]il y a dans ton kébab ? | insitu
+Il s'arrêtera où[insitu] cet enfoiré pour de faire da la thune ? | insitu
+Il vous faut QUOI[insitu] pour réagir? | insitu
+Faut -il déconfiner les vaccinés? | polar
+Y a -t -il quelqu’un pour se poser la bonne question ? | polar
+A propos terroristes: Faut -il accuser l'immigration ou[no] l'islam ? | polar
+La question: A qui[no] profite ce mode d'analyse? | polar
+Ai -je tort? | polar
+Qu’en disent les covidistes ? | polar
+🛂 Êtes -vous pour ou[no] contre le passeport vaccinal ? | polar
+Pourtant n'est -ce pas le pari qui[no] est en cours? | polar
+ Qui[no] sont les adultes dans la classe ? | polar
+Y a -t -il d'autres témoignages ? | polar
+Qui[no] sont les moutons du coup ? | polar
+Et croyez -vous qu'[no]en France ce soit différent ? | polar
+Auriez -vous une question intelligente? | polar
+êtes vous pour ? | polar
+serez vs des responsables en cas des dégâts après vaccination ? | polar
+🟡TIKTEK🟡Comment fonctionne le vaccin à ARN messager ? | polar
+Est -ce que[no] le vaccin peut affaiblir l'immunité naturelle ? | polar
+Êtes vous diplômé de médecine ? | polar
+- Pourquoi[no] est ce grave ? | polar
+ Qu’est ce qui[no] est le plus probable ? | polar
+Savez -vous pourquoi[indirect] le vaccin n'est pas obligatoire pour la police ? | polar
+🇬🇧 Le Royaume -Uni ne sait -il plus à quel[indirect] vaccin se vouer ? | polar
+Que[indirect] savent -ils au juste ? | polar
+Vous savez ce qu'[indirect]il va se passer ? | polar
+Ils deviennent tyranniques ? | risingdecl
+.Le fric des entrées t a fait changer d avis ? | risingdecl
+, on continue alors ? | risingdecl
+Tu as un message pour les gens de ton âge ? | risingdecl
+ET ON REGARDE LE TAUX D'ANTICORPS AVANT D'INJECTER ? | risingdecl
+Vous avez compris ? | risingdecl
+Ils sont proches très proches à portée de virus ? | risingdecl
+et vous soutenez ca vous?? | risingdecl
+	Pour toute l’Europe‼ on n’en parle pas dans les medias? | risingdecl
+, plus tes défenses immunitaires s'affaiblissent ? | risingdecl
+Pourquoi[no] la Corse est la région de france qui[no] vaccine le plus ? | risingdecl
+Quel[no] genre de honte c’est ça ? | risingdecl
+les gens gens croient vraiment que[no] c’est dû aux vaccins là ? | risingdecl
+Brizitte va se soumettre ? | risingdecl
+C'est l'étape 2 ? | risingdecl
+ C'est surtout quel[no] avenir pour nos enfants dans ce monde ? | risingdecl
+Tu ne veux pas te faire vacciner ? | risingdecl
+On en est donc à se féliciter d'être vaccinés ? | risingdecl
+Tu n'as pas ta dose ? | risingdecl
+VOUS ETES VACCINÉS? | risingdecl
+Alors MACRON  il en dit quoi[indirect]  "le gars" ? | risingdecl
+Il dit quoi[indirect] Macron ? | risingdecl
+Vous savez pourquoi[indirect] le vaccin n'est pas obligatoire n'est ce pas ? | risingdecl
+Et ceux qui[indirect] sont mort du vaccin ils disent quoi[indirect] ? | risingdecl
+Franchement vous voyez pas qu'[indirect]ils veulent la guerre ? | risingdecl
+Il y a aussi des vaccinés dans le lot, vous savez combien[indirect]? | risingdecl
+Vous .. savez que[indirect] des vaccinations sont obligatoires depuuuuuis ? | risingdecl
+les jeunes savent ils ce qu'[indirect]est une AMM conditionnelle? | risingdecl
+Vous savez que[indirect] ça fait des milliers de morts? | risingdecl
+Ils disent quoi[indirect] maintenant? | risingdecl
+Vous ne savez pas comment[indirect] répondre? | risingdecl
+Vous savez pourquoi[indirect]? | risingdecl
+Vous voyez s'installer la dictature qui[indirect]  ne dit pas son nom ? | risingdecl
+Il disait quoi[indirect]   ? | risingdecl
+non? | tag
+, les vaccinés sont protégés, n'est -ce pas? | tag
+Oui ou[no] non ? | tag
+Du coup le vaccin n'évite ni le virus ni l'hospitalisation non ? | tag
+Bah non ? | tag
+Preuve irréfutable,non? | tag
+Ils sont vaccinés maintenant non ? | tag
+Sinon tous les vaccins existants pourraient être obligatoire non? | tag
+D’après nos dirigeants et médecins le vaccin est efficace non? | tag
+C'est un vaccin contre la RAGE qu'[no]il vous faut, non ? | tag
+On se fiche de nous non ? | tag
+Ah non ? | tag
+mélanger les vaccin c'est jamais une bonne idée non ? | tag
+Le prion c'est la vache folle, non ? | tag
+les vaccinés n'ont rien à craindre ... non ? | tag
+Ça y ressemble un peu, non? | tag
+ Etonnant, non? | tag
+Il parait que[no] ce sont seulement les non vaccinés en réa, non ? | tag
+Elle est donc libre de le faire ou[no] non. | tag
+C'était pourtant des enragés au Danemark, non ? | tag
+Qui[fronted] ? | wh
+Et en France  c’est pour quand[fronted] ? | wh
+	  « Pourquoi[fronted] est -ce qu’on vaccine les jeunes? | wh
+A quand[fronted] l’interdiction  des pâtisseries  aux diabétiques ? | wh
+Quand[fronted] va t'on y arriver en France ? | wh
+Quels[fronted] sont les effets possibles à long terme ? | wh
+Qui[fronted] est assez puissant pour lui éviter poursuites et condamnation ? | wh
+Que[fronted] se passe -t -il avec ça, et que[fronted] fait -on si'ils osent ? | wh
+Que[fronted] dit -il d'important? | wh
+Qui[fronted] accuserez -vous d‘en être responsable? | wh
+Mais qui[fronted] sont ces "connards" que[no] vous aurez ? | wh
+Combien[fronted] d'injection avaient reçues ces patient? | wh
+Combien[fronted] de gens ne rapporteront pas leurs effets indésirables? | wh
+Si[no] non pourquoi[fronted] 0,0001 vous inquiète et pas 100 ? | wh
+Mais jusqu’où[fronted] va aller ce gouvernement ? | wh
+Où[fronted] est passé le sacro -saint principe de précaution ? | wh
+Qui[fronted] veut ? | wh
+75000 et combien[fronted] sont vaccinés ? | wh
+Oui mais quand[no] même 15% de vaccinés et combien[fronted] dans 1 mois ? | wh
+Pourquoi[fronted] n’apprenons -nous rien des cas étrangers ? | wh
+Celle qui[fronted] dit qu'[indirect]il n'y a pas de traitement ? | wh
+qui[fronted] disait qu'[indirect]on y arriverait pas? | wh
+Pourquoi[fronted] dites -vous que[indirect] je suis antivax ? | wh
+Ceux qui[no] ne peuvent se faire vacciner pour raisons médicales sont traités comme d'ignobles anti -vax qui[no] ne prennent pas soin des autres ... pour des "vaccins" qui[no] n'assurent ni l'immunité ni la contagiosité de la personne vaccinée. | decl
+	VeranDemission | decl
+🇫🇷 Bill Gates et le Dr Fauci nous mettent maintenant en garde contre le virus mortel de Marburg, qui[no], comme par hasard , présente EXACTEMENT les mêmes symptômes que[no] la grande majorité des décès dus aux vaccins ! | decl
+Il semble, d'après les premières données, qu'[no]une fois que[no] vous prenez le vaccin, vous mettez votre système immunitaire dans un état de dépendance perpétuelle nécessitant des injections de rappel pour chasser les variants tous les six mois. | decl
+Bon je suis quand[no] même un peu fatiguée et dans le brouillard là je pense a cause du vaccin bref hâte d’être en forme | decl
+si[no] vous  avez un probléme  avec le  vaccin  on vous répondras  toujours  non  votre probléme ne vient pas du vaccin  ils auront toujours raison | decl
+Plutôt que[no] de planifier la gestion de l’inévitable, de façon raisonnée et proportionnée, pour laisser le temps à chacun d’organiser sa vie, l’exécutif fantasme encore la décision in extremis et inspirée par on ne sait quel[no] daímôn. | decl
+Quand[no] on n'est pas capable de sortir un vaccin, les seuls postes à supprimer chez Sanofi sont ceux des dirigeants inconscients et cupides. | decl
+J'ai juste fais un commentaire, c'est toi qui[no] te chauffe pour rien. | decl
+Dire qu'[no]une action n'est pas altruiste c'est pas très grave. | decl
+Très peu de personnes peuvent dire quelles[no] ont fait le vaccin pour des raisons purement altruistes. | decl
+Enfin une terre d accueil pour nos antivaxx qui[no] fuient la dictature macroniste = l Afghanistan! | decl
+Les Talibans, qui[no] sont de grands intellectuels modernistes , détestent les vaccins 😀😞😡👹 | decl
+Nan y’a que[no] des numéros 10 dans ma team https://t.co/wFT73n2vd0 | decl
+Je finirai en vous faisant remarquer que[no] chaque organisme vivant lutte pour sa survie. | decl
+Il semble, d'après les premières données, qu'[no]une fois que[no] vous prenez le vaccin, vous mettez votre système immunitaire dans un état de dépendance perpétuelle nécessitant des injections de rappel pour chasser les variants tous les six mois. | decl
+ https://t.co/ozy89Bf13D | decl
+Une journaliste de BFM -TV indique que[no] selon ses sources, le reconfinement, s’il devait y en avoir un à la rentrée, ne concernerait que[no] les non -vaccinés dans les régions avec des taux d’incidence élevés. | decl
+Mais que[no] ce % de personnes âgées et/ou[no] ac x comorbidités aillent se faire vacciner et il sera protégé! | decl
+Ou[no] alors ce vaccin c’est de la connerie et il est hors de question que[no] je me le fasse injecter pour rien avec une balance risque/bénéfice aussi ridiculement disproportionnée! | decl
+À ceux qui[no] pensent ou[no] qui[no] laissent les autres imaginer qu'[no]ils vont retrouver une vie NORMALE uniquement grâce aux vaccins actuels. | decl
+Si[no] j’ai bien tout pigé, les Antivax, qui[no] reprochent à BigPharma d’injecter un vaccin expérimental et trouvent ça scandaleux, soutiennent DidierRaoult qui[no] aurait mené des essais illégaux sur la Tuberculose sans prévenir les victimes. | decl
+Les jeunes qui[no] veulent pas se faire vacciner avec un nombre de vaccins insuffisant sur des créneaux improbables à 50km de chez toi. | decl
+Nous les gueux, les sans dents, les sans grades nous ne sommes rien face à ceux qui[no] veulent nous réduire en esclavage ! | decl
+Regardez le documentaire et vous comprendrez pourquoi[no] et qui[no] nous veut du mal	https://t.co/td53tTpH5A | decl
+Regardez ce qui[no] se passe. | decl
+Les endroits où[no] le pass sanitaire est demandé, plus de masques a l'intérieur. | decl
+Dans les resto, les gens vaccinés se croient tellement protégés qu'[no]ils ne le portent plus. | decl
+

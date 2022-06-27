@@ -1,0 +1,113 @@
+// This file contains French questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_negation == False:
+Un long thread sur les vaccins, comment ça marche ?
+Comment annoncer cela sans même publier les critères retenus?
+Peut -on savoir pourquoi ?
+et pourquoi ils l'exigent pour le covid ?
+Qui a l’air bête ?
+pourquoi ?
+et ceux de l’🇬🇧?
+les pilules contraceptives sur le marché sont autorisées?
+ Comment voulez -vous que les français comprennent ce qu'il se passe?
+On arrête d'être bêtes, un jour ?
+Tu sais que les variantes changes continuellement right?
+3ieme dose ?
+Et quid des contre -indications au vaccin ?
+Qu'a fait Sanofi depuis 10 ans ?
+Il reste qui à vacciner ?
+Tu joues quand même ?
+Pourquoi certains vaccins contre la COVID19 ont 2 doses ?
+Sauvé ?
+Quelle est l'utilité du vaccin covid pour un enfant/ado ?
+Le passeport vaccinal est -il juridiquement possible ?
+Justement le vaccin est surtout pour eux on est d’accord ?
+Pourquoi vous êtes tous à angoisser comme ça ?
+Que vont décider les autorités de la santé ?
+Macron serait un menteur?
+, ok, mais comment peut -on se dire humain et (laisser) faire ça?
+Pensaient ils que c'est plus efficace que le vaccin russe?
+La tristesse d'un vaccin ?
+Comment a on éradiqué la variole à votre avis ?
+Quand la justice va -t’elle se pencher sur tous ces délits ?
+Leur "méthode"?
+Et ici on veut une injection obligatoire pour les gamins ?
+Vaccination : où en sont nos voisins européens ?
+Bureaucratie ?
+Ces gens ont -ils appris la logique élémentaire à l’école?
+Cette corrélation ne trouble personne?
+Alors,rester prudent,veut dire quoi ?
+Ceux qui fabriquent et vendent les vaccins sont - ils musulmans ?
+Les soignants prêts à démissionner plutôt que de se faire vacciner ?
+2022 ?
+Et les vaccinés Macron philes ?
+On est passé dans un monde parallèle ?
+T'as appeler Poutine pour des vaccins ?
+Hum tu la sens bien l'arnaque ?
+Mais il a retrouvé mes vidéos ?
+Comment faire plier les autorités ?
+Devons nous organiser la désobéissance ?
+.Y’a tu une autre façon de gouverner qu’en faisant du chantage ?
+Et ça du coup on en fait quoi ?
+HAHAHAHAHA il se passe quoi?
+Pq il parle de vaccin aux jeunes ?
+
+
+// These questions are predicted to have has_negation == True:
+Ils sont vaccinés maintenant non ?
+- sans signature du consentement pas de vaccin ?
+Du coup pourquoi ne pas rendre le vaccin obligatoire ?
+Et pourquoi pas leur couper les vivre pendant qu'on y est ?
+Ça te fait pas chier ?
+Si tu te vaccines tu est proteges non ?
+Pas trop la haine d’être reconfinés ?
+Restrictions pour les non -vaccinés : légal ?
+C'est ironique non ?
+On est en guerre ou pas ?
+Le vaccin n'empêche pas d'attraper et de mourir du COVID19 ?
+- tjr pas de réponse sur les non -vaccinés israeliens ?
+Il se traite pas le covid vous êtes sur?
+On laisse encore l’ dire que le vaccin n’est pas efficace?
+Finalement ne serait -ce pas son objectif ?
+Et dire que si tu n'es pas vacciné c'est toi le meurtrier?
+N’est ce pas interdit la publicité mensongère ?
+Ne connaissent pas l'âge de leur enfant ?
+Pourquoi avoir peur des non -vaccinés alors?
+Qu'est ce que vous n'avez pas compris encore? ?
+Si tu n’es pas vacciné, tu ne peux plus rien acheter, tu crèves ?
+Ça ne s’appelle pas une imprudence le vaccin ?
+qui disait qu'on y arriverait pas?
+D’après nos dirigeants et médecins le vaccin est efficace non?
+Je sais même pas comment qualifier son discours.
+Pourquoi ne pas s'appuyer dessus ?
+ ça vous dérange pas un peu déontologiquement non ?
+Vous n'en avez pas marre de répéter sans cesse ce discours obsolète?
+Un non vax c’est quoi ?
+Vous êtes soignant et non -vacciné?
+Cela ne devrait pas être le contraire?
+Ou il y a encore des idiots qui ne voient pas le problème ?
+Ça ne vous interpelle pas cette campagne de racolage vulgaire ?
+Et en tant que vacciné, qu'allez -vous subir d'un non -vacciné ?
+Ne faut -il pas le prendre en compte ?
+On évite donc ce risque, non ?
+	Pas d’effets secondaires au delà de 3 mois ok ?
+On n’est pas bien là, hein ?
+mais pourquoi pas la peine de mort tant que vous y êtes?
+Est ce que le vaccin ne protège pas juste d'être déclaré Covid ?
+Logiquement cela devrait être l'inverse, non ?
+Pas de mutation de virus?
+N'est -ce pas énorme?
+pas tout à fait  tranquille ?
+N’est -ce pas merveilleux...?
+Étonnant , non ?
+de dire un peu que le vaccin n’est pas efficace non ?
+Comment ça pas de solutions?
+Les journalistes n'ont pas honte de cette censure ?
+Ils restent encore des non vaccinés ?

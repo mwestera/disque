@@ -1,0 +1,113 @@
+// This file contains Italian questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_conjunction == False:
+Nessun media Italiano si è ancora espresso sul Pfizergate ?
+Quindi da domani ci si vaccina in ordine di fatturato?
+C’è qualche giornalista che glielo chiede, per favore?
+dove lo trovi un sostituto formato disposto a lavorare 2-3 mesi?
+M poi anche questo direte che lo fanno per il bene dei cittadini?
+Ma com'è possibile sta cosa?
+greenepass ?
+A quanto sta per "suicidarsi" ?
+Per paure inesistenti senza fondamento?
+Perché tutelarla con tanto fervore?
+Posso dire una cosa sinceramente?
+Tajani che spinge per il passaporto vaccinale?
+l'avete inviato anche voi?
+Cioè non ci vuole un genio a capirlo eh?
+Quindi questa campagna vaccinale funziona?
+In It?
+Lo ha fatto?
+Quindi lei si è vaccinata solo per avere il 5G gratis, giusto?
+cosa?
+Che si ammalino?
+Ancora  sono incerti su obbligo vaccini in Parlamento, perchè?
+"il lockdown solo per non vaccinati?
+Siamo impazziti ?
+L'EMA?
+La causa?
+È giusto pagare una cifra del genere per dimostrare di essere sano?
+Un altro vaccino?
+Come stara andando?
+Perché in Ungheria lo stadio è pieno, senza tamponi né vaccini?
+Vi pare giusto?
+	“Montagnier sui vaccini?
+2) Il virus del no vax ha la carta di identità?
+ANCHE LUI CON PATOLOGIE PREGRESSE NON DICHIARATE?
+Perché mi ha bloccato?
+" Immunità di gregge?
+Continuate con chiusure a oltranza senza fare nulla?
+STRAGE/STERMINIO?
+Che ne dite,fare prima test sierologici?
+Ma credere a tutto?
+Ah, quindi è il vaccinando che sceglie il vaccino?
+Che altro vuole Giorgia Meloni?
+Hai problemi dopo il vaccino?
+Hai presente gli anziani che fanno l'antinfluenzale ogni anno?
+Il 95% vi fa schifo?
+1403 contro 166 le pare ridicolo?
+Ma voi vi siete vaccinati?
+Siete tutti figli dei nazisti?
+Che infatti solo da noi hanno preso la prima dose a gennaio?
+non ne avete già abbastanza?
+L'alternativa ?
+
+
+// These questions are predicted to have has_conjunction == True:
+Se vaccino me stesso e mio nonno, possiamo abbracciarci?
+O dobbiamo per forza essere etichettati come no vax e negazionisti?
+Su un piano vaccinale che non c'è e durerà anni?
+"Ma va, io l'ho fatto e sto bene"  E quelli che sono morti?
+E se invece tu contagi un non vaccinato che fai, gli intesti casa?
+E perché non sarebbe un vaccino?
+La ragazza é stata costrtta o sottoposta a pressioni?
+Ti sei vaccinata o no?
+x continuare a rompere o criminalizzare i novax?
+E noi dovremmo fidarci di questi bugiardi cronici?
+E ora  chiedono pacificazione?
+E invece quanto ci costano I CLANDESTINI che le tasse non le pagano?
+Sono dei folli criminali o cosa?
+E chi pensa al debito pubblico dell'Italia?
+E che si sono vaccinati a fare allora se il vaccino non li tutela?
+E che car, non lo sai?
+E i vaccinati contagiati  dovrebbero essere licenziati  anche loro?
+Come e quanto lo pagano?
+Non c'è anche LIBERTÀ di parola e di PENSIERO?
+Cattiva programmazione della produzione o distribuzione ?
+E chi sono?
+E Figliulo a proposito  che dice ?
+Cos'e' sta cosa?
+Com’era quella dell’OBBLIGO VACCINALE e dei DANITARI NOVAX-UNTORI?
+E adesso chi si è vaccinato che fa?
+Neghi il certificato a chi ci vuol andare o lo fai?
+E se non c'è vaccinazione ma tampone?
+E chissenefrega dell'italia?
+Volete pure un grazie e bravi?
+E voi mi parlate della libertà personale di non vaccinarsi?
+E sapete cosa fece?
+Oppure sei un diavolo?
+Chi vi ha vietato di diventare insegnanti e vivere da privilegiati?
+O nessuno risponderà di morti e lesioni come sinora?
+Ma esattamente Salvini e Meloni a chi vanno dietro ?
+E soprattutto quanti ce sono rimasti dopo la moria dei vaccini?
+E sai grazie a chi?
+E poi: questa esseri l’incontriamo, li vediamo, li salutiamo?
+E ai vaccinati chi li tutela dai danni da vaccino?
+E quanto ci costano i 1.500 “fiori” annunciati da Arcuri?
+Se ti vaccini muori e fai morire la gente, cos’è che diceva Draghi?
+O sbaglio?
+https://t.co/fqcBSiC9O6  o lui?
+Vaccino antinfluenzale o caccia al tesoro?
+Se mi VACCINO e ho reazioni avverse o muoio, chi va in CARCERE?
+E come mai nessuna tv ne parla?
+E come si possono fare le vaccinazioni sul luogo di lavoro?
+O forse siamo liberi solo di morire o di subire morti bianche?
+Barillari, Eriksen, il vaccino e le mosche... 😳  Quanto ci costa?
+cribbio post prima o seconda?

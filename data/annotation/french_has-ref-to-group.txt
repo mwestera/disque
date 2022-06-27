@@ -1,0 +1,113 @@
+// This file contains French questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_group == False:
+⚠ Et surtout, pourquoi les employés sur la photo sont muselés, eux?
+Alcool ?
+Est -ce le vaccin qui les a tué ou juste leur maladie?
+C'est quoi ce merdier ?
+Quelles compétences ?
+La raison du succès ?
+Pourquoi celui -là moins qu'un autre ?
+Mais dans les faits ?
+	Faut -il étendre le PassSanitaire à plus d'activités ?
+Et l'hépatite?
+😀  C'est des grands malades ou pas ?
+ Aurait -il des choses à cacher ?
+Prion pas prion?
+Qui a dit que la France se désindustrialisait ?
+Dieule niari dose vaccin après corona legui vaccin bi pour lane leu?
+Comment ce variant est arrivé en France?
+Est -il normal de procéder ainsi sans essai clinique ?
+Cmt il le sait ?
+Traitements précoces ou pas ?
+Qui prendra le risque de faire un vaccin ARN sur ses enfants ?
+Et parmi les victimes du virus depuis le 1er Juillet ?
+Comment des profs ont ils pu demander cette mesure ?
+Chuis dans le faux ?
+Pourquoi ils ne le font pas ?
+Celle qui dit que le vaccin est là seule solution ?
++ qui des pourcentage de vaccinations des autres tranches d'ages?
+Résultats?
+Preuve irréfutable,non?
+Que vont -ils maintenant inventer pour se raccrocher aux branches ?
+	Suis -je inquiet?
+Le passeport vaccinal est -il juridiquement possible ?
+Si même TF1 le met en exergue, est -ce encore du complotisme ?
+Qui indemnisera les victimes d effets secondaires graves ?
+ Etonnant, nan ?
+La non prise en charge des buveurs qui ont une cirrhose ?
+Les stats?
+Le remède ou le Poison ?
+FEMMES ENCEINTES: "DILEMME"?
+qu'est -ce qu'il y avait dans l'injection ?
+👉A quoi sert -elle?
+- Variant delta: Des vaccins moins efficaces?
+mais les gens sont ravagés ??
+Non rassurez moi ?
+👌🏽»  C’est pour me fumer ?
+Comment sont élaborés les vaccins ?
+Vaccination : et si Hanouna avait raison ?
+Un test PCR n'est il pas suffisant ?
+Si tu es vacciné ou est le problème si le vaccin marche bien ?
+Sinon les jeunes qui meurent des conséquences du vaccin ?
+A quel vaccin se vouer?
+
+
+// These questions are predicted to have has_ref_to_group == True:
+vous avez essayé le site vite ma dose?
+Parce que quel est le risque de chopper ce covid quand on a 30ans?
+On admet enfin que le vaccin inhibe la transmission ?
+Et je ne suis pas certaine qu'un vaccin fasse de vous qqun de bien.
+Bien établi vous dites ?
+On réagit ou on dort ?
+C'est pour cela que vous avez fait l'apologie de ce vaccin chinois ?
+Vous êtes généraliste pour affirmer cela?
+Vous aimez mes dessins d'actu ?
+Qd est ce qu'on se décider à faire qque chose psk c bien,bon,juste?
+Et chez vous ?
+🤰Vous attendez un enfant ou votre bébé vient de naître ?
+On laisse encore l’ dire que le vaccin n’est pas efficace?
+VOUS ETES VACCINÉS?
+Comment on produit le vaccin ROR ?
+On se rend bien compte ?
+Ça vous semble dément ?
+Par contre pour son futur cancer on fait quoi ?
+Comme quand on a accepté le confinement ?
+Et vous pensez vraiment que tout s’arrêtera ?
+On nous aurait menti?
+Vous n'en avez pas marre de répéter sans cesse ce discours obsolète?
+Avec ces risques,  souhaitez -vous continuer la vaccination ?
+vous voulez pas parler d'autre chose?
+Non mais c’est dingue, on entends le même discours là ?
+ Vous vous rendez compte de la dérive ?
+Vous allez vous réveiller ?
+Et en tant que vacciné, qu'allez -vous subir d'un non -vacciné ?
+Maître  avez vous vu cela ?
+Vous trouvez ça clair, vous ?
+Alors on les obligera à se vacciner de force ?
+Avez -vous réellement un sens critique?
+Et s'il l'avait fait, vous auriez titré sur l'infantilisation?
+covid, covid, vaccins, mais le reste, on en parle?
+Quand va -t -on enfin planifier des alternatives au confinement ?
+Que se passe -t -il avec ça, et que fait -on si'ils osent ?
+On est où, là ?
+mais vous avez le foie ou le cœur foutu..🤣🤣🤪🙃	y a pas de pb ?
+Craignez -vous leur manque de zèle ?
+Tous possesseurs du pass, pourquoi avons -nous cette obligation ?
+Dis nous  : pourquoi t'as baissé ton froc aussi vite ?
+Vous ne savez pas comment répondre?
+ Comment voulez -vous que les français comprennent ce qu'il se passe?
+Vous confirmez ou infirmez ?
+Votre efficacité vaccinale: vous la voulez pile ou face?
+Ne dit -on pas qu'une image vaut mille mots ?
+Connaissez -vous les dangers de + en + nombreux?
+Alors on est chaud là ou pas?
+Que doit -on en déduire ?
+Veut -on de ce monde ?

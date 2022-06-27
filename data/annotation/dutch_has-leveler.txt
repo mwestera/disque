@@ -1,0 +1,113 @@
+// This file contains Dutch questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_leveler == False:
+2000  Huh?
+Het biermerk ?
+het corona dashbord?
+🌸💗??
+Kijkt u even mee   voor u weer nieuwe idiotie goedkeurt?
+En jij?
+Zonder wisselspelers vandaag?
+Klopt maar wat heeft doet met Corona te maken?
+Als dat niet verdacht is?
+Wie zegt dat het een recent filmpje was?
+Waar zit de logica??
+Waarom???
+Maatregelen nemen morgen???
+voor de gek houden?
+Waarom wordt daar geen aandacht besteed?
+Ik vond de duivel ook pas leuk worden rond 665, jullie?
+Corona feest ?
+Als ze geen corona hebben mogen ze toch spelen?
+Want door corona krijg je geen pneumonie?
+wat zijn de effecten van corona?
+heb je de bronnen al bekeken?
+Zullen we waarheid ooit weten ?
+Logisch, toch?
+Of ben je geen zelfbenoemde wetenschapper?
+Of zijn dit nog oude plannen van voor de Corona?
+echt benieuwd waar kabinet keuze op stoelt.
+Breinaalden en boeken kopen dan wel essentieel?
+💰 Wat hebben we het afgelopen jaar gedaan en uitgegeven?
+Heeft hij nog eens over Corona getweet?
+Maar dat kon voor en na corona toch ook?
+De regels zijn toch duidelijk?
+Moet je flexkrachten door sluiting vanwege corona doorbetalen?
+Hoe komt dit?
+Heb je geen extra covid dienst??
+Jullie?
+Aanpassen snelheid?
+Zie jij enig verschil?
+Sinds wanneer zijn 2 personen een groep?
+Maximaal met twee mensen buiten??
+Corona dan veroorzaakt?
+Nog een jongere geraadpleegd?
+Morgen dan maar met de f-jes tegen die Denen?
+Terugdringen infecties was het niet?
+Op basis waarvan?
+Wat is de grens?
+klopt dit ??
+Who financed it?
+Of heb ik verkeerd begrepen ?
+Die corona-regering Wilmès, dat was maar om te lachen zeker?
+Benieuwd of hoe hun ermee omgaan
+
+
+// These questions are predicted to have has_leveler == True:
+Of heb je altijd al de verkeerde uitgangspunten gehanteerd?
+We willen iedereen uit het ziekenhuis houden, dus waarom niet?
+Alles uit de kast om de zorg te ontzien?
+En gaan we weer voor iedereen zorgen?
+wie van je mutuals zou je nooit willen ontmoeten?
+Ja er zegt toch ook niemand dat dat niet zo is?
+Zo zo, die mogen wel alles wat de regering ons verboden heeft?
+dus voor die 1% moet alles kapot?
+Kost dat niks dan?
+Waarom word hier niks mee gedaan??
+Zeker nooit gehoord v de 2e Wereldoorlog?
+Alles covid19 zo dodelijk is, waarom zijn er terroristen?
+Bij Covid wordt nummer 14 toch ook nooit meer gebruikt?!
+Waar haalt iedereen dit vandaan?
+Quarantaine voor IEDEREEN die tussen NU en 15/12 OK??
+OF ... de testen zijn NIETS waard?
+Of is dat grafiekje er voor niets geweest?
+Quarantaine, isolatie, afstand, nooit van gehoord?
+Alles voor de economie of wat??
+Denkend dat ze alles maar kunnen maken?
+Niemand verplicht je om met de club mee te rijden toch?
+Niets bewezen?
+Alles al gelezen?
+Kan aan dit prutswerk niets gedaan worden?
+Maar niets doen ook, hoeveel mensen levens gaat dat kosten?
+waarom horen we niets meer per Wuhan?
+Niks toch?
+Waarom moet de rest van Europa in een alles-vernietigende lockdown?
+Waarom verteld ze niks over de Covids uit de 20ste eeuw?
+Dit heeft toch niks meer met covid te maken?
+Of...  is het zo dat jullie echt niets aan trekken ?
+Niemand in de TweedeKamer die daar vragen over stelt?
+Niemand toch?
+TROUWEN IN 2021⁠  Ondanks alles toch lekker trouwen in 2021?
+En NIETS over de ouders en grootouders die zijn besmet???
+Waarom wil iedereen persé sporten?
+Kunnen die niet gewoon naar de wc gaan, zoals iedereen?
+niemand , maar aan discussies zonder oplossing........?
+Alles om wille van corona?
+Iedereen in mijn klas is ziek?
+Want daar hoor je de main stream media dus nooit over hé?!
+Iedereen testen voordat je de ambulance in mag?
+Doet Mohammed dan helemaal niets voor ze?
+Al heb je hier toch de realiteit dat corona bijna niemand kwaad doet?
+Of heeft niemand daarover nagedacht?
+Nou.... is iedereen ff vergeten zeker?
+Of is 1+1 toch niet altijd 2?
+Waarom doet   zelf niets ?
+In België heeft dan toch praktisch iedereen corona gehad toch?
+Alsof wedstrijden voor de tijd van corona nooit verplaatst werden?

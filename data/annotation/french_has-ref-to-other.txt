@@ -1,0 +1,113 @@
+// This file contains French questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_other == False:
+qui le croit?
+Vaccins : une clause de non -responsabilité pour les labos ?
+Alcool ?
+Un vaccin pour tous ?
+Comment en est -on arrivé là ?
+Je sais pas c'est ma femme qui l'a pris"... https://t.co/4wGRbVZ4u7
+ Vous imaginez la sentence?
+A quoi ca a servi alors?
+Vous allez l'ouvrir qd les toubibs (les vrais)?
+Si oui, effet secondaire ?
+« Pkoi les policiers ne sont pas vaccinés ?
+Plus de 20 millions en France ?
+🤔Qu'en pense  ?
+A quoi sert le pass sanitaire dans ces conditions ?
+Mais d'où vient Aamir Malik ?
+Un avis sur le pass sanitaire ?
+38% de oui ?
+Vraiment ?
+On peut passer à autre chose dans les médias ?
+Vous avez perdu la mémoire ?
+Plus de tests, plus d'epidemie et grâce a qui ?
+Et vous trouvez ça normal ?
+Vacciné, ça compte ?
+Le Wuhan labo d'Europe?
+On ne peut prévoir une panne ?
+C'est pas quand on utilise le vaccin sur des gens des fois ?
+ a telle été testée ?
+Ça te fait pas chier ?
+Non mais c’est dingue, on entends le même discours là ?
+on les stoppe quand ?
+Où sont les applaudissements du premier confinement?
+ Qu'est ce qu'on pourra faire  sans être vacciné ?
+niveau tolérance ?
+	Le vaccin du Covid-19 rends stérile ?
+Les vaccinations vont s'arrêter ?
+Pourquoi ne pas renforcer nos services de réanimation ?
+On ?
+Et si au contraire, c'était une chance?
+Cela ne vous rappelle pas un scénario ?
+Quoi ?
+Lequel ?
+C’est ça le projet ?
+On ne parle pas vraiment de chiffres ce soir si ?
+Mais bon, on n'a pas la même génétique que les anglais, right?
+Est -ce légal svp ?
+Allez , pas grave, on verra ça à la rentrée , hein ?
+Une femme sur la lune en 2024 ?
+- Pourquoi l’avoir nié ?
+Pas trop la haine d’être reconfinées ?
+Parce que quel est le risque de chopper ce covid quand on a 30ans?
+
+
+// These questions are predicted to have has_ref_to_other == True:
+Dans combien de jours va t il se faire virer ?
+ils en font quoi ?
+Mon ressenti est il avéré?
+pour  Novembre, y aura t -il autre chose ?
+qu’en est il du serment d’hypocrate ?
+Et si un proche meurt du covid sans être vacciné tu fais quoi ?
+Ceci peut -il rassurer les enseignants?
+Il dit quoi Macron ?
+Comment les gens peuvent -ils être aveugles à ce point ?
+ Le problème c'est que des gens comme lui, sont des élus ?
+Quand mon enfant pourra -t -il se faire vacciner?
+La question devrait être : faut -il abattre les non vaccinés ?
+C'est quoi qui lui a provoqué cette déformation du visage ?
+T’as pas un vaccin à faire toi?
+ - est il vacciné ?
+🇬🇧 Le Royaume -Uni ne sait -il plus à quel vaccin se vouer ?
+Comment lui faire confiance?
+Mais pourquoi cela nous intéresse -y -il moins?
+Comment voulez -vous qu'ils réclament nos vaccins ?
+Quand ce cirque va -t -il s'arrêter ?
+Il a été piraté le compte du ministre ?
+🧐 va -t -il le traiter de «lâche»,comme il a insulté  ?
+Le Vaccin Covid-19 est -il hallal ?
+L’arrivée des vaccins marque -t -elle la fin du confinement?
+faut -il s'inquiéter des effets indésirables du vaccin AstraZeneca ?
+Le "vaccin" contre le coronavirus est -il une bombe à retardement?
+Il me semblait qu'on nous avait concocté un vaccin fiable a 95% ?
+Celle qui dit qu'il n'y a pas de traitement ?
+Ils attendent les procès dans 10 ans ?
+Pourquoi il n'est pas notifié les conflits d'intérêts de Blachier ?
+A quelle date  son pass sanitaire sera t il valide?
+Ils vont peut-être aussi nous demander de porter .. .une étoile ?
+on peut tous être vaccinés par ce monsieur s’il vous plaît ?
+N'a tu pas vu l'étude du CDC?
+Le vaccin serait il une vaste fumisterie?
+Il y aurait donc d’autres moyens …. ?
+Tant qu'ils ne seront pas vaccinés" on peut taper sur les jeunes ?
+ Sait il que la vacc crée les variants ?
+: « Faut -il rendre le vaccin contre Christophe Barbier obligatoire ?
+A propos terroristes: Faut -il accuser l'immigration ou l'islam ?
+Ils sont protégés, non?
+Mais si tu es vacciné quel risque as -tu?
+« Ah tu voulais aller au resto ?
+Éclairez moi s’il vous plaît ?
+Et il est content il est fier de lui !?
+Le secret médical, il connait ?
+À quel moment le vaccin est -il censé nous sauver ?
+Finalement, il sert à qui ce vaccin ?
+📹 « Pourquoi la politique vaccinale est -elle un échec en France ?
+Pourquoi ils n'ont pas été massivement testés avant la rentrée ?

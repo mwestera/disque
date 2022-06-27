@@ -1,0 +1,113 @@
+// This file contains Dutch questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_group == False:
+Zou dat met discipline te maken hebben?
+Is onderhandelen met klanten moeilijker tijdens Covid?
+Niemand verplicht je om met de club mee te rijden toch?
+Misschien kun je jouw gedachten opschrijven?
+🌸💗??
+verder aanscherpen of niet?
+voor de gek houden?
+Hoe kunnen de cijfers ooit dalen ?
+ En kinderen maar met 2 buitenspelen ..?
+Weet iemand waarom de corona test zowel in de neus als de keel moet?
+Hûh?
+Heb jij een bedrijf in Gouda?
+Je hebt toch geen corona hè?
+Puppy in huis gehaald in de eerste lockdown?
+En hoeveel corona doden zijn er gevallen?
+Eva Vlaardingerbroek?
+	Mag ik het huis?
+Of komt de rest niet in nieuws?
+Of laten we kopers en verkopers in de kou staan?
+Wat heeft NL?
+En ik weet niet waar u uw cijfers haalt maar er is oversterfte.
+weet jij dat?
+Hoe kan je dit soort vreselijke onzin verkondigen?
+Waarom moet de rest van Europa in een alles-vernietigende lockdown?
+Nee toch?
+31 minuten?
+Had hij ook corona?
+wanneer doen we wat hiertegen?
+En wie gaat voor deze Open VLD  belasting opdraaien?
+eraan twijfelen dat 6 groter is dan 4?
+Hebben we wel een essentiële regering?
+Hoe lang houdt gezondheidszorg nog stand?
+Waar ligt het verschil?
+WAT TE VERWACHTEN VAN TRUMP EN BIDEN?
+Ik weet niet wat je denkt te bereiken, maar doe maar niet.
+Werd no-nutnovember nou niet afgelast door corona?
+beskerm?
+Heu...wat???
+Kamphuis is blind?
+Zoveel moeite doen, om niks te weten?
+Opa was verkouden ?
+Maar de corona fun day shopping in Brussel is dan weer normaal ????
+Beetje suf toch?
+Administratie?
+Corona opgelopen?
+waar lopen kinderen hun besmetting op?
+Kan toch niet dat Trump gaat verliezen?
+Je kan toch geen Corona krijgen in het weekend?
+, in quarantaine ?
+https://t.co/sjPCwfAvCN	en dit dan?
+
+
+// These questions are predicted to have has_ref_to_group == True:
+Waar zal een vakantie na-covid ons brengen?
+Zijn dit onze werkgevers of ondernemers?
+Wat gaan onze topexpert virologen doen?
+Zeg appie, komen jullie nu de hele week  laten brengen?
+Wij burgers betalen toch ook hun salarissen?
+Wanneer verwachten ze die?
+Dus als deze mensen overlijden, dan overlijden ze toch aan Covid!?
+Waarom moeten zij een bonus krijgen??
+Hey , hoe vinden jullie zelf dat het gaat?!
+Nou  wat was jullie verhaal ook alweer?
+hoe dom denken jullie dat de bevolking is?
+En dan worden ze niet ziek van Corona?
+Hou ons niet voor de gek, husky's, honden?
+blijven jullie dit risico nemen?
+Met wat worden COVID patiënten behandeld zodat zij genezen ?
+Waren jullie nu niet voor meer macht voor de deelstaten?
+Weten jullie wat longcovid is?
+Vind ik niet handig, maar kijk eens naar onze politici?
+Wat gebeurt er om ze daarbij te helpen?
+kennen jullie deze al?
+Doen ze dat alleen?
+Corona is geen oorzaak van onze huidige problemen?
+waarom doen ze dit?
+En gaan we kerst kunnen vieren met onze familie?
+En wasrom maken ze zich zo druk?
+Zouden ze bij de uefa weten dat knvb competitie vervalsing doet?
+Maar deze FEITEN gaan jullie niet brengen hè?
+Lees jullie bericht nu eens zeg, Cambuur mist 10 man vanwege Corona?
+Ze gaan dicht om te zorgen dat mensen minder de deur uit gaan?
+Waarom bij ons niet?
+Omdat ze bestaan hebben?
+Hebben ze de mensen nog niet genoeg banggemaakt?
+Of was ze kern gezond en is deze corona echt een killervirus ??
+En JIJ/zij klagen?
+Beste  ,  en 	Hebben jullie dit gelezen?
+Heb je een vraag over onze escaperoom om thuis te spelen?
+Hoeveel cycles geven ze de PCRtest hier?
+Wij liggen er al maanden van plat van het lachen he  ?
+Is bij ons in NL kwakzalverij ?
+Moeten wij Rutte nu prijzen of zo?
+noemen jullie wakkere en kritische types dat toch?
+En wat 'DENKEN' ze nou?
+En wachten jullie tot na de corona crisis?
+Zij jullie ziek?
+Omdat ze het ook niet meer weten?
+Vitamine D en ons immuunsysteem, hoe ingewikkeld is het?
+Zij hielden zich toch zo goed aan al die coronamaatregelen?
+Nederland...... waarom gebeurt dit niet bij ons?
+👌  Ons nodig?
+, hoe blijf je de baas over jezelf en onze veiligheid?

@@ -1,0 +1,113 @@
+// This file contains Dutch questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_conjunction == False:
+verschillende talen moet brengen?
+Hoe het bij mijn bieb zit weet ik niet.
+als clubblad van  ?
+het is een schande... wat schuift dat nou aan extraatjes  ?
+Nood aan focus op positieve verhalen?
+Kunnen we niet een meertraps gevolg invoeren?
+Heb je ook respect voor corona?
+Hoe gaat het met  in Corona tijd?
+TE WEINIG HULP IS?
+te werk?
+Wat zal er nog meer niet helemaal kloppen?
+Hoe zit dat dan met de bibliotheken?
+Gaan we Azië worden??
+WAAR IS DEZE VIDEO GEBLEVEN?
+Aflevering 1 van Is er een dokter in de podcast?
+Op naar (eindelijk) een volledige lockdown??
+Waarom hebben ze de grenzen niet gesloten?
+Alleen anti-Trump?
+De deur niet uit kunt ivm COVID?
+Alles om wille van corona?
+Citaten?
+Vieren ze echt de ziekte?
+Maar wat zijn de regels voor familie?
+hoe vaak is onana nou al positief getest?
+Ja er zegt toch ook niemand dat dat niet zo is?
+Het is weer uit, wat zijn de "lokale" regels omtrent COVID?
+evenementen doorgang gevonden?
+Waaraan?
+Dat is de natuur??
+Amerika?
+Hoi  zijn jullie hiervan op de hoogte?
+Wat is er gebeurd met digitaal vergaderen vanwege corona?
+Waarom dan nu zo'n gedoe ermee?
+covid cijfers alphen ad rijn?
+Ajax kan toch niet met maar 1 keeper aan een wedstrijd beginnen??
+er is dat toch gewoon niet oké?
+een druktebarometer?
+Levert dat de juiste stront Jan?
+ Wil je het beter leren omgaan met stress?
+Vraag je dat eens af?
+Soort van 2e dienstplicht gaat dat zeker worden?
+Wat wil je liever:  a. griep?
+naar Griekenland?
+Betuttelende regering?
+Wat hebben ze dan meegenomen?
+Derde keer?
+Geloof je die Marsinvasie dan?
+Sturen?
+Beetje suf toch?
+Nog meer twijfel, pagina is niet meer te vinden?
+
+
+// These questions are predicted to have has_conjunction == True:
+Ben jij of ken jij iemand die niet zo goed kan lezen en schrijven?
+En dat er over periode van 12 maanden geen oversterfte is?
+Of pas als we koelwagens moeten zetten voor de lijken?
+Ga je dit studiejaar je scriptie nog schrijven of afronden?
+En dan worden ze niet ziek van Corona?
+heb ik het virus en ben ik dus besmettelijk?
+de scholen en kerken nog open zijn?
+En de koopzondaagjes..?
+door corona of met corona?
+En dan uitbreiding via wetgeving?
+💰 Wat hebben we het afgelopen jaar gedaan en uitgegeven?
+En stoppen met het argument 'dit kan niet in een open democratie'?
+Hoe zorg je ervoor dat jij en je collega's online goed samenwerken?
+Dus van Covid en de griep?
+nou de schuld van de islam  en mogen we daarom geen kerst vieren ?!
+Is zij niet besneden door houties of touties?
+Wilt u meer uitleg en meer toelichting?
+Wat bibliotheken, theaters en musea in dit rijtje doen?
+En het land en economie in de afgrond storten?
+Of een aantal speelsters uit het vrouwenelftal oproepen?
+ook vraag van vele leraren en ouders om scholen te sluiten?
+En wat doen wij?
+En wat te denken van  en ?
+verder aanscherpen of niet?
+En de ziekenhuisopnames ivm kanker, hart-en vaatziekten, etc.?
+Wat deden Hugo de Jonge en Arie Slob?
+Hoe realiseer ik een optimale klantervaring en reputatie?
+en   Als mondkapjes werken, waarom moeten er dan winkels dicht?
+En wie betaalt hiervoor?
+En wat eigenlijk van al die decimalen overal tussenin?
+Misschien iets voor de pers even testen of ze dit willen melden?
+Weet je zeker dat het verkoudheid is en geen corona?
+Werkt u of iemand die u waardeert in de zorg?
+, hoe blijf je de baas over jezelf en onze veiligheid?
+In de tijdelijkheid of geen baan meer straks ?
+Maar vooral de kinderen naar school laten gaan en die mondkapjes?
+En wasrom maken ze zich zo druk?
+Welke handelszaken blijven open en welke moeten dicht?
+Misschien Trump's Covid adviseur eens noemen en citeren?
+Of hebben hulp nodig van een arts of medicatie ?
+Over de vraag of kinderen het virus verspreiden.
+Of te weinig?
+Of is het deze keer een ander virus?
+COVID 1.3 en zo?
+Spaanse griep en Corona wel?
+Of is Covid-19 dus nog een stijgend probleem?
+Wie of wat blijft over?
+Of hebben ze de corona-app nog niet geinstalleerd?
+Daarom dat 'n premier en vice-premier met Vivaldi herkansen?
+En dat wil naar een wereldregering?

@@ -1,0 +1,113 @@
+// This file contains Italian questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_group == False:
+Come si fa a fidarsi di queste scelte?
+Non sappiamo perché.
+C'è una legge che obbliga al vaccino?
+Quindi i calciatori non si vaccinano?
+Terroni di merda dovete morire sembrava brutto?
+Mia sorella?
+E poi, come ti permetti di giudicare le scelte di qualcuno?
+Come devo comportarmi?
+Oh, funziona eh?
+Pericoloso?
+🤣 Non c'è il vaccino antilegionella?
+Perché insultarlo?
+A quale scopo?
+Che vaccino hai fatto ?
+Ma veramente pensi che agiscano per il tuo bene?
+Sempre la stessa mano?
+fra uno o due anni quali conseguenze?
+Possono emergere?
+Sindrome da prima donna?
+Quindi si sono vaccinati tutti i vaccinabili ad oggi?
+Sapete cos'è una società per azioni?
+E' una dashboard regionale?
+Siamo ancora in una democrazia vero?
+"Paura del vaccino?
+Continuo?
+Quando al via la tutela sul vaccino?
+Qual'e' la tua soluzione?
+Chiaro?
+Non è coercizione?
+Scegliamo di farlo o no?
+Come far ripartire viaggi e turismo?
+Come si può fare profitto sulla salute?
+Perderò il posto di lavoro dipendente?
+Cacciari lei è vaccinato?
+Pazzesco?
+Draghi fin dove vuole tirare la corda?
+I vaccini forse non funzionano?
+Qual è il senso di vaccinare i guariti?
+No  Critica la vaccinazione di massa?
+Tutti medici ?
+	ma non c'è correlazione eh?
+O avevamo capito male?
+e che giorno lo farà?
+Ma che ha sbloccati 58 cantieri fermi?
+Covid21?
+Pensi di eradicare il covid?
+Chi l’avrebbe mai detto?
+Non vedete la differenza?
+"vogliamo dirlo?
+Governate da chi?
+
+
+// These questions are predicted to have has_ref_to_group == True:
+Lo avete riscontrato anche voi?
+Secondo voi l’antivax cosa ha fatto?
+Cosa cavolo gliene frega a loro se ci facciamo 3,4 o 5 dosi?!?
+Perché non lo facciamo anche noi?
+Si fa anche da noi?
+Voi cosa ne pensate?
+E noi quando?
+Che infatti solo da noi hanno preso la prima dose a gennaio?
+E voi che vaccino farete?
+e poi per tutta la vita...secondo voi è un vaccino?
+VOI VI FIDATE?
+E gli «scienziati» da loro pagati, rivelerebbero il sapere?
+Voi no?
+Pensiamo che ogni commento sia superfluo, ne convenite con noi?
+E i vaccinati contagiati  dovrebbero essere licenziati  anche loro?
+e diamo la possibilità ai poveri tailandesi di vaccinarsi qui da noi?
+Come mai i vaccinati si contagiano anche loro?
+Sono novax fascisti anche loro?
+Qualcuno chiede loro se hanno controindicazioni?
+Secondo voi, le case farmaceutiche e i politici sono cambiati?
+francia e germania hanno vaccini prodotti da loro?
+l'avete inviato anche voi?
+Ed a noi?
+Quindi Fauci è un cretino e lo smentite voi scienziati di Twitter?
+E voi che siete il Papa non avete mai detto niente sino ad ora?
+Secondo voi, il Vaccino dovrà essere obbligatorio o a scelta ?
+Secondo voi quali delle 3 spiegazioni?
+Sono dei maghi loro o siamo dei fessi noi?
+Siete in ferie pure voi?
+Per tornare alle loro belle vite da schiavi?
+Voi che dite?
+Voi che avete studiato cinema e figurine Panini, eh, coglioni?
+I contagi chi li causa quindi secondo voi?
+Sta cosa non la dice lunga sull'opinione che hanno di voi?
+Ma voi non eravate quelli competenti?
+Sarà x la loro religione ?
+Loro non devono proteggere nessun altro?
+e voi dovrete gestire il piano vaccinale?
+ma noi quando lo saremo da lui?
+Ci risponderà secondo voi?
+occorre scendere al loro livello e come li batti?!
+E cosa cambia tra noi e la Svezia ?
+voi che ne dite, ci riusciamo?
+Ora che perfino loro sollevano problemi?
+E noi dovremmo fidarci di questi bugiardi cronici?
+Mentre voi a loro potete trasmettere una malattia mortale?
+La narrativa sulla libertà di scelta vale solo per loro?
+Voi cosa fareste?
+C’è da fidarsi secondo voi ?
+Glielo dite voi al figlio che i benefici superano i rischi?

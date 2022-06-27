@@ -1,0 +1,113 @@
+// This file contains Italian questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_negation == False:
+Cambiato idea vax?
+si?
+Confondiamo ancora la vaccinazione con il lasciapassare verde?
+Green Pass obbligatorio?
+Vive su Marte per caso?
+La notizia bella della giornata?
+Il 5%?
+Vi sentivate superiori alla plebe con la vostra medaglietta verde?
+O dobbiamo sospettare che le imprese passino davanti?
+Perché c'è l'hanno con i bambini?
+a 60 anni un medico cosa fa, va a fare l’idraulico?
+ma credi che li rendano pubblici questi dati?
+Ma qualcuno ha letto e studiato I documenti del trial?
+Continuo?
+È possibile scegliere il vaccino?
+Ma cosa pensavi che con il vaccino diventava Batman?
+è l ue?
+Può darsi più morti di vaccino che di Covid 19  ma chi la beve?
+Pure le tabelle?
+spiegate xche’ ?
+Come spiega la situazione della svezia?
+Si lavora?
+Ci vaccineremo fino a quando sarà necessario?
+Pass vaccinale?
+Perché offrono soldi, pizza ed altre porcate?
+Biancaneve?
+Scusa ma li sai leggere i dati?
+Tutti i settori possono annoverare il 77% di vaccinati?
+E noi quando?
+Anche per lei diranno “Nessuna Correlazione”?
+Con che faccia si presenta agli italiani ora ?
+Per un giovane?
+E ai vaccinati che girano inconsapevolmente positivi?
+È sicuro che chi è vaccinato fa circolare meno il virus ?
+Com'era la storia che è un medicinale.per cavalli?
+Si	Ti hanno preso per il culo?
+E tra i due chi sara' il piu' pericoloso?
+Incattivire il ns Paese a chi gioverebbe?
+Perché si sconsiglia questo vaccino alle donne incinte?
+Nel microonde?
+Niente?
+Se il vaccino è sicuro a che serve la clausola anti-responsabilità?
+perché la quarantena?
+Scuola sicura?
+E dovremmo fidarci della parola dei professionisti delle fakenews?
+quale scelta sarebbe più logica?
+«Il green pass?
+Nel loro sviluppo?
+Gli effetti nel lungo termine, l’autismo?
+Perché scrivere questa cosa come fosse uno scoop?
+
+
+// These questions are predicted to have has_negation == True:
+Cioè, se non vaccina la figlia si fermano gli sbarchi?
+“Non ti vaccini e vuoi tamponi gratis?
+"NON SIETE VACCINATE?
+Israele, tutto chiuso e parte la terza dose, non funziona?
+Ma non c'è il vaccino contro il tifo?
+Non volete fare il vaccino?
+magari perché in piena pandemia non esisteva un vaccino?
+Ma non si era già vaccinato Il bischero?
+Non è che si sono conteggiati anche i morti per vaccino?
+La Gerini pensa che i vaccinati non abbiano avuto paura ?
+Ma invece di scrive ste fregnacce perché non ti vaccini?
+Non mi sembra felice... Novax?
+Cazzo vogliono, basta aspettare, no?
+Perché chiederlo anche per chi non vuole farlo allora?
+Ma non vi sentite presi in giro?
+le restrizioni non sono efficaci?
+Avete notato che i violenti sono tutti non vaccinati?
+Chi non si vaccina?
+Che non lo sapete?
+Non so se è il tuo caso e se eri già al corrente di questo.
+Come non avere seri dubbi?
+No di are sangue?
+Direste in giro che la calvizie non è grave?
+E voi mi parlate della libertà personale di non vaccinarsi?
+non è che la vaccinazione farà scattare un'altra pandemia?
+Non le basta?
+Un po' pochine no?
+Non mettetevi in bocca parole come "libertà"... Libertà di cosa?
+Ma il vaccino non doveva proteggere proprio i fragili?
+Ma che cavolo vuol dire "se un vaccino non basta te ne faccio due"?
+Bene, molto bene	Il lavoratore non vuole vaccinarsi?
+Ma voi non eravate quelli competenti?
+Pensate che gli over 50 non vaccinati siano tutti novax?
+Lo stato vaccinale quindi non è un dato sensibile?
+O no?
+Perché i media non parlano di loro?
+lui non è l’imperatore della Campania legibus solutus?
+non sappiamo con certezza se si è contagiosi.
+Punire chi non si vaccina?
+Perchè non dite che il vaccino uccide gli anziani?
+Che lo fai a fare, se i sintomi nel 95% dei casi non ci sono?
+Decidete di non farlo?
+Quello che chiederà alla Russia il vaccino non approvato dall’ OMS?
+LA VIOLENZA FINALE🟩 ✅ Non sei vaccinato e vuoi lavorare?
+ma Draghi non era europeista?
+	Come può funzionare un vaccino per un virus che non è stato isolato?
+Quindi non sa rispondermi?
+Com'è la storia che la gente è stupida e non vuole vaccinarsi?
+non credete ai vaccini e credete in dio?
+Se non credono perché poi cercano aiuto?

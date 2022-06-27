@@ -1,0 +1,113 @@
+// This file contains French questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_conjunction == False:
+-ILS DE TRANSMETTRE LE VIRUS?
+Son mari décédé suite au vaccin : qui est responsable ?
+pourquoi ceci n'a pas été mieux prévu ?
+Bon, quand est -ce qu'on laisse tomber le moloch ?
+niveau tolérance ?
+Les langues se délient ?
+Une femme sur la lune en 2024 ?
+Pour autre chose à l'intérieur?
+Combien de temps faudra t'il pour le comprendre ?
+Quels sont vos préférés?
+Sommes -nous gouvernés par des monstres?
+Pas obligés, pas concernés, aucun avis sur le pass ?
+Si oui, combien de doses ?
+Des problèmes ?
+à qui vend on nos pays?
+Rates traduits par tarifs ?
+est ce que c'est possible de m'offrir le vaccin ?
+Un avis sur la vaccination ?
+Vaccination ?
+😅 Que font les pseudo-"debunkers" ?
+De qui parle -t -il ?
+C'est moins grave de mourir de la grippe que du covid ?
+Un confinement avec des personnes positives ?
+Un vaccin pour sortir de la crise du Covid-19?
+M.blanquer on fait quoi?
+Pourquoi ne pas s'appuyer dessus ?
+Comment mettre la Gauche au service du grand capitale ?
+Véran?
+Il y a encore des gens qui raisonnent ?
+😂?
+événements super contaminants ?
+.Y’a tu une autre façon de gouverner qu’en faisant du chantage ?
+«Pourquoi se vacciner si les résidents le sont?
+Mais on va faire quoi pour les protéger?
+Craignez -vous leur manque de zèle ?
+Musée ?
+ Ils vont nous contrôler avec une puce ?
+TIRAGE AU SORT VACCIN ?
+Les défilés d'antivax ?
+Il disait quoi   ?
+Une 3ème vague avec + de 50% de vaccinés ?
+On continue d'écouter Véran ?
+D'ailleurs, est -ce qu'ils sont vaccinés ?
+Jusqu'où votre propagande vaccinale ?
+Vacciné?
+Combien vont continuer à suivre ?
+C est en  prévision du vaccin?
+La nature des gens ?
+Question : pourquoi le faites vous ?
+ Les chiffres sont clairs, non ?
+
+
+// These questions are predicted to have has_conjunction == True:
+il peut y avoir un nombre de cas record et alors?
+Et donc ?
+Et quoi d'autre ?
+Quand allez vous vous relever et arrêter d'avoir peur ?
+On a 8 vaccins obligatoires et celui ci vous dérange tant ?
+Ou le soi -disant vaccin !?
+Et toi ?
+Sont -ils incompétents à ce point ou est -ce volontaire ?
+Salvateurs les vaccins Pfizer et Astra Zeneca ?
+Et alors ils risquent quoi?
+ Et tu ne montés jamais en voiture, je suppose ?
+Et puis ?
+Euh, mensonge délibéré, mépris ou incompétence ?
+Et là on a le droit d’utiliser le mot apartheid ou toujours pas ?
+Et qui va gérer l'accès à l'hôpital ?
+qui a pas encore eu le covid et n’a fait aucun vaccin ?
+Et de changer de centre?
+💉 Covid-19 : pour ou contre la vaccination des enfants ?
+affirmatif, et quoi d'autre ?
+Et un nouveau systeme financier annoncer a davos?
+- chiffres réas et cas covid gonflés ?
+Et le principe de précaution ?
+Il est debile ou quoi ?
+Et vous êtes médecin ?
+Et d'accepter l'hétérogénéité des manifs ?
+ Et si on parlait de ce qui fâche au quotidien ?
+Ou torpillage par Pfizer ?
+Un débat sur la peine de mort, le mariage gay et l'avortement?
+🤰Vous attendez un enfant ou votre bébé vient de naître ?
+Êtes vous pour ou contre le passeport vaccinal?
+🇬🇧🇺🇲🇩🇪🇧🇪🇨🇳🇷🇺 : hey on a développé des vaccins et toi ?
+Et quid des contre -indications au vaccin ?
+Ta toujours pas compris ou bien tu es con ?
+	Et la France?
+Fiction ou Réalité ?
+Et nos libertés individuelles ?
+Les projets de fermeture de lit sont -ils reportés ou suspendus ?
+Et vous êtes fiers de montrer votre QR Code de bon esclave ?
+Qui a raison et qui a tort ?
+Moi qui lit ou ceux qui interprètent ce qu'ils lisent ?
+et donc un essai pour un vaccin ca dure si peu de temps?
+Et le "vaccin" protège...?
+Vous êtes vaccinés et avez un direct ?
+Et la, pas de Lancetgate?
+	1 h d'émission et que peut -on en retirer?
+prévues pour chacun d'entre nous (jeune, bébé ou plus âgé)?
+Ou choix ?
+Est -on toujours libre d'être vacciné ou non?
+La police laïque des vices et vertus ?
+Que deviennent le secret médical et la sécurité informatique ?

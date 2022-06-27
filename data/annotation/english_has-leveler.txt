@@ -1,0 +1,112 @@
+// This file contains English questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_leveler == False:
+- When will we see any vaccines?
+Where is our leadership ffs?!?!
+DYK?
+You don’t understand that?
+Flatten the curve?
+	Customer : Can I speak to someone higher than you?
+Have you had your chicken pox vaccine?
+Where y’all goin to catch corona for New Year’s Eve?
+If not, ask your sister to call him for you."
+Why shud they risk a 25k/1 even if it was 50k/1 jab death risk?
+Why was the mask mandate removed?
+What a beautiful understanding with Virus and Health Minister?
+How many lives will be saved by getting rid of this ignorance?
+Bozo Boris is in quarantine, but don’t worry, be happy?
+If these restrictions work,why have their cases sky rocketed?
+What does it take to transform your media approach?
+How many people have died FROM covid without any other problems?
+What about Hydroxychloroquine?
+Agree?
+If the vaccine works, and you get it, shouldn’t you be protected?
+And what are the long-term effects?
+So we can have vaccine ID cards but we still can’t have Voter ID?
+Have questions about COVID19 vaccines?
+Will the Dave Chappelle controversy ever calm down?
+Kill the elderly in nursing homes again?
+Why doesn’t he meet all these worthies in one trip?
+Will anyone take responsibility for this?
+How is that even possible when Raw and SD ran alone on their nights?
+290K American dead - 1K from Idaho - Yet this?!
+Of course, why not?
+Who has captured bills heart now?
+U turn anyone?
+Calloused?
+How can you deny the validity of covid?
+Got questions about the vaccine?
+Would you laugh at a person who died from the flu?
+bus drivers?
+What questions do you have for him?
+Have we learnt from this?
+Triples all round, Nadine?
+ANTIBODY-dependent enhancement, you say?
+Is it because this round of vaccines haven't been fully tested?
+Your point?
+Are only those with chits allowed inside?
+What next?
+Where's the evidence it's done us a whit of good?
+What's your thought on the vaccine?
+What the fuck is this.
+So, which COVID-19 Vaccine will you be taking?
+Why not just make the inaugural all-virtual??
+
+
+// These questions are predicted to have has_leveler == True:
+YES	Does everyone need a booster now?
+THE EXCUSE FOR EVERYTHING ?
+Is everyone mad or is this a Harry Laud production?
+a company who has never had a product come to market?
+No one noticed an influx of Chinese "tourists"?
+Ever notice that everything Trump calls a hoax is real?
+Why nothing more since Feb?
+No one is asking why Lou Gossett Jr. Called us.
+Is free vaccination nothing but an election gimmick?
+Does no one notice what’s going on here?
+Why on earth shut down everything for a 0.04% risk?
+So vaccines make things worse, but everyone needs to get vaccinated?
+While owning him 7 million to do nothing?
+I don't understand why we're not putting in "everything we can" here.
+So why not test everyone arriving in the country?
+🧡 How is everyone coping?
+Why is it always just a one size fits all solution with the vaccine?
+You know who we never hear from?
+Why do conservos want to control everyone and everything?
+Why has  never got real about Covid?
+Waiting for  ji to initiate it then blame him for everything ?
+Never mind the vaccines, have the blue envelopes arrived?
+This is never going to end is it?
+Did you always wear a mask your whole life?
+Wouldn’t you feel that no one cared for you or your baby?
+Don't you guys do this everyone a "new variant" emerges?
+Do we still have Flu or everything is Covid-19?
+Are we just going to.stand back and say or do nothing?
+How about keeping up to date with everything local?
+If your vaccine costs you nothing, what are you waiting for?
+And you believe no one should?
+Why would people care if everyone else is vaccinated?
+Raises obvious questions: why did nobody else report this earlier?
+WWN&gt;Give Everyone a Barcode?
+Why not give the third dose to everyone?
+Everyone wins?
+But the coronavirus was nothing to worry about anyway right?
+Where is everyone who demanded promo right now?
+Never been tested?!
+Did he think he'd never make any of his own?
+When everyone blamed Trump for a lack of supply?
+Why is no one questioning this?
+Why isn’t everyone sick of this government being so unspeakably shit?
+What did everyone expect?
+Should everyone have to show their flu vaccine status too?
+Why are we spotlighting the church and not everyone else?
+during that time everything is empty and quite.. what’s the point ?
+What If You Never Get Better From Covid-19?
+When will everyone else matter again?

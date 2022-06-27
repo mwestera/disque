@@ -1,0 +1,210 @@
+// This file contains Dutch questions with the predicted categories of wh-words and the questions as a whole.
+// 1. Individual wh-words are tagged in square brackets like "who[no/insitu/fronted/indirect]"
+//    - here 'indirect' means it is pragmatically likely to be used as an indirect question.
+//    - embedded wh-words that are unlikely to be used as indirect questions, are tagged with 'no'.
+// 2. The syntactic structure of each question as a whole is categorized at the end of each line as "polar/wh/insitu/elliptic/decl/risingdecl"
+//    - here 'elliptic' is intended for non-wh-questions whose subject-verb order cannot be determined, typically because there is no matrix verb.
+//    - 'wh' means a fronted-wh question; 'insitu' means an insitu-wh question; if a question has both, the former wins.
+
+// Annotation instructions:
+// If a line is mis-classified, please duplicate and correct it (both the wh-tags and the overall classification), and
+// comment out the original line by prefixing "//"/. 
+// To help me figure out what the current system is doing wrong, consider adding a "//"-comment at the end of a line briefly
+// explaining what the problem might be (especially for languages I don't speak).
+
+// dutch
+Benieuwd hoe[indirect] ze dit gaan handhaven. | decl
+Ben benieuwd hoe[indirect] dit zich gaat ontwikkelen. | decl
+Benieuwd of[no] hoe[indirect] hun ermee omgaan | decl
+Ik weet niet hoe[indirect] het met jullie is, maar mijn hart breekt. | decl
+Ik weet niet wat[indirect] je denkt te bereiken, maar doe maar niet. | decl
+Dr bij het Erasmus, niet weet waarom[indirect] covid19 zo heet. | decl
+Daardoor weten we niet of[indirect] COVID19 afneemt of[no] toeneemt. | decl
+Ben verder ook benieuwd hoe[indirect] de verkiezingen gaan. | decl
+Heel benieuwd wat[indirect] de Amerikanen stemmen op 3 november. | decl
+Weten niet of[indirect] ze genoeg beschermende materialen hebben. | decl
+Weet dus niet of[indirect] ik m kan lopen. | decl
+Ik begrijp gewoon niet waarom[indirect] jij zo angstig bent en doet over COVID. | decl
+Ik weet niet zeker of[indirect] dat voor COVID-19 is aangetoond. | decl
+ik ben ook benieuwd wanneer[indirect] COVID 20 uitkomt. | decl
+Benieuwd wat[indirect] de jeugdopleiding van de club uit Amsterdam waard is. | decl
+En ik weet niet waar[indirect] u uw cijfers haalt maar er is oversterfte. | decl
+Wat[indirect] is de meerwaarde van die archieffoto, vraag ik me af. | decl
+En je dan nog afvragen waarom[indirect] de besmettingscijfers zo hoog zijn. | decl
+Weet dus vooral wat[indirect] je zelf wil worden en wat[indirect] je niet wil worden. | decl
+Ik vraag me af wie[indirect] zoiets gaat ondertekenen. | decl
+Quarantaine voor IEDEREEN die tussen NU en 15/12 OK?? | elliptic
+1 t/m 18 COVID??? | elliptic
+Virus ontkenners? | elliptic
+Breinaalden en boeken kopen dan wel essentieel? | elliptic
+Belangen waar[no] de samenleving voor moet betalen? | elliptic
+3/4 wel? | elliptic
+Voor corona? | elliptic
+Je Moeder? | elliptic
+Misschien daarom? | elliptic
+Misschien iets voor de pers even testen of[no] ze dit willen melden? | elliptic
+Te weinig docenten wegens corona? | elliptic
+En dan open voor 20% assortiment? | elliptic
+Diploma-uitrijking? | elliptic
+Zonder de overgenomen patiënten van elders? | elliptic
+Goed hè? | elliptic
+Ook De Wever zijn  schuld? | elliptic
+Zelf wel eens een dagje in beschermende kleding gelopen? | elliptic
+Was die rechtse ook van voor de corona  ??? | elliptic
+Teken jij ook? | elliptic
+Is klimaatverandering ‘n ver van mijn bed show? | elliptic
+Lees jij weleens wat[insitu]? | insitu
+Misschien kunnen we nog wat[insitu] leren? | insitu
+Alles covid19 zo dodelijk is, waarom[insitu] zijn er terroristen? | insitu
+We willen iedereen uit het ziekenhuis houden, dus waarom[insitu] niet? | insitu
+🤔 Maakt het nog uit wat[insitu] de hond gegeten heeft? | insitu
+dan geven we toch wat[insitu] minder aan Frankrijk en Italië aan Corona-hulp? | insitu
+Besef je wel hoe[insitu] dom je klinkt? | insitu
+En als dat niet kan, waarom[insitu] dan beide testen? | insitu
+het is een schande... wat[insitu] schuift dat nou aan extraatjes  ? | insitu
+Heb je al nagedacht over wat[insitu] het bij dieren doet? | insitu
+Mag er wat[insitu] logica in de lockdown? | insitu
+Is dat niet net als hoe[insitu] de test nu in NL wordt ingezet??? | insitu
+en   Als mondkapjes werken, waarom[insitu] moeten er dan winkels dicht? | insitu
+Zullen we er wat[insitu] aan hebben? | insitu
+actie is dus geboden, maar hoe[insitu] doe je dat in corona-tijd? | insitu
+Welke[no] handelszaken blijven open en welke[insitu] moeten dicht? | insitu
+Dus mijn man moet nachtwerk doen, hoe[insitu] raakt die aan een attest? | insitu
+Het is weer uit, wat[insitu] zijn de "lokale" regels omtrent COVID? | insitu
+Corona in Nederland is blijkbaar anders als in Denemarken, hoe[insitu] dan? | insitu
+Zou de vraag niet moeten zijn waarom[insitu] meer geld bij covid? | insitu
+Corona zeg je? | polar
+Is het mogelijk om dagelijks iets positiefs te brengen? | polar
+Bedoel je die kinderarbeid? | polar
+Of[no] is het deze keer een ander virus? | polar
+Zouden ze de generatie geboren na corona “gen C“ noemen? | polar
+Hoi  zijn jullie hiervan op de hoogte? | polar
+Moet je flexkrachten door sluiting vanwege corona doorbetalen? | polar
+Zouden Nederlandse laboratoria daar niet voorbeeld aan moeten nemen? | polar
+Lees jullie bericht nu eens zeg, Cambuur mist 10 man vanwege Corona? | polar
+Blijkbaar is dat niet belangrijk meer? | polar
+zijn er nog leuke dingen die je wel Coronaproof kan doen? | polar
+Of[no] wordt deze halte niet bedient vanwege Covid-19? | polar
+"hebben we de goede app gebouwd"? | polar
+Ze gingen daar massaal sterven, weet je nog? | polar
+Klopt het dat we hier 35 doen  ? | polar
+Waar[no] zijn ze mee bezig in Den Haag? | polar
+Hoe[no] veilig is het vaccin? | polar
+Is dat normaal? | polar
+Wil je deze brief in word om te sturen naar jouw gemeenteraad? | polar
+maar kan je rijden morge?? | polar
+klopt het wat[no] iemand zegt of[indirect] wat[indirect] hier staat? | polar
+Weten jullie wat[indirect] longcovid is? | polar
+Weet je wat[indirect] wel leuk is? | polar
+Weet u wel op hoeveel[indirect] mensen onveilige scholen effect hebben? | polar
+Weet iemand waarom[indirect] de corona test zowel in de neus als de keel moet? | polar
+Hoeveel[indirect] mensen ken jij (redelijk) die Corona hebben gehad? | polar
+Weet je ook om hoeveel[indirect] Corona gevallen het toen ging? | polar
+Weet je wat[indirect] de ellende van deze zooi is!? | polar
+Weet je hoe[indirect] zwaar de spelers getroffen zijn door corona? | polar
+hoeveel[indirect] mensen zie je op de foto? | polar
+In welke[indirect] kamer zou jij je het veiligst voelen? | polar
+Weet iemand nog hoe[indirect] het leven was voor corona? | polar
+Weet iemand hoe[indirect] dit hier zit? | polar
+Op welke[indirect] plek zie je je vrienden nog meer? | polar
+Weet iemand wat[indirect] ik bedoel? | polar
+Weet je van Corona-ellende niet meer wat[indirect] je deze dagen kan gaan doen? | polar
+Ouders, werknemers, verpleegkundigen, docenten kwetsbaren? | risingdecl
+En vroeger raakte u ook bij elk kuchje en ziekje volledig in paniek? | risingdecl
+Dat is de natuur?? | risingdecl
+Of[no] heeft niemand daarover nagedacht? | risingdecl
+... zou Den Haag een ander plan hebben... ? | risingdecl
+Je weet wel, corona? | risingdecl
+Misschien maakt dat ook wel het verschil? | risingdecl
+Je hebt het gewoon??? | risingdecl
+Welke[no] arts neem hiervoor de verantwoordelijkheid? | risingdecl
+En een ander gaat gewoon met virus en al op stap? | risingdecl
+Ik neem aan dat er gerichte actie komt? | risingdecl
+Dit is geen lockdown Welke[no] winkels en diensten mogen openblijven? | risingdecl
+Er is méér dan COVID-19 dan ? | risingdecl
+Dat kan toch niet? | risingdecl
+Hij is 44, misschien corona ? | risingdecl
+Massaal niet aan de regels houden? | risingdecl
+een dozijn kinderen opvoeden? | risingdecl
+Dus, men gelooft niet (meer) in een oplossing? | risingdecl
+Dit heeft toch niks meer met covid te maken? | risingdecl
+Gelukkig is Biertje? | risingdecl
+'Je hebt een covid 1 tot en met 18 heb ik begrepen...'	VAN WIE[indirect] DAN? | risingdecl
+Hoe[indirect] weet je of[no] informatie klopt? | risingdecl
+Geen kunstgras blessure toch? | tag
+Da mag toch? | tag
+Beide niet het geval toch? | tag
+Op zich is dat prima toch? | tag
+zo creëer je iets wat[no] er niet is, toch??? | tag
+Logisch toch? | tag
+Dan wil je gewoon naar de 0 zetels toch? | tag
+Vast wel toch? | tag
+noemen jullie wakkere en kritische types dat toch? | tag
+Dus zal best wel meevallen dan toch? | tag
+De schuld van Erik ten Hag toch ? | tag
+Een grapperhausje heet dat toch? | tag
+Dat is te danken deze 'feature' toch? | tag
+Maar dat is best egoïstisch toch? | tag
+Niemand verplicht je om met de club mee te rijden toch? | tag
+Gakpo was dé man in vorm toch? | tag
+Hij loopt daar eigenlijk dus het minste risico, toch? | tag
+Geweldig straf toch? | tag
+In België heeft dan toch praktisch iedereen corona gehad toch? | tag
+Handig toch? | tag
+Wat[fronted] verwacht je nou van jongeren in de bloei van hun leven? | wh
+Wat[fronted], als er onvoldoende verpleging is om je te verzorgen? | wh
+Wat[fronted] ik nu cynisch vind? | wh
+waar[fronted] lopen kinderen hun besmetting op? | wh
+wanneer[fronted] doen we wat[insitu] hiertegen? | wh
+Waar[fronted] zegt hij dat Corona niet bestaat? | wh
+Wanneer[fronted] mogen we dan wel verder met ons leven? | wh
+Waar[fronted] zit het echte probleem? | wh
+Hoeveel[fronted] zouden er Brussel per 30 sec besmet worden? | wh
+Wie[fronted] staat daar bij stil? | wh
+Eeehm, hoe[fronted] vaak krijgt Onana corona dan? | wh
+Waar[fronted] haalt u dat? | wh
+Waarom[fronted] woensdag? | wh
+Hoe[fronted] zit dat in België? | wh
+Hoe[fronted] bedenken ze het? | wh
+Maar wat[fronted] is uw achterliggende motivatie, wat[insitu] wilt u ermee zeggen? | wh
+waarom[fronted] moet deze wedstrijd wel door gaan? | wh
+Hoezo[fronted] musea en bibliotheken sluiten? | wh
+Wat[fronted] doe je? | wh
+Aan wat[fronted] hebben we het verdiend? | wh
+Hoe[fronted] weet je of[indirect] die artikelen wel kloppen? | wh
+Maar hoe[fronted] weet u eigenlijk of[indirect] die artikelen wel kloppen? | wh
+Ik had echt slechte gedachten toen🙈 | decl
+Koppen mogen er rollen met deze corona blunder waar[no] 0.05% onder de 70 wereldwijd aan overlijd en dat noemt men een pandemie echt he. | decl
+Of[no] mogelijk geen enkele, net als bij de BlackLivesMatter  manifestatie op de Dam in Amsterdam op 1 juni 2020, waar[no] meer dan tienduizend demonstranten hutjemutje stonden. | decl
+De zorg moet nu de shit op te ruimen wat[no] door Nederlands Covid beleid is en wordt veroorzaakt. | decl
+https://t.co/yWoMcvpUm7 via | elliptic
+Of[no] je bent niet bang van doodgaan en je blijft leven. | decl
+Kinderen zijn wat[no] andere virussen betreft massaverspreiders. | decl
+Hoe[no] stom kunnen jullie zijn. | decl
+"Als we griep net zo agressief testten als SARSCoV2 zouden we miljoenen besmetten en 100.000'en doden vinden die (ook) met griep besmet zijn en hoe[no] meer mensen we zouden testen, hoe[no] hoger beide getallen zouden uitvallen". | decl
+allemaal voor het gerecht in den Haag of waar[no] ever dat ik kan procederen. | decl
+hoe[no] ons leven er uit zou gezien hebben zonder corona | decl
+https://t.co/4OcyJwII7v | elliptic
+ Laat me aan Euromillions meedoen, ik zou wel eens die miniscule kans kunnen hebben om winnaar te zijn https://t.co/vvi1EUTu4Y | decl
+Man wat[no] ben ik blij dat jij mijn volger bent! | decl
+Ow de rest/gevolgen bestaat/bestaan niet meer of[no] die praten onzin. | decl
+Of[no] je bent niet bang van doodgaan en je blijft leven. | decl
+Of[no] mogelijk geen enkele, net als bij de BlackLivesMatter  manifestatie op de Dam in Amsterdam op 1 juni 2020, waar[no] meer dan tienduizend demonstranten hutjemutje stonden. | decl
+Daar hebben we toch een corona herstel fonds voor opgericht, wat[no] BTW verhogingen en we zijn er... | decl
+https://t.co/4OcyJwII7v | elliptic
+Het is niet zo dat waar[no] gefeest wordt mensen ziek worden, herinner jij je nog de mega demonstratie in Amsterdam van blm. | decl
+je weet tenminste hoe[no] het zit. | decl
+Geeft wel aan hoe ver Duk van de werkelijkheid af staat. | decl
+Hoe een feessie van 8 mensen leidde tot coronaproblemen voor 400 mensen. | decl
+Goed om te weten als we onze dagelijkse dosis data 'Covid patienten' of[no] 'COVID ziekenhuisopnamen' tot ons nemen. | decl
+Hoe[no] warmer drie maanden geleden, hoe[no] meer Covid nu. | decl
+Wie[no] nu 3 maanden ouder is dan 3 maanden geleden, heeft meer kans op Covid. | decl
+coronavirus Covidioten | decl
+https://t.co/XgdngYlxlM | elliptic
+weet te verkopen, en daarbij zijn marionetten van CDA en D66 de klappen laat opvangen in de peilingen...... | decl
+Wat[no] deze pandemie ongekend maakt, is niet het virus, maar de reactie erop. | decl
+Hoe[no] dan ! | decl
+Dit goed uitgevoerde onderzoek gaat over hoe[no] COVID-19 zich verspreidt binnen een huishouden. | decl
+ Syrië zondaggedachte https://t.co/QLuRum3cVH | decl
+Wat[no] zijn de gevolgen dan van een Covid besmetting. | decl
+Hoe[no] een onvermijdelijke lockdown er pas komt terwijl het water al voorbij de lippen staat https://t.co/ve9SMHdjOD | decl

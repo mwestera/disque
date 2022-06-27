@@ -1,0 +1,113 @@
+// This file contains Dutch questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_negation == False:
+zijn er nog leuke dingen die je wel Coronaproof kan doen?
+Terugluisteren?
+Kan je dat begrijpen?
+Hoe groot is de kans dat je sterft aan corona?
+De bocht” wordt toch gemaakt nu?!?
+Heb je ook respect voor corona?
+Zijn er mensen die nog wat laptops hebben in de buurt van Drachten?
+Weet jij het verschil tussen SARS-CoV-2 en 2019-nCoV?
+Of gewoon uit de linkse duim gezogen om Trump zwart te maken?
+Waarom geloof je alles dat je op Fakebook tegenkomt?
+Vervelend maar noodzakelijk?!
+Was dat nou zo lastig om wat jong PSV spelers door te schuiven?
+Of die van doodzieke ouders, of grootouders die overlijden?
+hoeveel krijgt ie dan voor een COVID19  dode??
+Kan je uitleggen wat je wel bedoelt?
+Heeft ie al z'n Europese geld al erdoorheen gejaagd?
+Maar ja, Covid is een hoax en Rutte drinkt kinderbloed..... toch|?
+Hoeveel kansen heb jij al om zeep geholpen zien worden?
+Dat is toch heel normaal om te doen in het leven, ook buiten Corona?
+Beter!?
+Wat heb je daar nou aan?
+Zeker ook vazallen van de WHO?
+Wat is de meerwaarde van die archieffoto, vraag ik me af.
+Maar wat hebben die reisbewegingen met corona te maken?
+Welk buurland zal helpen?
+Loopneus?
+En, heb je het gemeentelijk besluit nu reeds gelezen ?
+Gaan de Zeeuwse coronacijfers nou omlaag of omhoog?
+Logisch toch ...?
+Ligt dat inschrijfformulier bij de gemeente ??
+Meer testen?
+Mensen zijn bang ivm hypotheek, enz?
+PCR Hebben die malle wappies dan toch gelijk?
+corona musea  en bieb dicht?
+Binnen twintig minuten weten of je Corona hebt?
+Is Corona een Test?
+Ben shapiro?
+En je gelooft nog steeds dat de overheid het beste met je voorheeft?
+Wat doen ze anders?
+Eh, heb je een geldboom?
+Melding?
+Goed hè?
+Lachen of huilen?
+En wachten jullie tot na de corona crisis?
+Nieuwe naam: het Beleid van de overheid in COVID tijd?
+Waar corona?
+Wie schrijft de attesten van de ministers eigenlijk?
+Veel besmettingen schijnen achter de voordeur plaats te vinden, toch?
+Wie wil er in zo'n land leven?
+u?
+
+
+// These questions are predicted to have has_negation == True:
+Heeft Ajax niet gewoon gesjoemeld met de corona tests??
+"Ik zal hem geen gezondheidsadviezen geven", zou u dat leuk vinden?
+Zien de MSM deze contradictie niet zélf?
+Kent hij de mogelijkheid van online vergaderen niet?
+Want bij een jong team is het niet erg als spelers corona krijgen?
+Hou ons niet voor de gek, husky's, honden?
+Ik snap het niet ??
+De covid-crisis bestond toch helemaal niet, Van Haga?
+Geen idee wat dat betekent als je ernstig ziek bent?
+Heeft Ferd geen corona overgehouden aan z’n bruiloft?
+Wat weet zij dat wij niet weten?
+Waarom hebben ze de grenzen niet gesloten?
+Geen huisbezoek met uitzondering van de huisarts?
+Of mogen die nu helemaal niet meer naar buiten/dagbesteding etc ?
+Hebben ze in Daka geen problemen genoeg met henzelf ?????
+Waarom sla je covid-20 over dan, is die niet goed genoeg ofzo?
+Die hadden liever niet dat hun eerste team Corona kon oplopen?
+Komt dit niet bekend voor?!
+vinden jullie mandarijnen ineens ook niet meer te eten??
+Is dat niet de oorsprong van de tweede corona golf ?
+Weet je zeker dat het verkoudheid is en geen corona?
+Geen last van crisis in 2008 en nu vanwege Corona nog niet geland?
+Maar waarom pleiten jullie niet voor een verbod op roken dan?
+Wat zou volgens jou niet kloppen, wat de NOS heeft geschreven?
+verder aanscherpen of niet?
+Was Covid geen ziekte van het bloed?
+er is dat toch gewoon niet oké?
+Kan covid niet meer thuis of in he WZC behandeld worden?
+Ja er zegt toch ook niemand dat dat niet zo is?
+Over dat corona niet overdraagbaar is?
+Vind ik niet handig, maar kijk eens naar onze politici?
+Of kan hij de zelf vernietiging van kaagent niet meer aan zien?
+dit kan je toch niet serieus nemen?
+Of spreken die feestgangers allemaal 'onze' taal niet?
+Waarom mag ik buiten op anderhalve meter niet met 6 mensen spreken?
+Moet je in quarantaine en krijg je geen loon?
+Wie zegt er dan dat kinderen totaal niet ziek worden?
+Kunnen die boetes niet wat opgetrokken worden?
+Wie zijn er niet bij wegens Corona?
+Misschien toen alleen klachten en daarom niet mee ipv echt corona?
+Is dat niet wat veel verantwoordelijkheid voor jou?
+Ik weet niet zeker of dat voor COVID-19 is aangetoond.
+Ben jij of ken jij iemand die niet zo goed kan lezen en schrijven?
+Maar deze FEITEN gaan jullie niet brengen hè?
+Corona na bezoek illegaal feest, loon of geen loon?
+Omdat het niet werkt misschien?
+Dat COVId-19 GEEN griep is?
+Werd Wilders niet verketterd om een uitspraak hierover?
+Waarom die inconsequentie maatregelen, is Corona niet overal?
+Kon dat niet eenvoudiger?

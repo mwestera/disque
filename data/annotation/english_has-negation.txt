@@ -1,0 +1,113 @@
+// This file contains English questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_negation == False:
+Wonder if he's actually self-isolating on his return 🤔
+When will the vaccine allow for the control of the pandemic?
+Where are you??
+Will you need to show your vaccine passport to vote?
+Are these the ones coming out soon?
+For having type 2 diabetes?
+If it’s about maturity, wtf?
+You received Johnson &amp; Johnson’s COVID-19 vaccine: Now what?
+Biden bribing all folks with a $100 to get a coronavirus vaccine?
+So what difference does it make?
+Over my own car?
+You have data that indicates something different?
+This dude?
+is black lives matter protesting against the coronavirus?
+Asked how many black farmers in S. Carolina benefited."
+Have more questions?
+Just a bit arrogant?
+Do non-scientists have to connect the dots for scientists?
+WTF are you going on about?
+Covid vaccine ‘waning immunity’: How worried should I be?
+What’s that you say?
+WHY ?
+But you know what?
+All people, you say??!!!!
+Coincidence?
+Nazi Germany or modern day Paris?
+Am I missing something here?
+Look At What We've Become: subjecting young children to this?
+What if the guy just has naturally big balls?
+Is  the worst Education Minister ever?
+Vaccine superspreader ?
+Sounds quiet,Mars in lockdown too?
+How long until we start hearing "Papers Please"?
+Another witch hunt?
+What’s the story?
+Who else is looking forward to getting your first or second shot?
+Effects on pregnant women?
+Are you angry that people believe in freedom?
+Covid Tests twice a week??
+You wanna know how I KNOW the vaccine is safe and works?
+How many projects have glitter?
+Georgia election suit ends?
+To camouflage lockdown fats?
+How was your FreedomDay ?
+Where’s the media outrage?
+What will you do for your country?
+How have you been?
+Government or Nature?
+Where are the syringes?
+This vaccine?
+
+
+// These questions are predicted to have has_negation == True:
+Perhaps they have no idea WhatsHappeningInMyanmar?
+So refugees get a free pass on not taking the vaccine?
+You mean just like if you're under 35 and not obese?
+So is the Covid crisis still happening or not?
+The needle is not in?
+Why is no one questioning this?
+Was ther no covid in Bihar elections ?
+Does this beti not matter?
+No plus one sa studio?
+Why the hell is ⁦⁩ not wearing the mask?
+No money to travel, hence PMCBankCrisis depositor  STAYHOME???
+It's not safe, but we're expected to act like it is?
+Wouldn’t you feel that no one cared for you or your baby?
+Hey sister do you know if  Modiji's wife' got a vaccine or not ?
+Does asymptotic infection exist or not?
+No chance to get your Vaccine?
+Why not prevent this by getting vaxxed?
+How can this not be significant harm?
+This vaccine is not for South Africans neh?
+So does the vaccine not work then?
+📌 Why no videography of PM??
+If not why not?
+Why not give the third dose to everyone?
+Maybe there is no answer?
+Lets not repeat, k?
+So why no air bridge for the ⁦⁩ flight?
+NO	Will we all need boosters in the future?
+What if there is no dance floor?
+So why are they not part of Doug Ford’s stay-at-home order?
+Don't know why Lamar Alexander not there.
+Uh, I'm no epidemiologist, but maybe their lockdown isn't working?
+How many are active but not being treated???
+This sharp increase is worrisome, is it not?
+Do you believe in freedom or not?
+no masks no 2 metres ?
+Not “course correct in response to changing conditions”?
+Oh no....does he turn into a cow now?
+	How is this not an America last agenda?
+Keeping some areas in lockdown but not others ?
+Why are we spotlighting the church and not everyone else?
+No?
+What do you not get???
+Yes or no?
+Why or why not?
+"Do you want to protect people's jobs or do you not?
+Is India now also not using it any longer?
+Not sure if I trust Covid’s motivation here https://t.co/009Phgd3Te
+Not even the wango tango?
+- Take Astra-Zeneca or not?
+So, no more grieving in S. Fla.?

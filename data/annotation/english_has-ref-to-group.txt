@@ -1,0 +1,113 @@
+// This file contains English questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_group == False:
+Is this something the FBI must investigate?
+Know what?
+Why does the media get fooled?
+How did it go all so wrong in this seemingly advanced nation?
+What has 11 years of Tory Rule brought?
+No one noticed an influx of Chinese "tourists"?
+Nehru ki galati?
+How r worded is this country?
+When will the NHS app be linked with the EU app?
+How can  justify lifting all restrictions?!?
+How come no gyaan for Samajwadi Party ever?
+Who’s pocketing the profits from the vaccines?
+Really?
+I asked him if he was taking Thursday off and he said, "Naw.
+Aluminium is used alot in medications &amp; foods?
+Is this true Sydney?
+Wait.......... does that mean i’m asymptomatic sis?
+Is there a difference like ivermectin or all the same?
+Don’t know anyone who regrets not getting it.
+Ok, but I have a very small quantity of children?
+In covid season?
+Not sure where USA fits?
+I repeat: where is the CNN coverage of the surge in cases in Florida?
+Is there a better alternative vision?
+Dr. Fauci on vaccine hesitancy: “What is the problem?
+Who thought this up, really?
+What percentage of the media does thon own?
+But how exactly is Covishield an Indian vaccine?
+National Security should be a top priority?
+I thought that fraud already blew COVID away?
+And indoors 1 in a 25 million chance?
+Think Covid vaccine mandates are about protecting human health?
+So sorry where was Rudd wrong?
+What about the public interest?
+And I thought Biden had a plan of his own??
+No vaccine?
+So Texas just bout to raw dog covid like that?
+I don't know who else is fully vaccinated.
+Does “my body my choice” apply to vaccines and masks?
+Can I get $100 for the vaccines I've already received?
+Perhaps -- a bit of contempt for your viewers?
+Wot kind of fee is this?
+Why does Boris Johnson delay coronavirus lockdown decisions?
+A zero Covid strategy?
+What's happening in Anambra State?
+Is there a COVID propeller, babe?
+I don't know anyone who will have it.
+So this boy no too get sense like this?
+What are the Top 10 Highlights?
+NHS went in to school and vaxxed the lot?
+
+
+// These questions are predicted to have has_ref_to_group == True:
+Have you had your chicken pox vaccine?
+ You mean DeBlasio?
+27) What happens if we ignore COVID19 pandemic?
+People DO know when 2 weeks is up, right?
+I’ll ask again, do we shut down the economy during flu season?
+What if we all just Love each other?
+How about we undo their tax cuts?
+Will people be able to continue working from home post Covid-19?
+How many people will die from this failed leadership?
+How did they miss this?
+Police stopped amd said who are you.
+Contemplate why so many people are dying in the 2nd CovidIndia Wave?
+Or you've taken your business online?
+oh we got.. 🙄🙄🙄🙄Honestly?
+Why do some people seem determined to shutter Britain ongoing?
+Have you recently suffered a blunt-force head trauma?
+If you have taken the jab you should be protected anyway, right?
+"Why are we even discussing women scientists?
+Can we *please* get them into arms now?
+Please can you help me to find some mutuals?
+But you’re an expert on Covid and all other matters?
+Have you not really taken notice?
+What are they putting in those Covid test kits???
+What happens when some people don’t get vaccinated?
+Can you imagine without it?
+What does that say about how awful you are?
+Let's stick to proven facts, shall we?
+🦊: even your name, why are annoyed~  🦊: are you an aggressive moa?
+What are they hiding?
+Why would they lie?
+And they let him host Jeopardy?
+WTF are we doing?
+Where is Modi when you need him?
+Are you thinking about homlearning next week?
+Why are you still watching these inhuman military group?
+Why aren't they helping Americans?
+Why are you discouraging mask wearing?
+Has the saintly NHS being misleading  us?
+To when we can be thankful for a vaccine?
+You think that’s embarrassing?
+Did you read the information available about the vaccine?
+Weren't you just caught trying to profit off the pandemic again?
+Come-on who are you lying to?
+Now Congress wants to give you only $600?
+can you leave him alone?
+What about you, P'Up?
+You think these idiots have a clue of what’s going on?
+What do you not get???
+LMAO… you want to mandate vaccines… don’t you see the hypocrisy?
+Will you take the Covid Vaccine shot?

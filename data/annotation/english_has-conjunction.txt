@@ -1,0 +1,113 @@
+// This file contains English questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_conjunction == False:
+What if we get a powerful tool to protect us?
+To camouflage lockdown fats?
+How many people are refusing to get the vaccine?
+	Makes me wonder if residents are choosing not to get vaccinated.
+Who's funding you ?
+really?
+So how can we find joy this holiday season?
+Why is anyone simply not following the 2 week flatten curve schedule?
+Were you wearing your mask???
+Will people know which vaccine they will be getting?
+How is this about anything other than control?
+Why are they even taken seriously?
+Now what?
+🥺 maybe after this covid?
+Michael?
+Anyone wondering how queerness gets erased from history.
+Are you an American ?
+Which one you really miss?
+What's it like in your town?
+Zero covid?
+is it healing crystals?
+Who allows garbage like this to be published?
+Which one is it ?
+TWO MORE WEEKS TO FLATTEN THE CURVE, RIGHT?!?
+Where was this energy?
+For having type 2 diabetes?
+For which vaccine?
+Anyone??
+A covid free world?
+so u agree?
+When will it be restored?
+Do you have civilian control of police in Portland?
+Any news on the Quebec plant based vaccine?
+Could I ask for prayers for my dad?
+How the hell do you know they were all vaccinated?
+Do you support anti-lockdown / anti-vaccine passport demonstrations?
+Why is it always just a one size fits all solution with the vaccine?
+Am I right ?
+How many other infectious diseases should we have to show papers for?
+Not even the wango tango?
+When people ask me how am I feeling?
+YES	Does everyone need a booster now?
+How do Brits feel about the new national lockdown?
+Ain't students' lives important?
+What are our elected leaders doing?
+Who would've thought?
+Have COVID19 testing questions?
+Stamp out Covid?
+para paid leave?
+BUT, BUT, BUT, You Have Wrong Way Fauci In Charge?
+
+
+// These questions are predicted to have has_conjunction == True:
+And you believe no one should?
+Where are the president and Congress?
+Don't you wonder sometimes  About genes and vision?
+Or am I missing something?
+Or am I being cynical?
+Why should boys and young men get the HPV vaccine?
+	COVID immunity through infection or vaccination: Are they equal?
+Is COVID policy science or political  manipulation of fear?
+Misinformation or sensorship?
+Will vaccination reduce transmission or just disease?
+Yes or no?
+Or the others that have killed 1295 and maimed nearly a million now?
+Or is it politically 'Inconvenient'?
+1568 deaths and you still dont believe its there?
+97% or 98%?
+Or ok to keep as a memento?!
+I I was oblivious and I follow this every day via numerous avenues?
+Or murders?
+[ON] Toronto Near Queens Park and need a vaccine?
+And you definitely know the long effects for the vaccine?
+Or are we still quite far up the Governments backside?
+Rich country problems:	- Vaccinate kids or not?
+Or cancer treatment?
+How do we know if they've had delta or not?
+Is Modi making the vaccine or does he know f-all about it?
+Make them more attractive to all women and girls?
+How will the world change post-COVID and the other ructions of 2020?
+Why won’t Republicans mention this or fight for our active military?
+So why do you protect your body and home from crime, but not disease?
+Or is this id just for the important stuff like getting into a bar?
+Or that galamsey dey destroy water bodies?
+Or a friend takes an overdose or a parent needs emergency surgery?
+Not a word about any economic stimulus or relief?
+If you don't watch AND RT any other tweet, make sure this one is it.
+Was she agreeing with him or calling him out?
+Did Covid or Chlamydia write this?
+You mean just like if you're under 35 and not obese?
+Or is this an “in case of Super Bowl” signing?
+And y’all can’t socially distance?
+You wanna know how I KNOW the vaccine is safe and works?
+during that time everything is empty and quite.. what’s the point ?
+Why didn’t your govt order and secure enough vaccines for nurses ?
+And then?
+How come COVID doesn’t seem to impact the Met Gala or the VMAs?
+Or didn’t you quite understand this ?
+Or are those cookies bribes?
+Let's see who lives and who dies?
+Reduced from mild or no symptoms at all to what?
+Why are we spotlighting the church and not everyone else?
+Ranch, blue cheese, or vinaigrette?

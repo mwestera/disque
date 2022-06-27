@@ -1,0 +1,113 @@
+// This file contains English questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_other == False:
+How about working with this community?
+What are your main concerns?
+did u summouned or Interogated the Cooper doctors yet?
+Has an American President Ever Been Worse at Politics?
+You wanna see social distancing?
+How did we get here?
+Or didn’t you quite understand this ?
+How messed up is that!
+Was your career affected by COVID-19?
+Are you an American ?
+You are a fraud how do you sleep at night?
+Why would you rule anything out in an unpredictable pandemic?
+Any chance Dems will show even the slightest interest?
+why does the government hate their citizens so bad?
+Y’all ever miss quarantine?
+https://t.co/kDjL1VpuMB  Dumb &amp; pretentious media?
+is this meeting hygiene standards during covid times ?
+If VAERS and other tracking is contaminated, is it safe?
+Does asymptotic infection exist or not?
+Missing info (e.g., identity) and incomplete vaccine name??
+Where is our collective shame and outrage?!
+Would these people rather be inside on a ventilator??
+Can't you follow the science?
+Because the vaccine is the mark of the beast?
+Is there a dob-in line for taxpayer subsidised plutocrats?
+Why?
+will vaccines affect athlete performance?
+WHY?
+Why are we even considering vaccine passports?
+What's going on?
+So, which COVID-19 Vaccine will you be taking?
+Any leads for an isolation ward bed and oxygen cylinders?
+Can we at least have a discussion about Internalassesment?
+One of the what?
+Same old tactic to WEAPONIZE Covid?
+Have you heard of Professor Sarah Gilbert?
+Now what?
+Need i say more ?
+Let's stick to proven facts, shall we?
+Next, the CCP?
+Why are so many of you tweeting the same thing word for word?
+I thought "herd immunity" could be achieved by vaccination?
+Why does this remind me of covid policy?
+If other embassies employees can come to work why can't you?
+Do you think your relevant or something?
+Raises obvious questions: why did nobody else report this earlier?
+Where are our elected officials?
+Lead story tonight on , right?
+Or ok to keep as a memento?!
+Is there anything in particular that you’ve noticed rising in cost?
+
+
+// These questions are predicted to have has_ref_to_other == True:
+Do you really assume he’s not in contact with the WH, POTUS, etc?
+	COVID immunity through infection or vaccination: Are they equal?
+How much more can they be expected to take?
+They can’t match the serial number on my phone?
+What else did they lie about?
+WTF is he "working so hard" for?
+And why are they purposefully letting in so many migrants?
+They did covid test for disha but why not for Sushant's?
+Are they serious?!
+What kind of meds are they handing out at the White House?
+if even he can’t buy an apartment how am i supposed to do it????
+Why do they keep trying?
+Would vote for them again?
+For how long will they pretend 2020 is a projection?
+The one that can be switched on and off whenever they feel like it?
+One of them?
+The kids who he refuses to protect from Covid in his state's schools?
+They only want to test “unvaccinated”?
+What does he take us for??
+Did they panic?
+Can they not see where this ultimately leads?
+What would  you say to them?
+are they using this for clickbait?
+So why open them now?
+😡	Who do these tyrants think they are?
+I should just do it bc they’re doing it?
+Are they mad/regretting that they didn’t mask?
+Who else did she infect?
+They really don’t think Johnson is to blame?
+Where do they come up with this shit?
+How well trained are they?
+How the hell do you know they were all vaccinated?
+Were they tested for COVID?
+How can she divert?
+They're, frankly, bonkers aren't they?
+Seriously, does he think we're all 6 years old?
+	TF is she talking about?????
+What good understanding of my competency will they gain in an hour?
+WTH are they even doing??
+Is he denying treatment to compel people to get vaccinated?
+His professor just looked at him &amp; said, “2 weeks?
+Maybe that’s just luck - but BOTH OF THEM?
+Are they dead in the street with COVID?
+Did they all die from air pollution as well?
+can he be criminally liable for what he did?
+you’re gonna believe in him but not the vaccine?
+How will they police venues on spot checking ‘reasonable’ amounts?
+we want to make them the happiest right?
+Will they cause a heavier period flow than usual?
+The sea lion cussed him tf out 😭  “DURING A PANDEMIC NlGGA?

@@ -1,0 +1,113 @@
+// This file contains Italian questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_other == False:
+1/?
+Perché non scrivono questo?
+Ma chi lo processa, Soros?
+Perché costringere chi non vuole vaccinarsi?
+3)che dovrà fare altre  dosi?
+Salvini e Meloni lo hanno capito o no?
+Il 95% vi fa schifo?
+Ma che dice?
+Com'era quella della lotta alle fake news?
+Aoh Landini, nun te l‘hanno detto?
+E allora dove sta questa necessità di vaccino?
+Quindi questa campagna vaccinale funziona?
+non avete cose più serie su cui lavorare?
+Ma che film ha visto questo?
+O sai di aver fatto un non vaccino e per questo Te l fai sotto?
+Gli arcobalenici diventaranno razzisti con gli immigrati novax?
+e chi poteva mettere a punto il vaccino, mio cugggino pasticcere?
+Non male eh?
+Serve aggiungere altro?
+Lo stato vaccinale quindi non è un dato sensibile?
+Questo andrebbe comunicato a livello scienfitifico, non crede?
+Vaccino Pfizer?
+Ma state tifando per il Covid?
+C'è qualcuno che mi spiega?
+C’era in giro pure un vaccino all’epoca?
+Sa che oggi a ROMa eravamo in 100.000?
+"Vaccino?
+Hai l'influenza?
+"I vaccini?
+ma cottarelli cosa sta dicendo?
+Hai segnalato?
+Se la gente non vuole vaccinarsi cosa dovevano fare ?
+A Maggio Moderna	Morta ieri	Vogliamo farla finita ?
+È ABBASTANZA CHIARO?
+Ma la colpa è dei non vaccinati, vero?
+Chi lavora in un'altra regione dovrebbe fare il tampone ogni 48 ore!?
+Non so se mi fa più schifo il Governo o i giornalisti.
+Ma chi fa il vaccino in genere non dev'essere in buona salute?
+Con la Madonna o per la Madonna?
+7)che contagia?
+esiste un legame tra i vaccini e le varianti?
+Che altro vuole Giorgia Meloni?
+Vogliamo evitare nuove terribili restrizioni ?
+Sémo ancora fermi ai twiit?
+Perchè no?
+Ma non hanno capito che il popolo non voterà?
+Ovviamente NessunaCorrelazione	In Liguria focolaio in un ospedale ?
+Cosa deve fare draghi?
+Chi ha ordinato le cremazioni?
+ma tutto apposto?
+
+
+// These questions are predicted to have has_ref_to_other == True:
+Chiama tu?
+Hahahahha e tu mi parli di OMS?
+Lui è  rincoglionito?
+Io vorrei le puppe, che vaccino devo fare?
+Hai capito che io sono pro vaccino ?
+Quindi lei si è vaccinata solo per avere il 5G gratis, giusto?
+O troppo difficile per lei?
+Lei sa come funziona un vaccino m-RNA?
+"Ma lei professore è vaccinato, no?
+Che dici tu?
+Ps la Lamorgese sta lavorando, tu piuttosto?
+ma noi quando lo saremo da lui?
+Io?
+Sei tu che fai finta di non vedere perché ti conviene.
+Potrebbe spiegare in cosa consiste, secondo lei?
+Posso dirlo o passo per fascista anch’io?
+ma io devo vaccinarmi con astazecca o piffer?
+Invece lei sì, giusto?
+Tu non ti vaccini?
+Dove vive lei ora?
+Quindi anche lei è virologa?
+Io ti ho citato la fonte , mi dai la tua fonte?
+Ma solo io non conosco vaccinati che abbiano avuto problemi ?
+Tu sei prenotata?
+Ma lei ci è o ci fa?
+Che non è serio non devo dirvelo io vero?
+Ah, è sempre lui?
+Lei lo sa che il leader della protesta è vaccinato?
+Pensate che io sia stupito dalle cretinate che vedo e leggo oggi?
+ANCHE LUI CON PATOLOGIE PREGRESSE NON DICHIARATE?
+Lei conosce gli effetti a medio-lungo di tali vaccini?
+"Lo sapete chi è lui?
+Ma non è anche lui allineato col potere?
+	Solo io trovo pericolosa questa affermazione?
+lui non è l’imperatore della Campania legibus solutus?
+“Me lo fa lei il vaccino, vero?
+Lui poi che l’ha fatto per altruismo il vaccino, vero?!
+Sindaca, ma lei si è vaccinata, è favorevole alla vaccinazione?
+Oppure devo dirglielo io?
+io gli illustratori li seleziono da 25 anni e tu sei INCAPACE?
+E se invece tu contagi un non vaccinato che fai, gli intesti casa?
+Ma possibile che tu riesca a berti tutta questa paccottiglia?
+“Io?
+Però io ci starei, sai?
+"Mari e tu'?
+Lei le possiede?
+Quindi tu di cosa parli?
+Perché,  gli altri vaccini a cosa servirebbero secondo lei?
+Lei comprende altre situazioni, altri drammi?
+“Scusi lei è vaccinato?

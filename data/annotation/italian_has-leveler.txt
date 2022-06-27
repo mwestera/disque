@@ -1,0 +1,113 @@
+// This file contains Italian questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_leveler == False:
+vaccini seconda dose solo eterologa?
+Vaccinare i bambini per salvare ottantenni pluripatologici?
+Fascisti anche loro?
+E poi: questa esseri l’incontriamo, li vediamo, li salutiamo?
+è l ue?
+Quali di grazia!?
+Non si era detto di evitare discriminazioni?
+Ma il dittatore non era Orban?
+Come stara andando?
+Quindi questa campagna vaccinale funziona?
+E' una dashboard regionale?
+SONO MEDICI?
+🔴 E LE MERDACCE COSA DICONO?
+Perché è così difficile ammettere di essersi sbagliati?
+l’influenza stagionale che fine ha fatto?
+Vaccini in soffitta insieme al greenpass?
+Pensando alla pandemia da Covid, qual è la Vostra opinione?
+Vuoi lavorare in ospedale?
+perché loro invece hanno pagato per vaccinarsi?
+E negli ultimi due anni la colpa era dei novax?
+Cosa ne pensa di queste dichiarazioni allucinanti ?
+LA VIOLENZA FINALE🟩 ✅ Non sei vaccinato e vuoi lavorare?
+Se sei convinta che il vaccino ti protegge, che problemi hai?
+Vi interessa di lui?
+"You Force a shot on us?
+perchè non avete fatto vaccinare le insegnanti e il personale ATA?
+Ma è roba seria questa?
+Succede anche a qualcun' altro?
+La parte più di merda?
+Possono cambiarlo con Astrazeneca?
+L' autoimmunita che cazz ci azzecca?
+Cioè non ci vuole un genio a capirlo eh?
+Ne vogliamo parlare?
+La spiegazione del governo?
+Contratto firmato a maggio... I puntini?
+“Emergenza vaccini?
+Gli Altri in quale categoria si trovano?
+Sottovoce?
+Ma la Palombella Rossa è impazzita?
+E tra i due chi sara' il piu' pericoloso?
+Morte dopo il vaccino  La causa ufficiale dichiarata dalla sanità?
+E noi dovremmo fidarci di questi bugiardi cronici?
+Quindi il vaccino non funziona?
+La crescita dei contagi tra chi?
+È più che efficace non finire in ospedale no?
+E se il sostituito si vaccina e torna?
+Ma come ve lo devo dire?
+Come chiamate nella vostra città i novax?
+Cosa farà adesso l’informazione per nascondere queste immagini?
+Quanto costa un tampone ?
+
+
+// These questions are predicted to have has_leveler == True:
+Perchè credete a tutto quello che leggete su internet?
+Ci sarà mai un vaccino italiano?
+Epperche mai?
+Nessuno interviene?
+A quale costo riaprire tutto?
+Contro le donne è sempre più facile... Non sarebbe ora di smetterla?
+Comme mai?
+Poi nessuno la firmerà ?
+O nessuno risponderà di morti e lesioni come sinora?
+Ma veramente stare tutti zitti contro questa dittatura?
+Giocare sempre più sporco?
+Come mai non volevano vaccinarsi?
+E che caxxo, non vorrete mica tutto gratis no?
+In Forza Italia siete tutti impazziti?
+Chi lo ha detto che i novax sono tutti rozzi ignorantotti?
+Come mai bisogna essere tutti vaccinati?
+Ma state a fa tutti il vaccino, ma che so rimasta solo io?
+Che sono tutti pazzi?
+Eccetera...	Ma non sono tutti vaccinati?
+Perché un vaccinato va in quarantena, cosa mai successa nella storia?
+Tutto quello che cè da sapere -  Perché vaccinare bambini anni?
+Non si dimette nessuno?
+Capite perché non finirà mai?
+E allora come mai i Paesi più vaccinati sono quelli con più contagi?
+Questa vale come minaccia o è tutto apposto?
+Tutto normale?
+Possibile non ci sia nessuno che li possa fermare?
+Mi ha detto ma lei non ha mai mangiato la caponata?
+Come mai è tutto bloccato?
+Nessuno nessuno ?
+Come mai il vaccino viene definito sperimentale fino al 2023?
+Come mai hanno atteso così tanto a vaccinare i ragazzi 12-16 anni?
+Ricordate tutte influenze stagionali di sempre?
+Siete tutti d’accordo sul vaccino a bambini e ragazzi?
+Perché nessuno dice niente?
+e tutto il corollario ?
+E tutto questo per andare contro il sistema?
+Ha mai sentito parlare di efficacia relativa ed assoluta?
+2) se nessuno si vaccinasse i casi quanti sarebbero?
+Di una sappiamo tutto (De Luca) ma delle altre 399mila?
+E se ci inginocchiassimo per tutti i morti dopo il vaccino?
+POSSIBILE CHE IN ITALIA NESSUNO SI RIBELLI?
+E come mai muoiono?
+E tutto il resto degli italiani?
+Tutto ciò per cosa?
+vedete tutti questi senzatetto in giro?
+E come mai siamo stati scelti nell'ambito dell'Agenda Globale?
+Perché lei falso cargiver ha mai sudato in vita tua?
+Se tutto è sicuro ed efficace, che problema c'è?
+E perchè mai?

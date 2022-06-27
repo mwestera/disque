@@ -1,0 +1,113 @@
+// This file contains Dutch questions, roughly equal number with and without the given feature.
+
+// Annotation instructions:
+// - If a line is mis-classified, prefix it with //. 
+// - To help me figure out what the current system is doing wrong, consider also adding a "//"-comment at the end of the 
+//   line, briefly explaining what the problem might be (especially for languages I don't speak).
+
+
+
+// These questions are predicted to have has_ref_to_other == False:
+Heb je een vraag over onze escaperoom om thuis te spelen?
+Hoe doe je dat?
+moeder was overleden Beetje vreemd !?
+Geen last van crisis in 2008 en nu vanwege Corona nog niet geland?
+NOG WEL DE MOEITE WAARD?
+Wat gebeurde er eigenlijk met COVID 1 tot en met 18?
+verder aanscherpen of niet?
+Of geldt die regel niet mbt Trump?!
+Waarom zou een virus zich bij infectie anders gedragen?
+Waarom niet/wel?
+En de scholen?
+Hoe kunnen we de lange termijn op de korte heroveren?
+Waar zegt Trump " om er rijker van te worden " ?
+Wat deden , , Wouter Devriendt dan in  over de VS?
+Is dit betrouwbaar???
+Maar hoe hoog moet de prijs zijn?
+Weet je wat de ellende van deze zooi is!?
+Ben benieuwd hoe dit zich gaat ontwikkelen.
+Het virus z'n gang laten gaan?
+Deze ook al gezien?
+Is het mogelijk om dagelijks iets positiefs te brengen?
+gekke dingen met mensen doet?
+Nog tips?
+Hoi  zijn jullie hiervan op de hoogte?
+Kon dat niet eenvoudiger?
+Met of zonder corona ma wij mogen nog steeds op stage gaan?
+Waarom leg je ons strenge maatregelen op maar sluit je grenzen niet?
+Corona uitbraak bij bezoekers van deze feestjes?
+Geen ‘lucky’ , maar wel een ‘lucky’  dan op 8 november, denk ik?
+Ok zullen we nu dan stoppen met dit covid gedoe?
+https://t.co/9l0o0dkDmI allemaal 65-plussers?
+Wilt u meer uitleg en meer toelichting?
+En heeft deze nepagent geen provocatief gedrag gebruikt?
+𝙒𝙖𝙖𝙧𝙫𝙤𝙤𝙧 𝙙𝙤𝙚 𝙟𝙞𝙟 𝙝𝙚𝙩?
+ok?
+- waroom zien wij zo een uitleg niet elke dag in Nederlandse media??
+Afgebekt door corona syndroom?
+Zelfs Rusland, eender welke president?
+Hoe kunnen scholen veilig open (blijven)?
+wanneer staan we op?
+Je leven blijkt ineens niet meer zo maakbaar?
+Of is Covid-19 dus nog een stijgend probleem?
+Toch?
+Kunnen die boetes niet wat opgetrokken worden?
+Lees jullie bericht nu eens zeg, Cambuur mist 10 man vanwege Corona?
+60%?
+Ik zit te wachten tot er geen corona is?
+Zo misschien?
+Met deze corona tijden?
+Maakt dat het goed ?
+
+
+// These questions are predicted to have has_ref_to_other == True:
+Hoezo zitten ze nog zo bij elkaar?
+Wat doen ze anders?
+We helpen psv wel even met al hun corona gevallen?
+om 12:15 hoeveel scoren ze er vandaag?
+Word hun veiligheid nog gewaarborgt?
+Of kan hij de zelf vernietiging van kaagent niet meer aan zien?
+Die 14,2 miljard die ze van elke lidstaat vragen??
+Waar wachten ze nog op?!
+Doen ze dat alleen?
+Zij hielden zich toch zo goed aan al die coronamaatregelen?
+Waarom verteld ze niks over de Covids uit de 20ste eeuw?
+Hoe weet jij dat ze nonchalant zijn geweest Theo?
+WAAROP HEBBEN ZE DAN GEWACHT?
+Maar hun gezinnen dan ?
+En zij klagen?
+Weet ze dan helemaal niet waarom dit virus COVID-19 heet?
+Zou zij het wel weten?
+Wat zegt hij nu eigenlijk?
+Waar heeft ze het over?
+Wie waren zij die zijn overleden aan corona?
+Hebben ze daar geen corona???
+Hoe houden ze het vol met uitgedunde selecties vanwege corona?
+Onze sponsoren denken aan ons, denkt u ook aan hen?
+Werken ze in Zweden soms met échte cijfers ?
+Lockdown COVIDIDIOTS zouden ze op de Meir wc-papier verkopen ?
+Waarom moeten zij een bonus krijgen??
+	Overweegt u een voorkeurstem op hem?
+En wat 'DENKEN' ze nou?
+Hebben ze daar geen COVID?
+Is Capel zo dom, of doet hij alleen maar zo?
+Drinken ze echt alleen Corona?
+Hij  Zij?
+Wanneer verwachten ze die?
+Als ze geen corona hebben mogen ze toch spelen?
+Wouahhhh hebben ze coronavirus ?
+Ligt het aan de bevolking of aan de overheid met haar adviseurs?
+Weten niet of ze genoeg beschermende materialen hebben.
+Misschien iets voor de pers even testen of ze dit willen melden?
+Ze zullen dn misschien eens nadenken?
+Maar  hebben wij hun kwaliteiten te hoog ingeschat?
+Wat is hun belang om dit te zeggen?
+Waardoor haar lichaam het niet aan kon?
+Doet Mohammed dan helemaal niets voor ze?
+Zouden ze bij de uefa weten dat knvb competitie vervalsing doet?
+Wie ze gaan helpen in ziekenhuizen en wie niet?!
+Hoe weten zij nou wat het is?
+En wasrom maken ze zich zo druk?
+Kunnen we hem hierover dan toch ook beetje bashen?
+Of schijt hij zijn politieke tegenstanders weer uit?
+Heeft iemand haar al verteld over D66?

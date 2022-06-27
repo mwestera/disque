@@ -1,0 +1,215 @@
+// This file contains English questions with the predicted categories of wh-words and the questions as a whole.
+// 1. Individual wh-words are tagged in square brackets like "who[no/insitu/fronted/indirect]"
+//    - here 'indirect' means it is pragmatically likely to be used as an indirect question.
+//    - embedded wh-words that are unlikely to be used as indirect questions, are tagged with 'no'.
+// 2. The syntactic structure of each question as a whole is categorized at the end of each line as "polar/wh/insitu/elliptic/decl/risingdecl"
+//    - here 'elliptic' is intended for non-wh-questions whose subject-verb order cannot be determined, typically because there is no matrix verb.
+//    - 'wh' means a fronted-wh question; 'insitu' means an insitu-wh question; if a question has both, the former wins.
+
+// Annotation instructions:
+// If a line is mis-classified, please duplicate and correct it (both the wh-tags and the overall classification), and
+// comment out the original line by prefixing "//"/. 
+// To help me figure out what the current system is doing wrong, consider adding a "//"-comment at the end of a line briefly
+// explaining what the problem might be (especially for languages I don't speak).
+
+// english
+I wonder how[indirect] many of these geniuses will die from Covid. | decl
+I wonder how[indirect] Alex Jones wants to treat this. | decl
+I don't see how[indirect] this relates. | decl
+Did Covid kill FOMO... asking for a friend who[indirect] isn’t here | decl
+I just don’t know what[indirect] to do anymore. | decl
+I don't know who[indirect] else is fully vaccinated. | decl
+If[indirect] you're still using SMS to text, I don't know what[no] to tell you. | decl
+If[indirect] this isn’t premeditated murder, I don’t know what[no] is. | decl
+I don’t know what[indirect]’s in that vaccine. | decl
+I wonder why[indirect]. | decl
+Say what[indirect] you want about Cali handling COVID... this says it all. | decl
+I don't understand when[indirect] ever u open ur mouth u tell lie. | decl
+Don’t ask people why[indirect] they qualified for the vaccine. | decl
+I don’t know how[indirect] else to put it. | decl
+Man i wonder what[indirect] a day in your head feels like. | decl
+Wonder how[indirect] many are in the UK. | decl
+I wonder why[indirect] it's late. | decl
+Makes you wonder if[indirect] the vaccine caused it. | decl
+I'm seeing people asking what[indirect] the alternative to lockdown is. | decl
+CNN is puzzled why[indirect] Americans care about freedom. | decl
+Priorities? | elliptic
+For having a poor immune system? | elliptic
+Local or Global? | elliptic
+County official answering my ? | elliptic
+Nope? | elliptic
+allergies? | elliptic
+And having saved the lives of thousands of our fellow Americans? | elliptic
+Coincidence? | elliptic
+New vaccine evading variants? | elliptic
+Worth a try? | elliptic
+That Pandemic? | elliptic
+Sealing? | elliptic
+Company's paid PR war or ignorance?? | elliptic
+The least popular? | elliptic
+See the difference between good and evil? | elliptic
+still isn’t convincing enough for you to be vaccinated? | elliptic
+projects, helps w/healthcare &amp; educ.? | elliptic
+Quarantine really getting to ya, huh? | elliptic
+Sure about that? | elliptic
+Surely variants from New Zealand &amp; Vietnam? | elliptic
+You know what[indirect]’s even better than a memorial for deceased? | elliptic
+You know what[indirect]’s the biggest flex ever? | elliptic
+You see how[indirect] easy that was? | elliptic
+You know who[indirect] we never hear from? | elliptic
+You know what[indirect]’s cheaper? | elliptic
+you know what[indirect] doesn’t end? | elliptic
+You know how[indirect] you got your vaccine without paying a dime? | elliptic
+But you know what[indirect]? | elliptic
+You know who[indirect] else can’t go home? | elliptic
+You know what[indirect]’ll be worse for them? | elliptic
+You know how[indirect] we can reduce to 2,000 case a day? | elliptic
+You know who[indirect] can’t go home? | elliptic
+You know what[indirect]’s really bad for the economy? | elliptic
+You know which[indirect] other families are struggling? | elliptic
+You wanna know how[indirect] I KNOW the vaccine is safe and works? | elliptic
+You know what[indirect]? | elliptic
+Is this the one from Pfizer which[insitu] he didn’t order enough of? | insitu
+1 death I saw was drowning, how[insitu] did vaccine cause that? | insitu
+I mean, what[insitu]’s weird about that? | insitu
+Does he have any idea of what[insitu]’s going on? | insitu
+Your lockdown advocacy is what[insitu]? | insitu
+150 000 die every DAY in the world when[insitu] did the world stop for them? | insitu
+How[no] many were covid and how[insitu] many were errors? | insitu
+Do you take any other medication that you don't know what[insitu]'s in it? | insitu
+Is your portfolio prepared for what[insitu]’s next in a post-pandemic world? | insitu
+Did fireworks exist when[insitu] Jesus Christ was born? | insitu
+Wasn’t it bad enough when[insitu] 52k Texans died from Covid the first time? | insitu
+Are you mocking people from Georgia who[insitu] lost love ones to Covid? | insitu
+You weren't able to be with a loved one when[insitu] they died? | insitu
+can he be criminally liable for what[insitu] he did? | insitu
+Are there any Republicans left who[insitu] aren’t just shitposters? | insitu
+Says who[insitu]? | insitu
+You received Johnson &amp; Johnson’s COVID-19 vaccine: Now what[insitu]? | insitu
+Have you thought about what[insitu] happens to your life's footprint? | insitu
+America is Back to what[insitu]? | insitu
+They did covid test for disha but why[insitu] not for Sushant's? | insitu
+are you in a contest with  to see who[no] can be the worst Governor? | polar
+Are you living every day like you have a terminal illness? | polar
+Ji  Ji...ppl r dying everywhere ... How[no] do you get sleep? | polar
+Can I sue him for attempted manslaughter???? | polar
+Have you printed your boarding pass yet? | polar
+Have you already made your appointment for the vaccine? | polar
+Can we use the vaccine passports as voter id? | polar
+Can you believe  hasn’t done this yet? | polar
+Did they red team their strategies? | polar
+Or am I being cynical? | polar
+Are you willing to lose your job over this vaccine mandate? | polar
+Is this the Hunger Games? | polar
+can you get covid from a fart ? | polar
+Are they the best leaders America can produce? | polar
+Were you outraged then too? | polar
+Can it be emulated here? | polar
+Will vaccines provide the way out of lockdown? | polar
+You talk so stupidity .. are covid 19 kya govt ne banaya h ? | polar
+Is there a COVID propeller, babe? | polar
+Are they mad/regretting that they didn’t mask? | polar
+Hey sister do you know if[indirect]  Modiji's wife' got a vaccine or not ? | polar
+Now do you see what[indirect] you are kneeling to? | polar
+Do you know how[indirect] INSANE that is? | polar
+Have you also been wondering how[indirect] COVID19 affects student mobility? | polar
+Do you know what[indirect]’s in them? | polar
+You know what[indirect] this means don't you? | polar
+Can you see what[indirect] is happening? | polar
+Have you seen what[indirect] real impoverished countries look like? | polar
+So, how[indirect] many 6 year olds do you know who[indirect] carry ID? | polar
+How[indirect] many Chinese do you normally see in Italy? | polar
+Can you imagine what[indirect] an AUDIT of the "covid numbers" would find? | polar
+Will people know which[indirect] vaccine they will be getting? | polar
+Do you understand just how[indirect] serious covid Is??? | polar
+Do you remember what[indirect] happened when[indirect] this thing went through India? | polar
+Do you even know what[indirect] VAERs are? | polar
+D. It's likely true? | risingdecl
+You have gone out of business? | risingdecl
+So they're walking away from the military? | risingdecl
+So the election was fraud and Covid is fraud? | risingdecl
+I am wondering if[no] I should have got a different vaccine? | risingdecl
+Wait you got Covid? | risingdecl
+You do realise it's too late with this current outbreak? | risingdecl
+You know there are over 5.05 million people died of covid? | risingdecl
+HOW[no] MANY DIED IN THE LINE OF DUTY? | risingdecl
+I think he was cloned when[no] he was ill with Covid? | risingdecl
+India Beats China In Vaccine Diplomacy? | risingdecl
+But the unvaccinated are somehow to blame and are most at risk? | risingdecl
+And you believe no one should? | risingdecl
+I didn’t give a shot to the sheriff? | risingdecl
+Here we are 10 month into a pandemic, and this is where[no] we are? | risingdecl
+Why[no], you ask? | risingdecl
+One has to wonder why[no]? | risingdecl
+You believe in liberty? | risingdecl
+1/6 Jailers may be jailed? | risingdecl
+Maybe there is no answer? | risingdecl
+It’s a terrible analogy but you know what[indirect]? | risingdecl
+Perspective....You know why[indirect] I listen to  ? | risingdecl
+They're aware Covids not going away right? | tag
+Wot kind of fee is this? | tag
+You don't mind taking care of them right? | tag
+If[no] you don't watch AND RT any other tweet, make sure this one is it. | tag
+Do I have that right? | tag
+Can you? | tag
+It has to exist right? | tag
+People over there are still allowed to go to work though right? | tag
+ Science: You saw that sign that said the road ends right? | tag
+Well, in his defense we didn’t go to law school to learn math right? | tag
+you got the jab right? | tag
+You're just kidding, right? | tag
+so pretty isn’t it? | tag
+If[no] you have taken the jab you should be protected anyway, right? | tag
+This is never going to end is it? | tag
+Let's stick to proven facts, shall we? | tag
+That right? | tag
+	The fuck is getting bigger and bigger isn't it? | tag
+You do know that Germany is not in the US right? | tag
+They're, frankly, bonkers aren't they? | tag
+What[fronted] happens if[no] they get Covid-19? | wh
+What[fronted] about  responsibilities as the city’s 2nd largest employer? | wh
+What[fronted] would it take to be significant? | wh
+Why[fronted] are you so bent on negotiating with murderers of Iranian people? | wh
+When[fronted] there are &gt;13,000 deaths according to the government? | wh
+		Why[fronted] aren’t COVID Passports now discriminatory in your eyes? | wh
+Why[fronted] are we covered up in terror here? | wh
+How[fronted] is a White House employee working on campaign litigation? | wh
+Why[fronted] doesn’t  do more for aam aadmi than  has? | wh
+What[fronted] percentage of the media does thon own? | wh
+Where[fronted] is COVID when[insitu] u arrange for business and work visa ? | wh
+Why[fronted] is anyone simply not following the 2 week flatten curve schedule? | wh
+Why[fronted] is it news that they're wrong again? | wh
+How[fronted] many would have been saved by that? | wh
+How[fronted] tf do the LA teams practice? | wh
+why[fronted] we all are working virtually?? | wh
+What[fronted] mask should I wear with this outfit? | wh
+But what[fronted] if[no] the dog dies from Covid19? | wh
+What[fronted] should we do this man? | wh
+How[fronted] old were they? | wh
+The CDC hasn't decided if[no] the vaccine "should be limited to certain groups of children." | decl
+CANCEL YOUR BB ORDER or your Weverse shipping will always be $175 even if[no] you bought a feather. | decl
+Have operated on 17  trauma patients in emergency who[no] turned out to be COVID+  n have been exposed to more than thousand COVID + patients so far. | decl
+	"...One of the last videos the married couple posted on their now deleted YouTube channel was about how[no] they wouldn’t get the vaccine." | decl
+This virus doesn't care how[no] old you are or how[no] healthy you are...it kills. | decl
+Macron has declared war on the French people by threatening to cut off their food and freedom if[no] they don't take the vaccine. | decl
+I'd extend that to anyone who[no] declared the pandemic a hoax, who[no] gathered in spaces to protest, who[no] caused scenes to demand their right to not comply... all to the back of the line whether[no] they were elected or not. | decl
+Full episodes of  podcast coverage of the COVID-19 impact on the Turf industry are now available on  – Please like, subscribe &amp; let us know what[no] other topics you'd like covered on the channel. | decl
+I have no idea why[no] are we making a hue and cry for Plasma &amp; Remdesevir. | decl
+Absolutely the opposite of what[no] Dan Andrews was asking for. | decl
+A message to  : The sky won’t fall in if[no] you mention the twin Tory disasters of Covid and Brexit | decl
+A Lisbon court has provided verified Covid-19 mortality data, which[no] shows the number of verified Portuguese Covid-19 deaths from Jan 20 to April 2021 is 152, not the 17,000 as claimed by government. | decl
+That’s why[no] I filed HB 1435 w/ offering $100 MILLION in DIRECT RELIEF to keep their lights/water on. | decl
+Life is more Fun If[no] you play GAME  https://t.co/Amb0MYFrrb  Try to stay with Playstation 5  gamers XRPCommunity Xbox RahulVaidya royalehightradings	fitness football COVIDIOT PlayStation5 win StayHome StaySafe covidnsw PS5 BLACKPINK_HLA2021 lockdown USA NewYearsEve https://t.co/UyOek49QFX | decl
+Even information about from where[no] we can buy or stock availability is enough. | decl
+Find out when[no] and where[no] you can receive a COVID-19 vaccine. | decl
+How[no] mainstream media is helping Aisha Sultana get away with accusing Indian government of using COVID as a bioweapon against the people of Lakshadweep. | decl
+The alerts were sent to users of the app in the week to 14 July, telling them they had been in close contact with someone who[no] had tested positive for coronavirus and to self-isolate. | decl
+I really struggle with how[no] I am now classed as a "fringe nutjob" because I believe that locking up an entire population and destroying the economy because of a mild virus which[no] only kills old and ill people is wrong. | decl
+Joe Biden is doing all of the same stuff Trump did for covid 19 but instead of saying “it’s actually not that bad” he’s saying “isn’t it amazing that we beat covid 19” is just the best metaphor for what[no] the democrats and republicans are all about | decl
+Masks are mandatory for the entire state of Queensland for the very first time – here's what[no] you need to know  https://t.co/sEKGwfgilZ | decl
+I was curious, so I decided to open the hood on struggling campaigns of candidates who[no] are blaming progressives for their problems. | decl
+Maybe if[no] Victoria was getting twice as much vaccine as other states they'd be winning too! | decl
+We will never fully know how[no] many people died as a result of these actions. | decl
+	'How[no] did Singapore handle pandemic so well?' | decl
+Singapore Health Official:- 'Question should be "How[no] did UK not handle it so well?"' | decl
+BBC interviewer:-	'What[no] do you mean?' | decl
