@@ -6,13 +6,18 @@ import config
 import tqdm
 
 def main():
-    tweets = utils.load_tweets(config.path_to_analyzed_tweets, max_num=config.max_num_rows)
+
+    path_to_analyzed_tweets = config.path_to_analyzed_tweets or f'{config.path_to_main_data_dir}/tweets_{"_".join(config.paths_to_raw_tweets.keys())}.csv'
+    path_to_analyzed_questions = config.path_to_analyzed_questions or f'{config.path_to_main_data_dir}/questions_{"_".join(config.paths_to_raw_tweets.keys())}.csv'
+    print('Analyzed questions will be written to:', path_to_analyzed_questions)
+
+    tweets = utils.load_tweets(path_to_analyzed_tweets, max_num=config.max_num_rows)
     questions = extract_potential_questions(tweets)
 
     compute_features(questions)
 
     remove_nonquestions(questions)
-    write_questions_to_csv(questions)
+    write_questions_to_csv(questions, path_to_analyzed_questions)
 
     explore_questions(questions)
 
@@ -40,22 +45,23 @@ def extract_potential_questions(tweets):
     return questions
 
 
-def write_questions_to_csv(questions):
+def write_questions_to_csv(questions, path):
     del questions['spacy']  # don't save this
     columns_with_tweet_info_last = sorted(questions.columns, key=lambda x: x.startswith('tweet_') - (x in ['id', 'text']))
-    questions.to_csv(config.path_to_analyzed_questions, columns=columns_with_tweet_info_last, index=False)
+    questions.to_csv(path, columns=columns_with_tweet_info_last, index=False)
 
 
 def compute_features(questions):
     spacy_parses = []
     for index, text, language in tqdm.tqdm(questions[['text', 'language']].itertuples(), total=len(questions), desc='Parsing all questions with Spacy'):
         nlp = utils.get_nlp_model(language)
-        sentences = list(nlp(text).sents)
+        doc = nlp(text)
+        sentences = list(doc.sents)
         sentence = sentences[-1]
         if len(sentences) > 1:
             questions.at[index, 'text'] = sentence.text
             questions.at[index, 'offset'] += sentence[0].idx
-            sentence = list(nlp(sentence.text).sents)[0]   # TODO Not the most efficient
+            sentence = list(nlp(sentence.text).sents)[-1]
         spacy_parses.append(sentence)
     questions['spacy'] = spacy_parses
 
