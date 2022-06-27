@@ -69,11 +69,10 @@ def matrix_subj_verb_identifier(doc):
     return doc
 
 
-spacy_model_names = {
-    'english': 'en_core_web_sm',
-    # 'english': 'en_core_web_trf',
+spacy_model_names = {   # TODO Make option in config.py to use fast vs slow models?
+    # 'english': 'en_core_web_sm',
+    'english': 'en_core_web_trf',
     # 'french': 'fr_core_news_sm',
-    # 'french': 'fr_core_news_lg',
     'french': 'fr_dep_news_trf',
     'italian': 'it_core_news_sm',
     'dutch': 'nl_core_news_sm',
@@ -128,7 +127,7 @@ def regex_for_keyword_list(*words):
 
 @functools.lru_cache()
 def get_nlp_model(language, single_sentence=False):
-    nlp = spacy.load(spacy_model_names[language])
+    nlp = spacy.load(spacy_model_names[language], disable='ner')
     if single_sentence:
         nlp.add_pipe("sentence_concatenator", before='parser')
     nlp.add_pipe("lemma_corrector")
@@ -138,7 +137,6 @@ def get_nlp_model(language, single_sentence=False):
     nlp.add_pipe("tagquestion_detector")
     nlp.add_pipe("qword_tagger")
     nlp.add_pipe("question_classifier")
-    ling.language = language
     return nlp
 
 
