@@ -4,12 +4,16 @@ import ling
 import utils
 import config
 import tqdm
+import os
+
 
 def main():
 
     path_to_analyzed_tweets = config.path_to_analyzed_tweets or f'{config.path_to_main_data_dir}/tweets_{"_".join(config.paths_to_raw_tweets.keys())}.csv'
     path_to_analyzed_questions = config.path_to_analyzed_questions or f'{config.path_to_main_data_dir}/questions_{"_".join(config.paths_to_raw_tweets.keys())}.csv'
     print('Analyzed questions will be written to:', path_to_analyzed_questions)
+    if os.path.exists(path_to_analyzed_questions):
+        input("ENTER to overwrite... (Otherwise, quit with the PyCharm stop button.)")
 
     tweets = utils.load_tweets(path_to_analyzed_tweets, max_num=config.max_num_rows)
     questions = extract_potential_questions(tweets)
@@ -25,13 +29,17 @@ def main():
 def extract_potential_questions(tweets):
     keep_keys = ['created_at','favorite_count','retweet_count','dataset','language']
     new_rows = []
-    for i, row in tweets.iterrows():
+    for i, row in tqdm.tqdm(tweets.iterrows(), total=len(tweets), desc='Extracting potential questions from each tweet'):
         potential_questions = ling.extract_potential_questions(row['full_text'], row['language'])
         for j, (question, offset) in enumerate(potential_questions):
+            cleaned_text = utils.clean_sentence(question, row['language'])
+            if not cleaned_text:
+                continue
+
             new_row = {(key if key in keep_keys else 'tweet_' + key): value for key, value in row.items()}
 
             new_row['id'] = 'Q' + str(row['id']) + '.' + str(j)
-            new_row['text'] = utils.clean_sentence(question, row['language'])
+            new_row['text'] = cleaned_text
             new_row['offset'] = offset  # TODO take cleaning into account...
 
             if not config.include_full_tweet_text_in_analyzed_questions_csv:
