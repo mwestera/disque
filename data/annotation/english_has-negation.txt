@@ -25,7 +25,7 @@ is black lives matter protesting against the coronavirus?
 Asked how many black farmers in S. Carolina benefited."
 Have more questions?
 Just a bit arrogant?
-Do non-scientists have to connect the dots for scientists?
+// Do non-scientists have to connect the dots for scientists? // do we consider this negation
 WTF are you going on about?
 Covid vaccine ‘waning immunity’: How worried should I be?
 What’s that you say?
@@ -87,7 +87,7 @@ Why not give the third dose to everyone?
 Maybe there is no answer?
 Lets not repeat, k?
 So why no air bridge for the ⁦⁩ flight?
-NO	Will we all need boosters in the future?
+//NO	Will we all need boosters in the future? // not sure if the NO is part of the question here
 What if there is no dance floor?
 So why are they not part of Doug Ford’s stay-at-home order?
 Don't know why Lamar Alexander not there.
@@ -97,7 +97,7 @@ This sharp increase is worrisome, is it not?
 Do you believe in freedom or not?
 no masks no 2 metres ?
 Not “course correct in response to changing conditions”?
-Oh no....does he turn into a cow now?
+// Oh no....does he turn into a cow now? // the "no" is part of an expression
 	How is this not an America last agenda?
 Keeping some areas in lockdown but not others ?
 Why are we spotlighting the church and not everyone else?

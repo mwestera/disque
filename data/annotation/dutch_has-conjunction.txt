@@ -91,7 +91,7 @@ Hoe realiseer ik een optimale klantervaring en reputatie?
 en   Als mondkapjes werken, waarom moeten er dan winkels dicht?
 En wie betaalt hiervoor?
 En wat eigenlijk van al die decimalen overal tussenin?
-Misschien iets voor de pers even testen of ze dit willen melden?
+// Misschien iets voor de pers even testen of ze dit willen melden? // not a conjunction "or" but an "if"
 Weet je zeker dat het verkoudheid is en geen corona?
 Werkt u of iemand die u waardeert in de zorg?
 , hoe blijf je de baas over jezelf en onze veiligheid?
@@ -101,7 +101,7 @@ En wasrom maken ze zich zo druk?
 Welke handelszaken blijven open en welke moeten dicht?
 Misschien Trump's Covid adviseur eens noemen en citeren?
 Of hebben hulp nodig van een arts of medicatie ?
-Over de vraag of kinderen het virus verspreiden.
+// Over de vraag of kinderen het virus verspreiden. // same thing as line 94
 Of te weinig?
 Of is het deze keer een ander virus?
 COVID 1.3 en zo?
