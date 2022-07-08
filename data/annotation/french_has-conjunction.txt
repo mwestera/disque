@@ -69,7 +69,7 @@ On a 8 vaccins obligatoires et celui ci vous dérange tant ?
 Ou le soi -disant vaccin !?
 Et toi ?
 Sont -ils incompétents à ce point ou est -ce volontaire ?
-Salvateurs les vaccins Pfizer et Astra Zeneca ?
+// Salvateurs les vaccins Pfizer et Astra Zeneca ? // Decide whether we want to include conjunctions at word level as well or only at sentence-level
 Et alors ils risquent quoi?
  Et tu ne montés jamais en voiture, je suppose ?
 Et puis ?
@@ -78,7 +78,7 @@ Et là on a le droit d’utiliser le mot apartheid ou toujours pas ?
 Et qui va gérer l'accès à l'hôpital ?
 qui a pas encore eu le covid et n’a fait aucun vaccin ?
 Et de changer de centre?
-💉 Covid-19 : pour ou contre la vaccination des enfants ?
+//💉 Covid-19 : pour ou contre la vaccination des enfants ? // Conjunction at word level
 affirmatif, et quoi d'autre ?
 Et un nouveau systeme financier annoncer a davos?
 - chiffres réas et cas covid gonflés ?
@@ -88,16 +88,16 @@ Et vous êtes médecin ?
 Et d'accepter l'hétérogénéité des manifs ?
  Et si on parlait de ce qui fâche au quotidien ?
 Ou torpillage par Pfizer ?
-Un débat sur la peine de mort, le mariage gay et l'avortement?
+//Un débat sur la peine de mort, le mariage gay et l'avortement? // Conjunction at word level
 🤰Vous attendez un enfant ou votre bébé vient de naître ?
-Êtes vous pour ou contre le passeport vaccinal?
+// Êtes vous pour ou contre le passeport vaccinal? // Conjunction at word level
 🇬🇧🇺🇲🇩🇪🇧🇪🇨🇳🇷🇺 : hey on a développé des vaccins et toi ?
 Et quid des contre -indications au vaccin ?
 Ta toujours pas compris ou bien tu es con ?
 	Et la France?
 Fiction ou Réalité ?
 Et nos libertés individuelles ?
-Les projets de fermeture de lit sont -ils reportés ou suspendus ?
+// Les projets de fermeture de lit sont -ils reportés ou suspendus ? // Conjunction at word level
 Et vous êtes fiers de montrer votre QR Code de bon esclave ?
 Qui a raison et qui a tort ?
 Moi qui lit ou ceux qui interprètent ce qu'ils lisent ?
@@ -109,5 +109,5 @@ Et la, pas de Lancetgate?
 prévues pour chacun d'entre nous (jeune, bébé ou plus âgé)?
 Ou choix ?
 Est -on toujours libre d'être vacciné ou non?
-La police laïque des vices et vertus ?
-Que deviennent le secret médical et la sécurité informatique ?
+// La police laïque des vices et vertus ? // Conjunction at word level
+// Que deviennent le secret médical et la sécurité informatique ? // Conjunction at word level

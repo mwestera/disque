@@ -9,7 +9,7 @@
 
 // These questions are predicted to have has_leveler == False:
 je vois pas ce que ça changerait
-Pourquoi n’est -il pas levé partout ?
+// Pourquoi n’est -il pas levé partout ? // 'partout' means 'everywhere'--> is that something to consider as a leveler?
 Il a pris la parole pour dire qu’il donnait?
 Laissez passer n’oblige pas les vax à un dépistage oblig?
 La vaccination obligatoire hépatite B et DTP, c'est violent aussi ?
@@ -61,13 +61,13 @@ A propos terroristes: Faut -il accuser l'immigration ou l'islam ?
 
 
 // These questions are predicted to have has_leveler == True:
-On reste aux abris tout schuss ?
+// On reste aux abris tout schuss ? 'tout' in this usage means 'completely schuss' (don't know what that means). This is not tout in the sense of all/everything
 Que tout se passe bien ?
 Personne ?
 Mais alors, cela voudrait dire que le pass sanitaire ne sert à rien?
 tout ?
 Et vous voudriez faire croire que tout est mis en œuvre ?
-Une 3ème dose SpikeVax - tout un programme …-  moitié moins forte ?
+// Une 3ème dose SpikeVax - tout un programme …-  moitié moins forte ? // 'tout' in this usage means 'a whole program'
  Et tu ne montés jamais en voiture, je suppose ?
 vous êtes toujours borgne ?
 Toujours pas de vaccin contre le capitalisme ?
@@ -91,7 +91,7 @@ Tout va bien ?
 Pourquoi personne en parle?
  Et en France : toujours que des non vaccinés en réanimation?
  Et ils misent tout sur ces vaccins ?
-💉  La France n’a donc rien d’autre à faire ?
+// 💉  La France n’a donc rien d’autre à faire ? // 'rien d'autre' is a fixed expression meaning 'nothing else'
 J'ai rien oublié ?
  Alors on continue dans le tout vaccinal ?
 Donc des millions de gens vaccinés pour RIEN?

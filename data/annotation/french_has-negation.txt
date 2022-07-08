@@ -42,7 +42,7 @@ Et ici on veut une injection obligatoire pour les gamins ?
 Vaccination : où en sont nos voisins européens ?
 Bureaucratie ?
 Ces gens ont -ils appris la logique élémentaire à l’école?
-Cette corrélation ne trouble personne?
+// Cette corrélation ne trouble personne? // This contains a negation, 'ne..personne' means nobody / but that is also a leveler. Sentence means: This correlation doesn't trouble anyone?
 Alors,rester prudent,veut dire quoi ?
 Ceux qui fabriquent et vendent les vaccins sont - ils musulmans ?
 Les soignants prêts à démissionner plutôt que de se faire vacciner ?
@@ -62,24 +62,24 @@ Pq il parle de vaccin aux jeunes ?
 
 // These questions are predicted to have has_negation == True:
 Ils sont vaccinés maintenant non ?
-- sans signature du consentement pas de vaccin ?
+// - sans signature du consentement pas de vaccin ? // 'pas de vaccin' means 'no vaccin' --> I'm in doubt whether what follows no is part of the question
 Du coup pourquoi ne pas rendre le vaccin obligatoire ?
 Et pourquoi pas leur couper les vivre pendant qu'on y est ?
 Ça te fait pas chier ?
 Si tu te vaccines tu est proteges non ?
 Pas trop la haine d’être reconfinés ?
-Restrictions pour les non -vaccinés : légal ?
+// Restrictions pour les non -vaccinés : légal ? // Do we include nouns with the prefix non- ? This means the 'unvaccinated'
 C'est ironique non ?
 On est en guerre ou pas ?
 Le vaccin n'empêche pas d'attraper et de mourir du COVID19 ?
-- tjr pas de réponse sur les non -vaccinés israeliens ?
+// - tjr pas de réponse sur les non -vaccinés israeliens ? // Here also noun with prefix non- (but also pas which is a proper negation)
 Il se traite pas le covid vous êtes sur?
 On laisse encore l’ dire que le vaccin n’est pas efficace?
 Finalement ne serait -ce pas son objectif ?
 Et dire que si tu n'es pas vacciné c'est toi le meurtrier?
 N’est ce pas interdit la publicité mensongère ?
 Ne connaissent pas l'âge de leur enfant ?
-Pourquoi avoir peur des non -vaccinés alors?
+// Pourquoi avoir peur des non -vaccinés alors? // Noun with prefix non-
 Qu'est ce que vous n'avez pas compris encore? ?
 Si tu n’es pas vacciné, tu ne peux plus rien acheter, tu crèves ?
 Ça ne s’appelle pas une imprudence le vaccin ?
@@ -89,12 +89,12 @@ Je sais même pas comment qualifier son discours.
 Pourquoi ne pas s'appuyer dessus ?
  ça vous dérange pas un peu déontologiquement non ?
 Vous n'en avez pas marre de répéter sans cesse ce discours obsolète?
-Un non vax c’est quoi ?
-Vous êtes soignant et non -vacciné?
+// Un non vax c’est quoi ? // Noun with prefix non- (but without a - here)
+// Vous êtes soignant et non -vacciné? //Noun with prefix non-
 Cela ne devrait pas être le contraire?
 Ou il y a encore des idiots qui ne voient pas le problème ?
 Ça ne vous interpelle pas cette campagne de racolage vulgaire ?
-Et en tant que vacciné, qu'allez -vous subir d'un non -vacciné ?
+// Et en tant que vacciné, qu'allez -vous subir d'un non -vacciné ? // Noun with prefix non-
 Ne faut -il pas le prendre en compte ?
 On évite donc ce risque, non ?
 	Pas d’effets secondaires au delà de 3 mois ok ?
@@ -110,4 +110,4 @@ N’est -ce pas merveilleux...?
 de dire un peu que le vaccin n’est pas efficace non ?
 Comment ça pas de solutions?
 Les journalistes n'ont pas honte de cette censure ?
-Ils restent encore des non vaccinés ?
+// Ils restent encore des non vaccinés ? // Noun with prefix non-
