@@ -8,7 +8,7 @@
 
 
 // These questions are predicted to have has_leveler == False:
-vaccini seconda dose solo eterologa?
+vaccini seconda dose solo eterologa? // TRUE . solo= only = leveler
 Vaccinare i bambini per salvare ottantenni pluripatologici?
 Fascisti anche loro?
 E poi: questa esseri l’incontriamo, li vediamo, li salutiamo?
