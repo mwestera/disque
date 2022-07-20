@@ -26,7 +26,7 @@ En hoeveel corona doden zijn er gevallen?
 Eva Vlaardingerbroek?
 	Mag ik het huis?
 Of komt de rest niet in nieuws?
-Of laten we kopers en verkopers in de kou staan?
+// Of laten we kopers en verkopers in de kou staan? // we should add 'we' to the list. also should consider 'de rest'
 Wat heeft NL?
 En ik weet niet waar u uw cijfers haalt maar er is oversterfte.
 weet jij dat?
@@ -35,10 +35,10 @@ Waarom moet de rest van Europa in een alles-vernietigende lockdown?
 Nee toch?
 31 minuten?
 Had hij ook corona?
-wanneer doen we wat hiertegen?
+// wanneer doen we wat hiertegen? // the we thing again
 En wie gaat voor deze Open VLD  belasting opdraaien?
 eraan twijfelen dat 6 groter is dan 4?
-Hebben we wel een essentiële regering?
+// Hebben we wel een essentiële regering? // dito
 Hoe lang houdt gezondheidszorg nog stand?
 Waar ligt het verschil?
 WAT TE VERWACHTEN VAN TRUMP EN BIDEN?
@@ -53,7 +53,7 @@ Maar de corona fun day shopping in Brussel is dan weer normaal ????
 Beetje suf toch?
 Administratie?
 Corona opgelopen?
-waar lopen kinderen hun besmetting op?
+// waar lopen kinderen hun besmetting op? // should add 'hun' and 'hen'
 Kan toch niet dat Trump gaat verliezen?
 Je kan toch geen Corona krijgen in het weekend?
 , in quarantaine ?
@@ -93,7 +93,7 @@ Ze gaan dicht om te zorgen dat mensen minder de deur uit gaan?
 Waarom bij ons niet?
 Omdat ze bestaan hebben?
 Hebben ze de mensen nog niet genoeg banggemaakt?
-Of was ze kern gezond en is deze corona echt een killervirus ??
+// Of was ze kern gezond en is deze corona echt een killervirus ?? // this is a singular, not plural so not about a group
 En JIJ/zij klagen?
 Beste  ,  en 	Hebben jullie dit gelezen?
 Heb je een vraag over onze escaperoom om thuis te spelen?
@@ -104,7 +104,7 @@ Moeten wij Rutte nu prijzen of zo?
 noemen jullie wakkere en kritische types dat toch?
 En wat 'DENKEN' ze nou?
 En wachten jullie tot na de corona crisis?
-Zij jullie ziek?
+// Zij jullie ziek? // typo
 Omdat ze het ook niet meer weten?
 Vitamine D en ons immuunsysteem, hoe ingewikkeld is het?
 Zij hielden zich toch zo goed aan al die coronamaatregelen?

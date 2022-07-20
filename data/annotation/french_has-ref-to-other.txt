@@ -14,9 +14,9 @@ Alcool ?
 Un vaccin pour tous ?
 Comment en est -on arrivé là ?
 Je sais pas c'est ma femme qui l'a pris"... https://t.co/4wGRbVZ4u7
- Vous imaginez la sentence?
+// Vous imaginez la sentence? // 'Vous' can be reference to the other as well (like 'tu / toi')
 A quoi ca a servi alors?
-Vous allez l'ouvrir qd les toubibs (les vrais)?
+// Vous allez l'ouvrir qd les toubibs (les vrais)? // Same as in line 17
 Si oui, effet secondaire ?
 « Pkoi les policiers ne sont pas vaccinés ?
 Plus de 20 millions en France ?
@@ -27,15 +27,15 @@ Un avis sur le pass sanitaire ?
 38% de oui ?
 Vraiment ?
 On peut passer à autre chose dans les médias ?
-Vous avez perdu la mémoire ?
+// Vous avez perdu la mémoire ? // Same as in line 17
 Plus de tests, plus d'epidemie et grâce a qui ?
-Et vous trouvez ça normal ?
+// Et vous trouvez ça normal ? // Same as in line 17
 Vacciné, ça compte ?
 Le Wuhan labo d'Europe?
 On ne peut prévoir une panne ?
 C'est pas quand on utilise le vaccin sur des gens des fois ?
  a telle été testée ?
-Ça te fait pas chier ?
+// Ça te fait pas chier ? // 'te' also means you, but this is more a fixed expression: doesn't it make you...?
 Non mais c’est dingue, on entends le même discours là ?
 on les stoppe quand ?
 Où sont les applaudissements du premier confinement?
@@ -46,7 +46,7 @@ Les vaccinations vont s'arrêter ?
 Pourquoi ne pas renforcer nos services de réanimation ?
 On ?
 Et si au contraire, c'était une chance?
-Cela ne vous rappelle pas un scénario ?
+// Cela ne vous rappelle pas un scénario ? // Same as in line 17
 Quoi ?
 Lequel ?
 C’est ça le projet ?
@@ -63,51 +63,51 @@ Parce que quel est le risque de chopper ce covid quand on a 30ans?
 // These questions are predicted to have has_ref_to_other == True:
 Dans combien de jours va t il se faire virer ?
 ils en font quoi ?
-Mon ressenti est il avéré?
-pour  Novembre, y aura t -il autre chose ?
-qu’en est il du serment d’hypocrate ?
+// Mon ressenti est il avéré? // Impersonal use of il
+// pour  Novembre, y aura t -il autre chose ? // Impersonal use of il
+// qu’en est il du serment d’hypocrate ? // Impersonal use of il
 Et si un proche meurt du covid sans être vacciné tu fais quoi ?
-Ceci peut -il rassurer les enseignants?
+// Ceci peut -il rassurer les enseignants? // Impersonal use of il
 Il dit quoi Macron ?
 Comment les gens peuvent -ils être aveugles à ce point ?
  Le problème c'est que des gens comme lui, sont des élus ?
 Quand mon enfant pourra -t -il se faire vacciner?
-La question devrait être : faut -il abattre les non vaccinés ?
+// La question devrait être : faut -il abattre les non vaccinés ? // Impersonal use of il
 C'est quoi qui lui a provoqué cette déformation du visage ?
 T’as pas un vaccin à faire toi?
  - est il vacciné ?
 🇬🇧 Le Royaume -Uni ne sait -il plus à quel vaccin se vouer ?
 Comment lui faire confiance?
-Mais pourquoi cela nous intéresse -y -il moins?
+// Mais pourquoi cela nous intéresse -y -il moins? // I don't get this sentence / 'nous' refers to group
 Comment voulez -vous qu'ils réclament nos vaccins ?
-Quand ce cirque va -t -il s'arrêter ?
+// Quand ce cirque va -t -il s'arrêter ? // Impersonal use of on
 Il a été piraté le compte du ministre ?
 🧐 va -t -il le traiter de «lâche»,comme il a insulté  ?
-Le Vaccin Covid-19 est -il hallal ?
-L’arrivée des vaccins marque -t -elle la fin du confinement?
-faut -il s'inquiéter des effets indésirables du vaccin AstraZeneca ?
-Le "vaccin" contre le coronavirus est -il une bombe à retardement?
-Il me semblait qu'on nous avait concocté un vaccin fiable a 95% ?
-Celle qui dit qu'il n'y a pas de traitement ?
+// Le Vaccin Covid-19 est -il hallal ? // Impersonal use of on
+// L’arrivée des vaccins marque -t -elle la fin du confinement? // 'elle' refers to the arrival of the vaccines, like the impersonal use of il
+// faut -il s'inquiéter des effets indésirables du vaccin AstraZeneca ? // Impersonal use of il
+// Le "vaccin" contre le coronavirus est -il une bombe à retardement? // Impersonal use of il
+// Il me semblait qu'on nous avait concocté un vaccin fiable a 95% ? // Impersonal il --> this is more a case of a group 'nous'
+// Celle qui dit qu'il n'y a pas de traitement ? // Impersonal il 'There is'
 Ils attendent les procès dans 10 ans ?
-Pourquoi il n'est pas notifié les conflits d'intérêts de Blachier ?
-A quelle date  son pass sanitaire sera t il valide?
+// Pourquoi il n'est pas notifié les conflits d'intérêts de Blachier ? // Impersonal use of il
+// A quelle date  son pass sanitaire sera t il valide? // Impersonal use of il
 Ils vont peut-être aussi nous demander de porter .. .une étoile ?
-on peut tous être vaccinés par ce monsieur s’il vous plaît ?
+// on peut tous être vaccinés par ce monsieur s’il vous plaît ? // This is 'il' in the fixed expression 'Please' (s'il vous plaît)
 N'a tu pas vu l'étude du CDC?
-Le vaccin serait il une vaste fumisterie?
-Il y aurait donc d’autres moyens …. ?
+// Le vaccin serait il une vaste fumisterie? // Impersonal use of il - refers to the vaccin
+// Il y aurait donc d’autres moyens …. ? // Impersonal is ('Would there be')
 Tant qu'ils ne seront pas vaccinés" on peut taper sur les jeunes ?
  Sait il que la vacc crée les variants ?
-: « Faut -il rendre le vaccin contre Christophe Barbier obligatoire ?
-A propos terroristes: Faut -il accuser l'immigration ou l'islam ?
+// : « Faut -il rendre le vaccin contre Christophe Barbier obligatoire ? // Impersonal use of il
+// A propos terroristes: Faut -il accuser l'immigration ou l'islam ? // Impersonal use of il
 Ils sont protégés, non?
 Mais si tu es vacciné quel risque as -tu?
 « Ah tu voulais aller au resto ?
-Éclairez moi s’il vous plaît ?
+// Éclairez moi s’il vous plaît ? // Same as in line 96
 Et il est content il est fier de lui !?
 Le secret médical, il connait ?
-À quel moment le vaccin est -il censé nous sauver ?
-Finalement, il sert à qui ce vaccin ?
-📹 « Pourquoi la politique vaccinale est -elle un échec en France ?
+// À quel moment le vaccin est -il censé nous sauver ? // Impersonal use of il
+// Finalement, il sert à qui ce vaccin ? // Impersonal use of il, refers to the vaccin
+// 📹 « Pourquoi la politique vaccinale est -elle un échec en France ? // 'elle' refers to the vaccination-politics here
 Pourquoi ils n'ont pas été massivement testés avant la rentrée ?
