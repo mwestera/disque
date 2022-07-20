@@ -9,11 +9,11 @@
 
 // These questions are predicted to have has_conjunction == False:
 Nessun media Italiano si è ancora espresso sul Pfizergate ?
-Quindi da domani ci si vaccina in ordine di fatturato? // true. quindi > conjunction
+// Quindi da domani ci si vaccina in ordine di fatturato? // TRUE. quindi > conjunction
 C’è qualche giornalista che glielo chiede, per favore?
 dove lo trovi un sostituto formato disposto a lavorare 2-3 mesi?
 M poi anche questo direte che lo fanno per il bene dei cittadini?
-Ma com'è possibile sta cosa? // true. Ma : conjunction
+// Ma com'è possibile sta cosa? // TRUE. Ma : conjunction
 greenepass ?
 A quanto sta per "suicidarsi" ?
 Per paure inesistenti senza fondamento?
@@ -22,10 +22,10 @@ Posso dire una cosa sinceramente?
 Tajani che spinge per il passaporto vaccinale?
 l'avete inviato anche voi?
 Cioè non ci vuole un genio a capirlo eh?
-Quindi questa campagna vaccinale funziona? // true.  quindi > conjunction
+// Quindi questa campagna vaccinale funziona? // TRUE.  quindi > conjunction
 In It?
 Lo ha fatto?
-Quindi lei si è vaccinata solo per avere il 5G gratis, giusto? //true.  quindi: conjuncyion
+// Quindi lei si è vaccinata solo per avere il 5G gratis, giusto? //TRUE.  quindi: conjunction
 cosa?
 Che si ammalino?
 Ancora  sono incerti su obbligo vaccini in Parlamento, perchè?
@@ -46,8 +46,8 @@ Perché mi ha bloccato?
 Continuate con chiusure a oltranza senza fare nulla?
 STRAGE/STERMINIO?
 Che ne dite,fare prima test sierologici?
-Ma credere a tutto?
-Ah, quindi è il vaccinando che sceglie il vaccino?
+//Ma credere a tutto? // TRUE. ma= conjunction
+// Ah, quindi è il vaccinando che sceglie il vaccino? // TRUE. quindi= conjunction
 Che altro vuole Giorgia Meloni?
 Hai problemi dopo il vaccino?
 Hai presente gli anziani che fanno l'antinfluenzale ogni anno?

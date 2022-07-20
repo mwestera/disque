@@ -37,7 +37,7 @@ Quando al via la tutela sul vaccino?
 Qual'e' la tua soluzione?
 Chiaro?
 Non è coercizione?
-Scegliamo di farlo o no? // the fact that scegliamo= choose.1PL can denote a group? it would ofc imply that the ref. to group features are harder to detect in Italian.
+// Scegliamo di farlo o no? // the fact that scegliamo= choose.1PL can denote a group? it would the ref. to group features in Italian should look at .
 Come far ripartire viaggi e turismo?
 Come si può fare profitto sulla salute?
 Perderò il posto di lavoro dipendente?
@@ -55,8 +55,8 @@ Ma che ha sbloccati 58 cantieri fermi?
 Covid21?
 Pensi di eradicare il covid?
 Chi l’avrebbe mai detto?
-Non vedete la differenza?
-"vogliamo dirlo? // same doubt here
+// Non vedete la differenza? // also here the verb assumes the presence of a 2nd pers sg
+//"vogliamo dirlo? // same doubt here
 Governate da chi?
 
 

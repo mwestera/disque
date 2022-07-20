@@ -28,12 +28,12 @@ non so se[indirect] sono novax. | decl
 Non so se[indirect] mi fa più schifo il Governo o i giornalisti. | decl
 Non sanno più come[indirect] piazzare i vaccini con la cura precoce . | decl
 Alle persone che vogliono vederlo chiedo se[indirect] sono vaccinate. | decl
-Non so se[indirect] te l'ho mandato questo, comunque se[indirect] vuoi fallo girare. | decl
+// Non so se[indirect] te l'ho mandato questo, comunque se[indirect] vuoi fallo girare. | decl // the second 'se' is not an indirect question > if you want
 Divieto di chiedere al dipendente  Se[indirect] è vaccinato. | decl
 Non sappiamo perché[indirect]. | decl
 Perché[indirect] non volete capire che il vaccino fa venire il virus. | decl
 Non so che cosa[indirect] ci sia di più estremista dell‘obbligo vaccinale. | decl
-Ma a te che cazzo fotte? | elliptic
+// Ma a te che cazzo fotte? | elliptic // WH-QUESTION . explanation: 'fotte' is the matrix verb and 'cazzo' is its subject. it has the function that 'cosa' would have in that position -but it is a swear word- > so it is a wh-question although pragmatically it does not require an answer: che > which cosa/cazzo> thing/fuck fotte >
 Vaccinato? | elliptic
 I ritardi del piano vaccini? | elliptic
 Green Pass obbligatorio? | elliptic
@@ -42,43 +42,43 @@ E AstraZeneca? | elliptic
 E di quale paese? | elliptic
 Ossessione biosecuritaria inarrestabile? | elliptic
 CON SOLO IL VACCINO CI SALVERÀ? | elliptic
-Ma pensi che siano tutti rincretiniti ? | elliptic
-Giornalisti, perché[no] non raccontate della quarta e quinta dose? | elliptic
-Ma che succede? | elliptic
-E SE[no] L'ANTI-CONTE  FOSSE LA CASELLATI? | elliptic
-Vogliamo che l'economia riparta? | elliptic
-- se[no] mi viene un coccolone? | elliptic
-Quante probabilità avresti di morire lanciandoti senza paracadute? | elliptic
+//Ma pensi che siano tutti rincretiniti ? | elliptic // POLAR.explanation: pensi > matrix verb, 2nd person sg (italian is pro-drop)
+Giornalisti, perché[no] non raccontate della quarta e quinta dose? | elliptic // WH-QUESTION, perché [fronted]. explanation: journalists is the 'vocative' of the verb 'raccontate' > journalists, why don't you tell about..
+Ma che succede? | elliptic //WH-QUESTION. che= what succede= happens
+// E SE[no] L'ANTI-CONTE  FOSSE LA CASELLATI? | elliptic // se= if . matrix sentence is missing, but subject object and verb are present
+Vogliamo che l'economia riparta? | elliptic // polar : do we want the economy to start again? > always bc italian is pro drop
+//- se[no] mi viene un coccolone? | elliptic // wh-question: se[wh] > what if I get a stroke?
+// Quante probabilità avresti di morire lanciandoti senza paracadute? | elliptic // WH-QUESTION. quante: how many avresti : would have.2SG.
 No vax? | elliptic
-Non vuoi vaccinarti? | elliptic
+//Non vuoi vaccinarti? | elliptic // POLAR. you don't want to get vaccinated?
 Capito? | elliptic
-Vi sentivate superiori alla plebe con la vostra medaglietta verde? | elliptic
+Vi sentivate superiori alla plebe con la vostra medaglietta verde? | elliptic // POLAR. Vi: reflexive. sentivate: felt.2PL. ' did you feel superior to the plebs?'
 Vi aspettiamo stasera alle 21,25 su Rete4	E chi[insitu] non twitta? | insitu
 Il vaccino non vaccina	A cosa[insitu] serve il vaccino? | insitu
-Cos'e' sta cosa[insitu]? | insitu
+// Cos'e' sta cosa[insitu]? | insitu // WH-QUESTION. cos[fronted] cosa = object of nominal predicate
 Non mettetevi in bocca parole come[insitu] "libertà"... Libertà di cosa[insitu]? | insitu
 il vaccino si può fare a chi[insitu] si fa le ....lampade? | insitu
 sa cosa[insitu]? | insitu
 occorre scendere al loro livello e come[insitu] li batti?! | insitu
 Dove è l’opposizione e chi[insitu] doveva vigilare da dentro? | insitu
-O nessuno risponderà di morti e lesioni come[insitu] sinora? | insitu
+// O nessuno risponderà di morti e lesioni come[insitu] sinora? | insitu // POLAR. come[no]> here it is a conjunction with comparative value
 c'è qualcuno che ogni tanto dà uno sguardo a quanto[insitu] avviene in giro? | insitu
 Lo inviteranno ancora dopo quanto[insitu] a detto? | insitu
 Allora hanno fatto il vaccino, a cosa[insitu] é servito? | insitu
-Ma le primule resteranno come[insitu] monumento ai vaccinati ? | insitu
+// Ma le primule resteranno come[insitu] monumento ai vaccinati ? | insitu // POLAR. come[no] > no interrogative value
 Secondo voi, la Panella non sapeva PRIMA cosa[insitu] avrebbe detto Castelli? | insitu
 Qualcuno mi spiega il perché[insitu]? | insitu
-Se[no] mi VACCINO e ho reazioni avverse o muoio, chi[insitu] va in CARCERE? | insitu
+// Se[no] mi VACCINO e ho reazioni avverse o muoio, chi[insitu] va in CARCERE? | insitu // wh-question, chi[fronted]
 Neghi il certificato a chi[insitu] ci vuol andare o lo fai? | insitu
 🔴"Sai chi[insitu] è Christiane Grady? | insitu
 Se[no] tutti e 3 funzionano a cosa[insitu] serve il vaccino? | insitu
 Non era vaccinato chi[insitu] ?? | insitu
 Serve altro? | polar
 Mi hai dato il Green pass? | polar
-Perchè hanno ancora restrizioni? | polar
+// Perchè hanno ancora restrizioni? | polar // wh-question perché[wh]
 Hai il covid? | polar
 e diamo la possibilità ai poveri tailandesi di vaccinarsi qui da noi? | polar
-Dov’è la pandemia dei non vaccinati? | polar
+// Dov’è la pandemia dei non vaccinati? | polar // wh-question Dov[wh]'è: where is the pandemy of non vaccinated
 E la chiamano resilienza? | polar
 Vi rendete conto? | polar
 Che sia sfuggito qualche concetto base ai virologi? | polar
@@ -98,11 +98,11 @@ Scusate, ma Scanzi vive coi genitori? | risingdecl
 Oggi non ci sono state vaccinazioni in tutto il Piemonte? | risingdecl
 La signora lo sa che ancora c'è un SSN e paghiamo le tasse? | risingdecl
 Hahahahha e tu mi parli di OMS? | risingdecl
-Ci risponderà secondo voi? | risingdecl
+//Ci risponderà secondo voi? | risingdecl // weird. the real rising declarative would be 'secondo voi ci risponderà'. the inversion with Secondo voi in final position makes it not really suitable for being a rising declarative-
 Quanti protocolli ufficiali esistono per le cure domiciliari? | risingdecl
 Ah, il popolo sono i no-vax capeggiati da puzzer a Trieste? | risingdecl
 C’è qualche giornalista che glielo chiede, per favore? | risingdecl
-Ma cos’ha detto? | risingdecl
+// Ma cos’ha detto? | risingdecl // wh-question . cos[fronted]
 Quanti ne moriranno per effetti sconosciuti ad oggi ? | risingdecl
 Per questo Salvini non si vaccina? | risingdecl
 Non ci sono hub vaccinali? | risingdecl
@@ -117,7 +117,7 @@ Qualcuno mi sa dire se[indirect] questo documento sia autentico? | risingdecl
 NON VOLETE il vaccino? | tag
 Ma non doveva "ridurre la trasmissione" il vaccino? | tag
 «Il vaccino? | tag
-Posso andare a Londra a fine maggio se[no] ho fatto il vaccino? | tag
+// Posso andare a Londra a fine maggio se[no] ho fatto il vaccino? | tag // risingdecl
 Entrambi no? | tag
 Dopo ‘sta cazzata dei fiori lo mannàmo a casa vero? | tag
 1% di morire di vaccino, Te lo ha detto tuo cugino vero? | tag
@@ -131,13 +131,13 @@ Il furbetto del vaccino? | tag
 Quindi i calciatori non si vaccinano? | tag
 Incredibile eh? | tag
 Certificato vaccinale, ma serve davvero? | tag
-E' vero? | tag
-E non ti spaventano? | tag
+E' vero? | tag // polar
+//E non ti spaventano? | tag // polar
 Astrazeneca a tutti, ci sono i parametri, ah quali sono? | tag
 chi[fronted] ha detto ste stronzate? | wh
 Come[fronted] puoi cercare di persuaderlo? | wh
-Ok, tra 10 anni come[fronted] oggi? | wh
-come[fronted] questo  Pero allora a che cazzo serve? | wh
+//Ok, tra 10 anni come[fronted] oggi? | wh // polar, come[no] conj with comparative value
+// come[fronted] questo  Pero allora a che cazzo serve? | wh //weird. come[no] , a che cazzo[wh]: what the fuck is useful for?
 Cosa[fronted] avrà voluto dire il dottore? | wh
 Perché[fronted] vaccinare in un’età in cui il Covid non è letale? | wh
 Cosa[fronted] dice la scienza al riguardo? | wh
@@ -149,12 +149,12 @@ Accusata da chi[fronted] e per cosa[fronted]? | wh
 Cosa[fronted] a pensato per farvi vaccinare il genio del male manipolatorio? | wh
 E chi[fronted] pensa al debito pubblico dell'Italia? | wh
 “chi[fronted] è vaccinato? | wh
-E sapete cosa[fronted] fece? | wh
+//E sapete cosa[fronted] fece? | wh // POLAR, cosa[in-situ]
 Perché[fronted] vaccinare i bambini fra i 5-11 anni? | wh
 🔴 PERCHÉ[fronted] VACCINARE I BAMBINI DI 12 ANNI? | wh
 Che chi[fronted] li fa si può contagiare ed essere contagiato? | wh
 Ma cosa[fronted] pensavi che con il vaccino diventava Batman? | wh
-Se[no]  qualcuno ti dicesse che ne muoiono 10000 l'anno in india per il morso di una vipera ci crederesti... Perché[no] non testate il vostro vaccino  e il vostro greenpass in India, mal che vada potete sempre sperare nel morso di quel simpaticissimo ma catatonico serpentello... 🤣 https://t.co/Fk7mhxUqAF | decl
+// Se[no]  qualcuno ti dicesse che ne muoiono 10000 l'anno in india per il morso di una vipera ci crederesti... Perché[no] non testate il vostro vaccino  e il vostro greenpass in India, mal che vada potete sempre sperare nel morso di quel simpaticissimo ma catatonico serpentello... 🤣 https://t.co/Fk7mhxUqAF | decl // the whole sense is not clear because both se and perche could be indirect. but the first part of sentence is more clearly used  as a declarative. The second one , starting with perché[wh], seems instead more wh-question ending with In India: why don't you test this in India? The following part is declarative
 Ci sono medici e infermieri che, pubblicamente, minacciano di non curare o addirittura torturare chi[no] non ha fatto il vaccino e voi "politici" li giustificate pure. | decl
 Uno Stato che accusa di irresponsabilità chi[no] sceglie di non vaccinarsi, mentre declina ogni responsabilità (tra consenso informato e scudo penale) in merito alle possibili gravi conseguenze di un vaccino, è uno stato moralmente morto. | decl
 Chi[no] ha bar, ristoranti, palestre e via dicendo ha pagato un prezzo terribile per la pandemia. | decl
@@ -165,7 +165,7 @@ Avevano detto che se[no] l'80% degli italiani non si fosse vaccinato "volontaria
 Il Covid certificate serve per i controlli alle frontiere e chi[no] non può/vuole vaccinarsi può continuare a mostrare esito tampone. | decl
 Un insegnante che rifiuta il vaccino dovrebbe essere cacciato perché[no] è un pericolo per la salute dei suoi alunni ma ancora più perché[no] evidentemente non è in grado di formare i cittadini di domani ed è totalmente inadeguato ad occupare l’importantissimo ruolo che ricopre. | decl
 Grazie a chi[no] accetta un confronto pacato https://t.co/9pddU9Fw0J | decl
-ma al contrario. | decl
+//ma al contrario. | decl // not clear structure. only means: but on the contrary
 VACCINATI | decl
 "Basta dosi sprecate, vaccinare chi[no] passa"	Il metodo sarebbe corretto, se[no] non ci fosse da temere che qualcuno individui, tra i passanti, amici e parenti. | decl
 "  No, bisogna guardare gli effetti collaterali e quindi decidere se[no] vale la pena vaccinarsi oppure prevenire e curare questa influenza con altre medicine che pure esistono. | decl
