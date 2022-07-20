@@ -17,22 +17,22 @@ Je ne sais pas si[indirect] vous comprenez. | decl
 Et je ne suis pas certaine qu'[indirect]un vaccin fasse de vous qqun de bien. | decl
 Hors de question que[indirect] j’attende. | decl
 Je lui demande si[indirect] elle l'a signalé au médecin qui[no] l'a vaccinée. | decl
- Je ne sais pas ce qu'[indirect]il vaut. | decl
-Plus une question de capital culturel que[indirect] de revenus | decl
+// Je ne sais pas ce qu'[indirect]il vaut. | decl // 'ce que' is a relative pronoun meaning 'that what'
+// Plus une question de capital culturel que[indirect] de revenus | decl // This is more a comparison, sentence means 'More a question of cultural capital than of income'
 Je ne vois pas pourquoi[indirect] je vaccinerais car je n'est pas un vaccin. | decl
 Tu te demandes peut-être quand[indirect] la vie normale reprendra. | decl
 Je NE DIS PAS qu'[indirect]il ne vaut vous faire vacciner. | decl
 vois pas comment[indirect] il va justifier ça | decl
-Tu sais même pas ce que[indirect] tu t’injectes dans le corps. | decl
+// Tu sais même pas ce que[indirect] tu t’injectes dans le corps. | decl // Same as in line 20
 Mais parfois je me demande si[indirect] il réfléchisse avant de parler | decl
 Dire que[indirect] 65% ne voulaient pas se faire vacciner en octobre | decl
-je vois pas ce que[indirect] ça changerait | decl
-Je sais pas c'est ma femme qui[indirect] l'a pris"... https://t.co/4wGRbVZ4u7 | decl
+// je vois pas ce que[indirect] ça changerait | decl // Same as in line 20
+// Je sais pas c'est ma femme qui[indirect] l'a pris"... https://t.co/4wGRbVZ4u7 | decl // 'qui' here is a relative pronoun, it means 'the woman who took it'
 Je ne sais pas si[indirect] vous réalisez ce qui[no] est en train de se passer. | decl
 Il faudra alors se demander pourquoi[indirect] cela arrive. | decl
-Je me demande ce que[indirect] pensent les vaccinés à ce sujet. | decl
-C’est une question qui[indirect] s’impose de plus en plus. | decl
-	- Tu sais pas ce qu'[indirect]il y a dans le vaccin. | decl
+// Je me demande ce que[indirect] pensent les vaccinés à ce sujet. | decl // This is also a case of 'ce que', but here I feel like it is a proper indirect question
+// C’est une question qui[indirect] s’impose de plus en plus. | decl // Relative pronoun, 'A question that...'
+// 	- Tu sais pas ce qu'[indirect]il y a dans le vaccin. | decl // Same as in line 33
 insondable ? | elliptic
 doctoctoc, poke ? | elliptic
 Personne ? | elliptic
@@ -53,7 +53,7 @@ Covid et arrêt maladie : quelle articulation ? | elliptic
 Sont sérieux les gens ? | elliptic
 Et chez vous? | elliptic
 prq ce silence/ pbs des jeunes ? | elliptic
-La science qui[no] dit que[indirect] les masques sont utiles ? | elliptic
+// La science qui[no] dit que[indirect] les masques sont utiles ? | elliptic// Indeed an indirect question, but I would say it's a rising declarative instead of elliptic
 - C'est quoi[insitu] cette marque sur ton bras, maman ? | insitu
 On fait comment[insitu] du coup ? | insitu
 Donc on attend quoi[insitu] pour mettre le paquet sur les traitements ? | insitu
@@ -66,37 +66,37 @@ Vous lui donnez combien[insitu] de temps à vivre...? | insitu
 en fait ils veulent quoi[insitu] ? | insitu
 on les stoppe quand[insitu] ? | insitu
 6 juin : Non mais vous débarquez ou[no] quoi[insitu] ? | insitu
-Faites ce que[insitu] je dis, mais ce que[insitu] je fais ? | insitu
+// Faites ce que[insitu] je dis, mais ce que[insitu] je fais ? | insitu // Relative pronoun
 L'Europe protège les profits de Pfizer : jusqu'où[insitu] ira le scandale ? | insitu
 Les données existent pourquoi[insitu] ce silence ? | insitu
 Les journalistes vous êtes où[insitu]? | insitu
 Tu penses quoi[insitu] du vaccin ? | insitu
-- Ah parce que[insitu] tu sais ce qu'[insitu]il y a dans ton kébab ? | insitu
+// - Ah parce que[insitu] tu sais ce qu'[insitu]il y a dans ton kébab ? | insitu // I feel like this is more a rising declarative
 Il s'arrêtera où[insitu] cet enfoiré pour de faire da la thune ? | insitu
 Il vous faut QUOI[insitu] pour réagir? | insitu
 Faut -il déconfiner les vaccinés? | polar
 Y a -t -il quelqu’un pour se poser la bonne question ? | polar
 A propos terroristes: Faut -il accuser l'immigration ou[no] l'islam ? | polar
-La question: A qui[no] profite ce mode d'analyse? | polar
+// La question: A qui[no] profite ce mode d'analyse? | polar // This is not a question that you can answer with yes or no, 'who profits of this mode of analysis?'
 Ai -je tort? | polar
-Qu’en disent les covidistes ? | polar
+// Qu’en disent les covidistes ? | polar // Not to answer with yes or no, it is asked what the 'covidistes' say, should be fronted wh-
 🛂 Êtes -vous pour ou[no] contre le passeport vaccinal ? | polar
 Pourtant n'est -ce pas le pari qui[no] est en cours? | polar
- Qui[no] sont les adultes dans la classe ? | polar
+//  Qui[no] sont les adultes dans la classe ? | polar // Not to answer with yes or no, fronted wh-
 Y a -t -il d'autres témoignages ? | polar
-Qui[no] sont les moutons du coup ? | polar
-Et croyez -vous qu'[no]en France ce soit différent ? | polar
+// Qui[no] sont les moutons du coup ? | polar// Same as in line 85
+// Et croyez -vous qu'[no]en France ce soit différent ? | polar // The 'que' here is an indirect question
 Auriez -vous une question intelligente? | polar
 êtes vous pour ? | polar
 serez vs des responsables en cas des dégâts après vaccination ? | polar
-🟡TIKTEK🟡Comment fonctionne le vaccin à ARN messager ? | polar
+// 🟡TIKTEK🟡Comment fonctionne le vaccin à ARN messager ? | polar // Not to answer with yes or no, it is asked how the vaccin works
 Est -ce que[no] le vaccin peut affaiblir l'immunité naturelle ? | polar
 Êtes vous diplômé de médecine ? | polar
 - Pourquoi[no] est ce grave ? | polar
- Qu’est ce qui[no] est le plus probable ? | polar
+//  Qu’est ce qui[no] est le plus probable ? | polar // Not to answer with yes or no, it is asked what the most probable is
 Savez -vous pourquoi[indirect] le vaccin n'est pas obligatoire pour la police ? | polar
 🇬🇧 Le Royaume -Uni ne sait -il plus à quel[indirect] vaccin se vouer ? | polar
-Que[indirect] savent -ils au juste ? | polar
+// Que[indirect] savent -ils au juste ? | polar // Not to answer with yes or no, it is asked what they know
 Vous savez ce qu'[indirect]il va se passer ? | polar
 Ils deviennent tyranniques ? | risingdecl
 .Le fric des entrées t a fait changer d avis ? | risingdecl
@@ -108,7 +108,7 @@ Ils sont proches très proches à portée de virus ? | risingdecl
 et vous soutenez ca vous?? | risingdecl
 	Pour toute l’Europe‼ on n’en parle pas dans les medias? | risingdecl
 , plus tes défenses immunitaires s'affaiblissent ? | risingdecl
-Pourquoi[no] la Corse est la région de france qui[no] vaccine le plus ? | risingdecl
+// Pourquoi[no] la Corse est la région de france qui[no] vaccine le plus ? | risingdecl // Fronted wh- starting with 'why'
 Quel[no] genre de honte c’est ça ? | risingdecl
 les gens gens croient vraiment que[no] c’est dû aux vaccins là ? | risingdecl
 Brizitte va se soumettre ? | risingdecl
@@ -118,20 +118,20 @@ Tu ne veux pas te faire vacciner ? | risingdecl
 On en est donc à se féliciter d'être vaccinés ? | risingdecl
 Tu n'as pas ta dose ? | risingdecl
 VOUS ETES VACCINÉS? | risingdecl
-Alors MACRON  il en dit quoi[indirect]  "le gars" ? | risingdecl
-Il dit quoi[indirect] Macron ? | risingdecl
+// Alors MACRON  il en dit quoi[indirect]  "le gars" ? | risingdecl // This is also insitu 'il en dit quoi?'
+// Il dit quoi[indirect] Macron ? | risingdecl // Same as in line 121
 Vous savez pourquoi[indirect] le vaccin n'est pas obligatoire n'est ce pas ? | risingdecl
-Et ceux qui[indirect] sont mort du vaccin ils disent quoi[indirect] ? | risingdecl
+// Et ceux qui[indirect] sont mort du vaccin ils disent quoi[indirect] ? | risingdecl// the 'qui' is a relative pronoun, 'those who'. The 'quoi' is insitu, 'they say what?'
 Franchement vous voyez pas qu'[indirect]ils veulent la guerre ? | risingdecl
-Il y a aussi des vaccinés dans le lot, vous savez combien[indirect]? | risingdecl
+// Il y a aussi des vaccinés dans le lot, vous savez combien[indirect]? | risingdecl // Also insitu
 Vous .. savez que[indirect] des vaccinations sont obligatoires depuuuuuis ? | risingdecl
 les jeunes savent ils ce qu'[indirect]est une AMM conditionnelle? | risingdecl
 Vous savez que[indirect] ça fait des milliers de morts? | risingdecl
-Ils disent quoi[indirect] maintenant? | risingdecl
-Vous ne savez pas comment[indirect] répondre? | risingdecl
-Vous savez pourquoi[indirect]? | risingdecl
-Vous voyez s'installer la dictature qui[indirect]  ne dit pas son nom ? | risingdecl
-Il disait quoi[indirect]   ? | risingdecl
+// Ils disent quoi[indirect] maintenant? | risingdecl // Also insitu
+// Vous ne savez pas comment[indirect] répondre? | risingdecl // Not sure about this one, it means 'You don't know how to respond?'
+// Vous savez pourquoi[indirect]? | risingdecl // Also insitu
+// Vous voyez s'installer la dictature qui[indirect]  ne dit pas son nom ? | risingdecl // Relative pronoun, 'the dictatorship that'
+// Il disait quoi[indirect]   ? | risingdecl // Also insitu
 non? | tag
 , les vaccinés sont protégés, n'est -ce pas? | tag
 Oui ou[no] non ? | tag
@@ -153,7 +153,7 @@ Il parait que[no] ce sont seulement les non vaccinés en réa, non ? | tag
 Elle est donc libre de le faire ou[no] non. | tag
 C'était pourtant des enragés au Danemark, non ? | tag
 Qui[fronted] ? | wh
-Et en France  c’est pour quand[fronted] ? | wh
+// Et en France  c’est pour quand[fronted] ? | wh // I would rather say this is insitu not fronted
 	  « Pourquoi[fronted] est -ce qu’on vaccine les jeunes? | wh
 A quand[fronted] l’interdiction  des pâtisseries  aux diabétiques ? | wh
 Quand[fronted] va t'on y arriver en France ? | wh
@@ -172,7 +172,7 @@ Qui[fronted] veut ? | wh
 75000 et combien[fronted] sont vaccinés ? | wh
 Oui mais quand[no] même 15% de vaccinés et combien[fronted] dans 1 mois ? | wh
 Pourquoi[fronted] n’apprenons -nous rien des cas étrangers ? | wh
-Celle qui[fronted] dit qu'[indirect]il n'y a pas de traitement ? | wh
+// Celle qui[fronted] dit qu'[indirect]il n'y a pas de traitement ? | wh // Sounds as a rising declarative
 qui[fronted] disait qu'[indirect]on y arriverait pas? | wh
 Pourquoi[fronted] dites -vous que[indirect] je suis antivax ? | wh
 Ceux qui[no] ne peuvent se faire vacciner pour raisons médicales sont traités comme d'ignobles anti -vax qui[no] ne prennent pas soin des autres ... pour des "vaccins" qui[no] n'assurent ni l'immunité ni la contagiosité de la personne vaccinée. | decl
