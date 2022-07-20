@@ -61,53 +61,53 @@ A quel vaccin se vouer?
 
 
 // These questions are predicted to have has_ref_to_group == True:
-vous avez essayé le site vite ma dose?
-Parce que quel est le risque de chopper ce covid quand on a 30ans?
+// vous avez essayé le site vite ma dose? // 'Vous' ('you') is indeed reference to a group, but considering this I would say this is more a case of reference to the other (so another group than your own)
+// Parce que quel est le risque de chopper ce covid quand on a 30ans? // This 'on' is not really a reference to a group, more fixed expression (in Dutch 'wanneer men 30 jaar is')
 On admet enfin que le vaccin inhibe la transmission ?
-Et je ne suis pas certaine qu'un vaccin fasse de vous qqun de bien.
-Bien établi vous dites ?
+// Et je ne suis pas certaine qu'un vaccin fasse de vous qqun de bien. // This 'vous' also seems more like a fixed expression to me, 'If it makes you someone good'
+// Bien établi vous dites ? // I would say this is more a reference to the other group ('vous') than to the own group
 On réagit ou on dort ?
-C'est pour cela que vous avez fait l'apologie de ce vaccin chinois ?
-Vous êtes généraliste pour affirmer cela?
-Vous aimez mes dessins d'actu ?
+// C'est pour cela que vous avez fait l'apologie de ce vaccin chinois ? // 'Vous' group or other?
+// Vous êtes généraliste pour affirmer cela? // 'Vous' group or other?
+// Vous aimez mes dessins d'actu ? // 'Vous' group or other?
 Qd est ce qu'on se décider à faire qque chose psk c bien,bon,juste?
-Et chez vous ?
-🤰Vous attendez un enfant ou votre bébé vient de naître ?
+// Et chez vous ? // 'Vous' group or other?
+// 🤰Vous attendez un enfant ou votre bébé vient de naître ? // 'Vous' group or other?
 On laisse encore l’ dire que le vaccin n’est pas efficace?
-VOUS ETES VACCINÉS?
-Comment on produit le vaccin ROR ?
+// VOUS ETES VACCINÉS? // 'Vous' group or other?
+// Comment on produit le vaccin ROR ? // This is more impersonal use of on ('men' in Dutch), not really reference to a group like we vs. us
 On se rend bien compte ?
-Ça vous semble dément ?
-Par contre pour son futur cancer on fait quoi ?
+// Ça vous semble dément ? // 'Vous' group or other?
+// Par contre pour son futur cancer on fait quoi ? // Impersonal use of on
 Comme quand on a accepté le confinement ?
-Et vous pensez vraiment que tout s’arrêtera ?
+//Et vous pensez vraiment que tout s’arrêtera ? // 'Vous' group or other?
 On nous aurait menti?
-Vous n'en avez pas marre de répéter sans cesse ce discours obsolète?
-Avec ces risques,  souhaitez -vous continuer la vaccination ?
-vous voulez pas parler d'autre chose?
+// Vous n'en avez pas marre de répéter sans cesse ce discours obsolète? // 'Vous' group or other?
+// Avec ces risques,  souhaitez -vous continuer la vaccination ? // 'Vous' group or other?
+// vous voulez pas parler d'autre chose? // 'Vous' group or other?
 Non mais c’est dingue, on entends le même discours là ?
- Vous vous rendez compte de la dérive ?
-Vous allez vous réveiller ?
-Et en tant que vacciné, qu'allez -vous subir d'un non -vacciné ?
-Maître  avez vous vu cela ?
-Vous trouvez ça clair, vous ?
+// Vous vous rendez compte de la dérive ? // 'Vous' group or other?
+// Vous allez vous réveiller ? // 'Vous' group or other?
+// Et en tant que vacciné, qu'allez -vous subir d'un non -vacciné ? // 'Vous' group or other?
+// Maître  avez vous vu cela ? 'Vous' group or other?
+// Vous trouvez ça clair, vous ? // 'Vous' group or other?
 Alors on les obligera à se vacciner de force ?
-Avez -vous réellement un sens critique?
-Et s'il l'avait fait, vous auriez titré sur l'infantilisation?
-covid, covid, vaccins, mais le reste, on en parle?
+// Avez -vous réellement un sens critique? // 'Vous' group or other
+// Et s'il l'avait fait, vous auriez titré sur l'infantilisation? // 'Vous' group or other
+// covid, covid, vaccins, mais le reste, on en parle? // Impersonal use of on, 'men spreekt erover?'
 Quand va -t -on enfin planifier des alternatives au confinement ?
 Que se passe -t -il avec ça, et que fait -on si'ils osent ?
 On est où, là ?
-mais vous avez le foie ou le cœur foutu..🤣🤣🤪🙃	y a pas de pb ?
-Craignez -vous leur manque de zèle ?
+// mais vous avez le foie ou le cœur foutu..🤣🤣🤪🙃	y a pas de pb ? // 'Vous' group or other?
+// Craignez -vous leur manque de zèle ? // 'Vous' group or other?
 Tous possesseurs du pass, pourquoi avons -nous cette obligation ?
 Dis nous  : pourquoi t'as baissé ton froc aussi vite ?
-Vous ne savez pas comment répondre?
- Comment voulez -vous que les français comprennent ce qu'il se passe?
-Vous confirmez ou infirmez ?
-Votre efficacité vaccinale: vous la voulez pile ou face?
-Ne dit -on pas qu'une image vaut mille mots ?
-Connaissez -vous les dangers de + en + nombreux?
+// Vous ne savez pas comment répondre? // 'Vous' group or other
+// Comment voulez -vous que les français comprennent ce qu'il se passe? // 'Vous' group or other?
+// Vous confirmez ou infirmez ? // 'Vous' group or other?
+// Votre efficacité vaccinale: vous la voulez pile ou face? // 'Vous' group or other?
+// Ne dit -on pas qu'une image vaut mille mots ? // Impersonal on, 'zegt men niet dat..'
+// Connaissez -vous les dangers de + en + nombreux? // 'Vous' group or other?
 Alors on est chaud là ou pas?
 Que doit -on en déduire ?
 Veut -on de ce monde ?
