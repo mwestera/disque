@@ -62,7 +62,7 @@ BUT, BUT, BUT, You Have Wrong Way Fauci In Charge?
 
 // These questions are predicted to have has_conjunction == True:
 And you believe no one should?
-Where are the president and Congress? // we need to look into the literature again if this is the type of conjunction we are looking for cause it might be sentence-level conjunctions not word conjunctions
+// Where are the president and Congress? // we need to look into the literature again if this is the type of conjunction we are looking for cause it might be sentence-level conjunctions not word conjunctions
 Don't you wonder sometimes  About genes and vision?
 Or am I missing something?
 Or am I being cynical?

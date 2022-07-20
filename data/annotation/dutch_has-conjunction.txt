@@ -91,7 +91,7 @@ Hoe realiseer ik een optimale klantervaring en reputatie?
 en   Als mondkapjes werken, waarom moeten er dan winkels dicht?
 En wie betaalt hiervoor?
 En wat eigenlijk van al die decimalen overal tussenin?
-// Misschien iets voor de pers even testen of ze dit willen melden? // not a conjunction "or" but an "if"
+// Misschien iets voor de pers even testen of ze dit willen melden? // not a conjunction 'or' but an 'if'
 Weet je zeker dat het verkoudheid is en geen corona?
 Werkt u of iemand die u waardeert in de zorg?
 , hoe blijf je de baas over jezelf en onze veiligheid?

@@ -8,7 +8,7 @@
 
 
 // These questions are predicted to have has_ref_to_other == False:
-// Heb je een vraag over onze escaperoom om thuis te spelen? // should we add 'je', 'jullie' and 'jij', look in the literature
+// Heb je een vraag over onze escaperoom om thuis te spelen? // should we put 'je', 'jullie' and 'jij' as well? -> i will look in the literature
 Hoe doe je dat?
 moeder was overleden Beetje vreemd !?
 Geen last van crisis in 2008 en nu vanwege Corona nog niet geland?
