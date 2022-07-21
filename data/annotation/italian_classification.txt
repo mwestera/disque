@@ -114,29 +114,29 @@ Vaccino, l`Italia è condannata? | risingdecl
 Con Conte e i 5S c'era la dittatura,e ora? | risingdecl
 Ma non c'è il vaccino contro il tifo? | risingdecl
 Qualcuno mi sa dire se[indirect] questo documento sia autentico? | risingdecl
-NON VOLETE il vaccino? | tag
-Ma non doveva "ridurre la trasmissione" il vaccino? | tag
+// NON VOLETE il vaccino? | tag // polar
+// Ma non doveva "ridurre la trasmissione" il vaccino? | tag// polar
 «Il vaccino? | tag
-// Posso andare a Londra a fine maggio se[no] ho fatto il vaccino? | tag // risingdecl
+// Posso andare a Londra a fine maggio se[no] ho fatto il vaccino? | tag // polar/risingdecl
 Entrambi no? | tag
 Dopo ‘sta cazzata dei fiori lo mannàmo a casa vero? | tag
 1% di morire di vaccino, Te lo ha detto tuo cugino vero? | tag
 per il vaccino? | tag
-perché[no] non è obbligatorio questo vaccino? | tag
-A Mattarella, quasi ottantenne, quando la prima dose di vaccino? | tag
+//perché[no] non è obbligatorio questo vaccino? | tag // wh-question
+//A Mattarella, quasi ottantenne, quando la prima dose di vaccino? | tag // wh-question
 Che caxxo hai studiato, Topolino? | tag
-Ma dove sta scritto che serve il vaccino? | tag
+//Ma dove sta scritto che serve il vaccino? | tag // wh-question
 Il furbetto del vaccino? | tag
 “Me lo fa lei il vaccino, vero? | tag
-Quindi i calciatori non si vaccinano? | tag
+//Quindi i calciatori non si vaccinano? | tag // polar
 Incredibile eh? | tag
 Certificato vaccinale, ma serve davvero? | tag
-E' vero? | tag // polar
+E' vero? | tag
 //E non ti spaventano? | tag // polar
-Astrazeneca a tutti, ci sono i parametri, ah quali sono? | tag
+//Astrazeneca a tutti, ci sono i parametri, ah quali sono? | tag // wh-question. quali[fronted]
 chi[fronted] ha detto ste stronzate? | wh
 Come[fronted] puoi cercare di persuaderlo? | wh
-//Ok, tra 10 anni come[fronted] oggi? | wh // polar, come[no] conj with comparative value
+//Ok, tra 10 anni come[fronted] oggi? | wh // polar, come[no] > conj with comparative value
 // come[fronted] questo  Pero allora a che cazzo serve? | wh //weird. come[no] , a che cazzo[wh]: what the fuck is useful for?
 Cosa[fronted] avrà voluto dire il dottore? | wh
 Perché[fronted] vaccinare in un’età in cui il Covid non è letale? | wh
